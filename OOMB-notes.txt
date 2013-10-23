@@ -1,0 +1,110 @@
+OOMB Notes
+
+########################
+######  Hardware  ######
+########################
+	%%% NOTES %%%
+	--Main bolt size M6 x 12 mm (for jacks and joining two sheets together)
+
+###########################
+######  Part Naming  ######
+###########################	
+
+****  Style Notes
+		Cut line 	-- Black 1.6 Points
+		Etch line	-- Orange 1.6 Points
+
+****  Plates PL-width-height  (width always larger than height)
+		--EXAMPLE--
+		OOMB-PL-12-08
+	
+		--SOURCE FILE svg (algorithmically generated))
+		
+		%%%% NOTES %%%%
+			--All values for 2 - 5
+			--All square values (ie 07-07)
+			--all even values to match 5 (ie. 16-5)
+			--Even Values 6 - 10
+			--Rounded fives above 20
+
+
+****  Jacks  JA-width(-height) (if single height than just one number
+		--EXAMPLE--
+		OOMB-JA-02
+	
+		--MAIN PART--
+		OOMB-JA-02
+	
+		--SOURCE FILE cdr
+		
+		%%%% NOTES %%%%
+
+Bearing Plates BP-Bearing Size-major width-major height
+****  Bearing Plate  BP-size-width-height  (width always larger than height)
+		--EXAMPLE--
+		OOMB-BP-608-04-04
+	
+		--SIZE NOTES--
+		608 = 608 Skate Bearing
+		
+		--SOURCE FILE cdr
+		
+		%%%% NOTES %%%%
+			--All motors given one MM as small as possible
+			--All motors given a 05-05 version as to be interchangable
+
+
+****  Spacer Plate	SP-width-height
+		--EXAMPLE--
+		OOMB-SP-08-04
+	
+		--SOURCE FILE cdr
+		
+		%%%% NOTES %%%%
+			--Currently drawn as needed
+
+****  Motor Mounts  MM-size-width
+		--EXAMPLE--
+		OOMB-MM-N17-04-04
+	
+		--SIZE NOTES--
+		N = Nema
+		
+		--SOURCE FILE cdr
+		
+		%%%% NOTES %%%%
+			--All motors given one MM as small as possible
+			--All motors given a 05-05 version as to be interchangable
+
+****  Shaft Couplers  SC-shaftSize-style
+			
+		--EXAMPLE--
+		OOMB-SC-08
+	
+		--STYLE NOTES--
+		BLANK 	-- side clamp
+		TR 		-- threaded
+	
+		--SOURCE FILE cdr
+		
+		%%%% NOTES %%%%
+		
+			
+			
+
+****  Circles  CI-diamter
+			
+		--EXAMPLE--
+		OOMB-CI-05
+	
+		--SOURCE FILE cdr
+		
+		%%%% NOTES %%%%
+			-- Central hole M* to allow for shaft
+
+------ EXTRA NOTES --------
+
+Bearings
+Sxate Bearing   608  ((8mm))
+625 5mm Bearing bought 11080
+
