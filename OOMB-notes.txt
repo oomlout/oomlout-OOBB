@@ -102,6 +102,16 @@ Bearing Plates BP-Bearing Size-major width-major height
 		%%%% NOTES %%%%
 			-- Central hole M* to allow for shaft
 
+****  Mounting Plates  MP-ITEM-width-height
+			
+		--EXAMPLE--
+		OOMB-MP-ARDU-
+	
+		--SOURCE FILE cdr
+		
+		%%%% NOTES %%%%
+			-- Central hole M* to allow for shaft			
+
 ****  GORM Items  GO-width-height
 			
 		--EXAMPLE--
@@ -110,7 +120,31 @@ Bearing Plates BP-Bearing Size-major width-major height
 		--SOURCE FILE cdr
 		
 		%%%% NOTES %%%%
-			
+
+
+;######  OOMB PAGE NOTES  ######
+;##############################
+
+;###### Descrition ######
+ Basic -- What the system is
+ Types -- Each type of component explained
+
+;###### Kits ######
+ Summary -- What the kit is links to everything else
+ Parts Page -- All the parts used
+ Assembly -- How to Assemble
+		
+;###### Parts ######
+ Types Page -- description of the part type and link to all
+ Part Page -- each page has a part, drawings description, link to things that use it
+
+;###### Vitamins ######
+ List of all viatamins by category
+  --Motion
+  --Light
+  --Sensor
+  Induvidual page
+  --Vitamin explained benefits fallbacks links to parts that it can connect to
 			
 ------ EXTRA NOTES --------
 
