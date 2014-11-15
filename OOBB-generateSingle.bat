@@ -1,21 +1,21 @@
 @echo off
 set TPGEdirectory=C:\GH\oomlout-TPGE\
 set WIKBdirectory=C:\GH\oomlout-WIKB\
-set OOBBpartsDirectory=C:\GH\oomlout-OOMP\parts\
+set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\
 
-set id=BOLT-M3-M-12-01
+set id=PL-03-03
 
 REM
 REM Generate Part Page
 REM
 
-	REM      Generate Page
-python %TPGEdirectory%TPGEmain.py -id %id% -bd %OOBBpartsDirectory%%id%\ -xa .oomp -ex %OOBBpartsDirectory%,C:\GH\oomlout-OOMP\OOMP-helpers.oomp -tm template/OOMP-template.tmpl.html -of %OOBBpartsDirectory%%id%\%id%-wiki.html
 
-
+set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\PL\
+	REM      Generate PL pages
+python %TPGEdirectory%TPGEmain.py -id %id% -bd %OOBBpartsDirectory%%id%\ -xa .oomp -ex %OOBBpartsDirectory%,C:\GH\oomlout-OOBB\OOBB-helpers.oomp,C:\GH\oomlout-OOBB\part\OOBB-tag.xml -tm template/OOBB-template.tmpl.html -of %OOBBpartsDirectory%%id%/%id%-wiki.html
 	
-	REM Upload Page
-python %WIKBdirectory%WIKBmain.py -si oomlout -bd %OOBBpartsDirectory%%id%\%id%-wiki.html -wb projects/oomp/part/%id% 
+	REM Upload PL Page
+python %WIKBdirectory%WIKBmain.py -si oomlout -bd %OOBBpartsDirectory%%id%/%id%-wiki.html -wb projects/oobb/part/%id% 
 
 REM
 REM Generate Info Page
