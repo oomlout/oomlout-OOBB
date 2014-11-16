@@ -29,7 +29,26 @@ python %TPGEdirectory%TPGEmain.py -rm A -bd %OOBBpartsDirectory%\ -xa .oomp,xml 
 set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\SP\
 python %TPGEdirectory%TPGEmain.py -rm A -bd %OOBBpartsDirectory%\ -xa .oomp,xml -ex C:\GH\oomlout-OOBB\OOBB-helpers.oomp,C:\GH\oomlout-OOBB\part\OOBB-tag.xml -tm template/OOBB-template.tmpl.html -of %OOBBpartsDirectory%%%%%ID%%%%\%%%%ID%%%%-wiki.html
 
+REM
+REM     Generating all markdown pages
+REM
 
+set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\BP\
+python %TPGEdirectory%TPGEmain.py -rm A -bd %OOBBpartsDirectory%\ -xa .oomp,xml -ex C:\GH\oomlout-OOBB\OOBB-helpers.oomp,C:\GH\oomlout-OOBB\part\OOBB-tag.xml -tm template/OOBB-template.tmpl.md -of %OOBBpartsDirectory%%%%%ID%%%%\README.md
+set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\CI\
+python %TPGEdirectory%TPGEmain.py -rm A -bd %OOBBpartsDirectory%\ -xa .oomp,xml -ex C:\GH\oomlout-OOBB\OOBB-helpers.oomp,C:\GH\oomlout-OOBB\part\OOBB-tag.xml -tm template/OOBB-template.tmpl.md -of %OOBBpartsDirectory%%%%%ID%%%%\README.md
+set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\JA\
+python %TPGEdirectory%TPGEmain.py -rm A -bd %OOBBpartsDirectory%\ -xa .oomp,xml -ex C:\GH\oomlout-OOBB\OOBB-helpers.oomp,C:\GH\oomlout-OOBB\part\OOBB-tag.xml -tm template/OOBB-template.tmpl.md -of %OOBBpartsDirectory%%%%%ID%%%%\README.md
+set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\MM\
+python %TPGEdirectory%TPGEmain.py -rm A -bd %OOBBpartsDirectory%\ -xa .oomp,xml -ex C:\GH\oomlout-OOBB\OOBB-helpers.oomp,C:\GH\oomlout-OOBB\part\OOBB-tag.xml -tm template/OOBB-template.tmpl.md -of %OOBBpartsDirectory%%%%%ID%%%%\README.md
+set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\MP\
+python %TPGEdirectory%TPGEmain.py -rm A -bd %OOBBpartsDirectory%\ -xa .oomp,xml -ex C:\GH\oomlout-OOBB\OOBB-helpers.oomp,C:\GH\oomlout-OOBB\part\OOBB-tag.xml -tm template/OOBB-template.tmpl.md -of %OOBBpartsDirectory%%%%%ID%%%%\README.md
+set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\PL\
+python %TPGEdirectory%TPGEmain.py -rm A -bd %OOBBpartsDirectory%\ -xa .oomp,xml -ex C:\GH\oomlout-OOBB\OOBB-helpers.oomp,C:\GH\oomlout-OOBB\part\OOBB-tag.xml -tm template/OOBB-template.tmpl.md -of %OOBBpartsDirectory%%%%%ID%%%%\README.md
+set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\SC\
+python %TPGEdirectory%TPGEmain.py -rm A -bd %OOBBpartsDirectory%\ -xa .oomp,xml -ex C:\GH\oomlout-OOBB\OOBB-helpers.oomp,C:\GH\oomlout-OOBB\part\OOBB-tag.xml -tm template/OOBB-template.tmpl.md -of %OOBBpartsDirectory%%%%%ID%%%%\README.md
+set OOBBpartsDirectory=C:\GH\oomlout-OOBB\part\SP\
+python %TPGEdirectory%TPGEmain.py -rm A -bd %OOBBpartsDirectory%\ -xa .oomp,xml -ex C:\GH\oomlout-OOBB\OOBB-helpers.oomp,C:\GH\oomlout-OOBB\part\OOBB-tag.xml -tm template/OOBB-template.tmpl.md -of %OOBBpartsDirectory%%%%%ID%%%%\README.md
 
 
 REM
