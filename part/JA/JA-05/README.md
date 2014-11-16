@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/JA-05__
 
 
 ## Images
+![JA-05](http://oomlout.com/oomlout-OOBB/part/JA/JA-05/OOBB-JA-05_420.png)
 
 
 

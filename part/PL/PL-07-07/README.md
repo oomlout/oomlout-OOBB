@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/PL-07-07__
 
 
 ## Images
+![PL-07-07](http://oomlout.com/oomlout-OOBB/part/PL/PL-07-07/OOBB-PL-07-07_420.png)
 
 
 

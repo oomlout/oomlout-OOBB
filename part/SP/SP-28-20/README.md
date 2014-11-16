@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/SP-28-20__
 
 
 ## Images
+![SP-28-20](http://oomlout.com/oomlout-OOBB/part/SP/SP-28-20/OOBB-SP-28-20_420.png)
 
 
 

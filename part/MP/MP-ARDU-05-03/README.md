@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/MP-ARDU-05-03__
 
 
 ## Images
+![MP-ARDU-05-03](http://oomlout.com/oomlout-OOBB/part/MP/MP-ARDU-05-03/OOBB-MP-ARDU-05-03_420.png)
 
 
 

@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/SP-04-03__
 
 
 ## Images
+![SP-04-03](http://oomlout.com/oomlout-OOBB/part/SP/SP-04-03/OOBB-SP-04-03_420.png)
 
 
 

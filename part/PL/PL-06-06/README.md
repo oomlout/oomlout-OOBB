@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/PL-06-06__
 
 
 ## Images
+![PL-06-06](http://oomlout.com/oomlout-OOBB/part/PL/PL-06-06/OOBB-PL-06-06_420.png)
 
 
 

@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/PL-08-02__
 
 
 ## Images
+![PL-08-02](http://oomlout.com/oomlout-OOBB/part/PL/PL-08-02/OOBB-PL-08-02_420.png)
 
 
 

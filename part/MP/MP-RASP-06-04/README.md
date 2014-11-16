@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/MP-RASP-06-04__
 
 
 ## Images
+![MP-RASP-06-04](http://oomlout.com/oomlout-OOBB/part/MP/MP-RASP-06-04/OOBB-MP-RASP-06-04_420.png)
 
 
 

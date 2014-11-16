@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/MP-LCDD-06-03__
 
 
 ## Images
+![MP-LCDD-06-03](http://oomlout.com/oomlout-OOBB/part/MP/MP-LCDD-06-03/OOBB-MP-LCDD-06-03_420.png)
 
 
 

@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/SP-08-04__
 
 
 ## Images
+![SP-08-04](http://oomlout.com/oomlout-OOBB/part/SP/SP-08-04/OOBB-SP-08-04_420.png)
 
 
 

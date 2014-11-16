@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/CI-06__
 
 
 ## Images
+![CI-06](http://oomlout.com/oomlout-OOBB/part/CI/CI-06/OOBB-CI-06_420.png)
 
 
 

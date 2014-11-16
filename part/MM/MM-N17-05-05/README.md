@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/MM-N17-05-05__
 
 
 ## Images
+![MM-N17-05-05](http://oomlout.com/oomlout-OOBB/part/MM/MM-N17-05-05/OOBB-MM-N17-05-05_420.png)
 
 
 

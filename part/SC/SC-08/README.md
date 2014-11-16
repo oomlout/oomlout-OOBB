@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/SC-08__
 
 
 ## Images
+![SC-08](http://oomlout.com/oomlout-OOBB/part/SC/SC-08/OOBB-SC-08_420.png)
 
 
 
