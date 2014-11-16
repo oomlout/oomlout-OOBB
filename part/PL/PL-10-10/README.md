@@ -6,14 +6,12 @@ Name: __Plate (10x10)__
 
 ID: __PL-10-10__
 
-WebPage: __http://learn.oomlout.co.uk/OO/Projects/oobb/part/PL/PL-10-10__
+WebPage: __http://learn.oomlout.co.uk/OO/Projects/oobb/part/PL-10-10__
 
 Short URL: __http://oom.lt/PL-10-10__
 
 
 ## Images
-![PL-10-10](http://oomlout.com/oobb-gen/parts/PL/PL-10-10/PL-10-10_01_420.jpg)
-![PL-10-10](http://oomlout.com/oobb-gen/parts/PL/PL-10-10/PL-10-10_420.png)
 
 
 

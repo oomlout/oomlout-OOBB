@@ -6,14 +6,12 @@ Name: __Plate (4x2)__
 
 ID: __PL-04-02__
 
-WebPage: __http://learn.oomlout.co.uk/OO/Projects/oobb/part/PL/PL-04-02__
+WebPage: __http://learn.oomlout.co.uk/OO/Projects/oobb/part/PL-04-02__
 
 Short URL: __http://oom.lt/PL-04-02__
 
 
 ## Images
-![PL-04-02](http://oomlout.com/oobb-gen/parts/PL/PL-04-02/PL-04-02_01_420.jpg)
-![PL-04-02](http://oomlout.com/oobb-gen/parts/PL/PL-04-02/PL-04-02_420.png)
 
 
 
