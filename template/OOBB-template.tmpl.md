@@ -13,7 +13,7 @@ Short URL: __http://oom.lt/%%ID%%__
 
 
 **%%ID%%,oobbPart.oobbID,oobbID**## Images
-$$OOBB-%%ID%%_420.jpg$$![%%ID%%](http://oomlout.com/oomlout-OOBB/part/@@%%ID%%,oobbPart.oobbID,typeOOBB@@/%%ID%%/OOBB-%%ID%%_01_420.jpg)
+$$OOBB-%%ID%%_420.jpg$$![%%ID%%](http://oomlout.com/oomlout-OOBB/part/@@%%ID%%,oobbPart.oobbID,typeOOBB@@/%%ID%%/OOBB-%%ID%%_420.jpg)
 $$OOBB-%%ID%%_420.png$$![%%ID%%](http://oomlout.com/oomlout-OOBB/part/@@%%ID%%,oobbPart.oobbID,typeOOBB@@/%%ID%%/OOBB-%%ID%%_420.png)
 
 **%%ID%%,oobbPart.oobbID,oobbAbout**## About

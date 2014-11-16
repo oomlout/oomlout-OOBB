@@ -12,7 +12,7 @@ Short URL: __http://oom.lt/PL-03-02__
 
 
 ## Images
-![PL-03-02](http://oomlout.com/oomlout-OOBB/part/PL/PL-03-02/OOBB-PL-03-02_01_420.jpg)
+![PL-03-02](http://oomlout.com/oomlout-OOBB/part/PL/PL-03-02/OOBB-PL-03-02_420.jpg)
 ![PL-03-02](http://oomlout.com/oomlout-OOBB/part/PL/PL-03-02/OOBB-PL-03-02_420.png)
 
 
