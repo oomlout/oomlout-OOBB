@@ -4,8 +4,6 @@ set WIKBdirectory=C:\GH\oomlout-WIKB\
 
 echo on
 
-
-
 REM
 REM 	UPLOADING PART PAGES
 REM
@@ -30,14 +28,16 @@ python %WIKBdirectory%WIKBmain.py -rm A -si oomlout -bd %OOBBpartsDirectory% -wb
 echo off
 
 
+
+
 REM     UPLOADING Index Files
 
 	REM AllParts
 set extra=allParts
-python %WIKBdirectory%WIKBmain.py -si oomlout -bd C:\GH\oomlout-OOBB\parts\%extra%-wiki.html -wb projects/OOBB/%extra%
+python %WIKBdirectory%WIKBmain.py -si oomlout -bd C:\GH\oomlout-OOBB\part\%extra%-wiki.html -wb Projects/oobb/%extra%
 
 set extra=pictureIndex
-python %WIKBdirectory%WIKBmain.py -si oomlout -bd C:\GH\oomlout-OOBB\parts\%extra%-wiki.html -wb projects/OOBB/%extra%
+python %WIKBdirectory%WIKBmain.py -si oomlout -bd C:\GH\oomlout-OOBB\part\%extra%-wiki.html -wb Projects/oobb/%extra%
 
 
 
