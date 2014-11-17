@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/MP-POT-04-02__
 
 
 ## Images
+![MP-POT-04-02](http://oomlout.com/oomlout-OOBB/part/MP/MP-POT-04-02/OOBB-MP-POT-04-02_420.png)
 
 
 

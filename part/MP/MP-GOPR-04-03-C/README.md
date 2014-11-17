@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/MP-GOPR-04-03-C__
 
 
 ## Images
+![MP-GOPR-04-03-C](http://oomlout.com/oomlout-OOBB/part/MP/MP-GOPR-04-03-C/OOBB-MP-GOPR-04-03-C_420.png)
 
 
 

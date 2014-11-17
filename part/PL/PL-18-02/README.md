@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/PL-18-02__
 
 
 ## Images
+![PL-18-02](http://oomlout.com/oomlout-OOBB/part/PL/PL-18-02/OOBB-PL-18-02_420.png)
 
 
 
