@@ -5,8 +5,8 @@ set COREdirectory=C:\GH\oomlout-CORE\
 set PRODDirectory=C:\GH\oomlout-OOBB\
 
 REM Overwrite
-REM set overWrite= -ow TRUE
-set overWrite=
+
+
 
 REM
 REM Generate Image Resolution Single
