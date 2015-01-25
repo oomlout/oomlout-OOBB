@@ -20,6 +20,7 @@ Location oomlout-OOBB/part/AA/
 + SP - Spacer Plate
 + MM - Motor Mounts
 + SC - Shaft Couplers
++ RI - Ribs
 + CI - Circles
 + MP - Mounting Plates
 + GO - GORM Items
