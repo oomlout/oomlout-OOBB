@@ -12,6 +12,7 @@ Short URL: __http://oom.lt/MP-STMD-06-03-DQ420MA__
 
 
 ## Images
+![MP-STMD-06-03-DQ420MA](http://oomlout.com/oomlout-OOBB/part/MP/MP-STMD-06-03-DQ420MA/OOBB-MP-STMD-06-03-DQ420MA_420.jpg)
 ![MP-STMD-06-03-DQ420MA](http://oomlout.com/oomlout-OOBB/part/MP/MP-STMD-06-03-DQ420MA/OOBB-MP-STMD-06-03-DQ420MA_420.png)
 
 
