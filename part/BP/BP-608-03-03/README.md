@@ -2,7 +2,7 @@
 
 ## Summary
  
-Name: __Bearing Plate (Skate Bearing (608) 3x3)__
+Name: __Bearing Plate (Skate Bearing (608) Circle (3))__
 
 ID: __BP-608-03-03__
 
