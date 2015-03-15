@@ -3,6 +3,9 @@
 
 
 
+//OOBBwidth = 3;
+//OOBBheight = 2;
+
 
 drawOOBBPlate(OOBBwidth,OOBBheight);
 
@@ -24,7 +27,16 @@ difference(){
 		for(w = [0:(width-1)]){
 				for(h = [0:(height-1)]){
 						linear_extrude(height = 6){
-							drawOOBBHole(6.5+(w * 20),6.5+(h * 20));
+
+								drawOOBBHole(6.5+(w * 20),6.5+(h * 20));
+								
+
+								if(w != width -1){										drawOOBBRectangleWidth(w,h);					
+								}	
+								if(h != height -1){
+									drawOOBBRectangleHeight(w,h);	
+								}
+		
 						}
 					}
 				}	
@@ -32,6 +44,19 @@ difference(){
 	} //end difference
 }
 
+
+module drawOOBBRectangleWidth(w,h){
+			translate([13.5 + (w*20),5 + (h*20)]){
+				square([6,3]);
+			}
+}
+
+module drawOOBBRectangleHeight(w,h){
+				translate([5 + (w*20) ,13.5 + (h*20)]){
+				square([3,6]);
+			}
+
+}
 
 module drawOOBBHole(x,y){
 	translate([x,y]){
