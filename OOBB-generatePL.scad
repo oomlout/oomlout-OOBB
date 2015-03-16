@@ -7,11 +7,19 @@
 //OOBBheight = 2;
 
 
+
+
+
+
 drawOOBBPlate(OOBBwidth,OOBBheight);
+
 
 
 module drawOOBBPlate(width,height){
 	echo("Making OOBB Plate Width: ", width,"height: ", height);
+
+
+color([0,0.6,0]){
 
 
 difference(){
@@ -42,6 +50,10 @@ difference(){
 				}	
 		}
 	} //end difference
+
+}
+
+
 }
 
 
