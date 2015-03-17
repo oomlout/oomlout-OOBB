@@ -72,7 +72,7 @@ module drawOOBBRectangleHeight(w,h){
 
 module drawOOBBHole(x,y){
 	translate([x,y]){
-		circle(r = 3);
+		circle(r = 3, $fn=100);
 		translate([-1.5,-3]){
 			square([3,6]);
 		}
@@ -96,16 +96,16 @@ hull()
 {
     // place 4 circles in the corners, with the given radius
     translate([(-x/2)+(radius/2), (-y/2)+(radius/2), 0])
-    circle(r=radius);
+    circle(r=radius, $fn=100);
 
     translate([(x/2)-(radius/2), (-y/2)+(radius/2), 0])
-    circle(r=radius);
+    circle(r=radius, $fn=100);
 
     translate([(-x/2)+(radius/2), (y/2)-(radius/2), 0])
-    circle(r=radius);
+    circle(r=radius, $fn=100);
 
     translate([(x/2)-(radius/2), (y/2)-(radius/2), 0])
-    circle(r=radius);
+    circle(r=radius, $fn=100);
 }
 
 }
