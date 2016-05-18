@@ -1,0 +1,24 @@
+# Holder Stepper Motor Driver (A4988) - HL-STMD-03-03
+
+
+## Notes
+
+## Wiring
+
+	*PIN 1	-	GND			-	GND
+	*PIN 2	-	VDD			-	5V
+	*PIN 3	-	1B			-	
+	*PIN 4	-	1A			-	
+	*PIN 5	-	2A			-	
+	*PIN 6	-	2B			-	
+	*PIN 7	-	GND			-	GND
+	*PIN 8	-	VMOT		-	8-12V
+	
+	*PIN 9	-	ENABLE		-	ACTIVE LOW
+	*PIN 10	-	MS1			-	BIT 0	(LLL COARSE)
+	*PIN 11	-	MS2			-	BIT 1	(HHH FINE)
+	*PIN 12	-	MS3			-	BIT 2
+	*PIN 13	-	RESET		-	ACTIVE HIGH	
+	*PIN 14	-	SLEEP		-	ACTIVE HIGH	
+	*PIN 15	-	STEP		-	Pin 2
+	*PIN 16	-	DIRECTION	-	Pin 3	
