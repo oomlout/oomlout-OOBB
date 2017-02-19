@@ -7,7 +7,7 @@ Name: __@@%%ID%%,oobbPart.oobbID,name@@__
 
 ID: __@@%%ID%%,oobbPart.oobbID,oobbID@@__
 
-WebPage: __http://learn.oomlout.co.uk/OO/Projects/oobb/part/%%ID%%__
+WebPage: __https://github.com/oomlout/oomlout-OOBB/wiki/%%ID%%__
 
 Short URL: __http://oom.lt/%%ID%%__
 
