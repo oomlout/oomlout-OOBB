@@ -11,7 +11,9 @@ Notes
 
 Laser Cutter Style:
 * Black --> Cut Line
-* Nlue --> Etch Line
+* Blue --> Etch Line
+* Green --> Cut with sprues (for sheets)
+* Red --> Cut last
 
 Types
 * BP - Bearing Plate  
@@ -35,16 +37,16 @@ Types
 Below is an index of all currently available parts.
 
 ::::
-^^0,20,%%U%%^^
+^^0,40,%%U%%^^
 ==%%U%%,oobbType.code,code==
 !!%%U%%,oobbType.code,code!! - !!%%U%%,oobbType.code,name!!  ~~
 ============================================= ~~
 ~~
 | &nbsp; | ID | Name |~~
 | ------ | ------- | ---- |
-~~^^0,500,%%T%%^^
+~~^^0,1000,%%T%%^^
 ++!!%%T%%,oobbPart.typeOOBB,typeOOBB!!,!!%%U%%,oobbType.code,code!!++
-| https://raw.githubusercontent.com/oomlout/oomlout-OOBB/master/part/@@!!%%T%%,oobbPart.oobbType,oobbID!!,oobbPart.oobbID,typeOOBB@@/!!%%T%%,oobbPart.oobbType,oobbID!!/OOBB-!!%%T%%,oobbPart.oobbType,oobbID!!_140.png  
+| ![Diagram](https://github.com/oomlout/oomlout-OOBB/blob/master/part/@@!!%%T%%,oobbPart.oobbType,oobbID!!,oobbPart.oobbID,typeOOBB@@/!!%%T%%,oobbPart.oobbType,oobbID!!/OOBB-!!%%T%%,oobbPart.oobbType,oobbID!!_140.png)  
 | [!!%%T%%,oobbPart.oobbType,oobbID!!](https://github.com/oomlout/oomlout-OOBB/wiki/!!%%T%%,oobbPart.oobbType,oobbID!!)  
 | [!!%%T%%,oobbPart.oobbType,name!!](https://github.com/oomlout/oomlout-OOBB/wiki/!!%%T%%,oobbPart.oobbType,oobbID!!)  
 |~~
