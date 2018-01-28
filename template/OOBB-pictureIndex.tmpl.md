@@ -26,6 +26,7 @@ Types
 * MM - Motor Mounts  
 * MP - Mounting Plates  
 * PL - Plates  
+* PT - Plate (toothed)
 * SC - Shaft Couplers  
 * SL - Slider Plate  
 * SP - Spacer Plate  
