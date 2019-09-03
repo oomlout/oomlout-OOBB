@@ -40,8 +40,8 @@ Below is an index of all currently available parts.
 ::::
 ^^0,40,%%U%%^^
 ==%%U%%,oobbType.code,code==
+
 !!%%U%%,oobbType.code,code!! - !!%%U%%,oobbType.code,name!!  ~~
-============================================= ~~
 ~~
 | &nbsp; | ID | Name |~~
 | ------ | ------- | ---- |
@@ -51,4 +51,5 @@ Below is an index of all currently available parts.
 | [!!%%T%%,oobbPart.oobbType,oobbID!!](https://github.com/oomlout/oomlout-OOBB/wiki/!!%%T%%,oobbPart.oobbType,oobbID!!)  
 | [!!%%T%%,oobbPart.oobbType,name!!](https://github.com/oomlout/oomlout-OOBB/wiki/!!%%T%%,oobbPart.oobbType,oobbID!!)  
 |~~
+
 ;;;;

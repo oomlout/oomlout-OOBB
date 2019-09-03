@@ -1,0 +1,1364 @@
+%!PS-Adobe-2.0 EPSF-1.2
+%%Creator:Adobe Illustrator (TM) 88.000000 Exported from CorelDRAW Version 14
+%%Title:OOBB-JA-03-01.ai
+%%BoundingBox:-85 -149 86 150
+%%CreationDate: Tue Sep 03 19:36:41 2019
+
+%%ColorUsage:
+%%TemplateBox:297 421 297 421
+%%EndComments
+%%BeginProcSet:Adobe_Illustrator_1.1 0 0
+% Version 1.0 3/27/1990
+% Copyright (C) 1990,1991,1992
+% Corel Corporation
+% All Rights Reserved
+
+/wPmsDict 150 dict def 
+wPmsDict begin 
+
+/$debug 25 string def 
+
+/bd {bind def} bind def 
+/ld {load def} bd 
+/xd {exch def} bd 
+/_ null def 
+
+/$c 0 def 
+/$m 0 def 
+/$y 0 def 
+/$k 0 def 
+/$t 1 def 
+/$n _ def 
+/$o 0 def 
+/$pf false def 
+
+/$C 0 def 
+/$M 0 def 
+/$Y 0 def 
+/$K 0 def 
+/$T 1 def 
+/$N _ def 
+/$O 0 def 
+/$PF false def 
+
+/$h false def 
+
+/$al 0 def 
+/$tr 0 def 
+/$le 0 def 
+/$lx 0 def 
+/$ly 0 def 
+
+/$ctm matrix currentmatrix def 
+/$ptm matrix def 
+
+/$pn () def 
+/$pm matrix def 
+/$px 0 def 
+/$py 0 def 
+/$pxf 0 def 
+/$pyf 0 def 
+/$psx 10 def 
+/$psy 0 def 
+
+/$llx 0 def 
+/$lly 0 def 
+/$urx 0 def 
+/$ury 0 def 
+
+
+/$Bbllx 0 def 
+/$Bblly 0 def 
+/$Bburx 0 def 
+/$Bbury 0 def 
+
+/$tllx 0 def 
+/$tlly 0 def 
+/$turx 0 def 
+/$tury 0 def 
+
+/$pd [] def 
+/$tx 0 def 
+/$ty 0 def 
+
+/$sv 0 def 
+/@cp /closepath ld 
+/@gs /gsave ld 
+/@gr /grestore ld 
+/@np /newpath ld 
+/@sv {/$sv save def}bd 
+/@rs {$sv restore}bd 
+
+/@MN { 
+2 copy le{pop}{exch pop}ifelse 
+}bd 
+
+/setcmykcolor where {pop} 
+{ 
+/setcmykcolor 
+{ 
+4 1 roll 
+3 {3 index add 1 @MN 1 exch sub 3 1 roll} repeat 
+setrgbcolor 
+pop 
+}bd 
+}ifelse 
+
+/@tc 
+{ 
+dup 1 ge 
+{pop} 
+{ 
+4 { 
+dup 
+6 -1 roll 
+mul 
+exch 
+}repeat 
+pop 
+}ifelse 
+}bd 
+
+/@scc 
+{ 
+$c $m $y $k $t @tc 
+setcmykcolor 
+true 
+}bd 
+/@SCC 
+{ 
+$C $M $Y $K $T @tc 
+setcmykcolor 
+true 
+}bd 
+
+/@sft 
+{ 
+(setfirsttile sft )print 
+/$tx $tllx $pxf add dup $tllx gt {$pwid $psx add sub}if def 
+/$ty $tury $pyf sub dup $tury lt {$phei $psy add add}if def 
+(setfirsttile exit )print 
+}bd 
+
+/@stb 
+{ 
+pathbbox /$ury xd /$urx xd /$lly xd /$llx xd 
+}bd 
+
+/@ep 
+{ 
+{ 
+cvx exec 
+}forall 
+}bd 
+
+/@tp 
+{ 
+
+(tile pattern tp )print 
+@sv 
+/$in true def 
+2 copy 
+dup $lly le {/$in false def}if 
+$phei sub $ury ge {/$in false def}if 
+dup $urx ge {/$in false def}if 
+$pwid add $llx le {/$in false def}if 
+$in 
+{ 
+@np 
+2 copy moveto 
+$pwid 0 rlineto 
+0 $phei neg rlineto 
+$pwid neg 0 rlineto 
+0 $phei rlineto 
+clip @np 
+
+$pn cvlit load aload pop 
+7 -1 roll 
+5 index sub 
+7 -1 roll 
+3 index sub 
+translate 
+@ep 
+pop pop pop pop 
+} 
+{pop pop}ifelse 
+@rs 
+(tile pattern exit )print 
+}bd 
+
+/@th 
+{ 
+(tile horizontal th)print 
+@sft 
+0 1 $tly 1 sub 
+{ 
+dup $psx mul $tx add 
+{ 
+dup $llx gt {$pwid sub}{exit}ifelse 
+}loop 
+exch $phei mul $ty exch sub 
+
+0 1 $tlx 1 sub 
+{ 
+$pwid mul 
+3 copy 
+3 -1 roll add exch 
+@tp 
+pop 
+}for 
+pop pop 
+} for 
+(tile horizontal exiting )print 
+}bd 
+
+/@tv 
+{ 
+(tile vertical tv)print 
+@sft 
+0 1 $tlx 1 sub 
+{ 
+dup $pwid mul $tx add 
+exch $psy mul $ty exch sub 
+{ 
+dup $ury lt {$phei add}{exit}ifelse 
+}loop 
+
+0 1 $tly 1 sub 
+{ 
+$phei mul 
+3 copy sub 
+@tp 
+pop 
+}for 
+pop pop 
+} for 
+(tile vertical exit )print 
+}bd 
+
+/@pf 
+{ 
+(pattern fill pf)print 
+@gs 
+$pm concat 
+@stb 
+@gs 1 setgray eofill @gr 
+eoclip 
+$Bburx $Bbury $pm itransform /$tury xd /$turx xd 
+$Bbllx $Bblly $pm itransform /$tlly xd /$tllx xd 
+/$wid $turx $tllx sub def 
+/$hei $tury $tlly sub def 
+$wid 0 gt $hei 0 gt and 
+{ 
+$pn cvlit load aload pop 
+$pd xd 
+3 -1 roll sub /$phei xd 
+exch sub /$pwid xd 
+/$tlx $wid $pwid div ceiling 1 add def 
+/$tly $hei $phei div ceiling 1 add def 
+$psx 0 eq 
+{ 
+@tv 
+} 
+{ 
+@th 
+}ifelse 
+}if 
+
+@gr 
+@np 
+(pattern fill exit)print 
+}bd 
+
+/@xp 
+{ 
+{ 
+dup (text Character is:) print == 
+usertime (time before is:)print == 
+(0) dup 3 -1 roll 0 exch put 
+@gs 
+true charpath currentpoint 
+$ctm setmatrix 
+@pf 
+@gr 
+@np 
+moveto $tr 0 rmoveto 
+usertime (time after is:)print == 
+}forall 
+pop 
+}bd 
+
+/@sm 
+{ 
+/$ctm $ctm currentmatrix def 
+}bd 
+
+%--@lorg  move to line origin   length string @torg length string
+/@lorg    % moves currentpoint to line origin according to current alignment
+  {      
+  $lx $ly moveto    
+  /$ly $ly $le sub def      % - prepare for next line(tracking)
+  $al 0 ne
+    {dup      % ->len str len str
+    stringwidth   % ->len str len dx dy
+    exch 3 index  % ->len str dy len dx
+    1 sub         % ->len str dy len dx (len-1)
+    $tr mul add   % ->len str dy len dx+(len-1)*$tr
+    neg
+    exch neg      % ->len str -dx_total dy len
+    $al 1 eq      % check for centered alignment
+    {2 div exch 2 div exch} if  
+    rmoveto} if
+  }bd
+
+/@ft 
+{ 
+$pf 
+{@xp} 
+{ 
+@scc 
+{$tr exch 0 exch ashow pop} 
+{pop pop}ifelse 
+}ifelse 
+}bd 
+
+/@st 
+{ 
+$PF 
+{} 
+{ 
+@SCC 
+{ 
+{ 
+(0) dup 3 -1 roll 0 exch put 
+@gs 
+true charpath currentpoint 
+$ctm setmatrix $ptm concat 
+stroke 
+@gr 
+moveto $tr 0 rmoveto 
+}forall 
+pop 
+} 
+{pop pop}ifelse 
+}ifelse 
+}bd 
+/@pt 
+{ 
+dup length exch 
+}bd 
+/@te 
+{ 
+@pt 
+@lorg 
+@ft 
+}bd 
+
+/@tr 
+{ 
+@pt 
+@lorg 
+@st 
+}bd 
+/@ta 
+{ 
+@pt 
+@lorg 
+2 copy 
+@gs @ft @gr 
+/$lx 0 def 
+/$ly 0 def 
+@st 
+}bd 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/g { 
+1 exch sub /$k xd 
+/$c 0 def /$m 0 def /$y 0 def /$t 1 def /$n _ def /$pf false def 
+}bd 
+
+/G { 
+1 exch sub /$K xd 
+/$C 0 def /$M 0 def /$Y 0 def /$T 1 def /$N _ def /$PF false def 
+}bd 
+
+/k { 
+/$k xd /$y xd /$m xd /$c xd 
+/$t 1 def /$n _ def /$pf false def 
+}bd 
+
+/K { 
+/$K xd /$Y xd /$M xd /$C xd 
+/$T 1 def /$N _ def /$PF false def 
+}bd 
+
+/x { 
+/$t xd /$n xd 
+/$k xd /$y xd /$m xd /$c xd /$pf false def 
+}bd 
+
+/X { 
+/$T xd /$N xd 
+/$K xd /$Y xd /$M xd /$C xd /$PF false def 
+}bd 
+
+/d /setdash ld 
+
+/i { 
+dup 0 ne {setflat} {pop} ifelse 
+}bd 
+
+/j /setlinejoin ld 
+
+/J /setlinecap ld 
+
+/M /setmiterlimit ld 
+
+/w /setlinewidth ld 
+
+/O { 
+/$o xd 
+}bd 
+
+/R { 
+/$O xd 
+}bd 
+
+
+/c /curveto ld 
+
+/C /c ld 
+
+/v { 
+currentpoint
+6 2 roll 
+curveto 
+}bd
+
+/V /v ld 
+
+/y { 
+2 copy curveto 
+}bd 
+
+/Y /y ld 
+
+/l /lineto ld 
+
+/L /l ld 
+
+/m /moveto ld 
+
+
+
+/n /newpath ld 
+
+/N /newpath ld 
+
+/F { 
+$pf 
+{@pf} 
+{ 
+@scc 
+{eofill}if 
+}ifelse 
+}bd 
+
+/f { 
+@cp F 
+}bd 
+/S { 
+$PF 
+{} 
+{ 
+@SCC 
+{ 
+@sm 
+$ptm concat 
+stroke 
+$ctm setmatrix 
+}if 
+}ifelse 
+}bd 
+/s { 
+@cp 
+S 
+}bd 
+
+/B { 
+@gs F @gr 
+S 
+}bd 
+/b { 
+@cp 
+B 
+}bd 
+
+/W { 
+oeclip 
+@np 
+}bd 
+
+/p { 
+/$pm xd 
+7 {pop} repeat 
+/$pyf xd /$pxf xd 
+/$pn xd 
+/$pf true def 
+}bd 
+
+/P { 
+11 {pop} repeat 
+}bd 
+
+/@p { 
+/$pm xd 
+/$psy xd 
+/$psx xd 
+/$pyf xd /$pxf xd 
+/$pn xd 
+/$pf true def 
+}bd 
+
+/@b { 
+/$Bbury xd /$Bburx xd 
+/$Bblly xd /$Bbllx xd 
+}bd 
+
+
+/z { 
+/$al xd 
+/$tr xd 
+/$le xd 
+exch findfont exch scalefont setfont 
+}bd 
+
+/Z { 
+dup type 0 type eq { /$bDir xd } if
+findfont 
+dup maxlength 1 add dict exch 
+
+
+
+dup 
+{1 index /FID ne 
+{ 
+3 index 
+3 1 roll put 
+} 
+{pop pop}ifelse 
+} forall 
+
+
+
+pop 
+dup dup /Encoding get 
+256 array copy 
+dup /$fe xd
+/Encoding exch put 
+
+dup /Fontname 3 index put 
+
+3 -1 roll
+dup length 0 ne
+{0 exch
+  {
+  dup type 0 type eq
+    {exch pop}
+      {
+      $fe exch 2 index exch put
+      1 add
+      }ifelse
+  }forall pop
+}if
+definefont pop
+
+}bd 
+
+/e { 
+@sm 
+concat 
+[ 
+/t {@te}def 
+}bd 
+
+/r { 
+@sm 
+concat 
+[ 
+/t {@tr}def 
+}bd 
+
+/o { 
+@sm 
+concat 
+[ 
+/t {pop}def 
+}bd 
+
+/a { 
+@sm 
+concat 
+[ 
+/t {@ta}def 
+}bd 
+
+/@o{
+@sm 
+concat 
+[ 
+/t {@t@a}def 
+}bd 
+
+/I { 
+@sm 
+concat 
+[ 
+/t {pop}def 
+}bd 
+
+/t {@te}def 
+
+/T { 
+cleartomark 
+/$lx 0 def 
+/$ly 0 def 
+$ctm setmatrix 
+}bd 
+
+
+/u {}bd 
+
+/U {}bd 
+
+/A {pop}bd 
+
+/h { 
+$h true def 
+}bd 
+
+/h { 
+$h true def 
+}bd 
+
+/q /@gs ld 
+
+/Q /@gr ld 
+
+
+
+/E { 
+5 array astore 
+exch cvlit exch def 
+}bd 
+
+/` {}bd 
+
+/~ {}bd 
+
+/@ {}bd 
+
+/& {}bd 
+
+/CorelDrawRencodeVect [ 
+16#80/grave 
+16#81/circumflex 
+16#82/tilde 
+16#83/dotlessi 
+16#84/florin 
+16#85/quotedblleft 
+16#86/quotedblright 
+16#87/guilsinglleft 
+16#88/guilsinglright 
+16#89/fi 
+16#8a/fl 
+16#8b/dagger 
+16#8c/daggerdbl 
+16#8d/endash 
+16#8e/periodcentered 
+16#8f/breve 
+16#90/quotedblbase 
+16#91/ellipsis 
+16#92/perthousand 
+16#a1/exclamdown 
+16#a2/cent 
+16#a3/sterling 
+16#a4/currency 
+16#a5/yen 
+16#a6/bar 
+16#a7/section 
+16#a8/dieresis 
+16#a9/copyright 
+16#aa/ordfeminine 
+16#ab/guillemotleft 
+16#ac/logicalnot 
+16#ad/emdash 
+16#ae/registered 
+16#af/spac 
+16#b0/ring 
+16#b1/spac 
+16#b2/spac 
+16#b3/spac 
+16#b4/acute 
+16#b5/spac 
+16#b6/paragraph 
+16#b7/bullet 
+16#b8/cedilla 
+16#b9/spac 
+16#ba/ordmasculine 
+16#bb/guillemotright 
+16#bc/spac 
+16#bd/spac 
+16#be/spac 
+16#bf/questiondown 
+16#c0/Agrave 
+16#c1/Aacute 
+16#c2/Acircumflex 
+16#c3/Atilde 
+16#c4/Adieresis 
+16#c5/Aring 
+16#c6/AE 
+16#c7/Ccedilla 
+16#c8/Egrave 
+16#c9/Eacute 
+16#ca/Ecircumflex 
+16#cb/Edieresis 
+16#cc/Igrave 
+16#cd/Iacute 
+16#ce/Icircumflex 
+16#cf/Idieresis 
+16#d0/spac 
+16#d1/Ntilde 
+16#d2/Ograve 
+16#d3/Oacute 
+16#d4/Ocircumflex 
+16#d5/Otilde 
+16#d6/Odieresis 
+16#d7/OE 
+16#d8/Oslash 
+16#d9/Ugrave 
+16#da/Uacute 
+16#db/Ucircumflex 
+16#dc/Udieresis 
+16#dd/space 
+16#de/spac 
+16#df/germandbls 
+16#e0/agrave 
+16#e1/aacute 
+16#e2/acircumflex 
+16#e3/atilde 
+16#e4/adieresis 
+16#e5/aring 
+16#e6/ae 
+16#e7/ccedilla 
+16#e8/egrave 
+16#e9/eacute 
+16#ea/ecircumflex 
+16#eb/edieresis 
+16#ec/igrave 
+16#ed/iacute 
+16#ee/icircumflex 
+16#ef/idieresis 
+16#f0/space 
+16#f1/ntilde 
+16#f2/ograve 
+16#f3/oacute 
+16#f4/ocircumflex 
+16#f5/otilde 
+16#f6/odieresis 
+16#f7/oe 
+16#f8/oslash 
+16#f9/ugrave 
+16#fa/uacute 
+16#fb/ucircumflex 
+16#fc/udieresis 
+16#fd/spac 
+16#fe/spac 
+16#ff/ydieresis 
+] def
+%%EndProlog
+%%BeginSetup
+%%BeginEncoding:_Times-Bold Times-Bold
+[
+]/_Times-Bold/Times-Bold Z
+%%EndEncoding
+%%EndSetup
+1 XR
+0 R
+0.9900 0.9600 0.0000 0.0000 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+/_Eng_HelvLine 11.9999 11.9999 0.0000 0 z
+[1.0000 0.0000 0.0000 1.0000 18.6435 110.8312]r
+(JA-03-A)t
+T
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+60.6966 121.8895 m
+60.6966 123.1775 L
+59.5979 123.8644 58.6675 124.7950 57.9807 125.8934 C
+56.6926 125.8934 L
+56.6926 130.3934 L
+56.6926 134.8934 L
+57.9807 134.8934 L
+58.6675 135.9918 59.5979 136.9225 60.6966 137.6093 C
+60.6966 138.8974 L
+65.1969 138.8974 L
+69.6969 138.8974 L
+69.6969 137.6093 L
+70.7956 136.9225 71.7259 135.9918 72.4127 134.8934 C
+73.7008 134.8934 L
+73.7008 130.3934 L
+73.7008 125.8934 L
+72.4127 125.8934 L
+71.7259 124.7950 70.7956 123.8644 69.6969 123.1775 C
+69.6969 121.8895 L
+65.1969 121.8895 L
+60.6966 121.8895 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+4.0037 121.8895 m
+4.0037 123.1775 L
+2.9049 123.8644 1.9746 124.7950 1.2878 125.8934 C
+-0.0003 125.8934 L
+-0.0003 130.3934 L
+-0.0003 134.8934 L
+1.2878 134.8934 L
+1.9746 135.9918 2.9049 136.9225 4.0037 137.6093 C
+4.0037 138.8974 L
+8.5039 138.8974 L
+13.0039 138.8974 L
+13.0039 137.6093 L
+14.1026 136.9225 15.0330 135.9918 15.7198 134.8934 C
+17.0079 134.8934 L
+17.0079 130.3934 L
+17.0079 125.8934 L
+15.7198 125.8934 L
+15.0330 124.7950 14.1026 123.8644 13.0039 123.1775 C
+13.0039 121.8895 L
+8.5039 121.8895 L
+4.0037 121.8895 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+70.8673 148.8186 m
+-70.8676 148.8186 L
+-78.6107 148.8186 -84.9056 142.6051 -85.0380 134.8934 C
+-68.0329 134.8934 L
+-68.0329 125.8934 L
+-84.9864 125.8934 L
+-84.6865 77.9525 L
+-56.6943 77.9525 L
+-56.6943 92.1257 L
+-62.3636 92.1260 L
+-62.3636 109.1336 L
+-51.4976 109.1336 -44.8832 109.1336 -34.0172 109.1336 C
+-34.0172 92.1260 L
+-39.6865 92.1257 L
+-39.6865 77.9522 L
+-28.3453 77.9525 L
+-28.3453 77.9525 L
+-11.3374 77.9525 L
+-11.3374 77.9525 L
+-0.0014 77.9525 L
+-0.0014 92.1257 L
+-5.6707 92.1260 L
+-5.6707 109.1336 L
+5.1953 109.1336 11.8097 109.1336 22.6757 109.1336 C
+22.6757 92.1260 L
+17.0065 92.1257 L
+17.0065 77.9525 L
+85.0408 77.9525 L
+85.0408 77.9525 L
+85.0408 77.9522 L
+85.0377 134.8934 L
+84.9053 142.6051 78.6104 148.8186 70.8673 148.8186 C
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+36.8507 123.5911 m
+40.5975 123.5911 43.6535 126.6469 43.6535 130.3937 c
+43.6535 134.1405 40.5975 137.1963 36.8507 137.1963 c
+33.1038 137.1963 30.0478 134.1405 30.0478 130.3937 c
+30.0478 126.6469 33.1038 123.5911 36.8507 123.5911 c
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+-52.6893 121.8895 m
+-52.6893 123.1775 L
+-53.7880 123.8644 -54.7183 124.7950 -55.4051 125.8934 C
+-56.6932 125.8934 L
+-56.6932 130.3934 L
+-56.6932 134.8934 L
+-55.4051 134.8934 L
+-54.7183 135.9918 -53.7880 136.9225 -52.6893 137.6093 C
+-52.6893 138.8974 L
+-48.1890 138.8974 L
+-43.6890 138.8974 L
+-43.6890 137.6093 L
+-42.5903 136.9225 -41.6599 135.9918 -40.9731 134.8934 C
+-39.6850 134.8934 L
+-39.6850 130.3934 L
+-39.6850 125.8934 L
+-40.9731 125.8934 L
+-41.6599 124.7950 -42.5903 123.8644 -43.6890 123.1775 C
+-43.6890 121.8895 L
+-48.1890 121.8895 L
+-52.6893 121.8895 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+-19.8425 140.2129 m
+-15.5906 137.7581 L
+-11.3386 135.3033 L
+-11.3386 130.3934 L
+-11.3386 125.4835 L
+-15.5906 123.0287 L
+-19.8425 120.5739 L
+-24.0945 123.0287 L
+-28.3465 125.4835 L
+-28.3465 130.3934 L
+-28.3465 135.3033 L
+-24.0945 137.7581 L
+-19.8425 140.2129 L
+s
+u
+1 XR
+0 R
+0.9900 0.9600 0.0000 0.0000 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+/_Eng_HelvLine 11.9999 11.9999 0.0000 0 z
+[1.0000 0.0000 0.0000 1.0000 18.3555 -2.5546]r
+(JA-03-B)t
+T
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+60.6966 8.5037 m
+60.6966 9.7917 L
+59.5979 10.4786 58.6675 11.4092 57.9807 12.5076 C
+56.6926 12.5076 L
+56.6926 17.0076 L
+56.6926 21.5076 L
+57.9807 21.5076 L
+58.6675 22.6060 59.5979 23.5366 60.6966 24.2235 C
+60.6966 25.5115 L
+65.1969 25.5115 L
+69.6969 25.5115 L
+69.6969 24.2235 L
+70.7956 23.5366 71.7259 22.6060 72.4127 21.5076 C
+73.7008 21.5076 L
+73.7008 17.0076 L
+73.7008 12.5076 L
+72.4127 12.5076 L
+71.7259 11.4092 70.7956 10.4786 69.6969 9.7917 C
+69.6969 8.5037 L
+65.1969 8.5037 L
+60.6966 8.5037 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+4.0037 8.5037 m
+4.0037 9.7917 L
+2.9049 10.4786 1.9746 11.4092 1.2878 12.5076 C
+-0.0003 12.5076 L
+-0.0003 17.0076 L
+-0.0003 21.5076 L
+1.2878 21.5076 L
+1.9746 22.6060 2.9049 23.5366 4.0037 24.2235 C
+4.0037 25.5115 L
+8.5039 25.5115 L
+13.0039 25.5115 L
+13.0039 24.2235 L
+14.1026 23.5366 15.0330 22.6060 15.7198 21.5076 C
+17.0079 21.5076 L
+17.0079 17.0076 L
+17.0079 12.5076 L
+15.7198 12.5076 L
+15.0330 11.4092 14.1026 10.4786 13.0039 9.7917 C
+13.0039 8.5037 L
+8.5039 8.5037 L
+4.0037 8.5037 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+70.8673 35.4328 m
+78.6104 35.4328 84.9053 29.2192 85.0377 21.5076 C
+85.0408 -35.4336 L
+85.0408 -35.4334 L
+85.0408 -35.4334 L
+45.3529 -35.4334 L
+45.3529 -43.9373 L
+28.3450 -43.9373 L
+28.3450 -35.4334 L
+17.0065 -35.4334 L
+17.0065 -21.2601 L
+22.6757 -21.2598 L
+22.6757 -4.2523 L
+11.8097 -4.2523 5.1953 -4.2523 -5.6707 -4.2523 C
+-5.6707 -21.2598 L
+-0.0014 -21.2601 L
+-0.0014 -35.4334 L
+-11.3374 -35.4334 L
+-11.3374 -43.9373 L
+-11.3400 -43.9373 L
+-28.3453 -43.9373 L
+-28.3479 -43.9373 L
+-28.3479 -35.4334 L
+-39.6865 -35.4336 L
+-39.6865 -21.2601 L
+-34.0172 -21.2598 L
+-34.0172 -4.2523 L
+-44.8832 -4.2523 -51.4976 -4.2523 -62.3636 -4.2523 C
+-62.3636 -21.2598 L
+-56.6943 -21.2601 L
+-56.6943 -35.4334 L
+-68.0329 -35.4334 L
+-68.0329 -43.9373 L
+-84.6865 -43.9373 L
+-85.0408 -43.9373 L
+-85.0408 -32.5987 L
+-84.7468 -32.5987 L
+-84.9864 12.5076 L
+-68.0329 12.5076 L
+-68.0329 21.5076 L
+-85.0380 21.5076 L
+-84.9056 29.2192 -78.6107 35.4328 -70.8676 35.4328 C
+70.8673 35.4328 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+-52.6893 8.5037 m
+-52.6893 9.7917 L
+-53.7880 10.4786 -54.7183 11.4092 -55.4051 12.5076 C
+-56.6932 12.5076 L
+-56.6932 17.0076 L
+-56.6932 21.5076 L
+-55.4051 21.5076 L
+-54.7183 22.6060 -53.7880 23.5366 -52.6893 24.2235 C
+-52.6893 25.5115 L
+-48.1890 25.5115 L
+-43.6890 25.5115 L
+-43.6890 24.2235 L
+-42.5903 23.5366 -41.6599 22.6060 -40.9731 21.5076 C
+-39.6850 21.5076 L
+-39.6850 17.0076 L
+-39.6850 12.5076 L
+-40.9731 12.5076 L
+-41.6599 11.4092 -42.5903 10.4786 -43.6890 9.7917 C
+-43.6890 8.5037 L
+-48.1890 8.5037 L
+-52.6893 8.5037 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+36.8507 12.7559 m
+39.1927 12.7559 41.1026 14.6659 41.1026 17.0079 c
+41.1026 19.3499 39.1927 21.2598 36.8507 21.2598 c
+34.5087 21.2598 32.5987 19.3499 32.5987 17.0079 c
+32.5987 14.6659 34.5087 12.7559 36.8507 12.7559 c
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+-19.8422 12.7559 m
+-17.5003 12.7559 -15.5903 14.6659 -15.5903 17.0079 c
+-15.5903 19.3499 -17.5003 21.2598 -19.8422 21.2598 c
+-22.1842 21.2598 -24.0942 19.3499 -24.0942 17.0079 c
+-24.0942 14.6659 -22.1842 12.7559 -19.8422 12.7559 c
+s
+U
+1 XR
+0 R
+0.9900 0.9600 0.0000 0.0000 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+/_Eng_HelvLine 11.9999 11.9999 0.0000 0 z
+[1.0000 0.0000 0.0000 1.0000 18.3974 -115.9404]r
+(JA-03-C)t
+T
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+60.6966 -104.8822 m
+60.6966 -103.5941 L
+59.5979 -102.9073 58.6675 -101.9767 57.9807 -100.8782 C
+56.6926 -100.8782 L
+56.6926 -96.3782 L
+56.6926 -91.8782 L
+57.9807 -91.8782 L
+58.6675 -90.7798 59.5979 -89.8492 60.6966 -89.1624 C
+60.6966 -87.8743 L
+65.1969 -87.8743 L
+69.6969 -87.8743 L
+69.6969 -89.1624 L
+70.7956 -89.8492 71.7259 -90.7798 72.4127 -91.8782 C
+73.7008 -91.8782 L
+73.7008 -96.3782 L
+73.7008 -100.8782 L
+72.4127 -100.8782 L
+71.7259 -101.9767 70.7956 -102.9073 69.6969 -103.5941 C
+69.6969 -104.8822 L
+65.1969 -104.8822 L
+60.6966 -104.8822 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+4.0037 -104.8822 m
+4.0037 -103.5941 L
+2.9049 -102.9073 1.9746 -101.9767 1.2878 -100.8782 C
+-0.0003 -100.8782 L
+-0.0003 -96.3782 L
+-0.0003 -91.8782 L
+1.2878 -91.8782 L
+1.9746 -90.7798 2.9049 -89.8492 4.0037 -89.1624 C
+4.0037 -87.8743 L
+8.5039 -87.8743 L
+13.0039 -87.8743 L
+13.0039 -89.1624 L
+14.1026 -89.8492 15.0330 -90.7798 15.7198 -91.8782 C
+17.0079 -91.8782 L
+17.0079 -96.3782 L
+17.0079 -100.8782 L
+15.7198 -100.8782 L
+15.0330 -101.9767 14.1026 -102.9073 13.0039 -103.5941 C
+13.0039 -104.8822 L
+8.5039 -104.8822 L
+4.0037 -104.8822 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+-19.8422 -103.1805 m
+-16.0954 -103.1805 -13.0394 -100.1248 -13.0394 -96.3780 c
+-13.0394 -92.6311 -16.0954 -89.5754 -19.8422 -89.5754 c
+-23.5891 -89.5754 -26.6451 -92.6311 -26.6451 -96.3780 c
+-26.6451 -100.1248 -23.5891 -103.1805 -19.8422 -103.1805 c
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+70.8673 -77.9530 m
+78.6104 -77.9530 84.9053 -84.1666 85.0377 -91.8782 C
+85.0408 -148.8195 L
+85.0408 -148.8192 L
+85.0408 -148.8192 L
+17.0065 -148.8192 L
+17.0065 -134.6460 L
+22.6757 -134.6457 L
+22.6757 -117.6381 L
+11.8097 -117.6381 5.1953 -117.6381 -5.6707 -117.6381 C
+-5.6707 -134.6457 L
+-0.0014 -134.6460 L
+-0.0014 -148.8192 L
+-39.6865 -148.8195 L
+-39.6865 -134.6460 L
+-34.0172 -134.6457 L
+-34.0172 -117.6381 L
+-44.8832 -117.6381 -51.4976 -117.6381 -62.3636 -117.6381 C
+-62.3636 -134.6457 L
+-56.6943 -134.6460 L
+-56.6943 -148.8192 L
+-68.0329 -148.8192 L
+-68.0329 -148.8192 L
+-84.6865 -148.8192 L
+-85.0408 -148.8192 L
+-85.0408 -145.9845 L
+-84.7468 -145.9845 L
+-84.9864 -100.8782 L
+-68.0329 -100.8782 L
+-68.0329 -91.8782 L
+-85.0380 -91.8782 L
+-84.9056 -84.1666 -78.6107 -77.9530 -70.8676 -77.9530 C
+70.8673 -77.9530 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+-52.6893 -104.8822 m
+-52.6893 -103.5941 L
+-53.7880 -102.9073 -54.7183 -101.9767 -55.4051 -100.8782 C
+-56.6932 -100.8782 L
+-56.6932 -96.3782 L
+-56.6932 -91.8782 L
+-55.4051 -91.8782 L
+-54.7183 -90.7798 -53.7880 -89.8492 -52.6893 -89.1624 C
+-52.6893 -87.8743 L
+-48.1890 -87.8743 L
+-43.6890 -87.8743 L
+-43.6890 -89.1624 L
+-42.5903 -89.8492 -41.6599 -90.7798 -40.9731 -91.8782 C
+-39.6850 -91.8782 L
+-39.6850 -96.3782 L
+-39.6850 -100.8782 L
+-40.9731 -100.8782 L
+-41.6599 -101.9767 -42.5903 -102.9073 -43.6890 -103.5941 C
+-43.6890 -104.8822 L
+-48.1890 -104.8822 L
+-52.6893 -104.8822 L
+s
+1 XR
+0 R
+0.8400 0.7300 0.7300 0.9100 K
+0 1 0 0 0 Xy
+1 J
+1 j
+22.9256 M
+1.5001 w
+[]0 d
+36.8504 -86.5587 m
+41.1024 -89.0135 L
+45.3543 -91.4683 L
+45.3543 -96.3782 L
+45.3543 -101.2881 L
+41.1024 -103.7429 L
+36.8504 -106.1977 L
+32.5984 -103.7429 L
+28.3465 -101.2881 L
+28.3465 -96.3782 L
+28.3465 -91.4683 L
+32.5984 -89.0135 L
+36.8504 -86.5587 L
+s
+%%Trailer
+_E end
