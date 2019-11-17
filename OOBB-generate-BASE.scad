@@ -24,7 +24,7 @@
 
     // HOLES
     OOBBHoleTrue = 6/2;
-    OOBBHole3D  = 6.4/2;
+    OOBBHole3D  = 6.5/2;
     
     OOBBHoleLaser = 6/2;
     
