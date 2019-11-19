@@ -19,17 +19,26 @@ SET NAME=PL-%WIDTH%-%HEIGHT%
 mkdir %DIRECTORY%
 
 SET MODE=PL3D
+SET STYLE=TRUE
 del %FILEFULL%.stl
-openscad -o %FILEFULL%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=""%MODE%""" OOBB-generate.scad
+openscad -o %FILEFULL%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" OOBB-generate-%STYLE%.scad
+
+SET STYLE=3DPR
 del %FILEFULL3DPR%.stl
-openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=""%MODE%""" OOBB-generate3DPR.scad
+openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" OOBB-generate-%STYLE%.scad
+
+SET STYLE=TRUE
 del %FILEFULL%.png
-openscad -o %FILEFULL%.png -D "w=%WIDTH%;h=%HEIGHT%;m=""%MODE%""" --render OOBB-generate.scad
+openscad -o %FILEFULL%.png -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" --render OOBB-generate-%STYLE%.scad
 SET MODE=PL2D
+
+SET STYLE=TRUE
 del %FILEFULL%.svg
-openscad -o %FILEFULL%.svg -D "w=%WIDTH%;h=%HEIGHT%;m=""%MODE%""" OOBB-generate.scad
+openscad -o %FILEFULL%.svg -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" OOBB-generate-%STYLE%.scad
+
+SET STYLE=TRUE
 del %FILEFULL%.dxf
-openscad -o %FILEFULL%.dxf -D "w=%WIDTH%;h=%HEIGHT%;m=""%MODE%""" OOBB-generate.scad
+openscad -o %FILEFULL%.dxf -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" OOBB-generate-%STYLE%.scad
 
 
 del %FILEFULLMD%

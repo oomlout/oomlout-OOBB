@@ -3,6 +3,8 @@ REM ###################################
 REM 
 
 
+CALL OOBB-generate-NICHE.bat
+
 SET WIDTH=03
 CALL OOBB-generate-JA.bat
 
