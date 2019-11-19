@@ -1,9 +1,9 @@
 //######  OOBB OpenSCAD Generation  ######
 //########################################
     include <OOBB-Polygon.scad>;
-    //w=5;
-    //h=3;
-    //m="PL3D";
+    //w=3;
+    //h=1;
+    //m="JA3D";
     //s="3DPR";
     
     
@@ -115,17 +115,19 @@ module OOBBPLTESTHoleTolerance(){
 }
 
 module OOBBJA3D(OOWidth,OOHeight,OOExtrude){
-    difference(){
-        linear_extrude(OOExtrude){
-            OOBBJA2DBase(OOWidth,OOHeight);
-        }          
-        for(width = [2:OOWidth-1]){
-            OOBBHoleBolt3D(width);
+    union(){
+        difference(){
+            linear_extrude(OOExtrude){
+                OOBBJA2DBase(OOWidth,OOHeight);
+            }          
+            for(width = [2:OOWidth-1]){
+                OOBBHoleBolt3D(width);
+            }
         }
-    }
-    translate([0,0,3]){        
-        linear_extrude(3){
-            OOBBJA2DTabs(OOWidth,OOHeight);            
+        translate([0,0,3]){        
+            linear_extrude(3){
+                OOBBJA2DTabs(OOWidth,OOHeight);            
+            }
         }
     }
 }

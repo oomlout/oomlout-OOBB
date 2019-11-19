@@ -1,7 +1,7 @@
-    m="HL-N17-05-03";
-    w=0;
-    h=0;
-    s="TRUE";
+    //m="HL-N17-05-03";
+    //w=0;
+    //h=0;
+    //s="TRUE";
 
 include <OOBB-generate-BASE.scad>;
 
