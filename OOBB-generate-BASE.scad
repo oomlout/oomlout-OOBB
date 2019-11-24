@@ -16,7 +16,7 @@
 //GLOBAL DIMENSIONS
 
     //OPENSCAD Variables
-    $fn = 100;
+    $fn = 50;
 
     //CORE
     OOBBSpacing = 15;
@@ -54,6 +54,11 @@
     OOBBm3Hole3D = 3.4/2;
     OOBBm3Hole = s=="3DPR" ? OOBBm3Hole3D : OOBBm3HoleTrue;
     
+    
+    OOBBm3CounterSinkTopHoleTrue = 5.5/2;
+    OOBBm3CounterSinkTopHole3D = 5.9/2;
+    OOBBm3CounterSinkTopHole = s=="3DPR" ? OOBBm3CounterSinkTopHole3D : OOBBm3CounterSinkTopHoleTrue;    
+    
     // TABS
     OOBBTabWidthTrue = 3;
     OOBBTabWidth3D = 2.7;
@@ -88,49 +93,10 @@ if(m=="PL2D"){
     OOBBJA2D(w,h);
 }else if(m=="JA3D"){
     OOBBJA3D(w,h,9);
-}else if(m=="PLTEST-HoleTolerance"){
-    OOBBPLTESTHoleTolerance();
 }
 
 
-module OOBBPLTESTHoleTolerance(){
-    linear_extrude(3){
-        difference(){
-        OOBBPLOutline(4, 3);
 
-
-            for(x=[0:8]){    
-                OOx = floor(x%3)+1;
-                OOy = floor(x/3)+1;
-                OOoffset = -0.1 + 0.1 *x;
-                translate([OOBBSpacing * OOx, OOBBSpacing * OOy]){
-                    circle(OOBBHole + OOoffset);
-                }
-                translate([OOBBSpacing * OOx + OOBBSpacing/2, OOBBSpacing * OOy]){
-                    square([OOBBTabWidth+OOoffset,OOBBTabHeight+OOoffset],true);
-                }    
-            }
-        }
-    }
-}
-
-module OOBBJA3D(OOWidth,OOHeight,OOExtrude){
-    union(){
-        difference(){
-            linear_extrude(OOExtrude){
-                OOBBJA2DBase(OOWidth,OOHeight);
-            }          
-            for(width = [2:OOWidth-1]){
-                OOBBHoleBolt3D(width);
-            }
-        }
-        translate([0,0,3]){        
-            linear_extrude(3){
-                OOBBJA2DTabs(OOWidth,OOHeight);            
-            }
-        }
-    }
-}
 
 module OOBBPL3D(OOWidth,OOHeight,OOExtrude){
     difference(){
@@ -142,6 +108,25 @@ module OOBBPL3D(OOWidth,OOHeight,OOExtrude){
 
 module OOBBJA2D(OOWidth,OOHeight){
     OOBBJA2DBase(OOWidth,OOHeight);
+}
+
+
+module OOBBJA3D(OOWidth,OOHeight,OODepth){
+    union(){
+        difference(){
+            linear_extrude(OODepth){
+                OOBBJAOutline(OOWidth, OOHeight);
+            }
+            OOBBHolesFor3D(OOWidth,OOHeight);
+            for(width = [2:OOWidth-1]){
+                    OOBBHoleBolt3D(width,9);
+                }
+        }
+        //OOBBCube3DComplete(x,y,wid,hei,height,z)
+          for(width = [1:OOWidth-1]){
+                   OOBBCube3DComplete(width*OS+OS/2,1,OOBBTabWidth,OOBBTabHeight+2,3,6);               
+           }
+       }
 }
 
 module OOBBJA2DBase(OOWidth,OOHeight){
@@ -200,7 +185,6 @@ module OOBBHolesFor(OOWidth, OOHeight){
 }
 
 module OOBBHolesFor3D(OOWidth, OOHeight){
-
             for(width = [1:OOWidth]){
                 for(height = [1:OOHeight]){
                     OOBBHole3D(width,height);
@@ -209,14 +193,14 @@ module OOBBHolesFor3D(OOWidth, OOHeight){
             if(OOWidth > 1){
                 for(width = [1:OOWidth-1]){
                     for(height = [1:OOHeight]){
-                        OOBBSlotWide3D(width,height);                    
+                       OOBBSlotWide3D(width,height);                 
                     }
                 }   
             }
             if(OOHeight > 1){
                 for(width = [1:OOWidth]){
                     for(height = [1:OOHeight-1]){
-                        OOBBSlotTall3D(width,height);                    
+                        OOBBSlotTall3D(width,height);                 
                     }
                 }        
             }
@@ -225,15 +209,15 @@ module OOBBHolesFor3D(OOWidth, OOHeight){
 
 
 module OOBBHole3D(OOx,OOy){
-    height=100;    
-    z=90;
+    height=50;    
+    z=height-10;
     rad=OOBBHole;
     OOBBHole3DRadiusComplete(OOx*OS,OOy*OS,rad,height,z);
 }
 
 module OOBBHole3DRadius(x,y,rad){
-    height=100;    
-    z=90;
+    height=50;    
+    z=height-10;
     OOBBHole3DRadiusComplete(x,y,rad,height,z);
 }
 
@@ -242,6 +226,27 @@ module OOBBHole3DRadiusComplete(x,y,rad,height,z){
        linear_extrude(height){
            circle(rad);
        }
+   }
+}
+
+module OOBBCube3DComplete(x,y,wid,hei,height,z){    
+   translate([x,y,z-height]){
+       linear_extrude(height){
+           square([wid,hei],true);
+       }
+   }
+}
+
+module OOBBCountersinkM33DComplete(x,y,z){    
+    top = OOBBm3CounterSinkTopHole;
+    bot = OOBBm3Hole;
+    height = 1.75;
+    OOBBCountersink3DComplete(x,y,top,bot,height,z);
+}
+
+module OOBBCountersink3DComplete(x,y,top,bot,height,z){    
+   translate([x,y,z-height]){
+       cylinder(h=height,r1=bot,r2=top);
    }
 }
 
@@ -287,7 +292,7 @@ module OOBBHoleBolt(OOx){
     }
 }
 
-module OOBBHoleBolt3D(OOx){
+module OOBBHoleBolt3D(OOx,OODepth){
     translate([OOBBSpacing * OOx, 3.5]){
         translate([0, 0, 4.5]){
             rotate([90,0,0]){
@@ -295,9 +300,17 @@ module OOBBHoleBolt3D(OOx){
                     circle(OOBBHole);
                 }
             }
-        }
-        
+        }       
     }
+    translate([OOBBSpacing * OOx, 5.25]){
+        translate([0, 1]){
+            linear_extrude(OODepth){
+                square([OOBBNutM6Width,OOBBNutM6Height],true);
+            }
+        }
+    }
+    
+    
 }
 
 module OOBBSlotWide3D(OOx,OOy){    
