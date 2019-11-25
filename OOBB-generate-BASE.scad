@@ -35,6 +35,19 @@
     echo("                  OOBBHole =",OOBBHole);
 
 
+    // Bearings
+    OOBBBearing606BigTrue = 17/2;
+    OOBBBearing606Big3D  = 17.5/2;
+    
+    OOBBBearing606Big = s=="3DPR" ? OOBBBearing606Big3D : OOBBBearing606BigTrue;
+
+    OOBBBearing606LittleTrue = 14/2;
+    OOBBBearing606Little3D  = 14.5/2;
+    
+    OOBBBearing606Little = s=="3DPR" ? OOBBBearing606Little3D : OOBBBearing606LittleTrue;
+
+
+
     // NUTS
     OOBBNutM6WidthTrue = 11.547;    
     OOBBNutM6Width3D = 12.7; //needs to be the long side    

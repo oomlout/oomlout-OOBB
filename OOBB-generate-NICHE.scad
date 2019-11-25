@@ -1,4 +1,4 @@
-    //m="HL-N17-05-03";
+    //m="BP-606-03-03";
     //w=0;
     //h=0;
     //s="TRUE";
@@ -11,6 +11,8 @@ if(m=="HL-N17-05-03"){
     OOBB_HL_N17_05_03();    
 }else if(m=="PLTEST-HoleTolerance"){
     OOBBPLTESTHoleTolerance();
+}else if(m=="BP-606-03-03"){
+    OOBB_BP_606_03_03();    
 }
 
 
@@ -71,6 +73,38 @@ module OOBB_HL_N17_05_03(){
     
     
 }
+
+module OOBB_BP_606_03_03(){
+    OOWidth = 3;
+    OOHeight = 3;    
+    difference(){
+        OOBBPLOutline3D(OOWidth,OOHeight,12);
+        //OOBB Holes
+        OOBBHole3D(1,1);
+        OOBBHole3D(1,2);
+        OOBBHole3D(1,3);
+        
+        OOBBHole3D(3,1);
+        OOBBHole3D(3,2);
+        OOBBHole3D(3,3);
+        
+        OOBBHole3D(2,1);
+        OOBBHole3D(2,3);
+        
+        OOBBbearingHole("606",2,2);
+        
+        
+    }
+    
+    
+}
+
+module OOBBbearingHole(bearingSize,OOx,OOy){
+    OOBBHole3DRadiusComplete(OOx*OS,OOy*OS,OOBBBearing606Big,6,9);
+    OOBBHole3DRadiusComplete(OOx*OS,OOy*OS,OOBBBearing606Little,12,12);
+
+}
+
 
 
 module OOBBnema17Holes(x,y,z){
