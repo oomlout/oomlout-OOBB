@@ -78,18 +78,27 @@ module OOBB_BP_606_03_03(){
     OOWidth = 3;
     OOHeight = 3;    
     difference(){
-        OOBBPLOutline3D(OOWidth,OOHeight,12);
+        OOBBPLOutline3D(OOWidth,OOHeight,9);
         //OOBB Holes
         OOBBHole3D(1,1);
+        OOBBSlotTall3D(1,1);
+        OOBBSlotWide3D(1,1);
         OOBBHole3D(1,2);
+        OOBBSlotTall3D(1,2);
         OOBBHole3D(1,3);
+        OOBBSlotWide3D(1,3);
         
         OOBBHole3D(3,1);
+        OOBBSlotTall3D(3,1);
+        
         OOBBHole3D(3,2);
+        OOBBSlotTall3D(3,2);
         OOBBHole3D(3,3);
         
         OOBBHole3D(2,1);
+        OOBBSlotWide3D(2,1);
         OOBBHole3D(2,3);
+        OOBBSlotWide3D(2,3);
         
         OOBBbearingHole("606",2,2);
         
@@ -100,8 +109,10 @@ module OOBB_BP_606_03_03(){
 }
 
 module OOBBbearingHole(bearingSize,OOx,OOy){
-    OOBBHole3DRadiusComplete(OOx*OS,OOy*OS,OOBBBearing606Big,6,9);
-    OOBBHole3DRadiusComplete(OOx*OS,OOy*OS,OOBBBearing606Little,12,12);
+    if(bearingSize == "606"){
+        OOBBHole3DRadiusComplete(OOx*OS,OOy*OS,OOBBBearing606Big,6,7.5);
+        OOBBHole3DRadiusComplete(OOx*OS,OOy*OS,OOBBBearing606Little,9,9);
+    }
 
 }
 
