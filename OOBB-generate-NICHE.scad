@@ -1,4 +1,4 @@
-    //m="BP-606-03-03";
+    //m="HL-N17-05-03";
     //w=0;
     //h=0;
     //s="TRUE";
@@ -42,31 +42,50 @@ module OOBB_HL_N17_05_03(){
     OOWidth = 5;
     OOHeight = 3;    
     difference(){
-        OOBBPLOutline3D(OOWidth,OOHeight,12);
+        OOBBPLOutline3D(OOWidth,OOHeight,9);
         //OOBB Holes
         OOBBHole3D(1,1);
+        OOBBSlotTall3D(1,1);
+        OOBBSlotWide3D(1,1);        
         OOBBHole3D(1,2);
+        OOBBSlotTall3D(1,2);
+        OOBBSlotWide3D(1,2);        
         OOBBHole3D(1,3);
+        OOBBSlotWide3D(1,3);        
         
         OOBBHole3D(5,1);
+        OOBBSlotTall3D(5,1);
+        OOBBSlotWide3D(4,1);        
         OOBBHole3D(5,2);
+        OOBBSlotTall3D(5,2);
+        OOBBSlotWide3D(4,2);                
         OOBBHole3D(5,3);
+        OOBBSlotWide3D(4,3);        
+        
+        //slots around NEMA17 Mount
+        OOBBSlotWide3D(2,1);       
+        OOBBSlotWide3D(2,3);       
+        
         
         OOBBHole3D(3,1);
+        OOBBSlotWide3D(3,1);        
         OOBBHole3D(2,2);
+        OOBBSlotTall3D(4,2);
         OOBBHole3D(4,2);
+        OOBBSlotTall3D(4,1);
         OOBBHole3D(3,3);
+        OOBBSlotWide3D(3,3);        
         
-        OOBBnema17Holes(3*OS,2*OS,12);    
+        OOBBnema17Holes(3*OS,2*OS,9);    
         //all the way through hole (to facilitate 19mm OD flexible coupler)
         OOBBHole3DRadius(3*OS,2*OS,22/2);
         //25mm hole for clearance of metal outie bit on a NEMA17 motor
         OOBBHole3DRadiusComplete(3*OS,2*OS,25/2,3.575+4.85,12-3.575);    
         //embedded nuts
-        OOBBPolygon3DComplete90Deg(6,2*OS,2*OS,OOBBNutM6Width/2,4.85,3.575+4.85);
-        OOBBPolygon3DComplete90Deg(6,4*OS,2*OS,OOBBNutM6Width/2,4.85,3.575+4.85);
-        OOBBPolygon3DComplete(6,3*OS,1*OS,OOBBNutM6Width/2,4.85,3.575+4.85);
-        OOBBPolygon3DComplete(6,3*OS,3*OS,OOBBNutM6Width/2,4.85,3.575+4.85);
+        OOBBPolygon3DComplete90Deg(6,2*OS,2*OS,OOBBNutM6Width/2,4.85,4.85);
+        OOBBPolygon3DComplete90Deg(6,4*OS,2*OS,OOBBNutM6Width/2,4.85,4.85);
+        OOBBPolygon3DComplete(6,3*OS,1*OS,OOBBNutM6Width/2,4.85,4.85);
+        OOBBPolygon3DComplete(6,3*OS,3*OS,OOBBNutM6Width/2,4.85,4.85);
     }
     
         
