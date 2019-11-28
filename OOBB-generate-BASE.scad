@@ -54,6 +54,12 @@
     
     OOBBNutM6Width = s=="3DPR" ? OOBBNutM6Width3D : OOBBNutM6WidthTrue;
     
+    OOBBNutM6WidthShortTrue = 10;    
+    OOBBNutM6WidthShort3D = 11; //needs to be the long side    
+    
+    OOBBNutM6WidthShort = s=="3DPR" ? OOBBNutM6WidthShort3D : OOBBNutM6WidthShortTrue;
+    
+    
     OOBBNutM6HeightTrue = 5.5;    
     OOBBNutM6Height3D = 5.5;    
     
@@ -137,7 +143,7 @@ module OOBBJA3D(OOWidth,OOHeight,OODepth){
         }
         //OOBBCube3DComplete(x,y,wid,hei,height,z)
           for(width = [1:OOWidth-1]){
-                   OOBBCube3DComplete(width*OS+OS/2,1,OOBBTabWidth,OOBBTabHeight+2,3,6);               
+                   OOBBCube3DComplete(width*OS+OS/2,1,OOBBTabWidth,OOBBTabHeight+2,OOBBTabWidth,4.5+OOBBTabWidth/2);               
            }
        }
 }
@@ -318,7 +324,7 @@ module OOBBHoleBolt3D(OOx,OODepth){
     translate([OOBBSpacing * OOx, 5.25]){
         translate([0, 1]){
             linear_extrude(OODepth){
-                square([OOBBNutM6Width,OOBBNutM6Height],true);
+                square([OOBBNutM6WidthShort,OOBBNutM6Height],true);
             }
         }
     }
