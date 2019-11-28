@@ -19,6 +19,8 @@ SET NAME=JA-%WIDTH%
 mkdir %DIRECTORY%
 
 
+REM 3D Files
+
 SET MODE=JA3D
 SET STYLE=TRUE
 del %FILEFULL%.stl
@@ -32,6 +34,8 @@ SET STYLE=TRUE
 del %FILEFULL%.png
 openscad -o %FILEFULL%.png -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" --render --colorscheme OOBB OOBB-generate-%STYLE%.scad
 
+
+REM Markdown Files
 
 
 

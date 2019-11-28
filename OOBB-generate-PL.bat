@@ -18,6 +18,8 @@ SET NAME=PL-%WIDTH%-%HEIGHT%
 
 mkdir %DIRECTORY%
 
+REM 3D files
+
 SET MODE=PL3D
 SET STYLE=TRUE
 del %FILEFULL%.stl
@@ -30,6 +32,9 @@ openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" OOBB-gener
 SET STYLE=TRUE
 del %FILEFULL%.png
 openscad -o %FILEFULL%.png -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" --render OOBB-generate-%STYLE%.scad
+
+REM 2D files
+
 SET MODE=PL2D
 
 SET STYLE=TRUE
@@ -40,6 +45,8 @@ SET STYLE=TRUE
 del %FILEFULL%.dxf
 openscad -o %FILEFULL%.dxf -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" OOBB-generate-%STYLE%.scad
 
+
+REM Markdown files
 
 del %FILEFULLMD%
 copy OOBB-template\OOBB-githubMD.md %FILEFULLMD%
