@@ -7,6 +7,8 @@
     //s="3DPR";
     
     
+    
+    
     echo("#########################################");
     echo("######  OOBB Open SCAD Generation  ######");
     echo("");
@@ -111,11 +113,11 @@ if(m=="PL2D"){
 }else if(m=="JA2D"){
     OOBBJA2D(w,h);
 }else if(m=="JA3D"){
-    OOBBJA3D(w,h,9);
+    OOBBJA3D(w,h,12);
 }
 
 
-
+//OOBBJANut3D(4,12);
 
 module OOBBPL3D(OOWidth,OOHeight,OOExtrude){
     difference(){
@@ -131,6 +133,64 @@ module OOBBJA2D(OOWidth,OOHeight){
 
 
 module OOBBJA3D(OOWidth,OOHeight,OODepth){
+    union(){
+        difference(){
+            linear_extrude(OODepth){
+                OOBBJAOutline(OOWidth, OOHeight);
+            }
+            OOBBHolesFor3D(OOWidth,OOHeight);
+            
+            //all holes have nut2
+            for(width = [1:OOWidth]){
+                    OOBBJANut3D(width,12);
+                }
+            
+            //take off the two far side holes
+            /*
+            for(width = [2:OOWidth-1]){
+                    OOBBHoleBolt3D(width,12);
+                }
+            */
+        }
+        //OOBBCube3DComplete(x,y,wid,hei,height,z)
+          /*
+            for(width = [1:OOWidth-1]){
+                   OOBBCube3DComplete(width*OS+OS/2,1,OOBBTabWidth,OOBBTabHeight+2,OOBBTabWidth,4.5+OOBBTabWidth/2);               
+           }
+            */
+       }
+}
+
+module OOBBJA3DOld(OOWidth,OOHeight,OODepth){
+    union(){
+        difference(){
+            linear_extrude(OODepth){
+                OOBBJAOutline(OOWidth, OOHeight);
+            }
+            OOBBHolesFor3D(OOWidth,OOHeight);
+            
+            //all holes have nut2
+            for(width = [1:OOWidth]){
+                    OOBBHoleBolt3D(width,12);
+                }
+            
+            //take off the two far side holes
+            /*
+            for(width = [2:OOWidth-1]){
+                    OOBBHoleBolt3D(width,12);
+                }
+            */
+        }
+        //OOBBCube3DComplete(x,y,wid,hei,height,z)
+          /*
+            for(width = [1:OOWidth-1]){
+                   OOBBCube3DComplete(width*OS+OS/2,1,OOBBTabWidth,OOBBTabHeight+2,OOBBTabWidth,4.5+OOBBTabWidth/2);               
+           }
+            */
+       }
+}
+
+module OOBBJA3DOldOld(OOWidth,OOHeight,OODepth){
     union(){
         difference(){
             linear_extrude(OODepth){
@@ -209,6 +269,7 @@ module OOBBHolesFor3D(OOWidth, OOHeight){
                     OOBBHole3D(width,height);
                 }
             }
+            /*
             if(OOWidth > 1){
                 for(width = [1:OOWidth-1]){
                     for(height = [1:OOHeight]){
@@ -223,6 +284,7 @@ module OOBBHolesFor3D(OOWidth, OOHeight){
                     }
                 }        
             }
+            */
 }
 
 
@@ -287,6 +349,15 @@ module OOBBPolygon3DComplete90Deg(sides,x,y,rad,height,z){
        }
    }
 }
+module OOBBPolygon3DComplete90DegSide(sides,x,y,rad,height,z){    
+   translate([x,y-height,z]){
+       rotate([0,90,90]){
+           linear_extrude(height){
+             Polygon(N=sides,R=rad,h=0);
+           }
+       }
+   }
+}
 
 
 
@@ -311,9 +382,31 @@ module OOBBHoleBolt(OOx){
     }
 }
 
+
+
+module OOBBJANut3D(OOx,OODepth){
+    
+    //hole from bottom
+    translate([OOBBSpacing * OOx, 1.5 + 12-3]){//12mm bolt minus the 3mm thickness from below
+        translate([0, 0, OODepth/2]){
+            rotate([90,0,0]){
+                linear_extrude(12-3){ //12mm bolt minus the 3mm thickness from below
+                    circle(OOBBHole);
+                }
+            }
+        }       
+    }
+    OOBBPolygon3DComplete90DegSide(6,OOx*OS,1.5+4.85+2,OOBBNutM6Width/2,4.85,OODepth/2);
+    
+
+    
+    
+    
+}
+
 module OOBBHoleBolt3D(OOx,OODepth){
     translate([OOBBSpacing * OOx, 3.5]){
-        translate([0, 0, 4.5]){
+        translate([0, 0, OODepth/2]){
             rotate([90,0,0]){
                 linear_extrude(2){
                     circle(OOBBHole);
@@ -365,23 +458,23 @@ module OOBBJackWide(OOx,OOy){
 module OOBBJAOutline(OOWidth,OOHeight){
     
     //Top Left
-    translate([OOBBSpacing * 1-OOBBRadiusOffset, OOBBSpacing * OOHeight+OOBBRadiusOffset]){
+    translate([OOBBSpacing * 1-OOBBRadiusOffset-1.5, OOBBSpacing * OOHeight+OOBBRadiusOffset]){
         circle(OOBBRadius);
     }
     //Top Right
-    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset, OOBBSpacing * OOHeight+OOBBRadiusOffset]){
+    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset + 1.5, OOBBSpacing * OOHeight+OOBBRadiusOffset]){
         circle(OOBBRadius);
     }
     
     //Bottom Square
-    width4 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2;
+    width4 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 + 3;
     height4 = 14.5;//(OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2;
     translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,8.75]){
        square([width4,height4],true);
     }
 
     //TallSquare
-    width3 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2;
+    width3 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2 + 3;
     height3 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2;
     translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
         square([width3,height3],true);
