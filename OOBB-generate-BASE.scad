@@ -386,11 +386,14 @@ module OOBBHoleBolt(OOx){
 
 module OOBBJANut3D(OOx,OODepth){
     
+    OOboltLength = 12;
+    OOholeLength = OOboltLength-3 + 1; //bolt length, minus material thickness plus safrt
+    
     //hole from bottom
-    translate([OOBBSpacing * OOx, 1.5 + 12-3]){//12mm bolt minus the 3mm thickness from below
+    translate([OOBBSpacing * OOx, 1.5 + OOholeLength]){//bolt length minus the 3mm thickness from below 
         translate([0, 0, OODepth/2]){
             rotate([90,0,0]){
-                linear_extrude(12-3){ //12mm bolt minus the 3mm thickness from below
+                linear_extrude(OOholeLength){ //bolt length minus the 3mm thickness from below
                     circle(OOBBHole);
                 }
             }
