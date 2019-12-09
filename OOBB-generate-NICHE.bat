@@ -16,9 +16,9 @@ SET TYPE=HL
 SET PART=HL-N17-05-03
 CALL OOBB-generate-NICHE-generic.bat
 
-REM SET TYPE=HL
-REM SET PART=HL-SE-05-01
-REM CALL OOBB-generate-NICHE-generic.bat
+SET TYPE=HL
+SET PART=HL-SM-03-03
+CALL OOBB-generate-NICHE-generic.bat
 
 
 

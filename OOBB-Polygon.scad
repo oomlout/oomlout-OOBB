@@ -174,7 +174,9 @@ module _Build_Polygon(N=3,R=1,h=0)
 	else
 	{
 		// 2D primitive h=0
-		circle(r=R,$fn=N,center=true);
+        //circle(r=R,$fn=N,center=true);
+        circle(r=R,$fn=N);
+        
 	}
 }
 
