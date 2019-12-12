@@ -27,6 +27,10 @@ if(m=="PL2D"){
     OOBBJA2D(w,h);
 }else if(m=="JA3D"){
     OOBBJA3D(w,h,12);
+}else if(m=="CI2D"){
+    OOBBCI2D(w,h,12);
+}else if(m=="CI3D"){
+    OOBBCI2D(w,h,12);
 }
 
 module OOBBPL3D(OOWidth,OOHeight,OOExtrude){
@@ -366,7 +370,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                height=50;    
                z=height-10;
                rad=OOBBm3Hole;
-               slotw = 10;
+               slotw = 7;
                holeRadius = OOBBm3Hole;
                //slot
             translate([0,0,-10]){
@@ -392,6 +396,19 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         if(item=="M6NutCaptiveSingle"){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,4.85,0);
         }
+        if(item=="Bearing6704Outside"){
+            OOBBBearing6804Outside = 27.6;
+            OOBBBearing6804Height = 4;
+            translate([0,0,-OOBBBearing6804Height]){
+                cylinder(OOBBBearing6804Height,OOBBBearing6804Outside/2,OOBBBearing6804Outside/2);
+            }
+        }
+        if(item=="Bearing6704OutsideHold"){
+            OOBBBearing6804OutsideHold = 25;
+            translate([0,0,-height]){
+                cylinder(height,OOBBBearing6804OutsideHold/2,OOBBBearing6804OutsideHold/2);
+            }
+        }
         if(item=="Bearing6804Outside"){
             OOBBBearing6804Outside = 32.6;
             OOBBBearing6804Height = 7;
@@ -400,7 +417,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             }
         }
         if(item=="Bearing6804OutsideHold"){
-            OOBBBearing6804OutsideHold = 22;
+            OOBBBearing6804OutsideHold = 25;
             translate([0,0,-height]){
                 cylinder(height,OOBBBearing6804OutsideHold/2,OOBBBearing6804OutsideHold/2);
             }
@@ -414,16 +431,16 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             }
         }
         if(item=="ServoMicroHornHole"){
-               height=50;    
-               z=height-10;
-               rad=7.1/2;
-               OOBBHole3DRadiusComplete(0,0,rad,height,z);
+               //height=50;    
+               //z=height-10;
+               rad=7.2/2;
+               OOBBHole3DRadiusComplete(0,0,rad,height,height);
 
         }
         if(item=="ServoMicroHornCatch"){
             translate([0,0,-1.5]){
                linear_extrude(1.5){
-                   square([25,7.1],true);
+                   square([25,7],true);
                }
            }
         }
