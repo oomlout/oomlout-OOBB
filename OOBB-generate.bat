@@ -2,8 +2,41 @@ REM ######  OOBB GENERATE FILES  ######
 REM ###################################
 REM 
 
+REM CI (Circles)
+
+SET HEIGHT=00
+
+SET WIDTH=01
+CALL OOBB-generate-CI.bat
+SET WIDTH=03
+CALL OOBB-generate-CI.bat
+SET WIDTH=05
+CALL OOBB-generate-CI.bat
+SET WIDTH=07
+CALL OOBB-generate-CI.bat
+SET WIDTH=09
+CALL OOBB-generate-CI.bat
+SET WIDTH=11
+CALL OOBB-generate-CI.bat
+SET WIDTH=15
+CALL OOBB-generate-CI.bat
+
+REM WH (Wheels)
+
+SET WIDTH=03
+CALL OOBB-generate-WH.bat
+SET WIDTH=05
+CALL OOBB-generate-WH.bat
+SET WIDTH=07
+CALL OOBB-generate-WH.bat
+
+
+
+REM Niche items
 
 CALL OOBB-generate-NICHE.bat
+
+REM JA (Jacks)
 
 SET WIDTH=01
 CALL OOBB-generate-JA.bat
@@ -26,6 +59,8 @@ CALL OOBB-generate-JA.bat
 SET WIDTH=07
 CALL OOBB-generate-JA.bat
 
+
+REM PL (Plates)
 
 SET WIDTH=02
 SET HEIGHT=01

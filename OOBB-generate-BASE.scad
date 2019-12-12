@@ -2,9 +2,9 @@
 //########################################
     include <OOBB-Polygon.scad>;
     
-    //w=3;
-    //h=5;
-    //m="TEST";
+    //w=5;
+    //h=3;
+    //m="CI3D";
     //s="3DPR";
     
     include <OOBB-generate-DIMENSIONS.scad>;
@@ -28,15 +28,39 @@ if(m=="PL2D"){
 }else if(m=="JA3D"){
     OOBBJA3D(w,h,12);
 }else if(m=="CI2D"){
-    OOBBCI2D(w,h,12);
+    OOBBCI2D(w);
 }else if(m=="CI3D"){
-    OOBBCI2D(w,h,12);
+    OOBBCI3D(w,3);
 }
 
 module OOBBPL3D(OOWidth,OOHeight,OOExtrude){
     difference(){
-        OOBBPLOutline3D(OOWidth,OOHeight,OOBBMaterialThickness);
+        OOBBPLOutline3D(OOWidth,OOHeight,OOExtrude);
         OOBBHolesFor3D(OOWidth,OOHeight);
+    }
+
+}
+
+
+module OOBBPL2D(OOWidth,OOHeight   ){
+    difference(){
+        OOBBPLOutline(OOWidth, OOHeight);
+        OOBBHolesFor(OOWidth, OOHeight);    
+    }
+}
+
+module OOBBCI3D(OOWidth,OOExtrude){
+    difference(){
+        OOBBCIOutline3D(OOWidth,OOExtrude);
+        OOBBHolesForCI3D(OOWidth);
+    }
+
+}
+
+module OOBBCI2D(OOWidth){
+    difference(){
+        OOBBCIOutline(OOWidth);
+        OOBBHolesForCI2D(OOWidth);
     }
 
 }
@@ -69,18 +93,20 @@ module OOBBJA2DBase(OOWidth,OOHeight){
     }   
 }
 
-module OOBBPL2D(OOWidth,OOHeight   ){
-    difference(){
-        OOBBPLOutline(OOWidth, OOHeight);
-        OOBBHolesFor(OOWidth, OOHeight);    
-    }
-}
 
 module OOBBPLOutline3D(OOWidth,OOHeight,OODepth){
     linear_extrude(OODepth){
         OOBBPLOutline(OOWidth, OOHeight);
     }
 }
+
+module OOBBCIOutline3D(OOWidth,OODepth){
+    linear_extrude(OODepth){
+        OOBBCIOutline(OOWidth);
+    }
+}
+
+
 
 module OOBBPLOutline3DComplete(wid3,hei3,OODepth){
     linear_extrude(OODepth){
@@ -98,7 +124,7 @@ module OOBBHolesForJA(OOWidth, OOHeight){
 module OOBBHolesFor(OOWidth, OOHeight){
     for(width = [1:OOWidth]){
         for(height = [1:OOHeight]){
-            OOBBInsertItemCord("OOBBHole",width,height);
+            OOBBInsertItemCoord("OOBBHole",width,height);
         }
     }
 }
@@ -111,12 +137,111 @@ module OOBBHolesFor3D(OOWidth, OOHeight){
             }
 }
 
+module OOBBHolesForCI3D(OOWidth){
+    echo("#####################################################");
+            for(height = [-(round(OOWidth/2)-1):round(OOWidth/2)-1]){
+                for(width = [-(round(OOWidth/2)-1):round(OOWidth/2)-1]){
+                    /*
+                    //middle full rows
+                    if(width == round(OOWidth/2) || height == round(OOWidth/2)){ 
+                        OOBBHole3D(width,height);                        
+                    }
+                    */
+                    CIcenter = 0;
+                    CIradius = (OOWidth * OOBBSpacing - 3)/2;
+                    CIheight = height * OOBBSpacing;
+                    CIwidth = width * OOBBSpacing;
+                    
+                    buffer = 5.99;
+                    rowHeight = -(round(OOWidth/2) * OOBBSpacing) + height * OOBBSpacing;
+                    
+                    CIwidthAtHeight = sqrt((CIradius*CIradius) - (CIheight * CIheight));
+                    CIheightAtWidth = sqrt((CIradius*CIradius) - (CIwidth * CIwidth));
+                    /*
+                    echo();
+                    echo();
+                    echo();
+                    echo("height  ",height);
+                    echo("width  ",width);
+                    echo("CIcente  ",CIcenter);
+                    echo("CIradius  ",CIradius);
+                    echo("CIheight  ",CIheight);
+                    echo("CIwidthAtHeight  ",CIwidthAtHeight);
+                    echo("CIheightAtWidth  ",CIheightAtWidth);
+                    echo("width * OOBBSpacing  ",width * OOBBSpacing);
+                    echo("rowHeight  ",rowHeight);
+                    */
+                    
+                    if((CIwidthAtHeight - buffer) > abs(width * OOBBSpacing))  {
+                        if((CIheightAtWidth - buffer) > abs(height * OOBBSpacing))  {
+                        
+                       OOBBHole3D(width,height);                   
+                        }    
+                        
+                    }
+                    
+                }
+            }
+}
+
+module OOBBHolesForCI2D(OOWidth){
+    //echo("#####################################################");
+            for(height = [-(round(OOWidth/2)-1):round(OOWidth/2)-1]){
+                for(width = [-(round(OOWidth/2)-1):round(OOWidth/2)-1]){
+                    /*
+                    //middle full rows
+                    if(width == round(OOWidth/2) || height == round(OOWidth/2)){ 
+                        OOBBHole3D(width,height);                        
+                    }
+                    */
+                    CIcenter = 0;
+                    CIradius = (OOWidth * OOBBSpacing - 3)/2;
+                    CIheight = height * OOBBSpacing;
+                    CIwidth = width * OOBBSpacing;
+                    
+                    buffer = 5.99;
+                    rowHeight = -(round(OOWidth/2) * OOBBSpacing) + height * OOBBSpacing;
+                    
+                    CIwidthAtHeight = sqrt((CIradius*CIradius) - (CIheight * CIheight));
+                    CIheightAtWidth = sqrt((CIradius*CIradius) - (CIwidth * CIwidth));
+                    /*
+                    echo();
+                    echo();
+                    echo();
+                    echo("height  ",height);
+                    echo("width  ",width);
+                    echo("CIcente  ",CIcenter);
+                    echo("CIradius  ",CIradius);
+                    echo("CIheight  ",CIheight);
+                    echo("CIwidthAtHeight  ",CIwidthAtHeight);
+                    echo("CIheightAtWidth  ",CIheightAtWidth);
+                    echo("width * OOBBSpacing  ",width * OOBBSpacing);
+                    echo("rowHeight  ",rowHeight);
+                    */
+                    
+                    if((CIwidthAtHeight - buffer) > abs(width * OOBBSpacing))  {
+                        if((CIheightAtWidth - buffer) > abs(height * OOBBSpacing))  {
+                        
+                       OOBBInsertItemCoord("OOBBHole",width,height);                   
+                        }    
+                        
+                    }
+                    
+                }
+            }
+}
+
+
 module OOBBHole3D(OOx,OOy){
     height=50;    
     z=height-10;
     rad=OOBBHole;
     OOBBHole3DRadiusComplete(OOx*OOBBSpacing,OOy*OOBBSpacing,rad,height,z);
 }
+
+
+
+
 
 module OOBBHole3DRadius(x,y,rad){
     height=50;    
@@ -184,7 +309,7 @@ module OOBBPolygon3DComplete90DegSide(sides,x,y,rad,height,z){
 
 
 module OOBBHole(OOx,OOy){
-     OOBBinsertItemCord("OOBBHole",OOx,OOy);
+     OOBBInsertItemCoord("OOBBHole",OOx,OOy);
 }
 
 
@@ -274,6 +399,11 @@ module OOBBJAOutline(OOWidth,OOHeight){
         square([width3,height3],true);
     }    
 }
+
+module OOBBCIOutline(OOWidth){
+    circle((OOWidth * OOBBSpacing - 3 )/2);    
+}
+
 module OOBBPLOutline(OOWidth,OOHeight){
     //Bottom Left
     translate([OOBBSpacing * 1-OOBBRadiusOffset, OOBBSpacing * 1-OOBBRadiusOffset]){

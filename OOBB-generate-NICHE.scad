@@ -1,5 +1,5 @@
-    m="HL-SM-03-03";
-    w=0;
+    m="WH";
+    w=3;
     h=0;
     s="TRUE";
 
@@ -15,6 +15,8 @@ if(m=="HL-N17-05-03"){
     OOBB_BP_606_03_03();   
 }else if(m=="HL-SM-03-03"){
     OOBB_HL_SM_03_03();    
+}else if(m=="WH"){
+    OOBB_WH(w);    
 }
 
 
@@ -39,6 +41,20 @@ module OOBBPLTESTHoleTolerance(){
     }
 }
 
+
+module OOBB_WH(width){
+    
+    difference(){
+        OOBBCI3D(width,12);
+        rotate_extrude(convexity = 10, $fn = 100){
+            translate([(width * OOBBSpacing - 3)/2, 6, 0]){
+            circle(r = 3, $fn = 100);
+            }
+        }
+    }
+    
+    
+}
 
 module OOBB_HL_SM_03_03(){
    
