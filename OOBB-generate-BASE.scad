@@ -526,6 +526,10 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         if(item=="M6NutCaptiveSingle"){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,4.85,0);
         }
+        if(item=="Bearing606"){
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing606Big,6,9);
+        OOBBHole3DRadiusComplete(0,0,OOBBBearing606Little,12,12);
+        }
         if(item=="Bearing6704Outside"){
             OOBBBearing6804Outside = 27.6;
             OOBBBearing6804Height = 4;

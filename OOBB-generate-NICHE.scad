@@ -1,4 +1,4 @@
-    m="WH";
+    m="BP-606-03-03";
     w=3;
     h=0;
     s="TRUE";
@@ -241,7 +241,7 @@ module OOBB_BP_606_03_03(){
     OOWidth = 3;
     OOHeight = 3;    
     difference(){
-        OOBBPLOutline3D(OOWidth,OOHeight,9);
+        OOBBPLOutline3D(OOWidth,OOHeight,12);
         //OOBB Holes
         OOBBHole3D(1,1);
         //OOBBSlotTall3D(1,1);
@@ -263,7 +263,7 @@ module OOBB_BP_606_03_03(){
         OOBBHole3D(2,3);
         //OOBBSlotWide3D(2,3);
         
-        OOBBbearingHole("606",2,2);
+        OOBBInsertItemCoord("Bearing606",2,2);
         
         
     }
@@ -271,13 +271,7 @@ module OOBB_BP_606_03_03(){
     
 }
 
-module OOBBbearingHole(bearingSize,OOx,OOy){
-    if(bearingSize == "606"){
-        OOBBHole3DRadiusComplete(OOx*OS,OOy*OS,OOBBBearing606Big,6,7.5);
-        OOBBHole3DRadiusComplete(OOx*OS,OOy*OS,OOBBBearing606Little,9,9);
-    }
 
-}
 
 
 

@@ -21,11 +21,6 @@ SET PART=HL-SM-03-03
 CALL OOBB-generate-NICHE-generic.bat
 
 
-SET TYPE=WH
-SET WIDTH=03
-CALL OOBB-generate-NICHE-generic.bat
-
-
 
 
 
