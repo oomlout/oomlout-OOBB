@@ -1,7 +1,7 @@
-    m="BP-606-03-03";
-    w=3;
-    h=0;
-    s="TRUE";
+    //m="WH";
+    //w=5;
+    //h=0;
+    //s="TRUE";
 
 include <OOBB-generate-BASE.scad>;
 
@@ -43,14 +43,20 @@ module OOBBPLTESTHoleTolerance(){
 
 
 module OOBB_WH(width){
+    oringCrossSection = 5.33/2;
+    oringGrooveDepth = 2;
+    
+    
+    extrudeRadius = (((width * OOBBSpacing - 3) + oringCrossSection*2)-oringGrooveDepth*2)  / 2;
     
     difference(){
         OOBBCI3D(width,12);
-        rotate_extrude(convexity = 10, $fn = 100){
-            translate([(width * OOBBSpacing - 3)/2, 6, 0]){
-            circle(r = 3, $fn = 100);
+        rotate_extrude(convexity = 10){
+            translate([extrudeRadius, 6, 0]){
+            circle(r = oringCrossSection);
             }
         }
+        OOBBInsertItemCoord("Bearing606",0,0);
     }
     
     
