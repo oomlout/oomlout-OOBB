@@ -1,7 +1,7 @@
-    m="WH";
-    w=3;
-    h=0;
-    s="TRUE";
+    //m="WH";
+    //w=3;
+    //h=0;
+    //s="TRUE";
 
 include <OOBB-generate-BASE.scad>;
 
@@ -56,8 +56,17 @@ module OOBB_WH(width){
             circle(r = oringCrossSection);
             }
         }
-        OOBBInsertItemCoord("Bearing606",0,0,ooZ=10.5);
-        OOBBInsertItemCoord("Bearing606",0,0,ooZ=19.5);
+        
+        //original single
+        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
+        
+        //one embedded one extra
+        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=10.5);
+        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=19.5);
+        
+        //two sides
+        OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
+        OOBBInsertItemCoord("Bearing606",0,0,ooZ=16.5);
     }
     
     
