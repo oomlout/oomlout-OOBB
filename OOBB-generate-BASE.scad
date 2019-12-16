@@ -527,8 +527,8 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,4.85,0);
         }
         if(item=="Bearing606"){
-                OOBBHole3DRadiusComplete(0,0,OOBBBearing606Big,6,9-12);
-                OOBBHole3DRadiusComplete(0,0,OOBBBearing606Little,12,12-12);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing606Big,6,0);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing606Little,100,50);
         }
         if(item=="Bearing6704Outside"){
             OOBBBearing6804Outside = 27.6;

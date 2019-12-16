@@ -45,14 +45,14 @@ module OOBBPLTESTHoleTolerance(){
 module OOBB_WH(width){
     oringCrossSection = 5.33/2;
     oringGrooveDepth = 2;
-    
+    wheelThickness = 9;
     
     extrudeRadius = (((width * OOBBSpacing - 3) + oringCrossSection*2)-oringGrooveDepth*2)  / 2;
     
     difference(){
-        OOBBCI3D(width,12);
+        OOBBCI3D(width,wheelThickness);
         rotate_extrude(convexity = 10){
-            translate([extrudeRadius, 6, 0]){
+            translate([extrudeRadius, wheelThickness/2, 0]){
             circle(r = oringCrossSection);
             }
         }
@@ -60,14 +60,18 @@ module OOBB_WH(width){
         //original single
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
         
+        //9mm single
+        OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
+        
         //one embedded one extra
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=10.5);
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=19.5);
         
         //two sides
-        OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
-        OOBBInsertItemCoord("Bearing606",0,0,ooZ=16.5);
+        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
+        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=16.5);
     }
+    
     
     
 }
@@ -257,7 +261,7 @@ module OOBB_BP_606_03_03(){
     OOWidth = 3;
     OOHeight = 3;    
     difference(){
-        OOBBPLOutline3D(OOWidth,OOHeight,12);
+        OOBBPLOutline3D(OOWidth,OOHeight,9);
         //OOBB Holes
         OOBBHole3D(1,1);
         //OOBBSlotTall3D(1,1);
@@ -279,7 +283,7 @@ module OOBB_BP_606_03_03(){
         OOBBHole3D(2,3);
         //OOBBSlotWide3D(2,3);
         
-        OOBBInsertItemCoord("Bearing606",2,2);
+        OOBBInsertItemCoord("Bearing606",2,2,ooZ=7.5);
         
         
     }
