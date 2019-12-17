@@ -1,7 +1,7 @@
-    m="HL-N17-05-03";
-    w=3;
-    h=0;
-    s="TRUE";
+    //m="WH";
+    //w=3;
+    //h=0;
+    //s="TRUE";
 
 include <OOBB-generate-BASE.scad>;
 
@@ -81,7 +81,7 @@ module OOBB_WH(width){
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
         
         //9mm single
-        OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
+        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
         
         //one embedded one extra
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=10.5);
@@ -90,6 +90,11 @@ module OOBB_WH(width){
         //two sides
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=16.5);
+        
+        //9mm two sides
+        OOBBInsertItemCoord("Bearing606",0,0,ooZ=3);
+        OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
+        
     }
     
     
