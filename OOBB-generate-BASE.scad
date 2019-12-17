@@ -488,10 +488,29 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         if(item=="OOBBHole"){
             circle(OOBBHole);
         }
+        if(item=="M3Countersink"){
+            top = OOBBm3CounterSinkTopHole;
+            bot = OOBBm3Hole;
+            height = 1.75;
+            OOBBCountersink3DComplete(0,0,top,bot,height,1.75);
+        }
+        if(item=="M3CountersinkUpsideDown"){
+            top = OOBBm3CounterSinkTopHole;
+            bot = OOBBm3Hole;
+            height = 1.75;
+            OOBBCountersink3DComplete(0,0,bot,top,height,1.75);
+        }
         if(item=="M3Hole"){
                height=50;    
                z=height-10;
                rad=OOBBm3Hole;
+               OOBBHole3DRadiusComplete(0,0,rad,height,z);
+
+        }
+        if(item=="M3HoleScrewTop"){
+               height=50;    
+               z=height-10;
+               rad=OOBBm3Hole+(3.5/2);
                OOBBHole3DRadiusComplete(0,0,rad,height,z);
 
         }

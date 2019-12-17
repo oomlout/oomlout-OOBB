@@ -1,4 +1,4 @@
-    m="BP-6810-05-05";
+    m="HL-SM-03-03";
     w=3;
     h=0;
     s="TRUE";
@@ -81,6 +81,7 @@ module OOBB_WH(width){
 module OOBB_HL_SM_03_03(){
    
         //block part
+    
     translate([0,OOBBSpacing * 6,0]){    
         
     
@@ -108,7 +109,7 @@ module OOBB_HL_SM_03_03(){
     ///6804        //OOBBInsertItemCoord("Bearing6804Outside",2,2,totalHeight);    
     //        OOBBInsertItemCoord("Bearing6804OutsideHold",2,2,12,height=12); 
         
-         //captivem3 nuts 2.5
+         //captive m3 nuts 2.5
             OOBBInsertItemCoord("M3NutCaptive",2.333,1,totalHeight,height=7+7);      
         //servoHolderPart
             //m3 bolts
@@ -158,7 +159,7 @@ module OOBB_HL_SM_03_03(){
     
     //servo arm
     translate([OOBBSpacing * 2,OOBBSpacing * 5,0]){    
-        botTubeHeight = 7.5;
+        botTubeHeight = 4.5;
         bigTubeHeight = 5;
         armHeight = 3+4.85;
         totalHeight = botTubeHeight+bigTubeHeight+armHeight;
@@ -199,6 +200,37 @@ module OOBB_HL_SM_03_03(){
     }
    
     
+   //Bottom Box
+  translate([0,OOBBSpacing * 9,0]){    
+    difference(){
+        OOBBPLOutline3D(3,3,18);
+        OOBBHole3D(1,1);
+        OOBBHole3D(3,1);
+        OOBBHole3D(1,3);
+        OOBBHole3D(3,3);
+        OOBBInsertItemCoord("ServoMicroHole",2,2,height=18);
+        OOBBInsertItemCoord("M3Hole",1.667,1);      
+        OOBBInsertItemCoord("M3CountersinkUpsideDown",1.667,1 ,ooZ=0);  
+        OOBBInsertItemCoord("M3Hole",1.667,3);      
+        OOBBInsertItemCoord("M3CountersinkUpsideDown",1.667,3,ooZ=0);
+        OOBBInsertItemCoord("M3HoleScrewTop",2.333,3);      
+        OOBBInsertItemCoord("M3HoleScrewTop",2.333,1);      
+        //servo holder negative
+        translate([2*OOBBSpacing,2*OOBBSpacing,0]){
+            translate([-5.35,0,18-6]){
+                OOBBPLOutline3DComplete(39+4,24,7);
+            }
+            //piece with screw holes
+            translate([5,0,18-6]){
+                OOBBPLOutline3DComplete(11+4,42+8,7);
+            }        
+        
+        }
+
+    }        
+        
+  } 
+   
 
 }
 
