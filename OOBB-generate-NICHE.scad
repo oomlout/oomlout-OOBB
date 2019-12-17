@@ -1,7 +1,7 @@
-    //m="WH";
-    //w=3;
-    //h=0;
-    //s="TRUE";
+    m="BP-6810-05-05";
+    w=3;
+    h=0;
+    s="TRUE";
 
 include <OOBB-generate-BASE.scad>;
 
@@ -13,6 +13,8 @@ if(m=="HL-N17-05-03"){
     OOBBPLTESTHoleTolerance();
 }else if(m=="BP-606-03-03"){
     OOBB_BP_606_03_03();   
+}else if(m=="BP-6810-05-05"){
+    OOBB_BP_6810_05_05();   
 }else if(m=="HL-SM-03-03"){
     OOBB_HL_SM_03_03();    
 }else if(m=="WH"){
@@ -131,8 +133,8 @@ module OOBB_HL_SM_03_03(){
            
      }
      
+    
      
-     /*
      
     //Servo Holder
     translate([OOBBSpacing * 2,OOBBSpacing * 2,0]){
@@ -143,17 +145,17 @@ module OOBB_HL_SM_03_03(){
                    OOBBPLOutline3DComplete(39,20,6);
                 }
                 //piece with screw holes
-                translate([5-5.35,0,0]){
-                   OOBBPLOutline3DComplete(13,42,6);
+                translate([5,0,0]){
+                   OOBBPLOutline3DComplete(11,42,6);
                 }
             }
            OOBBInsertItemCoord("ServoMicroMount",0,0,height=12);
-           OOBBInsertItemCoord("M3Slot",0,1);
-           OOBBInsertItemCoord("M3Slot",0,-1);
+           OOBBInsertItemCoord("M3Slot",0.33,1);
+           OOBBInsertItemCoord("M3Slot",0.33,-1);
         }
     }
-
-   
+    
+    
     //servo arm
     translate([OOBBSpacing * 2,OOBBSpacing * 5,0]){    
         botTubeHeight = 7.5;
@@ -195,7 +197,7 @@ module OOBB_HL_SM_03_03(){
         }
         
     }
-   */
+   
     
 
 }
@@ -284,6 +286,32 @@ module OOBB_BP_606_03_03(){
         //OOBBSlotWide3D(2,3);
         
         OOBBInsertItemCoord("Bearing606",2,2,ooZ=7.5);
+        
+        
+    }
+    
+    
+}
+
+module OOBB_BP_6810_05_05(){
+    OOWidth = 5;
+    OOHeight = 5;    
+    difference(){
+        OOBBPLOutline3D(OOWidth,OOHeight,9);
+        //OOBB Holes
+        OOBBHole3D(1,1);
+        //OOBBSlotTall3D(1,1);
+        //OOBBSlotWide3D(1,1);
+        OOBBHole3D(1,5);
+        
+        OOBBHole3D(5,1);
+        //OOBBSlotTall3D(3,1);
+        
+        OOBBHole3D(5,5);
+        
+        
+        
+        OOBBInsertItemCoord("Bearing6810",3,3,ooZ=8);
         
         
     }
