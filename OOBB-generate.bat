@@ -62,6 +62,10 @@ CALL OOBB-generate-JA.bat
 
 REM PL (Plates)
 
+SET WIDTH=01
+SET HEIGHT=01
+CALL OOBB-generate-PL.bat
+
 SET WIDTH=02
 SET HEIGHT=01
 CALL OOBB-generate-PL.bat
