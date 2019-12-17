@@ -1,4 +1,4 @@
-    m="HL-SM-03-03";
+    m="CI-03-CA-FL";
     w=3;
     h=0;
     s="TRUE";
@@ -19,8 +19,26 @@ if(m=="HL-N17-05-03"){
     OOBB_HL_SM_03_03();    
 }else if(m=="WH"){
     OOBB_WH(w);    
+}else if(m=="CI-03-CA-FL"){
+    CI_03_CA_FL();    
 }
 
+module CI_03_CA_FL(){
+    difference(){
+        OOBBCIOutline3D(3,12);
+        OOBBHolesForCI3D(3);
+        OOBBInsertItemCoord("CouplerFlangeM5",0,0,12);   
+        //flange cutout
+        cylinder(4*2,23/2,23/2,true);     
+        nutHeight = 12-3;
+        OOBBInsertItemCoord("M6NutCaptiveSingle",0,1,nutHeight);   
+        OOBBInsertItemCoord("M6NutCaptiveSingle",1,0,nutHeight);   
+        OOBBInsertItemCoord("M6NutCaptiveSingle",0,-1,nutHeight);   
+        OOBBInsertItemCoord("M6NutCaptiveSingle",-1,0,nutHeight);   
+    }
+    
+    
+}
 
 module OOBBPLTESTHoleTolerance(){
     linear_extrude(3){

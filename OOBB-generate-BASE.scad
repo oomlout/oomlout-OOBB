@@ -579,6 +579,19 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 cylinder(height,OOBBBearing6804OutsideHold/2,OOBBBearing6804OutsideHold/2);
             }
         }
+        if(item=="CouplerFlangeM5"){
+            rotate([0,0,45]){
+                OOBBInsertItemMM("M3Countersink",0,8,-1.75);
+                OOBBInsertItemMM("M3Hole",0,8);
+                OOBBInsertItemMM("M3Countersink",0,-8,-1.75);
+                OOBBInsertItemMM("M3Hole",0,-8);
+                OOBBInsertItemMM("M3Countersink",8,0,-1.75);
+                OOBBInsertItemMM("M3Hole",8,0);
+                OOBBInsertItemMM("M3Countersink",-8,0,-1.75);
+                OOBBInsertItemMM("M3Hole",-8,0);
+                OOBBHole3D(0,0);
+            }
+        }
         if(item=="ServoMicroHole"){
            //OOBBCube3DComplete(x,y,wid,hei,height,z)
             wid=35;

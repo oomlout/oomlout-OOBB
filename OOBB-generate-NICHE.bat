@@ -24,6 +24,10 @@ SET TYPE=HL
 SET PART=HL-SM-03-03
 CALL OOBB-generate-NICHE-generic.bat
 
+SET TYPE=CI
+SET PART=CI-03-CA-FL
+CALL OOBB-generate-NICHE-generic.bat
+
 
 
 
