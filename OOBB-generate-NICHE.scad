@@ -1,4 +1,4 @@
-    m="CI-03-CA-FL";
+    m="HL-N17-05-03";
     w=3;
     h=0;
     s="TRUE";
@@ -300,6 +300,7 @@ module OOBB_HL_N17_05_03(){
         OOBBHole3DRadius(3*OS,2*OS,22/2);
         //25mm hole for clearance of metal outie bit on a NEMA17 motor
         OOBBHole3DRadiusComplete(3*OS,2*OS,25/2,3.575+4.85,9-6);    
+        OOBBInsertItemCoord("SetScrewKeyway",3,2,ooZ=4.5);    
         
     }
     

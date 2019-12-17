@@ -649,7 +649,14 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 }
             }
         }
-      
+      if(item=="SetScrewKeyway"){
+          rotate([90,0,0]){
+              height=50;    
+              z=50;
+              rad=5/2;
+              OOBBHole3DRadiusComplete(0,0,rad,height,z);
+          }
+      }
       
       
       
