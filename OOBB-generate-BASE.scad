@@ -2,10 +2,10 @@
 //########################################
     include <OOBB-Polygon.scad>;
     
-    //w=5;
-    //h=3;
-    //m="CI3D";
-    //s="3DPR";
+    w=3;
+    h=1;
+    m="JA3D";
+    s="3DPR";
     
     include <OOBB-generate-DIMENSIONS.scad>;
     
@@ -344,7 +344,7 @@ module OOBBJANut3D(OOx,OODepth){
             }
         }       
     }
-    OOBBPolygon3DComplete90DegSide(6,OOx*OS,1.5+4.85+2,OOBBNutM6Width/2,4.85,OODepth/2);
+    OOBBPolygon3DComplete90DegSide(6,OOx*OS,1.5+OOBBNutM6Height+2,OOBBNutM6Width/2,OOBBNutM6Height,OODepth/2);
     
 
     
@@ -397,6 +397,13 @@ module OOBBJAOutline(OOWidth,OOHeight){
     height3 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2;
     translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
         square([width3,height3],true);
+    } 
+ 
+    //WideSquare
+    width5 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2  + 3;
+    height5 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2- OOBBRadius*2;
+    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
+        square([width5,height5],true);
     }    
 }
 

@@ -2,9 +2,12 @@ REM ######  OOBB GENERATE FILES  ######
 REM ###################################
 REM 
 
+SET HEIGHT=00
+SET EXTRA=NONE
+
 REM CI (Circles)
 
-SET HEIGHT=00
+
 
 SET WIDTH=01
 CALL OOBB-generate-CI.bat
