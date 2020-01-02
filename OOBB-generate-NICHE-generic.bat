@@ -8,8 +8,12 @@ REM
 
 SET DIRECTORY=parts\%TYPE%\%PART%\
 
-SET FILE=OOBB-%PART%
-SET FILE3DPR=OOBB-%PART%-3DPR
+SET EXTRAFILESTRING=-%EXTRA%
+
+IF %EXTRA%==NONE SET EXTRAFILESTRING=
+
+SET FILE=OOBB-%PART%%EXTRAFILESTRING%
+SET FILE3DPR=OOBB-%PART%%EXTRAFILESTRING%-3DPR
 SET FILEMD=README.md
 
 SET FILEFULL=%DIRECTORY%%FILE%
@@ -24,15 +28,15 @@ SET MODE=%PART%
 
 SET STYLE=TRUE
 del %FILEFULL%.stl
-openscad -o %FILEFULL%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\""  OOBB-generate-%STYLE%.scad
+openscad -o %FILEFULL%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\""  OOBB-generate-%STYLE%.scad
 
 SET STYLE=3DPR
 del %FILEFULL3DPR%.stl
-openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";s=\"%STYLE%\"" OOBB-generate-%STYLE%.scad
+openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";s=\"%STYLE%\";extra=\"%EXTRA%\"" OOBB-generate-%STYLE%.scad
 
 SET STYLE=TRUE
 del %FILEFULL%.png
-openscad -o %FILEFULL%.png -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";s=\"%STYLE%\"" --render --colorscheme OOBB OOBB-generate-%STYLE%.scad
+openscad -o %FILEFULL%.png -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";s=\"%STYLE%\";extra=\"%EXTRA%\"" --render --colorscheme OOBB OOBB-generate-%STYLE%.scad
 
 
 

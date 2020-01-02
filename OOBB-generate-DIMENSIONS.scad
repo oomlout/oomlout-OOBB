@@ -52,8 +52,8 @@
     OOBBNutM6WidthShort = s=="3DPR" ? OOBBNutM6WidthShort3D : OOBBNutM6WidthShortTrue;
     
     
-    OOBBNutM6HeightTrue = 5.5;    
-    OOBBNutM6Height3D = 5.5;    
+    OOBBNutM6HeightTrue = 5;    //actually 4.85 extra for clearance
+    OOBBNutM6Height3D = 5;    
     
     OOBBNutM6Height = s=="3DPR" ? OOBBNutM6Height3D : OOBBNutM6HeightTrue;
     
