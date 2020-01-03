@@ -4,7 +4,7 @@
     w=3;
     h=0;
     s="TRUE";
-    extra="NONE";
+    extra="HORN";
     */
 include <OOBB-generate-BASE.scad>;
 
