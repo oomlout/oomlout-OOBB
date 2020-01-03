@@ -25,8 +25,8 @@ if(m=="HL-N17-05-03"){
     OOBB_WH(w);    
 }else if(m=="CI-03-CA-FL"){
     CI_03_CA_FL();    
-}else if(m=="TESTER-SERVOHORN"){
-    TESTER_SERVOHORN();    
+}else if(m=="TEST-SERVOHORN"){
+    TEST_SERVOHORN();    
 }
 
 module CI_03_CA_FL(){
@@ -46,7 +46,7 @@ module CI_03_CA_FL(){
     
 }
 
-module TESTER_SERVOHORN(){
+module TEST_SERVOHORN(){
     
     difference(){
         OOBBPLOutline3D(2, 3, 6);
