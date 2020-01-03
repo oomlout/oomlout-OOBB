@@ -626,7 +626,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                //height=50;    
                //z=height-10;
                rad=7.4/2;
-               #OOBBHole3DRadiusComplete(0,0,rad,height,height);
+               OOBBHole3DRadiusComplete(0,0,rad,height,height);
 
         }
         if(item=="ServoMicroHornCatch"){

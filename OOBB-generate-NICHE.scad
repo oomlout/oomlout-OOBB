@@ -1,11 +1,12 @@
     
     /*
-    m="HL-SM-03-03";
+    m="TESTER-SERVOHORN";
     w=3;
     h=0;
     s="TRUE";
     extra="HORN";
     */
+    
 include <OOBB-generate-BASE.scad>;
 
 
@@ -24,6 +25,8 @@ if(m=="HL-N17-05-03"){
     OOBB_WH(w);    
 }else if(m=="CI-03-CA-FL"){
     CI_03_CA_FL();    
+}else if(m=="TESTER-SERVOHORN"){
+    TESTER_SERVOHORN();    
 }
 
 module CI_03_CA_FL(){
@@ -42,6 +45,26 @@ module CI_03_CA_FL(){
     
     
 }
+
+module TESTER_SERVOHORN(){
+    
+    difference(){
+        OOBBPLOutline3D(2, 3, 6);
+        height = 20;
+        rad=7.2/2;
+        OOBBHole3DRadiusComplete(OOBBSpacing * 1,OOBBSpacing * 1,rad,height,height-5);
+        rad1=7.4/2;
+        OOBBHole3DRadiusComplete(OOBBSpacing * 1,OOBBSpacing * 2,rad1,height,height-5);
+        rad2=7.6/2;
+        OOBBHole3DRadiusComplete(OOBBSpacing * 1,OOBBSpacing * 3,rad2,height,height-5);
+        rad3=7.8/2;
+        OOBBHole3DRadiusComplete(OOBBSpacing * 2,OOBBSpacing * 1,rad3,height,height-5);
+        rad4=8.0/2;
+        OOBBHole3DRadiusComplete(OOBBSpacing * 2,OOBBSpacing * 2,rad4,height,height-5);
+
+    }
+}
+
 
 module OOBBPLTESTHoleTolerance(){
     linear_extrude(3){
