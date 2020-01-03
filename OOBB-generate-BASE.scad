@@ -554,7 +554,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,OOBBNutM6Height,0);
         }
         if(item=="M6BoltClearance"){
-                OOBBHole3DRadiusComplete(0,0,16/2,height,0);
+                OOBBHole3DRadiusComplete(0,0,13/2,height,0);
         }
         if(item=="Bearing606"){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing606Big,6,0);
@@ -613,6 +613,13 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 OOBBInsertItemMM("M3Hole",-8,0);
                 OOBBHole3D(0,0);
             }
+        }
+        if(item=="ServoWireClearance"){
+           translate([0,0,-1.5]){
+                linear_extrude(1.5){
+                    square([15,4],true);
+               }
+           }
         }
         if(item=="ServoMicroHole"){
            //OOBBCube3DComplete(x,y,wid,hei,height,z)

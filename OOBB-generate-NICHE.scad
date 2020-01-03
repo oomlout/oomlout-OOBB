@@ -1,10 +1,10 @@
     
     /*
-    m="TESTER-SERVOHORN";
+    m="HL-SM-03-03";
     w=3;
     h=0;
     s="TRUE";
-    extra="HORN";
+    extra="NONE";
     */
     
 include <OOBB-generate-BASE.scad>;
@@ -146,22 +146,23 @@ module OOBB_HL_SM_03_03(){
                 OOBBPLOutline3D(3,3,totalHeight);
              //holes
                 OOBBHole3D(1,1);
-                OOBBInsertItemCoord("M6BoltClearance",1,1,totalHeight,height=5);      
+                //extra clearance hole
+                OOBBInsertItemCoord("M6BoltClearance",1,1,totalHeight,height=4);      
                 OOBBHole3D(1,3);   
-                OOBBInsertItemCoord("M6BoltClearance",1,3,totalHeight,height=5);
+                OOBBInsertItemCoord("M6BoltClearance",1,3,totalHeight,height=4);
                 OOBBHole3D(3,1);   
-                OOBBInsertItemCoord("M6BoltClearance",3,1,totalHeight,height=5);
+                OOBBInsertItemCoord("M6BoltClearance",3,1,totalHeight,height=4);
                 OOBBHole3D(3,3);   
-                OOBBInsertItemCoord("M6BoltClearance",3,3,totalHeight,height=5);
+                OOBBInsertItemCoord("M6BoltClearance",3,3,totalHeight,height=4);
                 
             //extra keepout
-                translate([OOBBSpacing*2,OOBBSpacing-1,totalHeight-5]){
-                    linear_extrude(5){
+                translate([OOBBSpacing*2,OOBBSpacing-1,totalHeight-4]){
+                    linear_extrude(4){
                     square([42,10],true);
                     }
                 }
-                translate([OOBBSpacing*2,OOBBSpacing*3+1,totalHeight-5]){
-                    linear_extrude(5){
+                translate([OOBBSpacing*2,OOBBSpacing*3+1,totalHeight-4]){
+                    linear_extrude(4){
                     square([42,10],true);
                     }
                 }
@@ -197,7 +198,7 @@ module OOBB_HL_SM_03_03(){
              
              
              //clearance hole
-               #OOBBInsertItemCoord("ServoMicroHole",2,2,height=7);
+               OOBBInsertItemCoord("ServoMicroHole",2,2,height=5);
             }
                
          }
@@ -271,34 +272,42 @@ module OOBB_HL_SM_03_03(){
    //Base
     if( extra == "NONE" || extra=="BASE" || extra=="NOHORN"){    
       translate([0,OOBBSpacing * 6,0]){    
-        difference(){
-            OOBBPLOutline3D(3,3,18);
-            OOBBHole3D(1,1);
-            OOBBHole3D(3,1);
-            OOBBHole3D(1,3);
-            OOBBHole3D(3,3);
-            OOBBInsertItemCoord("ServoMicroHole",2,2,height=18);
-            OOBBInsertItemCoord("M3Hole",1.667,1);      
-            OOBBInsertItemCoord("M3CountersinkUpsideDown",1.667,1 ,ooZ=0);  
-            OOBBInsertItemCoord("M3Hole",1.667,3);      
-            OOBBInsertItemCoord("M3CountersinkUpsideDown",1.667,3,ooZ=0);
-            OOBBInsertItemCoord("M3HoleScrewTop",2.333,3);      
-            OOBBInsertItemCoord("M3HoleScrewTop",2.333,1);      
-            //servo holder negative
-            translate([2*OOBBSpacing,2*OOBBSpacing,0]){
-                translate([-5.35,0,18-6]){
-                    OOBBPLOutline3DComplete(39+4,24,7);
+       union(){ 
+           difference(){
+                OOBBPLOutline3D(3,3,18);
+                OOBBInsertItemCoord("ServoWireClearance",3,2,ooZ=18);      
+                OOBBHole3D(1,1);
+                OOBBHole3D(3,1);
+                OOBBHole3D(1,3);
+                OOBBHole3D(3,3);
+                OOBBInsertItemCoord("ServoMicroHole",2,2,height=18);
+                OOBBInsertItemCoord("M3Hole",1.667,1);      
+                OOBBInsertItemCoord("M3CountersinkUpsideDown",1.667,1 ,ooZ=0);  
+                OOBBInsertItemCoord("M3Hole",1.667,3);      
+                OOBBInsertItemCoord("M3CountersinkUpsideDown",1.667,3,ooZ=0);
+                OOBBInsertItemCoord("M3HoleScrewTop",2.333,3);      
+                OOBBInsertItemCoord("M3HoleScrewTop",2.333,1);      
+                //servo holder negative
+                translate([2*OOBBSpacing,2*OOBBSpacing,0]){
+                    translate([-5.35,0,18-6]){
+                        OOBBPLOutline3DComplete(39+4,24,7);
+                    }
+                    //piece with screw holes
+                    translate([5,0,18-6]){
+                        OOBBPLOutline3DComplete(11+4,42+8,7);
+                    }        
+                
                 }
-                //piece with screw holes
-                translate([5,0,18-6]){
-                    OOBBPLOutline3DComplete(11+4,42+8,7);
-                }        
-            
-            }
 
-        }        
-            
-      } 
+            }        
+       //extra block added to conceal servo
+       translate([OOBBSpacing * 1-5, OOBBSpacing*2,0]){
+           linear_extrude(12){
+            square([2,16],true);
+           }
+       }
+        }
+       } 
   }   
 
 }
