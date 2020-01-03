@@ -1,11 +1,11 @@
     
-    /*
-    m="BP-606-03-03";
+    
+    m="HL-SM-03-03";
     w=3;
     h=0;
     s="TRUE";
     extra="NONE";
-    */
+    
 include <OOBB-generate-BASE.scad>;
 
 
@@ -106,9 +106,10 @@ module OOBB_WH(width){
 
 module OOBB_HL_SM_03_03(){
    
-    //BASE part
-    if( extra == "NONE" || extra=="HOLDER"){
+    //HOLDER part
+    if( extra == "NONE" || extra=="HOLDER" || extra=="NOHORN"){
         translate([0,OOBBSpacing * 3,0]){    
+        //translate([0,OOBBSpacing * 0,0]){    
             
         
             spacerHeight = 12;
@@ -121,10 +122,28 @@ module OOBB_HL_SM_03_03(){
             difference(){
                 OOBBPLOutline3D(3,3,totalHeight);
              //holes
-                OOBBHole3D(1,1);   
+                OOBBHole3D(1,1);
+                OOBBInsertItemCoord("M6BoltClearance",1,1,totalHeight,height=5);      
                 OOBBHole3D(1,3);   
+                OOBBInsertItemCoord("M6BoltClearance",1,3,totalHeight,height=5);
                 OOBBHole3D(3,1);   
+                OOBBInsertItemCoord("M6BoltClearance",3,1,totalHeight,height=5);
                 OOBBHole3D(3,3);   
+                OOBBInsertItemCoord("M6BoltClearance",3,3,totalHeight,height=5);
+                
+            //extra keepout
+                translate([OOBBSpacing*2,OOBBSpacing-1,totalHeight-5]){
+                    linear_extrude(5){
+                    square([42,10],true);
+                    }
+                }
+                translate([OOBBSpacing*2,OOBBSpacing*3+1,totalHeight-5]){
+                    linear_extrude(5){
+                    square([42,10],true);
+                    }
+                }
+                
+                
             //bearing hole
         
         ///6704
@@ -155,7 +174,7 @@ module OOBB_HL_SM_03_03(){
              
              
              //clearance hole
-               OOBBInsertItemCoord("ServoMicroHole",2,2,height=12);
+               #OOBBInsertItemCoord("ServoMicroHole",2,2,height=7);
             }
                
          }
@@ -183,9 +202,9 @@ module OOBB_HL_SM_03_03(){
 
     //servo horn
     if( extra == "NONE" || extra=="HORN"){    
-        translate([OOBBSpacing * 2,OOBBSpacing * 8,0]){    
+        translate([OOBBSpacing * 2,OOBBSpacing * 11,0]){    
             botTubeHeight = 4.5;
-            bigTubeHeight = 5;
+            bigTubeHeight = 2;
             armHeight = 3+4.85;
             totalHeight = botTubeHeight+bigTubeHeight+armHeight;
             difference(){
@@ -227,8 +246,8 @@ module OOBB_HL_SM_03_03(){
 
     
    //Base
-    if( extra == "NONE" || extra=="BASE"){    
-      translate([0,OOBBSpacing * 9,0]){    
+    if( extra == "NONE" || extra=="BASE" || extra=="NOHORN"){    
+      translate([0,OOBBSpacing * 6,0]){    
         difference(){
             OOBBPLOutline3D(3,3,18);
             OOBBHole3D(1,1);

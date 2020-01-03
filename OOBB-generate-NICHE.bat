@@ -41,6 +41,11 @@ CALL OOBB-generate-NICHE-generic.bat
 SET EXTRA=HORN
 CALL OOBB-generate-NICHE-generic.bat
 
+
+SET EXTRA=NOHORN
+CALL OOBB-generate-NICHE-generic.bat
+
+
 SET EXTRA=NONE
 
 

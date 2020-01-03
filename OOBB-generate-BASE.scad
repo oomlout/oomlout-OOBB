@@ -2,11 +2,12 @@
 //########################################
     include <OOBB-Polygon.scad>;
     
+    /*
     w=3;
     h=1;
     m="JA3D";
     s="3DPR";
-    
+    */
     include <OOBB-generate-DIMENSIONS.scad>;
     
     
@@ -331,7 +332,7 @@ module OOBBHoleBolt(OOx){
 
 module OOBBJANut3D(OOx,OODepth){
     
-    OOboltLength = 12;
+    OOboltLength = 15;
     OOholeLength = OOboltLength-3 + 1; //bolt length, minus material thickness plus safrt
     
     //hole from bottom
@@ -551,6 +552,9 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         }
         if(item=="M6NutCaptiveSingle"){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,4.85,0);
+        }
+        if(item=="M6BoltClearance"){
+                OOBBHole3DRadiusComplete(0,0,16/2,height,0);
         }
         if(item=="Bearing606"){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing606Big,6,0);
