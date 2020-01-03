@@ -1,11 +1,11 @@
     
-    
+    /*
     m="HL-SM-03-03";
     w=3;
     h=0;
     s="TRUE";
     extra="NONE";
-    
+    */
 include <OOBB-generate-BASE.scad>;
 
 

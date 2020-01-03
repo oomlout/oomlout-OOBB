@@ -2,27 +2,23 @@ SET WIDTH=0
 SET HEIGHT=0
 SET EXTRA=NONE
 
-REM JA (Jacks)
 
-SET HEIGHT=01
+SET TYPE=HL
+SET PART=HL-SM-03-03
+CALL OOBB-generate-NICHE-generic.bat
 
-SET WIDTH=01
-CALL OOBB-generate-JA.bat
+SET EXTRA=HOLDER
+CALL OOBB-generate-NICHE-generic.bat
 
-SET WIDTH=02
-CALL OOBB-generate-JA.bat
+SET EXTRA=BASE
+CALL OOBB-generate-NICHE-generic.bat
 
-SET WIDTH=03
-CALL OOBB-generate-JA.bat
+SET EXTRA=HORN
+CALL OOBB-generate-NICHE-generic.bat
 
-SET WIDTH=04
-CALL OOBB-generate-JA.bat
 
-SET WIDTH=05
-CALL OOBB-generate-JA.bat
+SET EXTRA=NOHORN
+CALL OOBB-generate-NICHE-generic.bat
 
-SET WIDTH=06
-CALL OOBB-generate-JA.bat
 
-SET WIDTH=07
-CALL OOBB-generate-JA.bat
+SET EXTRA=NONE

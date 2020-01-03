@@ -551,7 +551,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM3Width/2,height,0);
         }
         if(item=="M6NutCaptiveSingle"){
-           OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,4.85,0);
+           OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,OOBBNutM6Height,0);
         }
         if(item=="M6BoltClearance"){
                 OOBBHole3DRadiusComplete(0,0,16/2,height,0);
