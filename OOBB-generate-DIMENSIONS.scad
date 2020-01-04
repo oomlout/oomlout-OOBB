@@ -32,6 +32,9 @@
     
     OOBBBearing606Little = s=="3DPR" ? OOBBBearing606Little3D : OOBBBearing606LittleTrue;
 
+        //6804 and 6704
+        Bearing6804Inside = 19.8/2;
+        Bearing6704Inside = Bearing6804Inside;
 
 
     // NUTS

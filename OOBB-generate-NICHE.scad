@@ -1,11 +1,11 @@
     
-    /*
+    
     m="HL-SM-03-03";
     w=3;
     h=0;
     s="TRUE";
-    extra="NONE";
-    */
+    extra="HORN";
+    
     
 include <OOBB-generate-BASE.scad>;
 
@@ -129,7 +129,7 @@ module OOBB_WH(width){
 
 module OOBB_HL_SM_03_03(){
    
-    //HOLDER part
+    //######  HOLDER part
     if( extra == "NONE" || extra=="HOLDER" || extra=="NOHORN"){
         translate([0,OOBBSpacing * 3,0]){    
         //translate([0,OOBBSpacing * 0,0]){    
@@ -204,7 +204,7 @@ module OOBB_HL_SM_03_03(){
          }
     
      
-    //Servo Holder
+    //######  Servo Holder
         translate([OOBBSpacing * 2,OOBBSpacing * 2,0]){
             difference(){
                 union(){
@@ -224,22 +224,30 @@ module OOBB_HL_SM_03_03(){
         }
     }
 
-    //servo horn
+    //###### Servo Horn
     if( extra == "NONE" || extra=="HORN"){    
         translate([OOBBSpacing * 2,OOBBSpacing * 11,0]){    
+            /*
+                BASE 2.5 (both in botTube)
+                HORN 1.5
+                TUBE 0.5  4.5
+                TUBE BIG 2
+                NUT GAP 5
+                TOP 3
+            */
             botTubeHeight = 4.5;
             bigTubeHeight = 2;
-            armHeight = 3+4.85;
+            armHeight = 3+OOBBNutM6Height;
             totalHeight = botTubeHeight+bigTubeHeight+armHeight;
             difference(){
 
                 union(){
                     
-                    Bearing6804Inside = 19.8/2;
+                    
                     //bottomTube
                     
                     translate([0,0,botTubeHeight/2]){
-                        cylinder(botTubeHeight,Bearing6804Inside,Bearing6804Inside,true);
+                        cylinder(botTubeHeight,Bearing6704Inside,Bearing6704Inside,true);
                     }
                     //bigTube    
                     
@@ -253,7 +261,7 @@ module OOBB_HL_SM_03_03(){
                     }
                 }
                 OOBBInsertItemCoord("ServoMicroHornHole",0,0,height=2);
-                OOBBInsertItemCoord("ServoMicroHornCatch",0,0,3.5);
+                OOBBInsertItemCoord("ServoMicroHornCatch",0,0,4);
                 
                 OOBBHole3D(0,0);
                 OOBBHole3D(-1,0);
