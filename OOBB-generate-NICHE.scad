@@ -1,11 +1,11 @@
     
-    /*
+    
     m="HL-SM-03-03";
     w=3;
     h=0;
     s="TRUE";
-    extra="HORN";
-    */
+    extra="HOLDER";
+    
     
 include <OOBB-generate-BASE.scad>;
 
@@ -198,7 +198,7 @@ module OOBB_HL_SM_03_03(){
              
              
              //clearance hole
-               OOBBInsertItemCoord("ServoMicroHole",2,2,height=5);
+               OOBBInsertItemCoord("ServoMicroHole",2,2,height=7);
             }
                
          }
