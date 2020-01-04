@@ -561,9 +561,19 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing606Little,100,50);
         }
         if(item=="Bearing6810"){
-                OOBBHole3DRadiusComplete(0,0,65.6/2,6,0);
+                OOBBHole3DRadiusComplete(0,0,65.6/2,7,0);
                 OOBBHole3DRadiusComplete(0,0,54/2,100,50);
         }
+        if(item=="Bearing6704"){
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6704Outside,4,0);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6704Little,100,50);
+        }
+        if(item=="Bearing6704Hold"){
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6704OutsideHold,4,0);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6704Little,100,50);
+        }
+        
+        
         if(item=="BearingJoiner0303"){
             OOBBInsertItemCoord("M3Hole",1.5,1);
             OOBBInsertItemCoord("M3CountersinkUpsideDown",1.5,1);
@@ -574,32 +584,6 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             OOBBInsertItemCoord("M3NutCaptive",1,2.5,2.4,2.4);
             OOBBInsertItemCoord("M3Hole",3,1.5);
             OOBBInsertItemCoord("M3NutCaptive",3,1.5,2.4,2.4);
-        }        
-        if(item=="Bearing6704Outside"){
-            OOBBBearing6804Outside = 27.6;
-            OOBBBearing6804Height = 4;
-            translate([0,0,-OOBBBearing6804Height]){
-                cylinder(OOBBBearing6804Height,OOBBBearing6804Outside/2,OOBBBearing6804Outside/2);
-            }
-        }
-        if(item=="Bearing6704OutsideHold"){
-            OOBBBearing6804OutsideHold = 25;
-            translate([0,0,-height]){
-                cylinder(height,OOBBBearing6804OutsideHold/2,OOBBBearing6804OutsideHold/2);
-            }
-        }
-        if(item=="Bearing6804Outside"){
-            OOBBBearing6804Outside = 32.6;
-            OOBBBearing6804Height = 7;
-            translate([0,0,-OOBBBearing6804Height]){
-                cylinder(OOBBBearing6804Height,OOBBBearing6804Outside/2,OOBBBearing6804Outside/2);
-            }
-        }
-        if(item=="Bearing6804OutsideHold"){
-            OOBBBearing6804OutsideHold = 25;
-            translate([0,0,-height]){
-                cylinder(height,OOBBBearing6804OutsideHold/2,OOBBBearing6804OutsideHold/2);
-            }
         }
         if(item=="CouplerFlangeM5"){
             rotate([0,0,45]){

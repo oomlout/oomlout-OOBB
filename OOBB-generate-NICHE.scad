@@ -1,10 +1,10 @@
     
     
-    m="HL-SM-03-03";
+    m="TEST-BEARING6704";
     w=3;
     h=0;
     s="TRUE";
-    extra="HOLDER";
+    extra="NONE";
     
     
 include <OOBB-generate-BASE.scad>;
@@ -27,6 +27,8 @@ if(m=="HL-N17-05-03"){
     CI_03_CA_FL();    
 }else if(m=="TEST-SERVOHORN"){
     TEST_SERVOHORN();    
+}else if(m=="TEST-BEARING6704"){
+    TEST_BEARING6704();    
 }
 
 module CI_03_CA_FL(){
@@ -46,6 +48,32 @@ module CI_03_CA_FL(){
     
 }
 
+module TEST_BEARING6704(){
+    
+    difference(){
+        OOBBPLOutline3D(5, 7, 6);
+        
+        OOBBHole3DRadiusComplete(25,25,OOBBBearing6704OutsideHoldTrue,4,6);
+        OOBBHole3DRadiusComplete(25,25,OOBBBearing6704Little,100,50);
+        
+        OOBBHole3DRadiusComplete(25,55,OOBBBearing6704OutsideHoldTrue+.1,4,6);
+        OOBBHole3DRadiusComplete(25,55,OOBBBearing6704Little,100,50);
+        
+        OOBBHole3DRadiusComplete(25,85,OOBBBearing6704OutsideHoldTrue+.2,4,6);
+        OOBBHole3DRadiusComplete(25,85,OOBBBearing6704Little,100,50);
+        
+        
+        OOBBHole3DRadiusComplete(55,25,OOBBBearing6704OutsideHoldTrue+.3,4,6);
+        OOBBHole3DRadiusComplete(55,25,OOBBBearing6704Little,100,50);
+        
+        OOBBHole3DRadiusComplete(55,55,OOBBBearing6704OutsideHoldTrue+.4,4,6);
+        OOBBHole3DRadiusComplete(55,55,OOBBBearing6704Little,100,50);
+        
+    }
+}
+        
+        
+        
 module TEST_SERVOHORN(){
     
     difference(){
@@ -171,8 +199,7 @@ module OOBB_HL_SM_03_03(){
             //bearing hole
         
         ///6704
-        OOBBInsertItemCoord("Bearing6704Outside",2,2,totalHeight);    
-        OOBBInsertItemCoord("Bearing6704OutsideHold",2,2,spacerHeight,height=12); 
+        OOBBInsertItemCoord("Bearing6704Hold",2,2,totalHeight);    
         
                 
         ///6804        //OOBBInsertItemCoord("Bearing6804Outside",2,2,totalHeight);    
