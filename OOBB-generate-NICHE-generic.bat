@@ -36,7 +36,7 @@ openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";s=\"%STYLE%
 
 SET STYLE=TRUE
 del %FILEFULL%.png
-openscad -o %FILEFULL%.png -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";s=\"%STYLE%\";extra=\"%EXTRA%\"" --render --colorscheme OOBB OOBB-generate-%STYLE%.scad
+openscad -o %FILEFULL%.png -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";s=\"%STYLE%\";extra=\"%EXTRA%\"" --render OOBB-generate-%STYLE%.scad
 
 
 

@@ -1,6 +1,6 @@
     
     
-    m="TEST-BEARING6704";
+    m="HL-SM-03-03";
     w=3;
     h=0;
     s="TRUE";
@@ -159,7 +159,10 @@ module OOBB_HL_SM_03_03(){
    
     //######  HOLDER part
     if( extra == "NONE" || extra=="HOLDER" || extra=="NOHORN"){
+        
+        
         translate([0,OOBBSpacing * 3,0]){    
+            
         //translate([0,OOBBSpacing * 0,0]){    
             
         
@@ -237,11 +240,11 @@ module OOBB_HL_SM_03_03(){
                 union(){
                     //servo piece
                     translate([-5.35,0,0]){
-                       OOBBPLOutline3DComplete(39,20,6);
+                       OOBBPLOutline3DComplete(33,20,6);
                     }
                     //piece with screw holes
                     translate([5,0,0]){
-                       OOBBPLOutline3DComplete(11,42,6);
+                       OOBBPLOutline3DComplete(10,42,6);
                     }
                 }
                OOBBInsertItemCoord("ServoMicroMount",0,0,height=12);
@@ -274,7 +277,7 @@ module OOBB_HL_SM_03_03(){
                     //bottomTube
                     
                     translate([0,0,botTubeHeight/2]){
-                        cylinder(botTubeHeight,Bearing6704Inside,Bearing6704Inside,true);
+                        cylinder(botTubeHeight,OOBBBearing6704Inside,OOBBBearing6704Inside,true);
                     }
                     //bigTube    
                     

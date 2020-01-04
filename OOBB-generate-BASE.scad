@@ -527,7 +527,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                height=50;    
                z=height-10;
                rad=OOBBm3Hole;
-               slotw = 7;
+               slotw = 6;
                holeRadius = OOBBm3Hole;
                //slot
             translate([0,0,-10]){
@@ -599,10 +599,17 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             }
         }
         if(item=="ServoWireClearance"){
-           translate([0,0,-1.5]){
-                linear_extrude(1.5){
-                    square([15,4],true);
+           union(){ 
+            translate([0,0,-1.5]){
+                   linear_extrude(1.5){
+                        square([15,4],true);
+                   }
                }
+            translate([1,0,-15]){
+                linear_extrude(15){
+                        square([4,4],true);
+                   }
+                }
            }
         }
         if(item=="ServoMicroHole"){
@@ -640,7 +647,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                             //square
                             holeWidth = 23.75;
                             holeHeight = 13.75;
-                            slotw = 35;
+                            slotw = 31;
                             holeRadius = 0.75;
                             square([holeWidth,holeHeight],true);
                             
