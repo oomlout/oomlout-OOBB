@@ -1,11 +1,11 @@
     
-    
+    /*
     m="HL-SM-03-03";
     w=3;
     h=0;
     s="TRUE";
     extra="HORN";
-    
+    */
     
 include <OOBB-generate-BASE.scad>;
 
@@ -261,7 +261,7 @@ module OOBB_HL_SM_03_03(){
                     }
                 }
                 OOBBInsertItemCoord("ServoMicroHornHole",0,0,height=2);
-                OOBBInsertItemCoord("ServoMicroHornCatch",0,0,4);
+                OOBBInsertItemCoord("ServoMicroHornCatch",0,0,4); //allows for 1.5mm thick arm and 2.5mm thick adapter tube
                 
                 OOBBHole3D(0,0);
                 OOBBHole3D(-1,0);
