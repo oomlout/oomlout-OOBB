@@ -48,10 +48,6 @@ CALL OOBB-generate-NICHE-generic.bat
 
 SET EXTRA=NONE
 
-SET TYPE=TEST
-SET PART=TEST-SERVOHORN
-CALL OOBB-generate-NICHE-generic.bat
-
 
 
 

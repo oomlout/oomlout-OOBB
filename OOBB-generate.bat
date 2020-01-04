@@ -39,6 +39,11 @@ REM Niche items
 
 CALL OOBB-generate-NICHE.bat
 
+REM Test Items
+
+CALL OOBB-generate-TEST.bat
+
+
 REM JA (Jacks)
 
 SET WIDTH=01
