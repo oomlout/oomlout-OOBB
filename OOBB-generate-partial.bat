@@ -1,23 +1,23 @@
 SET WIDTH=0
 SET HEIGHT=0
 SET EXTRA=NONE
-
+SET CALLSTYLE=START
 
 SET TYPE=HL
 SET PART=HL-SM-03-03
-START OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET EXTRA=HOLDER
-START OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET EXTRA=BASE
-START OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET EXTRA=HORN
-START OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET EXTRA=NOHORN
-START OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 
 SET EXTRA=NONE

@@ -2,7 +2,7 @@ REM ######  OOBB GENERATE FILES  ######
 REM ###################################
 REM 
 
-
+SET CALLSTYLE=START
 
 SET WIDTH=0
 SET HEIGHT=0
@@ -10,40 +10,40 @@ SET EXTRA=NONE
 
 SET TYPE=BP
 SET PART=BP-606-03-03
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET EXTRA=SANDWICH
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET EXTRA=NONE
 
 
 SET TYPE=BP
 SET PART=BP-6810-05-05
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 
 
 SET TYPE=HL
 SET PART=HL-N17-05-03
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET TYPE=HL
 SET PART=HL-SM-03-03
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET EXTRA=HOLDER
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET EXTRA=BASE
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET EXTRA=HORN
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 
 SET EXTRA=NOHORN
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 
 SET EXTRA=NONE
@@ -53,7 +53,7 @@ SET EXTRA=NONE
 
 SET TYPE=CI
 SET PART=CI-03-CA-FL
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 
 
