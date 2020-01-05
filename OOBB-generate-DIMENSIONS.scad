@@ -41,11 +41,11 @@
     OOBBBearing6704Inside = s=="3DPR" ? OOBBBearing6704Inside3D : OOBBBearing6704InsideTrue;
 
     OOBBBearing6704OutsideTrue = 27/2;
-    OOBBBearing6704Outside3D  = (OOBBBearing6704OutsideTrue-0.2)/2;
+    OOBBBearing6704Outside3D  = (27-0.2)/2;
     OOBBBearing6704Outside = s=="3DPR" ? OOBBBearing6704Outside3D : OOBBBearing6704OutsideTrue;
 
     OOBBBearing6704OutsideHoldTrue = OOBBBearing6704OutsideTrue;
-    OOBBBearing6704OutsideHold3D  = (OOBBBearing6704OutsideHoldTrue+0.1)/2;
+    OOBBBearing6704OutsideHold3D  = (OOBBBearing6704OutsideHoldTrue+(0.1/2));
     OOBBBearing6704OutsideHold = s=="3DPR" ? OOBBBearing6704OutsideHold3D : OOBBBearing6704OutsideHoldTrue;
 
     OOBBBearing6704Little = 24/2;
@@ -56,10 +56,20 @@
     
     OOBBNutM3Width = s=="3DPR" ? OOBBNutM3Width3D : OOBBNutM3WidthTrue;
     
+    OOBBNutM3HeightTrue = 2.5;    //actually 4.85 extra for clearance
+    OOBBNutM3Height3D = 2.5;    
+    
+    OOBBNutM3Height = s=="3DPR" ? OOBBNutM3Height3D : OOBBNutM3HeightTrue;
+    
+
+
+
     
     OOBBNutM6WidthTrue = 11.547;    
     OOBBNutM6Width3D = 12.7; //needs to be the long side    
     
+    
+
     OOBBNutM6Width = s=="3DPR" ? OOBBNutM6Width3D : OOBBNutM6WidthTrue;
     
     OOBBNutM6WidthShortTrue = 10;    

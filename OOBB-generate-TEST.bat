@@ -2,6 +2,7 @@ REM ######  OOBB GENERATE FILES  ######
 REM ###################################
 REM 
 
+SET CALLSTYLE=START
 
 SET WIDTH=0
 SET HEIGHT=0
@@ -10,8 +11,12 @@ SET EXTRA=NONE
 
 SET TYPE=TEST
 SET PART=TEST-SERVOHORN
-REM CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 SET TYPE=TEST
 SET PART=TEST-BEARING6704
-CALL OOBB-generate-NICHE-generic.bat
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
+
+SET TYPE=TEST
+SET PART=TEST-COUNTERSINKM3
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat

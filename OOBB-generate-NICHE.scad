@@ -1,13 +1,14 @@
     
-    /*
+    
     m="HL-SM-03-03";
     w=3;
     h=0;
-    s="TRUE";
+    s="3DPR";
     extra="NONE";
-    */
+    
     
 include <OOBB-generate-BASE.scad>;
+include <OOBB-generate-TEST.scad>;
 
 
 
@@ -202,7 +203,7 @@ module OOBB_HL_SM_03_03(){
             //bearing hole
         
         ///6704
-        OOBBInsertItemCoord("Bearing6704Hold",2,2,totalHeight);    
+        #OOBBInsertItemCoord("Bearing6704Hold",2,2,totalHeight);    
         
                 
         ///6804        //OOBBInsertItemCoord("Bearing6804Outside",2,2,totalHeight);    

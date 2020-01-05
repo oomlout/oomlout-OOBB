@@ -3,9 +3,9 @@
     include <OOBB-Polygon.scad>;
     
     /*
-    w=3;
+    w=5;
     h=1;
-    m="JA3D";
+    m="CI3D";
     s="3DPR";
     */
     include <OOBB-generate-DIMENSIONS.scad>;
@@ -139,6 +139,16 @@ module OOBBHolesFor3D(OOWidth, OOHeight){
 }
 
 module OOBBHolesForCI3D(OOWidth){
+    
+    if(OOWidth == 3){
+        rotate([0,0,45]){
+            OOBBHole3D(0,1);
+            OOBBHole3D(0,-1);
+            OOBBHole3D(-1,0);
+            OOBBHole3D(1,0);
+        }
+    }
+    
     echo("#####################################################");
             for(height = [-(round(OOWidth/2)-1):round(OOWidth/2)-1]){
                 for(width = [-(round(OOWidth/2)-1):round(OOWidth/2)-1]){
@@ -183,6 +193,11 @@ module OOBBHolesForCI3D(OOWidth){
                     
                 }
             }
+            
+            
+            
+            
+            
 }
 
 module OOBBHolesForCI2D(OOWidth){
@@ -549,6 +564,9 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         }
         if(item=="M3NutCaptive"){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM3Width/2,height,0);
+        }
+        if(item=="M3NutCaptiveSingle"){
+           OOBBPolygon3DComplete(6,0,0,OOBBNutM3Width/2,OOBBNutM3Height,0);
         }
         if(item=="M6NutCaptiveSingle"){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,OOBBNutM6Height,0);
