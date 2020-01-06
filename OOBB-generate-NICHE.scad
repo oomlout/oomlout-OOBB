@@ -1,11 +1,11 @@
     
-    /*
-    m="TEST-COUNTERSINKM3";
+    
+    m="WH";
     w=3;
     h=0;
     s="3DPR";
     extra="NONE";
-    */
+    
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -136,7 +136,7 @@ module OOBB_WH(width){
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
         
         //9mm single
-        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
+        OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
         
         //one embedded one extra
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=10.5);
@@ -147,8 +147,8 @@ module OOBB_WH(width){
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=16.5);
         
         //9mm two sides
-        OOBBInsertItemCoord("Bearing606",0,0,ooZ=3);
-        OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
+        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=3);
+        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
         
     }
     
