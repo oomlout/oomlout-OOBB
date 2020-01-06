@@ -653,12 +653,18 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         }
         if(item=="ServoMicroHornCatch"){
             translate([0,0,-1.5]){
-               rad=7.4/2; 
-               linear_extrude(1.5){
-                   square([25,7],true);
-                   circle(rad);
-               }
-           }
+                   extension = 0;
+                    rad=7.4/2; 
+                   linear_extrude(1.5){
+                      #square([15,5.25+extension],true);
+                      translate([7.5+(9/2),0,0]){
+                        square([9,4.75+extension],true);
+                      }translate([-7.5-(9/2),0,0]){
+                        square([9,4.75+extension],true);
+                      }
+                      circle(rad);
+                   }
+                }
         }
         if(item=="ServoMicroMount"){
            //OOBBCube3DComplete(x,y,wid,hei,height,z)

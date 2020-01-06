@@ -257,7 +257,7 @@ module TEST_SERVOMICROHORNCATCH(){
                 rad=7.4/2;
                 height=2.5;
                 OOBBHole3DRadiusComplete(0,0,rad,height,height);
-                translate([0,0,2.5]){
+                translate([0,0,-1.5]){
                    rad=7.4/2; 
                    linear_extrude(1.5){
                       #square([15,5.25+extension],true);
