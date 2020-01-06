@@ -138,6 +138,8 @@ module TEST_COUNTERSINKM3(){
         OOBBInsertItemCoord("M3Hole",xVal6,yVal6);   
         OOBBInsertItemCoord("M3NutCaptiveSingle",xVal6,yVal6,ooZ=OOBBNutM3Height);
         
+        
+        //CURRENT CHOICE
         xVal7 = 2;
         yVal7 = 1.75;
         top7 = OOBBm3CounterSinkTopHoleTrue +0.6;

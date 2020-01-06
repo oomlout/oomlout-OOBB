@@ -93,7 +93,7 @@
     
     
     OOBBm3CounterSinkTopHoleTrue = 5.5/2;
-    OOBBm3CounterSinkTopHole3D = 5.9/2;
+    OOBBm3CounterSinkTopHole3D = OOBBm3CounterSinkTopHoleTrue + 0.6;
     OOBBm3CounterSinkTopHole = s=="3DPR" ? OOBBm3CounterSinkTopHole3D : OOBBm3CounterSinkTopHoleTrue;    
     
     // TABS
