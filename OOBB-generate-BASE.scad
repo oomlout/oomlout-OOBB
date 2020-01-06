@@ -514,13 +514,13 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         if(item=="M3Countersink"){
             top = OOBBm3CounterSinkTopHole;
             bot = OOBBm3Hole;
-            height = 1.75;
+            height = 1.9;
             OOBBCountersink3DComplete(0,0,top,bot,height,1.75);
         }
         if(item=="M3CountersinkUpsideDown"){
             top = OOBBm3CounterSinkTopHole;
             bot = OOBBm3Hole;
-            height = 1.75;
+            height = 1.9;
             OOBBCountersink3DComplete(0,0,bot,top,height,1.75);
         }
         if(item=="M3Hole"){

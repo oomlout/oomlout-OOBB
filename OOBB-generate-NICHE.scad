@@ -1,11 +1,11 @@
     
-    
-    m="HL-SM-03-03";
+    /*
+    m="TEST-COUNTERSINKM3";
     w=3;
     h=0;
     s="3DPR";
     extra="NONE";
-    
+    */
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;

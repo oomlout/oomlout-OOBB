@@ -96,10 +96,10 @@ module TEST_COUNTERSINKM3(){
         yVal1 = 1;
         top = OOBBm3CounterSinkTopHoleTrue;
         bot = OOBBm3Hole;
-        height = 1.75;
+        height = 1.9; //true is 1.75
         OOBBCountersink3DComplete(OOBBSpacing*xVal1,OOBBSpacing*yVal1,top,bot,height,10);
         OOBBInsertItemCoord("M3Hole",xVal1,yVal1);   
-        !OOBBInsertItemCoord("M3NutCaptiveSingle",xVal1,yVal1,ooZ=OOBBNutM6Height);   
+        OOBBInsertItemCoord("M3NutCaptiveSingle",xVal1,yVal1,ooZ=OOBBNutM3Height);   
     
         
         xVal2 = 1;
@@ -107,13 +107,14 @@ module TEST_COUNTERSINKM3(){
         top2 = OOBBm3CounterSinkTopHoleTrue + 0.1;
         OOBBCountersink3DComplete(OOBBSpacing*xVal2,OOBBSpacing*yVal2,top2,bot,height,10);
         OOBBInsertItemCoord("M3Hole",xVal2,yVal2);   
-    
+        OOBBInsertItemCoord("M3NutCaptiveSingle",xVal2,yVal2,ooZ=OOBBNutM3Height);
         
         xVal3 = 1;
         yVal3 = 2.5;
         top3 = OOBBm3CounterSinkTopHoleTrue + 0.2;
         OOBBCountersink3DComplete(OOBBSpacing*xVal3,OOBBSpacing*yVal3,top3,bot,height,10);
         OOBBInsertItemCoord("M3Hole",xVal3,yVal3);   
+        OOBBInsertItemCoord("M3NutCaptiveSingle",xVal3,yVal3,ooZ=OOBBNutM3Height);
     
         
         xVal4 = 1;
@@ -121,41 +122,41 @@ module TEST_COUNTERSINKM3(){
         top4 = OOBBm3CounterSinkTopHoleTrue + 0.3;
     OOBBCountersink3DComplete(OOBBSpacing*xVal4,OOBBSpacing*yVal4,top4,bot,height,10);
         OOBBInsertItemCoord("M3Hole",xVal4,yVal4);   
-    
+        OOBBInsertItemCoord("M3NutCaptiveSingle",xVal4,yVal4,ooZ=OOBBNutM3Height);
         
         xVal5 = 1;
         yVal5 = 4;
         top5 = OOBBm3CounterSinkTopHoleTrue + 0.4;
         OOBBCountersink3DComplete(OOBBSpacing*xVal5,OOBBSpacing*yVal5,top5,bot,height,10);
         OOBBInsertItemCoord("M3Hole",xVal5,yVal5);   
-    
+        OOBBInsertItemCoord("M3NutCaptiveSingle",xVal5,yVal5,ooZ=OOBBNutM3Height);
         
         xVal6 = 2;
         yVal6 = 1;
         top6 = OOBBm3CounterSinkTopHoleTrue + 0.5;
         OOBBCountersink3DComplete(OOBBSpacing*xVal6,OOBBSpacing*yVal6,top6,bot,height,10);
         OOBBInsertItemCoord("M3Hole",xVal6,yVal6);   
-    
+        OOBBInsertItemCoord("M3NutCaptiveSingle",xVal6,yVal6,ooZ=OOBBNutM3Height);
         
         xVal7 = 2;
         yVal7 = 1.75;
         top7 = OOBBm3CounterSinkTopHoleTrue +0.6;
         OOBBCountersink3DComplete(OOBBSpacing*xVal7,OOBBSpacing*yVal7,top7,bot,height,10);
         OOBBInsertItemCoord("M3Hole",xVal7,yVal7);   
-    
+        OOBBInsertItemCoord("M3NutCaptiveSingle",xVal7,yVal7,ooZ=OOBBNutM3Height);
         
         xVal8 = 2;
         yVal8 = 2.5;
         top8 = OOBBm3CounterSinkTopHoleTrue + 0.7;
         OOBBCountersink3DComplete(OOBBSpacing*xVal8,OOBBSpacing*yVal8,top8,bot,height,10);
         OOBBInsertItemCoord("M3Hole",xVal8,yVal8);   
-    
+        OOBBInsertItemCoord("M3NutCaptiveSingle",xVal8,yVal8,ooZ=OOBBNutM3Height);
         
         xVal9 = 2;
         yVal9 = 3.25;
         top9 = OOBBm3CounterSinkTopHoleTrue + 0.8;
         OOBBCountersink3DComplete(OOBBSpacing*xVal9,OOBBSpacing*yVal9,top9,bot,height,10);
         OOBBInsertItemCoord("M3Hole",xVal9,yVal9);   
-    
+        OOBBInsertItemCoord("M3NutCaptiveSingle",xVal9,yVal9,ooZ=OOBBNutM3Height);
     }
 }
