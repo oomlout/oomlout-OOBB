@@ -92,6 +92,11 @@
     OOBBm3Hole = s=="3DPR" ? OOBBm3Hole3D : OOBBm3HoleTrue;
     
     
+    OOBBm2HoleTrue = 2/2;
+    OOBBm2Hole3D = 2.3/2;
+    OOBBm2Hole = s=="3DPR" ? OOBBm2Hole3D : OOBBm2HoleTrue;
+    
+    
     OOBBm3CounterSinkTopHoleTrue = 5.5/2;
     OOBBm3CounterSinkTopHole3D = OOBBm3CounterSinkTopHoleTrue + 0.6;
     OOBBm3CounterSinkTopHole = s=="3DPR" ? OOBBm3CounterSinkTopHole3D : OOBBm3CounterSinkTopHoleTrue;    

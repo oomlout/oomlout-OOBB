@@ -1,6 +1,6 @@
     
     
-    m="HL-SM-03-03";
+    m="HL-PZ-05-03";
     w=3;
     h=0;
     s="3DPR";
@@ -22,14 +22,12 @@ if(m=="HL-N17-05-03"){
     OOBB_BP_6810_05_05();   
 }else if(m=="HL-SM-03-03"){
     OOBB_HL_SM_03_03();    
+}else if(m=="HL-PZ-05-03"){
+    OOBB_HL_PZ_05_03();    
 }else if(m=="WH"){
     OOBB_WH(w);    
 }else if(m=="CI-03-CA-FL"){
     CI_03_CA_FL();    
-}else if(m=="TEST-SERVOHORN"){
-    TEST_SERVOHORN();    
-}else if(m=="TEST-BEARING6704"){
-    TEST_BEARING6704();    
 }
 
 module CI_03_CA_FL(){
@@ -156,7 +154,29 @@ module OOBB_WH(width){
     
 }
 
+module OOBB_HL_PZ_05_03(){
+  difference(){
+      union(){
+        OOBBPLOutline3D(5,3,3);
+        //extra end bits to keep servo bracket from sticking out the end.
+        translate([0,-1.5,0]){
+           OOBBPLOutline3D(5,3,3);
+        }
+       } 
+        OOBBHole3D(1,3);
+        OOBBHole3D(2,3);
+        OOBBHole3D(3,3);
+        OOBBHole3D(4,3);
+        OOBBHole3D(5,3);
+        
+        OOBBInsertItemCoord("PiZeroMountUpsideDown",3,1.5,0);
+       
+   }
+}
+
+
 module OOBB_HL_SM_03_03(){
+   
    
     //######  HOLDER part
     if( extra == "NONE" || extra=="HOLDER" || extra=="NOHORN"){
@@ -176,14 +196,23 @@ module OOBB_HL_SM_03_03(){
             totalHeight = spacerHeight + bearingHeight;
             union(){
                        //extra block added to conceal servo
-               #translate([OOBBSpacing * 1-5, OOBBSpacing*2,4]){
+               translate([OOBBSpacing * 1-5, OOBBSpacing*2,4]){
                    linear_extrude(4){
                     square([2,16],true);
                    }
                }
                 difference(){
-                    OOBBPLOutline3D(3,3,totalHeight);
-                 //holes
+                             union(){
+                OOBBPLOutline3D(3,3,totalHeight);
+                //extra end bits to keep servo bracket from sticking out the end.
+                translate([-1,0,0]){
+                   OOBBPLOutline3D(3,3,totalHeight);
+                }
+                translate([1,0,0]){
+                   OOBBPLOutline3D(3,3,totalHeight);
+                }
+               }
+   //holes
                     OOBBHole3D(1,1);
                     //extra clearance hole
                     OOBBInsertItemCoord("M6BoltClearance",1,1,totalHeight,height=4);      

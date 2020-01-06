@@ -511,6 +511,22 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         if(item=="OOBBHole"){
             circle(OOBBHole);
         }
+        if(item=="M2Rivet"){
+            height=50;    
+            z=height-10;
+            rad=OOBBm2Hole;
+            rad2=5/2;
+            OOBBHole3DRadiusComplete(0,0,rad,height,z);
+            OOBBHole3DRadiusComplete(0,0,rad2,1.5,0);
+        }
+        if(item=="M2RivetUpsideDown"){
+            height=50;    
+            z=height-10;
+            rad=OOBBm2Hole;
+            rad2=5/2;
+            OOBBHole3DRadiusComplete(0,0,rad,height,z);
+            OOBBHole3DRadiusComplete(0,0,rad2,1.5,1.5);
+        }
         if(item=="M3Countersink"){
             top = OOBBm3CounterSinkTopHole;
             bot = OOBBm3Hole;
@@ -707,6 +723,28 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
               z=50;
               rad=5/2;
               OOBBHole3DRadiusComplete(0,0,rad,height,z);
+          }
+      }
+      if(item=="PiZeroMount"){
+          OOBBInsertItemMM("M2Rivet",-29,11.5,0);
+          OOBBInsertItemMM("M2Rivet",-29,-11.5,0);
+          OOBBInsertItemMM("M2Rivet",29,11.5,0);
+          OOBBInsertItemMM("M2Rivet",29,-11.5,0);
+          translate([0,-11.5,3]){
+              linear_extrude(3){
+                  square([52,7],true);
+              }
+          }
+      }
+      if(item=="PiZeroMountUpsideDown"){
+          OOBBInsertItemMM("M2RivetUpsideDown",-29,11.5,0);
+          OOBBInsertItemMM("M2RivetUpsideDown",-29,-11.5,0);
+          OOBBInsertItemMM("M2RivetUpsideDown",29,11.5,0);
+          OOBBInsertItemMM("M2RivetUpsideDown",29,-11.5,0);
+          translate([0,-11.5,0]){
+              linear_extrude(3){
+                  square([52,7],true);
+              }
           }
       }
       
