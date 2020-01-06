@@ -515,13 +515,19 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             top = OOBBm3CounterSinkTopHole;
             bot = OOBBm3Hole;
             height = 1.9;
-            OOBBCountersink3DComplete(0,0,top,bot,height,1.75);
+            OOBBCountersink3DComplete(0,0,top,bot,height,height);
         }
         if(item=="M3CountersinkUpsideDown"){
             top = OOBBm3CounterSinkTopHole;
             bot = OOBBm3Hole;
             height = 1.9;
-            OOBBCountersink3DComplete(0,0,bot,top,height,1.75);
+            OOBBCountersink3DComplete(0,0,bot,top,height,height);
+        }
+        if(item=="M3SocketHead"){
+            top = OOBBm3SocketHeadHole;
+            bot = OOBBm3SocketHeadHole;
+            height = 3;
+            OOBBCountersink3DComplete(0,0,top,bot,height,height);
         }
         if(item=="M3Hole"){
                height=50;    
@@ -647,8 +653,10 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         }
         if(item=="ServoMicroHornCatch"){
             translate([0,0,-1.5]){
+               rad=7.4/2; 
                linear_extrude(1.5){
                    square([25,7],true);
+                   circle(rad);
                }
            }
         }

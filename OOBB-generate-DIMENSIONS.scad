@@ -96,6 +96,11 @@
     OOBBm3CounterSinkTopHole3D = OOBBm3CounterSinkTopHoleTrue + 0.6;
     OOBBm3CounterSinkTopHole = s=="3DPR" ? OOBBm3CounterSinkTopHole3D : OOBBm3CounterSinkTopHoleTrue;    
     
+    
+    OOBBm3SocketHeadHoleTrue = 5.5/2;
+    OOBBm3SocketHeadHole3D = OOBBm3SocketHeadHoleTrue + 0.4;
+    OOBBm3SocketHeadHole = s=="3DPR" ? OOBBm3SocketHeadHole3D : OOBBm3SocketHeadHoleTrue;    
+    
     // TABS
     OOBBTabWidthTrue = 3;
     OOBBTabWidth3D = 2.7;

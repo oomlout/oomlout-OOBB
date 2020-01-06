@@ -1,11 +1,11 @@
     
-    
-    m="WH";
+    /*
+    m="TEST-SERVOMICROHORNCATCH";
     w=3;
     h=0;
     s="3DPR";
     extra="NONE";
-    
+    */
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -174,64 +174,71 @@ module OOBB_HL_SM_03_03(){
             //bearingHeight = 7;
             
             totalHeight = spacerHeight + bearingHeight;
-            difference(){
-                OOBBPLOutline3D(3,3,totalHeight);
-             //holes
-                OOBBHole3D(1,1);
-                //extra clearance hole
-                OOBBInsertItemCoord("M6BoltClearance",1,1,totalHeight,height=4);      
-                OOBBHole3D(1,3);   
-                OOBBInsertItemCoord("M6BoltClearance",1,3,totalHeight,height=4);
-                OOBBHole3D(3,1);   
-                OOBBInsertItemCoord("M6BoltClearance",3,1,totalHeight,height=4);
-                OOBBHole3D(3,3);   
-                OOBBInsertItemCoord("M6BoltClearance",3,3,totalHeight,height=4);
-                
-            //extra keepout
-                translate([OOBBSpacing*2,OOBBSpacing-1,totalHeight-4]){
-                    linear_extrude(4){
-                    square([42,10],true);
+            union(){
+                       //extra block added to conceal servo
+               #translate([OOBBSpacing * 1-5, OOBBSpacing*2,4]){
+                   linear_extrude(4){
+                    square([2,16],true);
+                   }
+               }
+                difference(){
+                    OOBBPLOutline3D(3,3,totalHeight);
+                 //holes
+                    OOBBHole3D(1,1);
+                    //extra clearance hole
+                    OOBBInsertItemCoord("M6BoltClearance",1,1,totalHeight,height=4);      
+                    OOBBHole3D(1,3);   
+                    OOBBInsertItemCoord("M6BoltClearance",1,3,totalHeight,height=4);
+                    OOBBHole3D(3,1);   
+                    OOBBInsertItemCoord("M6BoltClearance",3,1,totalHeight,height=4);
+                    OOBBHole3D(3,3);   
+                    OOBBInsertItemCoord("M6BoltClearance",3,3,totalHeight,height=4);
+                    
+                //extra keepout
+                    translate([OOBBSpacing*2,OOBBSpacing-1,totalHeight-4]){
+                        linear_extrude(4){
+                        square([42,10],true);
+                        }
                     }
-                }
-                translate([OOBBSpacing*2,OOBBSpacing*3+1,totalHeight-4]){
-                    linear_extrude(4){
-                    square([42,10],true);
+                    translate([OOBBSpacing*2,OOBBSpacing*3+1,totalHeight-4]){
+                        linear_extrude(4){
+                        square([42,10],true);
+                        }
                     }
-                }
-                
-                
-            //bearing hole
-        
-        ///6704
-        #OOBBInsertItemCoord("Bearing6704Hold",2,2,totalHeight);    
-        
-                
-        ///6804        //OOBBInsertItemCoord("Bearing6804Outside",2,2,totalHeight);    
-        //        OOBBInsertItemCoord("Bearing6804OutsideHold",2,2,12,height=12); 
+                    
+                    
+                //bearing hole
             
-             //captive m3 nuts 2.5
-                OOBBInsertItemCoord("M3NutCaptive",2.333,1,totalHeight,height=7+7);      
-            //servoHolderPart
-                //m3 bolts
-                OOBBInsertItemCoord("M3Hole",2.333,1);      
-                OOBBInsertItemCoord("M3NutCaptive",2.333,3,totalHeight,height=7+7);      
-                OOBBInsertItemCoord("M3Hole",2.333,3);      
-               //captivem3 nuts 1.5
-                OOBBInsertItemCoord("M3NutCaptive",1.667,1,totalHeight,height=7+7);      
-            //servoHolderPart
-                //m3 bolts
-                OOBBInsertItemCoord("M3Hole",1.667,1);      
-                OOBBInsertItemCoord("M3NutCaptive",1.667,3,totalHeight,height=7+7);      
-                OOBBInsertItemCoord("M3Hole",1.667,3);      
-             
-           
-             
-             
-             
-             //clearance hole
-               OOBBInsertItemCoord("ServoMicroHole",2,2,height=7);
-            }
+            ///6704
+            OOBBInsertItemCoord("Bearing6704Hold",2,2,totalHeight);    
+            
+                    
+            ///6804        //OOBBInsertItemCoord("Bearing6804Outside",2,2,totalHeight);    
+            //        OOBBInsertItemCoord("Bearing6804OutsideHold",2,2,12,height=12); 
+                
+                 //captive m3 nuts 2.5
+                    OOBBInsertItemCoord("M3NutCaptive",2.333,1,totalHeight,height=7+7);      
+                //servoHolderPart
+                    //m3 bolts
+                    OOBBInsertItemCoord("M3Hole",2.333,1);      
+                    OOBBInsertItemCoord("M3NutCaptive",2.333,3,totalHeight,height=7+7);      
+                    OOBBInsertItemCoord("M3Hole",2.333,3);      
+                   //captivem3 nuts 1.5
+                    OOBBInsertItemCoord("M3NutCaptive",1.667,1,totalHeight,height=7+7);      
+                //servoHolderPart
+                    //m3 bolts
+                    OOBBInsertItemCoord("M3Hole",1.667,1);      
+                    OOBBInsertItemCoord("M3NutCaptive",1.667,3,totalHeight,height=7+7);      
+                    OOBBInsertItemCoord("M3Hole",1.667,3);      
+                 
                
+                 
+                 
+                 
+                 //clearance hole
+                   OOBBInsertItemCoord("ServoMicroHole",2,2,height=7);
+                }
+            }  
          }
     
      
@@ -313,7 +320,16 @@ module OOBB_HL_SM_03_03(){
       translate([0,OOBBSpacing * 6,0]){    
        union(){ 
            difference(){
+               union(){
                 OOBBPLOutline3D(3,3,18);
+                //extra end bits to keep servo bracket from sticking out the end.
+                translate([-1,0,0]){
+                   OOBBPLOutline3D(3,3,18);
+                }
+                translate([1,0,0]){
+                   OOBBPLOutline3D(3,3,18);
+                }
+               }
                 OOBBInsertItemCoord("ServoWireClearance",3,2,ooZ=18);      
                 OOBBHole3D(1,1);
                 OOBBHole3D(3,1);
@@ -328,11 +344,11 @@ module OOBB_HL_SM_03_03(){
                 OOBBInsertItemCoord("M3HoleScrewTop",2.333,1);      
                 //servo holder negative
                 translate([2*OOBBSpacing,2*OOBBSpacing,0]){
-                    translate([-5.35,0,18-6]){
+                    translate([-5.35,0,18-7]){
                         OOBBPLOutline3DComplete(39+4,24,7);
                     }
                     //piece with screw holes
-                    translate([5,0,18-6]){
+                    translate([5,0,18-7]){
                         OOBBPLOutline3DComplete(11+4,42+8,7);
                     }        
                 
@@ -341,7 +357,7 @@ module OOBB_HL_SM_03_03(){
             }        
        //extra block added to conceal servo
        translate([OOBBSpacing * 1-5, OOBBSpacing*2,0]){
-           linear_extrude(12){
+           linear_extrude(11){
             square([2,16],true);
            }
        }
