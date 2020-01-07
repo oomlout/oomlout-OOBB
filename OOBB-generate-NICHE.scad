@@ -1,11 +1,11 @@
     
-    /*
+    
     m="HL-PZ-05-03";
     w=3;
     h=0;
     s="3DPR";
     extra="NONE ";
-    */
+    
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -102,7 +102,17 @@ module OOBB_HL_PZ_05_03(){
         OOBBHole3D(5,3);
         
         OOBBInsertItemCoord("PiZeroMountUpsideDown",3,1.5,0);
-       
+        //extra cutout for rivet clearance
+        #translate([45,11,0]){
+            linear_extrude(1.5){
+                square([58,OOBBm27RivetClearance*2],true);
+            }
+        }
+        #translate([45,9.25,0]){
+            linear_extrude(1.5){
+                square([58+OOBBm27RivetClearance*2,3.5],true);
+            }
+        }
    }
 }
 
