@@ -506,6 +506,22 @@ module OOBBInsertItemCoord(item,ooX,ooY,ooZ=0,height=0,){
     OOBBInsertItemMM(item,ooX*OOBBSpacing,ooY*OOBBSpacing,ooZ=ooZ,height=height);    
 }
 
+module OOBBInsertItemCoord180(item,ooX,ooY,ooZ=0,height=0,){
+    translate([ooX*OOBBSpacing,ooY*OOBBSpacing,0]){
+        rotate([0,0,180]){    
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+        }
+    }
+}
+
+module OOBBInsertItemMM180(item,ooX,ooY,ooZ=0,height=0,){
+    translate([ooX,ooY,0]){
+        rotate([0,0,180]){
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+        }
+    }
+}
+
 module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
     translate([ooX,ooY,ooZ]){
         if(item=="OOBBHole"){
@@ -754,6 +770,12 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                   square([52,7],true);
               }
           }
+        //extra cutout for rivet clearance
+        translate([0,-11.5,0]){
+            linear_extrude(1.5){
+                square([58,OOBBm27RivetClearance*2],true);
+            }
+        }
       }
       
       
