@@ -47,74 +47,6 @@ module CI_03_CA_FL(){
     
 }
 
-module TEST_BEARING6704(){
-    
-    difference(){
-        OOBBPLOutline3D(5, 7, 6);
-        
-        OOBBHole3DRadiusComplete(25,25,OOBBBearing6704OutsideHoldTrue,4,6);
-        OOBBHole3DRadiusComplete(25,25,OOBBBearing6704Little,100,50);
-        
-        OOBBHole3DRadiusComplete(25,55,OOBBBearing6704OutsideHoldTrue+.1,4,6);
-        OOBBHole3DRadiusComplete(25,55,OOBBBearing6704Little,100,50);
-        
-        OOBBHole3DRadiusComplete(25,85,OOBBBearing6704OutsideHoldTrue+.2,4,6);
-        OOBBHole3DRadiusComplete(25,85,OOBBBearing6704Little,100,50);
-        
-        
-        OOBBHole3DRadiusComplete(55,25,OOBBBearing6704OutsideHoldTrue+.3,4,6);
-        OOBBHole3DRadiusComplete(55,25,OOBBBearing6704Little,100,50);
-        
-        OOBBHole3DRadiusComplete(55,55,OOBBBearing6704OutsideHoldTrue+.4,4,6);
-        OOBBHole3DRadiusComplete(55,55,OOBBBearing6704Little,100,50);
-        
-    }
-}
-        
-        
-        
-module TEST_SERVOHORN(){
-    
-    difference(){
-        OOBBPLOutline3D(2, 3, 6);
-        height = 20;
-        rad=7.2/2;
-        OOBBHole3DRadiusComplete(OOBBSpacing * 1,OOBBSpacing * 1,rad,height,height-5);
-        rad1=7.4/2;
-        OOBBHole3DRadiusComplete(OOBBSpacing * 1,OOBBSpacing * 2,rad1,height,height-5);
-        rad2=7.6/2;
-        OOBBHole3DRadiusComplete(OOBBSpacing * 1,OOBBSpacing * 3,rad2,height,height-5);
-        rad3=7.8/2;
-        OOBBHole3DRadiusComplete(OOBBSpacing * 2,OOBBSpacing * 1,rad3,height,height-5);
-        rad4=8.0/2;
-        OOBBHole3DRadiusComplete(OOBBSpacing * 2,OOBBSpacing * 2,rad4,height,height-5);
-
-    }
-}
-
-
-module OOBBPLTESTHoleTolerance(){
-    linear_extrude(3){
-        difference(){
-        OOBBPLOutline(4, 3);
-
-
-            for(x=[0:8]){    
-                OOx = floor(x%3)+1;
-                OOy = floor(x/3)+1;
-                OOoffset = -0.1 + 0.1 *x;
-                translate([OOBBSpacing * OOx, OOBBSpacing * OOy]){
-                    circle(OOBBHole + OOoffset);
-                }
-                translate([OOBBSpacing * OOx + OOBBSpacing/2, OOBBSpacing * OOy]){
-                    square([OOBBTabWidth+OOoffset,OOBBTabHeight+OOoffset],true);
-                }    
-            }
-        }
-    }
-}
-
-
 module OOBB_WH(width){
     oringCrossSection = 5.33/2;
     oringGrooveDepth = 2;
@@ -327,7 +259,7 @@ module OOBB_HL_SM_03_03(){
                     OOBBPLOutline3DComplete(42,24,8.5);
                     }
                 }
-                OOBBInsertItemCoord("ServoMicroHornHole",0,0,height=2);
+                OOBBInsertItemCoord("ServoMicroHornHole",0,0,height=4);
                 OOBBInsertItemCoord("ServoMicroHornCatch",0,0,4); //allows for 1.5mm thick arm and 2.5mm thick adapter tube
                 
                 OOBBHole3D(0,0);
