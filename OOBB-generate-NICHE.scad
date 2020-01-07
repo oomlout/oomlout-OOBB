@@ -1,10 +1,10 @@
     
     
-    m="HL-PZ-05-03";
+    m="HL-SM-03-03";
     w=3;
     h=0;
     s="3DPR";
-    extra="NONE ";
+    extra="NONE";
     
     
 include <OOBB-generate-BASE.scad>;
@@ -159,12 +159,12 @@ module OOBB_HL_SM_03_03(){
                 //extra keepout
                     translate([OOBBSpacing*2,OOBBSpacing-1,totalHeight-4]){
                         linear_extrude(4){
-                        square([42,10],true);
+                        square([44,10],true);
                         }
                     }
                     translate([OOBBSpacing*2,OOBBSpacing*3+1,totalHeight-4]){
                         linear_extrude(4){
-                        square([42,10],true);
+                        square([44,10],true);
                         }
                     }
                     
@@ -305,12 +305,12 @@ module OOBB_HL_SM_03_03(){
                 OOBBInsertItemCoord("M3HoleScrewTop",2.333,3);      
                 OOBBInsertItemCoord("M3HoleScrewTop",2.333,1);      
                 //servo holder negative
-                translate([2*OOBBSpacing,2*OOBBSpacing,0]){
+                #translate([2*OOBBSpacing,2*OOBBSpacing,0]){
                     translate([-5.35,0,18-6.5]){
                         OOBBPLOutline3DComplete(39+4,24,6.5);
                     }
                     //piece with screw holes
-                    translate([5,0,18-7]){
+                    translate([5,0,18-6.5]){
                         OOBBPLOutline3DComplete(11+4,42+8,6.5);
                     }        
                 
