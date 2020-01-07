@@ -1,10 +1,10 @@
     
     
-    m="HL-PZ-05-03";
+    m="HL-SM-03-03";
     w=3;
     h=0;
     s="3DPR";
-    extra="HORN";
+    extra="NONE ";
     
     
 include <OOBB-generate-BASE.scad>;
@@ -137,10 +137,10 @@ module OOBB_HL_SM_03_03(){
                              union(){
                 OOBBPLOutline3D(3,3,totalHeight);
                 //extra end bits to keep servo bracket from sticking out the end.
-                translate([-1,0,0]){
+                #translate([-1,0,0]){
                    OOBBPLOutline3D(3,3,totalHeight);
                 }
-                translate([1,0,0]){
+                #translate([1,0,0]){
                    OOBBPLOutline3D(3,3,totalHeight);
                 }
                }
@@ -305,12 +305,12 @@ module OOBB_HL_SM_03_03(){
                 OOBBInsertItemCoord("M3HoleScrewTop",2.333,1);      
                 //servo holder negative
                 translate([2*OOBBSpacing,2*OOBBSpacing,0]){
-                    translate([-5.35,0,18-7]){
-                        OOBBPLOutline3DComplete(39+4,24,7);
+                    translate([-5.35,0,18-6.5]){
+                        OOBBPLOutline3DComplete(39+4,24,6.5);
                     }
                     //piece with screw holes
                     translate([5,0,18-7]){
-                        OOBBPLOutline3DComplete(11+4,42+8,7);
+                        OOBBPLOutline3DComplete(11+4,42+8,6.5);
                     }        
                 
                 }
