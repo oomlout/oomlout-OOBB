@@ -92,6 +92,10 @@
     OOBBm3Hole = s=="3DPR" ? OOBBm3Hole3D : OOBBm3HoleTrue;
     
     
+    OOBBm27HoleTrue = 2.7/2;
+    OOBBm27Hole3D = 3/2;
+    OOBBm27Hole = s=="3DPR" ? OOBBm27Hole3D : OOBBm27HoleTrue;
+    
     OOBBm2HoleTrue = 2/2;
     OOBBm2Hole3D = 2.3/2;
     OOBBm2Hole = s=="3DPR" ? OOBBm2Hole3D : OOBBm2HoleTrue;

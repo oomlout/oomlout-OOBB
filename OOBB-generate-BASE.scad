@@ -519,10 +519,18 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             OOBBHole3DRadiusComplete(0,0,rad,height,z);
             OOBBHole3DRadiusComplete(0,0,rad2,1.5,0);
         }
-        if(item=="M2RivetUpsideDown"){
+        if(item=="M27Rivet"){
             height=50;    
             z=height-10;
-            rad=OOBBm2Hole;
+            rad=OOBBm27Hole;
+            rad2=5/2;
+            OOBBHole3DRadiusComplete(0,0,rad,height,z);
+            OOBBHole3DRadiusComplete(0,0,rad2,1.5,0);
+        }
+        if(item=="M27RivetUpsideDown"){
+            height=50;    
+            z=height-10;
+            rad=OOBBm27Hole;
             rad2=5/2;
             OOBBHole3DRadiusComplete(0,0,rad,height,z);
             OOBBHole3DRadiusComplete(0,0,rad2,1.5,1.5);
@@ -672,7 +680,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                    extension = 0;
                     rad=7.4/2; 
                    linear_extrude(1.5){
-                      #square([15,5.25+extension],true);
+                      square([15,5.25+extension],true);
                       translate([7.5+(9/2),0,0]){
                         square([9,4.75+extension],true);
                       }translate([-7.5-(9/2),0,0]){
@@ -726,10 +734,10 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
           }
       }
       if(item=="PiZeroMount"){
-          OOBBInsertItemMM("M2Rivet",-29,11.5,0);
-          OOBBInsertItemMM("M2Rivet",-29,-11.5,0);
-          OOBBInsertItemMM("M2Rivet",29,11.5,0);
-          OOBBInsertItemMM("M2Rivet",29,-11.5,0);
+          OOBBInsertItemMM("M27Rivet",-29,11.5,0);
+          OOBBInsertItemMM("M27Rivet",-29,-11.5,0);
+          OOBBInsertItemMM("M27Rivet",29,11.5,0);
+          OOBBInsertItemMM("M27Rivet",29,-11.5,0);
           translate([0,-11.5,3]){
               linear_extrude(3){
                   square([52,7],true);
@@ -737,10 +745,10 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
           }
       }
       if(item=="PiZeroMountUpsideDown"){
-          OOBBInsertItemMM("M2RivetUpsideDown",-29,11.5,0);
-          OOBBInsertItemMM("M2RivetUpsideDown",-29,-11.5,0);
-          OOBBInsertItemMM("M2RivetUpsideDown",29,11.5,0);
-          OOBBInsertItemMM("M2RivetUpsideDown",29,-11.5,0);
+          OOBBInsertItemMM("M27RivetUpsideDown",-29,11.5,0);
+          OOBBInsertItemMM("M27RivetUpsideDown",-29,-11.5,0);
+          OOBBInsertItemMM("M27RivetUpsideDown",29,11.5,0);
+          OOBBInsertItemMM("M27RivetUpsideDown",29,-11.5,0);
           translate([0,-11.5,0]){
               linear_extrude(3){
                   square([52,7],true);
