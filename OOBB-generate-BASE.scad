@@ -531,7 +531,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             height=50;    
             z=height-10;
             rad=OOBBm27Hole;
-            rad2=5/2;
+            rad2=OOBBm27RivetClearance;
             OOBBHole3DRadiusComplete(0,0,rad,height,z);
             OOBBHole3DRadiusComplete(0,0,rad2,1.5,1.5);
         }
