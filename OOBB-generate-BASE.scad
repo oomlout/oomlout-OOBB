@@ -96,10 +96,25 @@ module OOBBJA2DBase(OOWidth,OOHeight){
 
 
 module OOBBPLOutline3D(OOWidth,OOHeight,OODepth){
-    linear_extrude(OODepth){
-        OOBBPLOutline(OOWidth, OOHeight);
+    
+    if(s=="3DPR"){
+        translate([0,0,OOBBfirstLayerLipDepth]){
+            linear_extrude(OODepth-OOBBfirstLayerLipDepth){
+                OOBBPLOutline(OOWidth, OOHeight);
+            }
+        }
+        linear_extrude(OOBBfirstLayerLipDepth){
+            OOBBPLOutlineFirstLayer(OOWidth, OOHeight);
+        }
+        
+    }else{
+        linear_extrude(OODepth){
+            OOBBPLOutline(OOWidth, OOHeight);
+        }
     }
+    
 }
+
 
 module OOBBCIOutline3D(OOWidth,OODepth){
     linear_extrude(OODepth){
@@ -463,6 +478,42 @@ module OOBBPLOutline(OOWidth,OOHeight){
     
 }
 
+module OOBBPLOutlineFirstLayer(OOWidth,OOHeight){
+    //Bottom Left
+    translate([OOBBSpacing * 1-OOBBRadiusOffset+OOBBfirstLayerLipOffset, OOBBSpacing * 1-OOBBRadiusOffset+OOBBfirstLayerLipOffset]){
+        circle(OOBBRadius);
+    }
+    //Bottom Right
+    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset-OOBBfirstLayerLipOffset, OOBBSpacing * 1-OOBBRadiusOffset+OOBBfirstLayerLipOffset]){
+        circle(OOBBRadius);
+    }    
+    //Top Left
+    translate([OOBBSpacing * 1-OOBBRadiusOffset+OOBBfirstLayerLipOffset, OOBBSpacing * OOHeight+OOBBRadiusOffset-OOBBfirstLayerLipOffset]){
+        circle(OOBBRadius);
+    }
+    //Top Right
+    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset-OOBBfirstLayerLipOffset, OOBBSpacing * OOHeight+OOBBRadiusOffset-OOBBfirstLayerLipOffset]){
+        circle(OOBBRadius);
+    }
+    
+    //WideSquare
+    width = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBfirstLayerLipOffset*2;
+    height = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2 - OOBBfirstLayerLipOffset*2;
+    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
+        square([width,height],true);
+    }
+
+    //TallSquare
+    width2 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2 - OOBBfirstLayerLipOffset*2;
+    height2 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBfirstLayerLipOffset*2;
+    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
+        square([width2,height2],true);
+    }    
+    
+    
+    
+}
+
 module OOBBPLOutlineComplete(wid,hei){
     translate([-wid/2,-hei/2,0]){
        //Bottom Left
@@ -554,19 +605,25 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         if(item=="M3Countersink"){
             top = OOBBm3CounterSinkTopHole;
             bot = OOBBm3Hole;
-            height = 1.9;
+            height = OOBBm3CounterSinkDepth;
             OOBBCountersink3DComplete(0,0,top,bot,height,height);
         }
         if(item=="M3CountersinkUpsideDown"){
             top = OOBBm3CounterSinkTopHole;
             bot = OOBBm3Hole;
-            height = 1.9;
+            height = OOBBm3CounterSinkDepth;
             OOBBCountersink3DComplete(0,0,bot,top,height,height);
         }
         if(item=="M3SocketHead"){
             top = OOBBm3SocketHeadHole;
             bot = OOBBm3SocketHeadHole;
-            height = 3;
+            height = OOBBm3SocketHeadDepth;
+            OOBBCountersink3DComplete(0,0,top,bot,height,height);
+        }
+        if(item=="M3SocketHeadUpsideDown"){
+            top = OOBBm3SocketHeadHole;
+            bot = OOBBm3SocketHeadHole;
+            height = OOBBm3SocketHeadDepth;
             OOBBCountersink3DComplete(0,0,top,bot,height,height);
         }
         if(item=="M3Hole"){

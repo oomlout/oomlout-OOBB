@@ -11,6 +11,10 @@
     OOBBMaterialThickness = 3;
     OOBBRadiusOffset = 1;
 
+    
+    OOBBfirstLayerLipOffset = 0.35;
+    OOBBfirstLayerLipDepth = 0.2;
+
     // HOLES
     OOBBHoleTrue = 6/2;
     OOBBHole3D  = 6.5/2;
@@ -113,10 +117,18 @@
     OOBBm3CounterSinkTopHole3D = OOBBm3CounterSinkTopHoleTrue + 0.6;
     OOBBm3CounterSinkTopHole = s=="3DPR" ? OOBBm3CounterSinkTopHole3D : OOBBm3CounterSinkTopHoleTrue;    
     
+    OOBBm3CounterSinkTopDepthTrue = 1.7;
+    OOBBm3CounterSinkTopDepth3D = OOBBm3CounterSinkTopDepthTrue + 0.2;
+    OOBBm3CounterSinkTopDepth = s=="3DPR" ? OOBBm3CounterSinkTopDepth3D : OOBBm3CounterSinkTopDepthTrue;    
+    
     
     OOBBm3SocketHeadHoleTrue = 5.5/2;
     OOBBm3SocketHeadHole3D = OOBBm3SocketHeadHoleTrue + 0.4;
-    OOBBm3SocketHeadHole = s=="3DPR" ? OOBBm3SocketHeadHole3D : OOBBm3SocketHeadHoleTrue;    
+    OOBBm3SocketHeadHole = s=="3DPR" ? OOBBm3SocketHeadHole3D : OOBBm3SocketHeadHoleTrue;   
+    
+    OOBBm3SocketHeadDepthTrue = 3;
+    OOBBm3SocketHeadDepth3D = OOBBm3SocketHeadDepthTrue + 0.8;
+    OOBBm3SocketHeadDepth = s=="3DPR" ? OOBBm3SocketHeadDepth3D : OOBBm3SocketHeadDepthTrue;    
     
     // TABS
     OOBBTabWidthTrue = 3;

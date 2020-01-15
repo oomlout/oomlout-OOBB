@@ -1,6 +1,6 @@
     
     
-    m="HL-SM-03-03";
+    m="TEST-FIRSTLAYERLIP";
     w=3;
     h=0;
     s="3DPR";
@@ -101,7 +101,7 @@ module OOBB_HL_PZ_05_03(){
         OOBBHole3D(4,3);
         OOBBHole3D(5,3);
         
-        #OOBBInsertItemCoord180("PiZeroMountUpsideDown",3,1.5,0);
+        OOBBInsertItemCoord180("PiZeroMountUpsideDown",3,1.5,0);
 
         
    }
@@ -138,10 +138,10 @@ module OOBB_HL_SM_03_03(){
                              union(){
                 OOBBPLOutline3D(3,3,totalHeight);
                 //extra end bits to keep servo bracket from sticking out the end.
-                #translate([-1,0,0]){
+                translate([-1,0,0]){
                    OOBBPLOutline3D(3,3,totalHeight);
                 }
-                #translate([1,0,0]){
+                translate([1,0,0]){
                    OOBBPLOutline3D(3,3,totalHeight);
                 }
                }
@@ -299,13 +299,14 @@ module OOBB_HL_SM_03_03(){
                 OOBBHole3D(3,3);
                 OOBBInsertItemCoord("ServoMicroHole",2,2,height=18);
                 OOBBInsertItemCoord("M3Hole",1.667,1);      
-                OOBBInsertItemCoord("M3CountersinkUpsideDown",1.667,1 ,ooZ=0);  
+                #OOBBInsertItemCoord("M3SocketHeadUpsideDown",1.667,1 ,ooZ=0);  
                 OOBBInsertItemCoord("M3Hole",1.667,3);      
-                OOBBInsertItemCoord("M3CountersinkUpsideDown",1.667,3,ooZ=0);
+                //OOBBInsertItemCoord("M3CountersinkUpsideDown",1.667,3,ooZ=0);
+               OOBBInsertItemCoord("M3SocketHeadUpsideDown",1.667,3,ooZ=0);
                 OOBBInsertItemCoord("M3HoleScrewTop",2.333,3);      
                 OOBBInsertItemCoord("M3HoleScrewTop",2.333,1);      
                 //servo holder negative
-                #translate([2*OOBBSpacing,2*OOBBSpacing,0]){
+                translate([2*OOBBSpacing,2*OOBBSpacing,0]){
                     translate([-5.35,0,18-6.5]){
                         OOBBPLOutline3DComplete(39+4,24,6.5);
                     }

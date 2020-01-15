@@ -28,7 +28,7 @@ SET MODE=%PART%
 
 SET STYLE=TRUE
 del %FILEFULL%.stl
-openscad -o %FILEFULL%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\""  OOBB-generate-%STYLE%.scad
+openscad -o %FILEFULL%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"s=\"%STYLE%\";"  OOBB-generate-%STYLE%.scad
 
 SET STYLE=3DPR
 del %FILEFULL3DPR%.stl

@@ -21,6 +21,16 @@ if(m=="PLTEST-HoleTolerance"){
     TEST_SOCKETHEADM3();    
 }else if(m=="TEST-SERVOMICROHORNCATCH"){
     TEST_SERVOMICROHORNCATCH();    
+}else if(m=="TEST-FIRSTLAYERLIP"){
+    TEST_FIRSTLAYERLIP();    
+}
+
+module TEST_FIRSTLAYERLIP(){
+    difference(){
+        OOBBPLOutline3D(3, 2, 6);
+        
+    }
+    
 }
 
 module TEST_BEARING6704(){
