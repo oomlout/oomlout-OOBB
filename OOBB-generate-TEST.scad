@@ -28,9 +28,7 @@ if(m=="PLTEST-HoleTolerance"){
 module TEST_FIRSTLAYERLIP(){
     difference(){
         OOBBPLOutline3D(3, 2, 6);
-        
     }
-    
 }
 
 module TEST_BEARING6704(){

@@ -2,7 +2,7 @@ REM ######  OOBB GENERATE FILES  ######
 REM ###################################
 REM 
 
-SET CALLSTYLE=START
+SET CALLSTYLE=CALL
 
 SET WIDTH=0
 SET HEIGHT=0

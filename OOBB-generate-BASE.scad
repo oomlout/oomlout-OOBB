@@ -565,6 +565,14 @@ module OOBBInsertItemCoord180(item,ooX,ooY,ooZ=0,height=0,){
     }
 }
 
+module OOBBInsertItemCoord90(item,ooX,ooY,ooZ=0,height=0,){
+    translate([ooX*OOBBSpacing,ooY*OOBBSpacing,0]){
+        rotate([0,0,90]){    
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+        }
+    }
+}
+
 module OOBBInsertItemMM180(item,ooX,ooY,ooZ=0,height=0,){
     translate([ooX,ooY,0]){
         rotate([0,0,180]){
@@ -631,6 +639,12 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                z=height-10;
                rad=OOBBm3Hole;
                OOBBHole3DRadiusComplete(0,0,rad,height,z);
+
+        }
+        if(item=="M3HoleExtra"){    
+               z=ooZ;
+               rad=OOBBm3Hole;
+               OOBBHole3DRadiusComplete(0,0,rad,height,0);
 
         }
         if(item=="M3HoleScrewTop"){
@@ -735,9 +749,9 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         }
         if(item=="ServoMicroHole"){
            //OOBBCube3DComplete(x,y,wid,hei,height,z)
-            wid=35;
+            wid=36;
             hei=13.75;
-            translate([-3.5,0,height]){
+            translate([-4,0,height]){
                 OOBBCube3DComplete(0,0,wid,hei,height,0);
             }
         }
