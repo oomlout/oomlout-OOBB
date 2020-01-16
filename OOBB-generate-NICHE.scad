@@ -218,12 +218,12 @@ module OOBB_HL_SM_03_03(){
                     //LINKING SQUARES
                     translate([OOBBSpacing*2.33,OOBBSpacing*2,nutHeight-nutGap]){
                         linear_extrude(nutGap){
-                            square([5.5,30],true);
+                            square([OOBBNutM3WidthShortSide,30],true);
                         }
                     } 
                     translate([OOBBSpacing*1.67,OOBBSpacing*2,nutHeight-nutGap]){
                         linear_extrude(nutGap){
-                            square([5.5,30],true);
+                            square([OOBBNutM3WidthShortSide,30],true);
                         }
                     }
                  //captive m3 nuts 2.5
@@ -254,7 +254,7 @@ module OOBB_HL_SM_03_03(){
                  
                  
                  //clearance hole
-                   OOBBInsertItemCoord("ServoMicroHole",2,2,height=7);
+                   OOBBInsertItemCoord("ServoMicroHole",2,2,height=9);
                 }
             }  
          }

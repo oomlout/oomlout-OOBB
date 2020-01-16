@@ -55,10 +55,17 @@
     OOBBBearing6704Little = 24/2;
 
     // NUTS
-    OOBBNutM3WidthTrue = 6.351;    
-    OOBBNutM3Width3D = 6.928; //needs to be the long side    
+    OOBBNutM3WidthTrue = 6.351;    //5.5mm short side
+    OOBBNutM3Width3D = 6.928; //needs to be the long side // //6mm short side    
     
     OOBBNutM3Width = s=="3DPR" ? OOBBNutM3Width3D : OOBBNutM3WidthTrue;
+    
+    OOBBNutM3WidthShortSideTrue = 5.5;    //5.5mm short side
+    OOBBNutM3WidthShortSide3D = 6; //needs to be the long side // //6mm short side    
+    
+    OOBBNutM3WidthShortSide = s=="3DPR" ? OOBBNutM3WidthShortSide3D : OOBBNutM3WidthShortSideTrue;
+    
+    
     
     OOBBNutM3HeightTrue = 2.5;    //actually 4.85 extra for clearance
     OOBBNutM3Height3D = 2.5;    
@@ -69,8 +76,8 @@
 
 
     
-    OOBBNutM6WidthTrue = 11.547;    
-    OOBBNutM6Width3D = 12.7; //needs to be the long side    
+    OOBBNutM6WidthTrue = 11.547;    //short side 10
+    OOBBNutM6Width3D = 12.7; //needs to be the long side (short side is   
     
     
 
