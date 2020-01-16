@@ -1,6 +1,6 @@
     
     /*
-    m="HL-SM-03-03";
+    m="HL-N17-05-03";
     w=3;
     h=0;
     s="3DPR";
@@ -361,7 +361,7 @@ module OOBB_HL_SM_03_03(){
                 OOBBHole3D(3,3);
                 OOBBInsertItemCoord("ServoMicroHole",2,2,height=18);
                 OOBBInsertItemCoord("M3Hole",1.667,1);      
-                #OOBBInsertItemCoord("M3SocketHeadUpsideDown",1.667,1 ,ooZ=0);  
+                OOBBInsertItemCoord("M3SocketHeadUpsideDown",1.667,1 ,ooZ=0);  
                 OOBBInsertItemCoord("M3Hole",1.667,3);      
                 //OOBBInsertItemCoord("M3CountersinkUpsideDown",1.667,3,ooZ=0);
                OOBBInsertItemCoord("M3SocketHeadUpsideDown",1.667,3,ooZ=0);
@@ -434,7 +434,7 @@ module OOBB_HL_N17_05_03(){
         
         
         
-        OOBBnema17Holes(3*OS,2*OS,9);    
+        OOBBInsertItemCoord("NEMA17",3,2,ooZ=9);
         
         //all the way through hole (to facilitate 19mm OD flexible coupler)        
         OOBBHole3DRadius(3*OS,2*OS,22/2);
@@ -570,14 +570,14 @@ module OOBB_BP_6810_05_05(){
 
 module OOBBnema17Holes(x,y,z){
     translate([x,y,-10]){
-        OOBBCountersinkM33DComplete(31/2,31/2,z+10);
-        OOBBHole3DRadius(31/2,31/2,OOBBm3Hole);
-        OOBBCountersinkM33DComplete(-31/2,-31/2,z+10);
-        OOBBHole3DRadius(-31/2,-31/2,OOBBm3Hole);
-        OOBBCountersinkM33DComplete(31/2,-31/2,z+10);
-        OOBBHole3DRadius(31/2,-31/2,OOBBm3Hole);
-        OOBBCountersinkM33DComplete(-31/2,31/2,z+10);
-        OOBBHole3DRadius(-31/2,31/2,OOBBm3Hole);
+//        OOBBCountersinkM33DComplete(31/2,31/2,z+10);
+//        OOBBHole3DRadius(31/2,31/2,OOBBm3Hole);
+//        OOBBCountersinkM33DComplete(-31/2,-31/2,z+10);
+//        OOBBHole3DRadius(-31/2,-31/2,OOBBm3Hole);
+//        OOBBCountersinkM33DComplete(31/2,-31/2,z+10);
+//        OOBBHole3DRadius(31/2,-31/2,OOBBm3Hole);
+//        OOBBCountersinkM33DComplete(-31/2,31/2,z+10);
+//        OOBBHole3DRadius(-31/2,31/2,OOBBm3Hole);
     }
 }
 

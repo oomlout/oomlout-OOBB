@@ -626,7 +626,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             top = OOBBm3SocketHeadHole;
             bot = OOBBm3SocketHeadHole;
             height = OOBBm3SocketHeadDepth;
-            OOBBCountersink3DComplete(0,0,top,bot,height,height);
+            OOBBCountersink3DComplete(0,0,top,bot,height,0);
         }
         if(item=="M3SocketHeadUpsideDown"){
             top = OOBBm3SocketHeadHole;
@@ -732,6 +732,28 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 OOBBInsertItemMM("M3Hole",-8,0);
                 OOBBHole3D(0,0);
             }
+        }
+        
+        if(item=="NEMA17"){
+            OOBBInsertItemMM("M3Hole",31/2,31/2);
+            OOBBInsertItemMM("M3SocketHead",31/2,31/2,ooZ=0);
+            OOBBInsertItemMM("M3Hole",-31/2,31/2);
+            OOBBInsertItemMM("M3SocketHead",-31/2,31/2,ooZ=0);
+            OOBBInsertItemMM("M3Hole",31/2,-31/2);
+            OOBBInsertItemMM("M3SocketHead",31/2,-31/2,ooZ=0);
+            OOBBInsertItemMM("M3Hole",-31/2,-31/2);
+            OOBBInsertItemMM("M3SocketHead",-31/2,-31/2,ooZ=0);  
+            
+            /*
+            OOBBCountersinkM33DComplete(31/2,31/2,z+10);
+            OOBBHole3DRadius(31/2,31/2,OOBBm3Hole);
+            OOBBCountersinkM33DComplete(-31/2,-31/2,z+10);
+            OOBBHole3DRadius(-31/2,-31/2,OOBBm3Hole);
+            OOBBCountersinkM33DComplete(31/2,-31/2,z+10);
+            OOBBHole3DRadius(31/2,-31/2,OOBBm3Hole);
+            OOBBCountersinkM33DComplete(-31/2,31/2,z+10);
+            OOBBHole3DRadius(-31/2,31/2,OOBBm3Hole);
+            */
         }
         if(item=="ServoWireClearance"){
            union(){ 
