@@ -1,11 +1,11 @@
     
-    /*
-    m="HL-N17-05-03";
+    
+    m="HL-SM-03-03-6803";
     w=3;
     h=0;
     s="3DPR";
-    extra="HOLDER";
-    */
+    extra="HORN";
+    
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -20,8 +20,10 @@ if(m=="HL-N17-05-03"){
     OOBB_BP_606_03_03();   
 }else if(m=="BP-6810-05-05"){
     OOBB_BP_6810_05_05();   
-}else if(m=="HL-SM-03-03"){
-    OOBB_HL_SM_03_03();    
+}else if(m=="HL-SM-03-03-6704"){
+    OOBB_HL_SM_03_03(6704); 
+}else if(m=="HL-SM-03-03-6803"){
+    OOBB_HL_SM_03_03(6803);    
 }else if(m=="HL-PZ-05-03"){
     OOBB_HL_PZ_05_03();    
 }else if(m=="WH"){
@@ -108,10 +110,10 @@ module OOBB_HL_PZ_05_03(){
 }
 
 
-module OOBB_HL_SM_03_03(){
+module OOBB_HL_SM_03_03(bearingSize){
    
    
-    //######  HOLDER part
+//######  HOLDER PART
     if( extra == "NONE" || extra=="HOLDER" || extra=="NOHORN"){
         
         
@@ -119,35 +121,33 @@ module OOBB_HL_SM_03_03(){
             
         //translate([0,OOBBSpacing * 0,0]){    
             
-        
             spacerHeight = 12;
             //6704
-            bearingHeight = 4;
-            //6804
-            //bearingHeight = 7;
+            bearingHeight = bearingSize == 6803 ? 5 : 4;  //default to 6704
+            
             
             totalHeight = spacerHeight + bearingHeight;
             union(){
-                       //extra block added to conceal servo
-               #translate([OOBBSpacing * 1-6, OOBBSpacing*2,4]){
-                   linear_extrude(4){
+            //extra block added to conceal servo
+               translate([OOBBSpacing * 1-6, OOBBSpacing*2,4]){
+                   linear_extrude(8){
                     square([2,16],true);
                    }
                }
                 difference(){
-                             union(){
-                OOBBPLOutline3D(3,3,totalHeight);
-                //extra end bits to keep servo bracket from sticking out the end.
-                translate([-1,0,0]){
-                   OOBBPLOutline3D(3,3,totalHeight);
-                }
-                translate([1,0,0]){
-                   OOBBPLOutline3D(3,3,totalHeight);
-                }
-               }
+                    union(){
+                        OOBBPLOutline3D(3,3,totalHeight);
+                        //extra end bits to keep servo bracket from sticking out the end.
+                        translate([-1,0,0]){
+                           OOBBPLOutline3D(3,3,totalHeight);
+                        }
+                        translate([1,0,0]){
+                           OOBBPLOutline3D(3,3,totalHeight);
+                        }
+                    }
    //holes
                     OOBBHole3D(1,1);
-                    //extra clearance hole
+                //extra clearance hole
                     OOBBInsertItemCoord("M6BoltClearance",1,1,totalHeight,height=4);      
                     OOBBHole3D(1,3);   
                     OOBBInsertItemCoord("M6BoltClearance",1,3,totalHeight,height=4);
@@ -157,45 +157,45 @@ module OOBB_HL_SM_03_03(){
                     OOBBInsertItemCoord("M6BoltClearance",3,3,totalHeight,height=4);
                     
                 //extra keepout FOR BOLTS (8 TWO FOR EACH CORNER)
-                    #translate([OOBBSpacing*1,OOBBSpacing*1-3,totalHeight-4]){
+                    translate([OOBBSpacing*1,OOBBSpacing*1-3,totalHeight-4]){
                         linear_extrude(4){
                         square([13,13/2],true);
                         }
                     }  
-                    #translate([OOBBSpacing*1-3.5,OOBBSpacing*1,totalHeight-4]){
+                    translate([OOBBSpacing*1-3.5,OOBBSpacing*1,totalHeight-4]){
                         linear_extrude(4){
                         square([13/2+0.5,13],true);
                         }
                     }
                    
-                    #translate([OOBBSpacing*3,OOBBSpacing*1-3,totalHeight-4]){
+                    translate([OOBBSpacing*3,OOBBSpacing*1-3,totalHeight-4]){
                         linear_extrude(4){
                         square([13,13/2],true);
                         }
                     }  
-                    #translate([OOBBSpacing*3+3.5,OOBBSpacing*1,totalHeight-4]){
+                    translate([OOBBSpacing*3+3.5,OOBBSpacing*1,totalHeight-4]){
                         linear_extrude(4){
                         square([13/2+0.5,13],true);
                         }
                     }
                    
-                    #translate([OOBBSpacing*1,OOBBSpacing*3+3,totalHeight-4]){
+                    translate([OOBBSpacing*1,OOBBSpacing*3+3,totalHeight-4]){
                         linear_extrude(4){
                         square([13,13/2],true);
                         }
                     }  
-                    #translate([OOBBSpacing*1-3.5,OOBBSpacing*3,totalHeight-4]){
+                    translate([OOBBSpacing*1-3.5,OOBBSpacing*3,totalHeight-4]){
                         linear_extrude(4){
                         square([13/2+0.5,13],true);
                         }
                     }
                    
-                    #translate([OOBBSpacing*3,OOBBSpacing*3+3,totalHeight-4]){
+                    translate([OOBBSpacing*3,OOBBSpacing*3+3,totalHeight-4]){
                         linear_extrude(4){
                         square([13,13/2],true);
                         }
                     }  
-                    #translate([OOBBSpacing*3+3.5,OOBBSpacing*3,totalHeight-4]){
+                    translate([OOBBSpacing*3+3.5,OOBBSpacing*3,totalHeight-4]){
                         linear_extrude(4){
                         square([13/2+0.5,13],true);
                         }
@@ -206,11 +206,13 @@ module OOBB_HL_SM_03_03(){
                 //bearing hole
             
             ///6704
-            OOBBInsertItemCoord("Bearing6704Hold",2,2,totalHeight);    
             
-                    
-            ///6804        //OOBBInsertItemCoord("Bearing6804Outside",2,2,totalHeight);    
-            //        OOBBInsertItemCoord("Bearing6804OutsideHold",2,2,12,height=12); 
+                if(bearingSize == 6704){
+                    OOBBInsertItemCoord("Bearing6704Hold",2,2,totalHeight);    
+                }else if(bearingSize == 6803){
+                    OOBBInsertItemCoord("Bearing6803Hold",2,2,totalHeight);    
+                }
+            
                 
                     
                     nutHeight = totalHeight - 7;
@@ -258,9 +260,11 @@ module OOBB_HL_SM_03_03(){
                 }
             }  
          }
-    
+     }
+//######  SERVO BRACKET
+     if( extra == "NONE" || extra=="BRACKET" || extra=="NOHORN"){
      
-    //######  Servo Holder
+ 
         translate([OOBBSpacing * 2,OOBBSpacing * 2,0]){
             difference(){
                 union(){
@@ -286,7 +290,7 @@ module OOBB_HL_SM_03_03(){
         }
     }
 
-    //###### Servo Horn
+//###### Servo Horn
     if( extra == "NONE" || extra=="HORN"){    
         translate([OOBBSpacing * 2,OOBBSpacing * 11,0]){    
             /*
@@ -297,7 +301,7 @@ module OOBB_HL_SM_03_03(){
                 NUT GAP 5
                 TOP 3
             */
-            botTubeHeight = 4.5;
+            botTubeHeight = bearingSize==6803 ? 5.5 : 4.5; //default to 6704
             bigTubeHeight = 2;
             armHeight = 3+OOBBNutM6Height;
             totalHeight = botTubeHeight+bigTubeHeight+armHeight;
@@ -309,7 +313,7 @@ module OOBB_HL_SM_03_03(){
                     //bottomTube
                     
                     translate([0,0,botTubeHeight/2]){
-                        cylinder(botTubeHeight,OOBBBearing6704Inside,OOBBBearing6704Inside,true);
+                        OOBBcylinder(botTubeHeight,OOBBBearing6704Inside,OOBBBearing6704Inside,true);
                     }
                     //bigTube    
                     
@@ -337,9 +341,7 @@ module OOBB_HL_SM_03_03(){
             
         }
     }
-
-    
-   //Base
+//######  Base
     if( extra == "NONE" || extra=="BASE" || extra=="NOHORN"){    
       translate([0,OOBBSpacing * 6,0]){    
        union(){ 

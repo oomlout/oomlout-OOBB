@@ -282,8 +282,22 @@ module OOBBHole3DRadius(x,y,rad){
 
 module OOBBHole3DRadiusComplete(x,y,rad,height,z){    
    translate([x,y,z-height]){
-       linear_extrude(height){
-           circle(rad);
+       if(s=="3DPR"){
+           union(){
+                linear_extrude(height){
+                    circle(rad);
+                }
+                translate([0,0,10]){
+                    linear_extrude(OOBBfirstLayerLipOffset){
+                        circle(rad+OOBBfirstLayerLipDepth);
+                    }
+                }
+            }
+        }
+       else{
+           linear_extrude(height){
+               circle(rad);
+           }
        }
    }
 }
@@ -707,6 +721,10 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6704OutsideHold,4,0);
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6704Little,100,50);
         }
+        if(item=="Bearing6803Hold"){
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6803OutsideHold,4,0);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6803Little,100,50);
+        }
         
         
         if(item=="BearingJoiner0303"){
@@ -877,4 +895,12 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
     }   
 }
 
-    
+module OOBBcylinder(height,radius1,radius2){
+    union(){
+        translate([0,0,OOBBfirstLayerLipDepth]){
+            cylinder(height - OOBBfirstLayerLipDepth,radius1,radius2);
+            
+        }
+       cylinder(OOBBfirstLayerLipDepth,radius1-OOBBfirstLayerLipOffset,radius2-OOBBfirstLayerLipOffset);            
+        }
+}
