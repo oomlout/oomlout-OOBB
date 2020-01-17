@@ -1,6 +1,6 @@
     
     
-    m="TEST-SERVOMICROHORNCATCHSINGLE";
+    m="HL-SM-03-03-6803";
     w=3;
     h=0;
     s="3DPR";
@@ -329,7 +329,7 @@ module OOBB_HL_SM_03_03(bearingSize){
                     //bottomTube
                     
                     translate([0,0,0]){
-                        OOBBcylinder(botTubeHeight,bearingInside,bearingInside,true);
+                        OOBBcylinder(botTubeHeight,bearingInside,bearingInside);
                     }
                     //bigTube    
                     
@@ -343,7 +343,9 @@ module OOBB_HL_SM_03_03(bearingSize){
                     }
                 }
                 OOBBInsertItemCoord("ServoMicroHornHole",0,0,height=4);
-                OOBBInsertItemCoord("ServoMicroHornCatch",0,0,4); //allows for 1.5mm thick arm and 2.5mm thick adapter tube
+                
+                //OOBBInsertItemCoord("ServoMicroHornCatch",0,0,4);
+                OOBBInsertItemCoord("ServoMicroHornCatchSingle",0,0,4); //allows for 1.5mm thick arm and 2.5mm thick adapter tube
                 
                 OOBBHole3D(0,0);
                 OOBBHole3D(-1,0);
