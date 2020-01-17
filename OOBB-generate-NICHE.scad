@@ -1,6 +1,7 @@
     
     
-    m="HL-SM-03-03-6803";
+    //m="HL-SM-03-03-6803";
+    m="HL-PC-03-03";
     w=3;
     h=0;
     s="3DPR";
@@ -116,9 +117,11 @@ module OOBB_HL_PC_03_03(){
         OOBBHole3D(1,3);
         OOBBHole3D(2,3);
         OOBBHole3D(3,3);
+        OOBBHole3D(1,1);
+        OOBBHole3D(1,2);
 
         
-        OOBBInsertItemMM("PiCameraMount",OOBBSpacing*2,OOBBSpacing*2-6,0);
+        OOBBInsertItemMM("PiCameraMount",OOBBSpacing*2.5,OOBBSpacing*2-6,0);
 
         
    }

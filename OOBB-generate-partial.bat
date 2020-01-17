@@ -6,49 +6,7 @@ SET CALLSTYLE=START
 
 
 
-
 SET TYPE=HL
-SET PART=HL-SM-03-03-6704
+SET PART=HL-PC-03-03
 %CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-SET EXTRA=HOLDER
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-SET EXTRA=BRACKET
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-SET EXTRA=BASE
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-SET EXTRA=HORN
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-
-SET EXTRA=NOHORN
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-
-SET TYPE=HL
-SET PART=HL-SM-03-03-6803
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-SET EXTRA=HOLDER
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-SET EXTRA=BRACKET
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-SET EXTRA=BASE
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-SET EXTRA=HORN
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-
-SET EXTRA=NOHORN
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
-
-
-SET EXTRA=NONE
-
 

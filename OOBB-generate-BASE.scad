@@ -885,9 +885,9 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
           OOBBInsertItemMM("M2Rivet",-10.5,-4,0);
           OOBBInsertItemMM("M2Rivet",10.5,10,0);
           OOBBInsertItemMM("M2Rivet",10.5,-4,0);
-          translate([0,3,0]){
+          translate([0,2,0]){
               linear_extrude(20){
-                  square([12,18],true);
+                  square([12,20],true);
               }
           }
           translate([8,9.5,0]){
