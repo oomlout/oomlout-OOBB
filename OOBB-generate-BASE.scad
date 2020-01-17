@@ -606,7 +606,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             rad=OOBBm2Hole;
             rad2=5/2;
             OOBBHole3DRadiusComplete(0,0,rad,height,z);
-            OOBBHole3DRadiusComplete(0,0,rad2,1.5,0);
+            OOBBHole3DRadiusComplete(0,0,rad2,1.5,1.5);
         }
         if(item=="M27Rivet"){
             height=50;    
@@ -858,6 +858,27 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
               z=50;
               rad=5/2;
               OOBBHole3DRadiusComplete(0,0,rad,height,z);
+          }
+      }
+      if(item=="PiCameraMount"){
+          OOBBInsertItemMM("M2Rivet",-10.5,10,0);
+          OOBBInsertItemMM("M2Rivet",-10.5,-4,0);
+          OOBBInsertItemMM("M2Rivet",10.5,10,0);
+          OOBBInsertItemMM("M2Rivet",10.5,-4,0);
+          translate([0,3,0]){
+              linear_extrude(20){
+                  square([12,18],true);
+              }
+          }
+          translate([8,9.5,0]){
+              linear_extrude(3){
+                  square([4,3],true);
+              }
+          }
+          translate([-10,3.5,0]){
+              linear_extrude(3){
+                  square([2,7],true);
+              }
           }
       }
       if(item=="PiZeroMount"){

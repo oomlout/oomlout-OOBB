@@ -1,11 +1,11 @@
     
-    
-    m="HL-SM-03-03-6803";
+    /*
+    m="HL-PC-03-03";
     w=3;
     h=0;
     s="3DPR";
     extra="HORN";
-    
+    */
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -26,6 +26,8 @@ if(m=="HL-N17-05-03"){
     OOBB_HL_SM_03_03(6803);    
 }else if(m=="HL-PZ-05-03"){
     OOBB_HL_PZ_05_03();    
+}else if(m=="HL-PC-03-03"){
+    OOBB_HL_PC_03_03();    
 }else if(m=="WH"){
     OOBB_WH(w);    
 }else if(m=="CI-03-CA-FL"){
@@ -104,6 +106,19 @@ module OOBB_HL_PZ_05_03(){
         OOBBHole3D(5,3);
         
         OOBBInsertItemCoord180("PiZeroMountUpsideDown",3,1.5,0);
+
+        
+   }
+}
+module OOBB_HL_PC_03_03(){
+  difference(){
+        OOBBPLOutline3D(3,3,4.5);
+        OOBBHole3D(1,3);
+        OOBBHole3D(2,3);
+        OOBBHole3D(3,3);
+
+        
+        OOBBInsertItemMM("PiCameraMount",OOBBSpacing*2,OOBBSpacing*2-6,0);
 
         
    }
@@ -302,6 +317,7 @@ module OOBB_HL_SM_03_03(bearingSize){
                 TOP 3
             */
             botTubeHeight = bearingSize==6803 ? 5.5 : 4.5; //default to 6704
+            bearingInside = bearingSize==6803 ? OOBBBearing6803Inside : OOBBBearing6704Inside; //default to 6704
             bigTubeHeight = 2;
             armHeight = 3+OOBBNutM6Height;
             totalHeight = botTubeHeight+bigTubeHeight+armHeight;
@@ -312,8 +328,8 @@ module OOBB_HL_SM_03_03(bearingSize){
                     
                     //bottomTube
                     
-                    translate([0,0,botTubeHeight/2]){
-                        OOBBcylinder(botTubeHeight,OOBBBearing6704Inside,OOBBBearing6704Inside,true);
+                    translate([0,0,0]){
+                        OOBBcylinder(botTubeHeight,bearingInside,bearingInside,true);
                     }
                     //bigTube    
                     
