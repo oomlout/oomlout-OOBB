@@ -1,11 +1,11 @@
     
     
-    //m="HL-SM-03-03-6803";
-    m="HL-PC-03-03";
+    m="HL-SM-03-03-6803";
+    //m="HL-PC-03-03";
     w=3;
     h=0;
     s="3DPR";
-    extra="HORN";
+    extra="HOLDER";
     
     
 include <OOBB-generate-BASE.scad>;
@@ -121,7 +121,7 @@ module OOBB_HL_PC_03_03(){
         OOBBHole3D(1,2);
 
         
-        OOBBInsertItemMM("PiCameraMount",OOBBSpacing*2.5,OOBBSpacing*2-6,0);
+        OOBBInsertItemMM("PiCameraMount",OOBBSpacing*2.5,OOBBSpacing*2-6,4.5);
 
         
    }
@@ -224,7 +224,7 @@ module OOBB_HL_SM_03_03(bearingSize){
                 //bearing hole
             
             ///6704
-            
+            echo(totalHeight);
                 if(bearingSize == 6704){
                     OOBBInsertItemCoord("Bearing6704Hold",2,2,totalHeight);    
                 }else if(bearingSize == 6803){

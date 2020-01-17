@@ -608,6 +608,14 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             OOBBHole3DRadiusComplete(0,0,rad,height,z);
             OOBBHole3DRadiusComplete(0,0,rad2,1.5,1.5);
         }
+        if(item=="M2RivetUpsideDown"){
+            height=50;    
+            z=height-10;
+            rad=OOBBm2Hole;
+            rad2=5/2;
+            OOBBHole3DRadiusComplete(0,0,rad,height,z);
+            OOBBHole3DRadiusComplete(0,0,rad2,1.5,0);
+        }
         if(item=="M27Rivet"){
             height=50;    
             z=height-10;
@@ -722,7 +730,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6704Little,100,50);
         }
         if(item=="Bearing6803Hold"){
-                OOBBHole3DRadiusComplete(0,0,OOBBBearing6803OutsideHold,4,0);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6803OutsideHold,5,0);
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6803Little,100,50);
         }
         
@@ -881,21 +889,21 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
           }
       }
       if(item=="PiCameraMount"){
-          OOBBInsertItemMM("M2Rivet",-10.5,10,0);
-          OOBBInsertItemMM("M2Rivet",-10.5,-4,0);
-          OOBBInsertItemMM("M2Rivet",10.5,10,0);
-          OOBBInsertItemMM("M2Rivet",10.5,-4,0);
-          translate([0,2,0]){
+          OOBBInsertItemMM("M2RivetUpsideDown",-10.5,10,0);
+          OOBBInsertItemMM("M2RivetUpsideDown",-10.5,-2.5,0);
+          OOBBInsertItemMM("M2RivetUpsideDown",10.5,10,0);
+          OOBBInsertItemMM("M2RivetUpsideDown",10.5,-2.5,0);
+          translate([0,2,-10]){
               linear_extrude(20){
-                  square([12,20],true);
+                  square([12,25],true);
               }
           }
-          translate([8,9.5,0]){
+          translate([8,9.5,-ooZ]){
               linear_extrude(3){
                   square([4,3],true);
               }
           }
-          translate([-10,3.5,0]){
+          translate([-10,3.5,-ooZ]){
               linear_extrude(3){
                   square([2,7],true);
               }
