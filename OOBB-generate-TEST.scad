@@ -21,6 +21,8 @@ if(m=="PLTEST-HoleTolerance"){
     TEST_SOCKETHEADM3();    
 }else if(m=="TEST-SERVOMICROHORNCATCH"){
     TEST_SERVOMICROHORNCATCH();    
+}else if(m=="TEST-SERVOMICROHORNCATCHSINGLE"){
+    TEST_SERVOMICROHORNCATCHSINGLE();    
 }else if(m=="TEST-FIRSTLAYERLIP"){
     TEST_FIRSTLAYERLIP();    
 }
@@ -342,6 +344,107 @@ module TEST_SERVOMICROHORNCATCH(){
                       translate([7.5+(9/2),0,0]){
                         square([9,4.75+extension],true);
                       }translate([-7.5-(9/2),0,0]){
+                        square([9,4.75+extension],true);
+                      }
+                      circle(rad);
+                   }
+                }
+            }
+        }
+        
+    }
+}
+
+module TEST_SERVOMICROHORNCATCHSINGLE(){
+      difference(){
+          translate([OOBBSpacing*1,0,0]){
+            OOBBPLOutline3D(2, 4.5, 3.75);
+          }
+        
+        //1
+        translate([OOBBSpacing *2,OOBBSpacing*1,0]){
+          union(){
+                extension=0;
+                rad=7.4/2;
+                height=2.5;
+                OOBBHole3DRadiusComplete(0,0,rad,height,height);
+                translate([0,0,2.5]){
+                   rad=7.4/2; 
+                   linear_extrude(1.5){
+                      translate([7.5/2,0,0]){
+                        square([7.5,5.25+extension],true);
+                      }
+                      translate([7.5+(9/2),0,0]){
+                        square([9,4.75+extension],true);
+                      }
+                      circle(rad);
+                   }
+                }
+            }
+        }
+        
+        
+        
+        //2
+        translate([OOBBSpacing *2,OOBBSpacing*2,0]){
+            union(){
+                extension=0.1;
+                rad=7.4/2;
+                height=2.5;
+                OOBBHole3DRadiusComplete(0,0,rad,height,height);
+                translate([0,0,2.5]){
+                   rad=7.4/2; 
+                   linear_extrude(1.5){
+                      translate([7.5/2,0,0]){
+                        square([7.5,5.25+extension],true);
+                      }
+                      translate([7.5+(9/2),0,0]){
+                        square([9,4.75+extension],true);
+                      }
+                      circle(rad);
+                   }
+                }
+            }
+        }
+        
+        
+        //3
+        translate([OOBBSpacing *2,OOBBSpacing*3,0]){
+            union(){
+                extension=0.2;
+                rad=7.4/2;
+                height=2.5;
+                OOBBHole3DRadiusComplete(0,0,rad,height,height);
+                translate([0,0,2.5]){
+                   rad=7.4/2; 
+                   linear_extrude(1.5){
+                      translate([7.5/2,0,0]){
+                        square([7.5,5.25+extension],true);
+                      }
+                      translate([7.5+(9/2),0,0]){
+                        square([9,4.75+extension],true);
+                      }
+                      circle(rad);
+                   }
+                }
+            }
+        }
+        
+        
+        //4
+        translate([OOBBSpacing *2,OOBBSpacing*4,0]){
+            union(){
+                extension=0.3;
+                rad=7.4/2;
+                height=2.5;
+                OOBBHole3DRadiusComplete(0,0,rad,height,height);
+                translate([0,0,2.5]){
+                   rad=7.4/2; 
+                   linear_extrude(1.5){
+                      translate([7.5/2,0,0]){
+                        square([7.5,5.25+extension],true);
+                      }
+                      translate([7.5+(9/2),0,0]){
                         square([9,4.75+extension],true);
                       }
                       circle(rad);
