@@ -113,7 +113,7 @@ module OOBB_HL_PZ_05_03(){
 }
 module OOBB_HL_PC_03_03(){
   difference(){
-        OOBBPLOutline3D(3,3,4.5);
+        OOBBPLOutline3D(3,3,3);
         OOBBHole3D(1,3);
         OOBBHole3D(2,3);
         OOBBHole3D(3,3);
@@ -121,8 +121,17 @@ module OOBB_HL_PC_03_03(){
         OOBBHole3D(1,2);
 
         
-        OOBBInsertItemMM("PiCameraMount",OOBBSpacing*2.5,OOBBSpacing*2-6,4.5);
-
+        OOBBInsertItemMM("PiCameraMount",OOBBSpacing*2.5,OOBBSpacing*2-6,3);
+        translate([OOBBSpacing*2.5,OOBBSpacing*2-6,00]){
+            
+          OOBBInsertItemMM("M2Hole",-10.5,10,0);
+          OOBBInsertItemMM("M2Hole",-10.5,-2.5,0);
+          OOBBInsertItemMM("M2Hole",10.5,10,0);
+          OOBBInsertItemMM("M2Hole",10.5,-2.5,0);
+        }
+      
+      
+      
         
    }
 }
@@ -233,16 +242,16 @@ module OOBB_HL_SM_03_03(bearingSize){
             
                 
                     
-                    nutHeight = totalHeight - 7;
-                    nutGap = 5;
+                    nutHeight = 11;
+                    nutGap = 7;
                     //LINKING SQUARES
-                    translate([OOBBSpacing*2.33,OOBBSpacing*2,nutHeight-nutGap]){
-                        linear_extrude(nutGap){
+                    translate([OOBBSpacing*2.33,OOBBSpacing*2,nutHeight-nutGap+3]){
+                        linear_extrude(nutGap-3){
                             square([OOBBNutM3WidthShortSide,30],true);
                         }
                     } 
-                    translate([OOBBSpacing*1.67,OOBBSpacing*2,nutHeight-nutGap]){
-                        linear_extrude(nutGap){
+                    translate([OOBBSpacing*1.67,OOBBSpacing*2,nutHeight-nutGap+3]){
+                        linear_extrude(nutGap-3){
                             square([OOBBNutM3WidthShortSide,30],true);
                         }
                     }

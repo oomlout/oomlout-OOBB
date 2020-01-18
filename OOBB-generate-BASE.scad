@@ -604,16 +604,16 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             height=50;    
             z=height-10;
             rad=OOBBm2Hole;
-            rad2=5/2;
-            OOBBHole3DRadiusComplete(0,0,rad,height,z);
+            rad2=5.2/2;
+            #OOBBHole3DRadiusComplete(0,0,rad,height,0);
             OOBBHole3DRadiusComplete(0,0,rad2,1.5,1.5);
         }
         if(item=="M2RivetUpsideDown"){
-            height=50;    
-            z=height-10;
+            h=50;    
+            z=h-10-height;
             rad=OOBBm2Hole;
-            rad2=5/2;
-            OOBBHole3DRadiusComplete(0,0,rad,height,z);
+            rad2=5.2/2;
+            OOBBHole3DRadiusComplete(0,0,rad,h,z);
             OOBBHole3DRadiusComplete(0,0,rad2,1.5,0);
         }
         if(item=="M27Rivet"){
@@ -660,6 +660,13 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                height=50;    
                z=height-10;
                rad=OOBBm3Hole;
+               OOBBHole3DRadiusComplete(0,0,rad,height,z);
+
+        }
+        if(item=="M2Hole"){
+               height=50;    
+               z=height-10;
+               rad=OOBBm2Hole;
                OOBBHole3DRadiusComplete(0,0,rad,height,z);
 
         }
@@ -898,14 +905,14 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                   square([12,25],true);
               }
           }
-          translate([8,9.5,-ooZ]){
-              linear_extrude(3){
-                  square([4,3],true);
+          translate([7,8,-ooZ]){
+              linear_extrude(1.5){
+                  square([5,4],true);
               }
           }
           translate([-10,3.5,-ooZ]){
-              linear_extrude(3){
-                  square([2,7],true);
+              linear_extrude(1.5){
+                  square([3,8],true);
               }
           }
       }
