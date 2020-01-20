@@ -88,6 +88,9 @@ SET TYPE=CI
 SET PART=CI-03-CA-FL
 %CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
+SET TYPE=HL
+SET PART=HL-B2X-07-05
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 
 

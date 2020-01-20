@@ -1,12 +1,12 @@
-    
     /*
-    m="HL-SM-03-03-6803";
+    m="HL-B2X-07-05";
+    //m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
     w=3;
     h=0;
     s="3DPR";
     extra="HOLDER";
-    */
+   */
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -33,6 +33,56 @@ if(m=="HL-N17-05-03"){
     OOBB_WH(w);    
 }else if(m=="CI-03-CA-FL"){
     CI_03_CA_FL();    
+}else if(m=="HL-B2X-07-05"){
+    HL_B2X_07_05();    
+}
+
+module HL_B2X_07_05(){
+    difference(){
+        translate([-4*OOBBSpacing,-3*OOBBSpacing,0]){ //put centre at 0,0
+            difference(){
+                OOBBPLOutline3D(7,5,4.5);
+                OOBBHole3D(1,1);
+                OOBBHole3D(2,1);
+                OOBBHole3D(3,1);
+                OOBBHole3D(4,1);
+                OOBBHole3D(5,1);
+                OOBBHole3D(6,1);
+                OOBBHole3D(7,1);
+                OOBBHole3D(1,5);
+                OOBBHole3D(2,5);
+                OOBBHole3D(3,5);
+                OOBBHole3D(4,5);
+                OOBBHole3D(5,5);
+                OOBBHole3D(6,5);
+                OOBBHole3D(7,5);
+
+            }
+        }
+            OOBBInsertItemMM("M3Hole",-47.5,16.5);   
+            OOBBInsertItemMM("M3RivetUpsideDown",-47.5,16.5);   
+            OOBBInsertItemMM("M3Hole",47.5,16.5);   
+            OOBBInsertItemMM("M3RivetUpsideDown",47.5,16.5);   
+            OOBBInsertItemMM("M3Hole",47.5,-16.5);   
+            OOBBInsertItemMM("M3RivetUpsideDown",47.5,-16.5);   
+            OOBBInsertItemMM("M3Hole",-47.5,-16.5);   
+            OOBBInsertItemMM("M3RivetUpsideDown",-47.5,-16.5);
+         //clearance for PCB components
+            linear_extrude(4.5){
+                square([90,30],true);
+            }
+            translate([48,-27.5,0]){
+                linear_extrude(4.5){
+                    square([6,17],true);
+                }
+            }
+            translate([33,-25.5,0]){
+                linear_extrude(4.5){
+                    square([24,21],true);
+                }
+            }
+        }
+    
 }
 
 module CI_03_CA_FL(){
@@ -148,7 +198,7 @@ module OOBB_HL_SM_03_03(bearingSize){
             
         //translate([0,OOBBSpacing * 0,0]){    
             
-            spacerHeight = 12;
+            spacerHeight = 11;
             //6704
             bearingHeight = bearingSize == 6803 ? 5 : 4;  //default to 6704
             
@@ -242,16 +292,17 @@ module OOBB_HL_SM_03_03(bearingSize){
             
                 
                     
-                    nutHeight = 11;
-                    nutGap = 7;
-                    //LINKING SQUARES
-                    translate([OOBBSpacing*2.33,OOBBSpacing*2,nutHeight-nutGap+3]){
-                        linear_extrude(nutGap-3){
+                    nutHeight = 8; //the height the nut is inserted at
+                    nutGap = 6;  //the length of the extrusion (distance from bottom is nutHeight - nutGap)
+                    nutWindow = 3; //the height of the linking square
+           //LINKING SQUARES
+                    translate([OOBBSpacing*2.33,OOBBSpacing*2,nutHeight-nutGap+nutWindow]){
+                        linear_extrude(nutGap-nutWindow){
                             square([OOBBNutM3WidthShortSide,30],true);
                         }
                     } 
-                    translate([OOBBSpacing*1.67,OOBBSpacing*2,nutHeight-nutGap+3]){
-                        linear_extrude(nutGap-3){
+                    translate([OOBBSpacing*1.67,OOBBSpacing*2,nutHeight-nutGap+nutWindow]){
+                        linear_extrude(nutGap-nutWindow){
                             square([OOBBNutM3WidthShortSide,30],true);
                         }
                     }

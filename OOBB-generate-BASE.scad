@@ -2,11 +2,12 @@
 //########################################
     include <OOBB-Polygon.scad>;
     
-    
+    /*
     w=3;
     h=3;
     m="CP3D";
     s="3DPR";
+    */
     
     include <OOBB-generate-DIMENSIONS.scad>;
     
@@ -652,6 +653,22 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             rad=OOBBm27Hole;
             rad2=OOBBm27RivetClearance;
             OOBBHole3DRadiusComplete(0,0,rad,height,z);
+            OOBBHole3DRadiusComplete(0,0,rad2,1.5,1.5);
+        }
+        if(item=="M3Rivet"){
+            height=50;    
+            z=height-10;
+            rad=OOBBm3Hole;
+            rad2=(6.4+0.2)/2;
+            OOBBHole3DRadiusComplete(0,0,rad,height,0);
+            OOBBHole3DRadiusComplete(0,0,rad2,1.5,1.5);
+        }
+        if(item=="M3RivetUpsideDown"){
+            h=50;    
+            z=h-10-height;
+            rad=OOBBm3Hole;
+            rad2=(6.4+0.2)/2;
+            OOBBHole3DRadiusComplete(0,0,rad,h,z);
             OOBBHole3DRadiusComplete(0,0,rad2,1.5,1.5);
         }
         if(item=="M3Countersink"){
