@@ -2,12 +2,12 @@
 //########################################
     include <OOBB-Polygon.scad>;
     
-    /*
-    w=5;
-    h=1;
-    m="CI3D";
+    
+    w=3;
+    h=3;
+    m="CP3D";
     s="3DPR";
-    */
+    
     include <OOBB-generate-DIMENSIONS.scad>;
     
     
@@ -24,6 +24,8 @@ if(m=="PL2D"){
     OOBBPL2D(w,h);
 }else if(m=="PL3D"){
     OOBBPL3D(w,h,3);
+}else if(m=="CP3D"){
+    OOBBCP3D(w,h,12);
 }else if(m=="JA2D"){
     OOBBJA2D(w,h);
 }else if(m=="JA3D"){
@@ -38,6 +40,17 @@ module OOBBPL3D(OOWidth,OOHeight,OOExtrude){
     difference(){
         OOBBPLOutline3D(OOWidth,OOHeight,OOExtrude);
         OOBBHolesFor3D(OOWidth,OOHeight);
+    }
+
+}
+
+
+module OOBBCP3D(OOWidth,OOHeight,OOExtrude){
+    difference(){
+        OOBBPLOutline3D(OOWidth,OOHeight,OOExtrude);
+        OOBBHolesFor3D(OOWidth,OOHeight);
+        OOBBHolesForCP3D(OOWidth,OOHeight,9);
+        
     }
 
 }
@@ -149,6 +162,15 @@ module OOBBHolesFor3D(OOWidth, OOHeight){
             for(width = [1:OOWidth]){
                 for(height = [1:OOHeight]){
                     OOBBHole3D(width,height);
+                }
+            }
+}
+
+
+module OOBBHolesForCP3D(OOWidth, OOHeight, level){
+            for(width = [1:OOWidth]){
+                for(height = [1:OOHeight]){
+                    #OOBBInsertItemCoord("M6NutCaptiveSingle",width,height,ooZ=level);
                 }
             }
 }

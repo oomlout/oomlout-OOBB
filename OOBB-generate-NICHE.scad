@@ -1,12 +1,12 @@
     
-    
+    /*
     m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
     w=3;
     h=0;
     s="3DPR";
     extra="HOLDER";
-    
+    */
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;

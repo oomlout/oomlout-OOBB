@@ -70,6 +70,14 @@ SET WIDTH=07
 %CALLSTYLE% OOBB-generate-JA.bat
 
 
+
+REM CP (Captive Plates)
+
+SET WIDTH=03
+SET HEIGHT=03
+%CALLSTYLE% OOBB-generate-CP.bat
+
+
 REM PL (Plates)
 
 SET WIDTH=01
