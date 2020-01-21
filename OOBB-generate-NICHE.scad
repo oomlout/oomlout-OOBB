@@ -1,6 +1,6 @@
     
-    m="HL-B2X-07-05";
-    //m="HL-SM-03-03-6803";
+    //m="HL-B2X-07-05";
+    m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
     w=3;
     h=0;
@@ -70,22 +70,34 @@ module HL_B2X_07_05(){
             OOBBInsertItemMM("M3Hole",-47.5,-16.5);   
             OOBBInsertItemMM("M3RivetUpsideDown",-47.5,-16.5);
          //clearance for PCB components
-            linear_extrude(4.5){      // Main Hole
-                square([87,26],true);
+            translate([5.5,0,0]){
+                linear_extrude(4.5){      // Main Hole
+                    square([77,27],true);
+                }
             }
-            #translate([48,-27.5,0]){  //corner extrusion
+            translate([48,-27.5,0]){  //corner extrusion
                 linear_extrude(4.5){
                     square([6,17],true);
                 }
             }
-            #translate([30,-25.5,0]){  //usb port cutout
+            translate([30,-25.5,0]){  //usb port charging cutout
                 linear_extrude(4.5){
                     square([30,21],true);
                 }
             }
-            #translate([-41,-21.5,0]){  // resistor cutout
+            translate([-41,-21.5,0]){  // resistor cutout
                 linear_extrude(4.5){
                     square([10,5],true);
+                }
+            }
+            translate([39,19.5,0]){  // power button cutout
+                linear_extrude(4.5){
+                    square([12,7],true);
+                }
+            }
+            translate([-44,0,0]){  // USB A cutout
+                linear_extrude(4.5){
+                    square([14,20],true);
                 }
             }
         }
@@ -174,13 +186,12 @@ module OOBB_HL_PC_03_03(){
         OOBBHole3D(1,3);
         OOBBHole3D(2,3);
         OOBBHole3D(3,3);
-        OOBBHole3D(1,1);
-        OOBBHole3D(1,2);
+        OOBBHole3D(3,1);
+        OOBBHole3D(3,2);
 
         
-        OOBBInsertItemMM("PiCameraMount",OOBBSpacing*2.5,OOBBSpacing*2-6,3);
-        translate([OOBBSpacing*2.5,OOBBSpacing*2-6,00]){
-            
+        OOBBInsertItemMM("PiCameraMount",OOBBSpacing*1.5,OOBBSpacing*2-6,3);
+        translate([OOBBSpacing*1.5,OOBBSpacing*2-6,00]){  //extra m2 holes to get the bevel at z=0  
           OOBBInsertItemMM("M2Hole",-10.5,10,0);
           OOBBInsertItemMM("M2Hole",-10.5,-2.5,0);
           OOBBInsertItemMM("M2Hole",10.5,10,0);
@@ -205,7 +216,7 @@ module OOBB_HL_SM_03_03(bearingSize){
             
         //translate([0,OOBBSpacing * 0,0]){    
             
-            spacerHeight = 11;
+            spacerHeight = 12;
             //6704
             bearingHeight = bearingSize == 6803 ? 5 : 4;  //default to 6704
             
