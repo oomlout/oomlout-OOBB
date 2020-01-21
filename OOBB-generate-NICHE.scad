@@ -6,7 +6,7 @@
     h=0;
     s="3DPR";
     extra="HOLDER";
-   */
+   */   
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -69,7 +69,7 @@ module HL_B2X_07_05(){
             OOBBInsertItemMM("M3RivetUpsideDown",-47.5,-16.5);
          //clearance for PCB components
             linear_extrude(4.5){
-                square([90,30],true);
+                square([87,26],true);
             }
             translate([48,-27.5,0]){
                 linear_extrude(4.5){
@@ -79,6 +79,11 @@ module HL_B2X_07_05(){
             translate([33,-25.5,0]){
                 linear_extrude(4.5){
                     square([24,21],true);
+                }
+            }
+            translate([41,-21.5,0]){
+                linear_extrude(4.5){
+                    square([10,5],true);
                 }
             }
         }

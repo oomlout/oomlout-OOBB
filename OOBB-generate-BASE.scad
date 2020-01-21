@@ -49,7 +49,7 @@ module OOBBPL3D(OOWidth,OOHeight,OOExtrude){
 module OOBBCP3D(OOWidth,OOHeight,OOExtrude){
     difference(){
         OOBBPLOutline3D(OOWidth,OOHeight,OOExtrude);
-        OOBBHolesFor3D(OOWidth,OOHeight);
+        
         OOBBHolesForCP3D(OOWidth,OOHeight,9);
         
     }
@@ -171,7 +171,8 @@ module OOBBHolesFor3D(OOWidth, OOHeight){
 module OOBBHolesForCP3D(OOWidth, OOHeight, level){
             for(width = [1:OOWidth]){
                 for(height = [1:OOHeight]){
-                    #OOBBInsertItemCoord("M6NutCaptiveSingle",width,height,ooZ=level);
+                    OOBBHole3DBig(width,height);
+                            OOBBInsertItemCoord("M6NutCaptiveSingleBig",width,height,ooZ=level);
                 }
             }
 }
@@ -290,6 +291,13 @@ module OOBBHole3D(OOx,OOy){
     height=50;    
     z=height-10;
     rad=OOBBHole;
+    OOBBHole3DRadiusComplete(OOx*OOBBSpacing,OOy*OOBBSpacing,rad,height,z);
+}
+
+module OOBBHole3DBig(OOx,OOy){
+    height=50;    
+    z=height-10;
+    rad=OOBBHole+1;
     OOBBHole3DRadiusComplete(OOx*OOBBSpacing,OOy*OOBBSpacing,rad,height,z);
 }
 
@@ -755,6 +763,9 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         }
         if(item=="M6NutCaptiveSingle"){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,OOBBNutM6Height,0);
+        }
+        if(item=="M6NutCaptiveSingleBig"){
+           OOBBPolygon3DComplete(6,0,0,(OOBBNutM6Width+1)/2,OOBBNutM6Height+0.5,0);
         }
         if(item=="M6BoltClearance"){
                 OOBBHole3DRadiusComplete(0,0,13/2,height,0);
