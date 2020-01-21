@@ -1,4 +1,4 @@
-    /*
+    
     m="HL-B2X-07-05";
     //m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
@@ -6,7 +6,7 @@
     h=0;
     s="3DPR";
     extra="HOLDER";
-   */   
+      
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -39,24 +39,26 @@ if(m=="HL-N17-05-03"){
 
 module HL_B2X_07_05(){
     difference(){
-        translate([-4*OOBBSpacing,-3*OOBBSpacing,0]){ //put centre at 0,0
-            difference(){
-                OOBBPLOutline3D(7,5,4.5);
-                OOBBHole3D(1,1);
-                OOBBHole3D(2,1);
-                OOBBHole3D(3,1);
-                OOBBHole3D(4,1);
-                OOBBHole3D(5,1);
-                OOBBHole3D(6,1);
-                OOBBHole3D(7,1);
-                OOBBHole3D(1,5);
-                OOBBHole3D(2,5);
-                OOBBHole3D(3,5);
-                OOBBHole3D(4,5);
-                OOBBHole3D(5,5);
-                OOBBHole3D(6,5);
-                OOBBHole3D(7,5);
+        rotate([0,180,0]){     //rotate so bevel is on the top so when flipped in cura it has the bevel on the right side
+            translate([-4*OOBBSpacing,-3*OOBBSpacing,-4.5]){ //put centre at 0,0
+                difference(){
+                    OOBBPLOutline3D(7,5,4.5);
+                    //OOBBHole3D(1,1);
+                    //OOBBHole3D(2,1);
+                    //OOBBHole3D(3,1);
+                    OOBBHole3D(4,1);
+                    OOBBHole3D(5,1);
+                    OOBBHole3D(6,1);
+                    OOBBHole3D(7,1);
+                    OOBBHole3D(1,5);
+                    OOBBHole3D(2,5);
+                    OOBBHole3D(3,5);
+                    OOBBHole3D(4,5);
+                    OOBBHole3D(5,5);
+                    OOBBHole3D(6,5);
+                    OOBBHole3D(7,5);
 
+                }
             }
         }
             OOBBInsertItemMM("M3Hole",-47.5,16.5);   
@@ -68,20 +70,20 @@ module HL_B2X_07_05(){
             OOBBInsertItemMM("M3Hole",-47.5,-16.5);   
             OOBBInsertItemMM("M3RivetUpsideDown",-47.5,-16.5);
          //clearance for PCB components
-            linear_extrude(4.5){
+            linear_extrude(4.5){      // Main Hole
                 square([87,26],true);
             }
-            translate([48,-27.5,0]){
+            #translate([48,-27.5,0]){  //corner extrusion
                 linear_extrude(4.5){
                     square([6,17],true);
                 }
             }
-            translate([33,-25.5,0]){
+            #translate([30,-25.5,0]){  //usb port cutout
                 linear_extrude(4.5){
-                    square([24,21],true);
+                    square([30,21],true);
                 }
             }
-            translate([41,-21.5,0]){
+            #translate([-41,-21.5,0]){  // resistor cutout
                 linear_extrude(4.5){
                     square([10,5],true);
                 }

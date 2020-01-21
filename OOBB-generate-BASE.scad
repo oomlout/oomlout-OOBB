@@ -3,8 +3,8 @@
     include <OOBB-Polygon.scad>;
     
     /*
-    w=3;
-    h=3;
+    w=2;
+    h=2;
     m="CP3D";
     s="3DPR";
     */
@@ -48,7 +48,7 @@ module OOBBPL3D(OOWidth,OOHeight,OOExtrude){
 
 module OOBBCP3D(OOWidth,OOHeight,OOExtrude){
     difference(){
-        OOBBPLOutline3D(OOWidth,OOHeight,OOExtrude);
+        OOBBPLOutline3DBig(OOWidth,OOHeight,OOExtrude);
         
         OOBBHolesForCP3D(OOWidth,OOHeight,9);
         
@@ -124,6 +124,26 @@ module OOBBPLOutline3D(OOWidth,OOHeight,OODepth){
     }else{
         linear_extrude(OODepth){
             OOBBPLOutline(OOWidth, OOHeight);
+        }
+    }
+    
+}
+
+module OOBBPLOutline3DBig(OOWidth,OOHeight,OODepth){
+    extra=5;
+    if(s=="3DPR"){
+        translate([0,0,OOBBfirstLayerLipDepth]){
+            linear_extrude(OODepth-OOBBfirstLayerLipDepth){
+                OOBBPLOutlineBig(OOWidth, OOHeight,extra);
+            }
+        }
+        linear_extrude(OOBBfirstLayerLipDepth){
+            OOBBPLOutlineBigFirstLayer(OOWidth, OOHeight,extra);
+        }
+        
+    }else{
+        linear_extrude(OODepth){
+            OOBBPLOutlineBig(OOWidth, OOHeight);
         }
     }
     
@@ -297,7 +317,7 @@ module OOBBHole3D(OOx,OOy){
 module OOBBHole3DBig(OOx,OOy){
     height=50;    
     z=height-10;
-    rad=OOBBHole+1;
+    rad=OOBBHole+0.5;
     OOBBHole3DRadiusComplete(OOx*OOBBSpacing,OOy*OOBBSpacing,rad,height,z);
 }
 
@@ -452,111 +472,56 @@ module OOBBHoleBolt3D(OOx,OODepth){
 
 
 module OOBBJAOutline(OOWidth,OOHeight){
+    OOBBPLOutlineBig(OOWidth,OOHeight,0);
+}
+
+module OOBBPLOutlineBig(OOWidth,OOHeight,extra){
+    //Bottom Left
+    translate([OOBBSpacing * 1-OOBBRadiusOffset-extra, OOBBSpacing * 1-OOBBRadiusOffset-extra]){
+        circle(OOBBRadius);
+    }
+    //Bottom Right
+    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset+extra, OOBBSpacing * 1-OOBBRadiusOffset-extra]){
+        circle(OOBBRadius);
+    }    
     //Top Left
-    translate([OOBBSpacing * 1-OOBBRadiusOffset-1.5, OOBBSpacing * OOHeight+OOBBRadiusOffset]){
+    translate([OOBBSpacing * 1-OOBBRadiusOffset-extra, OOBBSpacing * OOHeight+OOBBRadiusOffset+extra]){
         circle(OOBBRadius);
     }
     //Top Right
-    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset + 1.5, OOBBSpacing * OOHeight+OOBBRadiusOffset]){
+    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset+extra, OOBBSpacing * OOHeight+OOBBRadiusOffset+extra]){
         circle(OOBBRadius);
     }
     
-    //Bottom Square
-    width4 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 + 3;
-    height4 = 14.5;//(OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2;
-    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,8.75]){
-       square([width4,height4],true);
+    //WideSquare
+    width = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 + extra*2;
+    height = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2+extra*2;
+    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
+        square([width,height],true);
     }
 
     //TallSquare
-    width3 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2 + 3;
-    height3 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2;
+    width2 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2+extra*2;
+    height2 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2+extra*2;
     translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
-        square([width3,height3],true);
-    } 
- 
-    //WideSquare
-    width5 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2  + 3;
-    height5 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2- OOBBRadius*2;
-    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
-        square([width5,height5],true);
+        square([width2,height2],true);
     }    
-}
-
-module OOBBCIOutline(OOWidth){
-    circle((OOWidth * OOBBSpacing - 3 )/2);    
+    
+    
+    
 }
 
 module OOBBPLOutline(OOWidth,OOHeight){
-    //Bottom Left
-    translate([OOBBSpacing * 1-OOBBRadiusOffset, OOBBSpacing * 1-OOBBRadiusOffset]){
-        circle(OOBBRadius);
-    }
-    //Bottom Right
-    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset, OOBBSpacing * 1-OOBBRadiusOffset]){
-        circle(OOBBRadius);
-    }    
-    //Top Left
-    translate([OOBBSpacing * 1-OOBBRadiusOffset, OOBBSpacing * OOHeight+OOBBRadiusOffset]){
-        circle(OOBBRadius);
-    }
-    //Top Right
-    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset, OOBBSpacing * OOHeight+OOBBRadiusOffset]){
-        circle(OOBBRadius);
-    }
-    
-    //WideSquare
-    width = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2;
-    height = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2;
-    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
-        square([width,height],true);
-    }
-
-    //TallSquare
-    width2 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2;
-    height2 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2;
-    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
-        square([width2,height2],true);
-    }    
-    
-    
-    
+    OOBBPLOutlineBig(OOWidth,OOHeight,0);    
 }
 
 module OOBBPLOutlineFirstLayer(OOWidth,OOHeight){
-    //Bottom Left
-    translate([OOBBSpacing * 1-OOBBRadiusOffset+OOBBfirstLayerLipOffset, OOBBSpacing * 1-OOBBRadiusOffset+OOBBfirstLayerLipOffset]){
-        circle(OOBBRadius);
-    }
-    //Bottom Right
-    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset-OOBBfirstLayerLipOffset, OOBBSpacing * 1-OOBBRadiusOffset+OOBBfirstLayerLipOffset]){
-        circle(OOBBRadius);
-    }    
-    //Top Left
-    translate([OOBBSpacing * 1-OOBBRadiusOffset+OOBBfirstLayerLipOffset, OOBBSpacing * OOHeight+OOBBRadiusOffset-OOBBfirstLayerLipOffset]){
-        circle(OOBBRadius);
-    }
-    //Top Right
-    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset-OOBBfirstLayerLipOffset, OOBBSpacing * OOHeight+OOBBRadiusOffset-OOBBfirstLayerLipOffset]){
-        circle(OOBBRadius);
-    }
-    
-    //WideSquare
-    width = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBfirstLayerLipOffset*2;
-    height = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2 - OOBBfirstLayerLipOffset*2;
-    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
-        square([width,height],true);
-    }
+    OOBBPLOutlineBig(OOWidth,OOHeight,-OOBBfirstLayerLipOffset);
+}
 
-    //TallSquare
-    width2 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2 - OOBBfirstLayerLipOffset*2;
-    height2 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBfirstLayerLipOffset*2;
-    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
-        square([width2,height2],true);
-    }    
-    
-    
-    
+
+module OOBBPLOutlineBigFirstLayer(OOWidth,OOHeight,extra){
+    OOBBPLOutlineBig(OOWidth,OOHeight,-OOBBfirstLayerLipOffset + extra);
 }
 
 module OOBBPLOutlineComplete(wid,hei){
@@ -765,7 +730,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,OOBBNutM6Height,0);
         }
         if(item=="M6NutCaptiveSingleBig"){
-           OOBBPolygon3DComplete(6,0,0,(OOBBNutM6Width+1)/2,OOBBNutM6Height+0.5,0);
+           OOBBPolygon3DComplete(6,0,0,(OOBBNutM6Width+0.5)/2,OOBBNutM6Height+0.5,0);
         }
         if(item=="M6BoltClearance"){
                 OOBBHole3DRadiusComplete(0,0,13/2,height,0);
