@@ -1,4 +1,4 @@
-    
+    /*
     //m="HL-B2X-07-05";
     m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
@@ -7,6 +7,7 @@
     s="3DPR";
     extra="HOLDER";
       
+      */
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -90,7 +91,7 @@ module HL_B2X_07_05(){
                     square([10,5],true);
                 }
             }
-            translate([39,19.5,0]){  // power button cutout
+            translate([-39,19.5,0]){  // power button cutout
                 linear_extrude(4.5){
                     square([12,7],true);
                 }
