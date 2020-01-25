@@ -1,12 +1,12 @@
-    /*
+    
     //m="HL-B2X-07-05";
     m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
     w=3;
     h=0;
     s="3DPR";
-    extra="BRACKET";
-      */
+    extra="HOLDER";
+    
     
     
 include <OOBB-generate-BASE.scad>;
@@ -311,9 +311,9 @@ module OOBB_HL_SM_03_03(bearingSize){
             
                 
                     
-                    nutHeight = 8; //the height the nut is inserted at
-                    nutGap = 6;  //the length of the extrusion (distance from bottom is nutHeight - nutGap)
-                    nutWindow = 3; //the height of the linking square
+                    nutHeight = 9; //the height the nut is inserted at
+                    nutGap = 7;  //the length of the extrusion (distance from bottom is nutHeight - nutGap)
+                    nutWindow = 3; //the height of the nut (nutgap - nutWindow is the height of the gap mistake not fixed.)
            //LINKING SQUARES
                     translate([OOBBSpacing*2.33,OOBBSpacing*2,nutHeight-nutGap+nutWindow]){
                         linear_extrude(nutGap-nutWindow){
