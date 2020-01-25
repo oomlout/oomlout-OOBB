@@ -2,12 +2,12 @@
 //########################################
     include <OOBB-Polygon.scad>;
     
-    /*
-    w=2;
+    
+    w=3;
     h=2;
-    m="CP3D";
+    m="CI3D";
     s="3DPR";
-    */
+    
     
     include <OOBB-generate-DIMENSIONS.scad>;
     
@@ -151,6 +151,24 @@ module OOBBPLOutline3DBig(OOWidth,OOHeight,OODepth){
 
 
 module OOBBCIOutline3D(OOWidth,OODepth){
+    if(s=="3DPR"){
+        translate([0,0,OOBBfirstLayerLipDepth]){
+            linear_extrude(OODepth-OOBBfirstLayerLipDepth){
+                OOBBCIOutline(OOWidth);
+            }
+        }
+        linear_extrude(OOBBfirstLayerLipDepth){
+            OOBBCIOutlineFirstLayer(OOWidth);
+        }
+        
+    }else{
+        linear_extrude(OODepth){
+            OOBBCIOutline(OOWidth);
+        }
+    }
+}
+
+module OOBBCIOutline3DOLD(OOWidth,OODepth){
     linear_extrude(OODepth){
         OOBBCIOutline(OOWidth);
     }
@@ -474,6 +492,23 @@ module OOBBHoleBolt3D(OOx,OODepth){
 module OOBBJAOutline(OOWidth,OOHeight){
     OOBBPLOutlineBig(OOWidth,OOHeight,0);
 }
+
+
+
+module OOBBCIOutlineBig(OOWidth,extra){
+        circle((OOWidth * OOBBSpacing - 3)/2 + extra);   
+}
+
+
+module OOBBCIOutline(OOWidth){
+    OOBBCIOutlineBig(OOWidth,0);
+}
+
+module OOBBCIOutlineFirstLayer(OOWidth){
+    OOBBCIOutlineBig(OOWidth,-OOBBfirstLayerLipOffset);
+}
+
+
 
 module OOBBPLOutlineBig(OOWidth,OOHeight,extra){
     //Bottom Left
