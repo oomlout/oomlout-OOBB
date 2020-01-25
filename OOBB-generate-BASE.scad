@@ -2,12 +2,12 @@
 //########################################
     include <OOBB-Polygon.scad>;
     
-    
+    /*
     w=3;
     h=2;
     m="CI3D";
     s="3DPR";
-    
+    */
     
     include <OOBB-generate-DIMENSIONS.scad>;
     
@@ -913,7 +913,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                         union(){
                             
                             //square
-                            holeWidth = 23.75;
+                            holeWidth = 25;
                             holeHeight = 13.75;
                             slotw = 31;
                             holeRadius = 0.75;

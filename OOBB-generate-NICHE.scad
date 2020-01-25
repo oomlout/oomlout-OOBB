@@ -5,9 +5,9 @@
     w=3;
     h=0;
     s="3DPR";
-    extra="HOLDER";
-      
+    extra="BRACKET";
       */
+    
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
