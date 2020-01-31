@@ -1,13 +1,13 @@
-    
-    //m="WHS";
+    /*
+    m="WHS";
     //m="HL-B2X-07-05";
-    m="HL-SM-03-03-6803";
+    //m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
     w=3;
     h=0;
     s="3DPR";
     extra="NONE";
-    
+    */
     
     
 include <OOBB-generate-BASE.scad>;
@@ -34,7 +34,7 @@ if(m=="HL-N17-05-03"){
 }else if(m=="WH"){
     OOBB_WH(w);    
 }else if(m=="WHS"){
-    OOBB_WH_SERVO(w);    
+    OOBB_WH_SERVO(w,6803);    
 }else if(m=="CI-03-CA-FL"){
     CI_03_CA_FL();    
 }else if(m=="HL-B2X-07-05"){
@@ -165,8 +165,8 @@ module OOBB_WH(width){
 }
 
 
-module OOBB_WH_SERVO(width){
-    bearingSize="6803";
+module OOBB_WH_SERVO(width, bSize){
+    
 
         //servo horn
             /*
@@ -177,8 +177,8 @@ module OOBB_WH_SERVO(width){
                 NUT GAP 5
                 TOP 3
             */
-            botTubeHeight = bearingSize==6803 ? 5.5 : 4.5; //default to 6704
-            bearingInside = bearingSize==6803 ? OOBBBearing6803Inside : OOBBBearing6704Inside; //default to 6704
+            botTubeHeight = bSize==6803 ? 5.5 : 4.5; //default to 6704
+            bearingInside = bSize==6803 ? OOBBBearing6803Inside : OOBBBearing6704Inside; //default to 6704
             bigTubeHeight = 2;
             armHeight = 3+OOBBNutM6Height;
             totalHeight = botTubeHeight+bigTubeHeight+armHeight;
@@ -203,7 +203,7 @@ module OOBB_WH_SERVO(width){
                         cylinder(bigTubeHeight,24/2,24/2,true);
                     }
                     //arm
-                    translate([0,0,11]){
+                    translate([0,0,12]){
                         cylinder(9,20/2,20/2,true);
                     }
                 }
