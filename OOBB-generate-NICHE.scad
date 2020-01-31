@@ -1,13 +1,13 @@
-    /*
-    m="WHS";
-    //m="HL-B2X-07-05";
+    
+    //m="WHS";
+    m="HL-B2X-07-04";
     //m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
     w=3;
     h=0;
     s="3DPR";
     extra="NONE";
-    */
+    
     
     
 include <OOBB-generate-BASE.scad>;
@@ -37,16 +37,18 @@ if(m=="HL-N17-05-03"){
     OOBB_WH_SERVO(w,6803);    
 }else if(m=="CI-03-CA-FL"){
     CI_03_CA_FL();    
-}else if(m=="HL-B2X-07-05"){
-    HL_B2X_07_05();    
+}else if(m=="HL-B2X-07-04"){
+    HL_B2X_07_04();    
 }
 
-module HL_B2X_07_05(){
+module HL_B2X_07_04(){
     difference(){
         rotate([0,180,0]){     //rotate so bevel is on the top so when flipped in cura it has the bevel on the right side
             translate([-4*OOBBSpacing,-3*OOBBSpacing,-4.5]){ //put centre at 0,0
                 difference(){
-                    OOBBPLOutline3D(7,5,4.5);
+                    translate([0,OOBBSpacing*1,0]){ //added because size was changed after designed.
+                        OOBBPLOutline3D(7,4,4.5);
+                    }
                     //OOBBHole3D(1,1);
                     //OOBBHole3D(2,1);
                     //OOBBHole3D(3,1);
@@ -424,7 +426,7 @@ module OOBB_HL_SM_03_03(bearingSize){
                  
                  
                  //clearance hole
-                   //OOBBInsertItemCoord("ServoMicroHole",2,2,height=9);
+                   OOBBInsertItemCoord("ServoMicroHole",2,2,height=10);
                     //servo holder negative
                 #translate([2*OOBBSpacing,2*OOBBSpacing,0]){
                     translate([-5.35,0,0]){
