@@ -1,13 +1,13 @@
-    /*
-    m="WHS";
+    
+    //m="WHS";
     //m="HL-B2X-07-05";
-    //m="HL-SM-03-03-6803";
+    m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
     w=3;
     h=0;
     s="3DPR";
     extra="NONE";
-    */
+    
     
     
 include <OOBB-generate-BASE.scad>;
@@ -419,17 +419,23 @@ module OOBB_HL_SM_03_03(bearingSize){
                     OOBBInsertItemMM("M3HoleExtra",1.667*OOBBSpacing,3*OOBBSpacing+2,height=nutHeight,ooZ=nutHeight);      
                  
                //Clearance for servo bracket
-               #translate([2.333*OOBBSpacing,2*OOBBSpacing,6-6]){
-                       //OOBBPLOutline3DComplete(10,42,6);
-                        linear_extrude(6){
-                            square([10,42],true);
-                        }
-                    }
+               
                  
                  
                  
                  //clearance hole
-                   OOBBInsertItemCoord("ServoMicroHole",2,2,height=9);
+                   //OOBBInsertItemCoord("ServoMicroHole",2,2,height=9);
+                    //servo holder negative
+                #translate([2*OOBBSpacing,2*OOBBSpacing,0]){
+                    translate([-5.35,0,0]){
+                        OOBBPLOutline3DComplete(39+4,21,6);
+                    }
+                    //piece with screw holes
+                    translate([5,0,0]){
+                        OOBBPLOutline3DComplete(11+4,42+8,6);
+                    }        
+                
+                }
                 }
             }  
          }
@@ -519,7 +525,8 @@ module OOBB_HL_SM_03_03(bearingSize){
     }
 //######  Base
     if( extra == "NONE" || extra=="BASE" || extra=="NOHORN"){    
-      translate([0,OOBBSpacing * 6,0]){    
+      translate([0,OOBBSpacing * 6,0]){ 
+       //height = 16   
        union(){ 
            difference(){
                union(){
@@ -532,7 +539,7 @@ module OOBB_HL_SM_03_03(bearingSize){
                    OOBBPLOutline3D(3,3,16);
                 }
                }
-                OOBBInsertItemCoord("ServoWireClearance",3,2,ooZ=12);      
+                OOBBInsertItemCoord("ServoWireClearance",3,2,ooZ=16);      
                 OOBBHole3D(1,1);
                 OOBBHole3D(3,1);
                 OOBBHole3D(1,3);
