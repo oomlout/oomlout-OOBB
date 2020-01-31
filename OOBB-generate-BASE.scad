@@ -626,6 +626,14 @@ module OOBBInsertItemMM180(item,ooX,ooY,ooZ=0,height=0,){
     }
 }
 
+module OOBBInsertItemMM90(item,ooX,ooY,ooZ=0,height=0,){
+    translate([ooX,ooY,0]){
+        rotate([0,0,90]){
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+        }
+    }
+}
+
 module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
     translate([ooX,ooY,ooZ]){
         if(item=="OOBBHole"){
@@ -845,8 +853,8 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                         square([15,4],true);
                    }
                }
-            translate([1,0,-15]){
-                linear_extrude(15){
+            translate([1,0,-13]){
+                linear_extrude(13){
                         square([4,4],true);
                    }
                 }
