@@ -1,13 +1,13 @@
-    
+    /*
     //m="WHS";
-    m="HL-B2X-07-04";
-    //m="HL-SM-03-03-6803";
+    //m="HL-B2X-07-04";
+    m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
     w=3;
     h=0;
     s="3DPR";
-    extra="NONE";
-    
+    extra="BRACKET";
+    */
     
     
 include <OOBB-generate-BASE.scad>;
@@ -465,8 +465,9 @@ module OOBB_HL_SM_03_03(bearingSize){
                     }
                 }
                OOBBInsertItemCoord("ServoMicroMount",0,0,height=12);
-               OOBBInsertItemCoord("M3Slot",0.33,1);
-               OOBBInsertItemCoord("M3Slot",0.33,-1);
+               OOBBInsertItemMM("M3Slot",0.33*OOBBSpacing,1*OOBBSpacing+2);
+               OOBBInsertItemMM("M3Slot",0.33*OOBBSpacing,-1*OOBBSpacing-2);
+                //2.333*OOBBSpacing,1*OOBBSpacing-2
             }
         }
     }
