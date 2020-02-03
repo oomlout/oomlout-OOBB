@@ -26,13 +26,14 @@ mkdir %DIRECTORY%
 
 SET MODE=%PART%
 
+SET STYLE=3DPR
+del %FILEFULL3DPR%.stl
+openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"" OOBB-generate-%STYLE%.scad
+
 SET STYLE=TRUE
 del %FILEFULL%.stl
 openscad -o %FILEFULL%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\";"  OOBB-generate-%STYLE%.scad
 
-SET STYLE=3DPR
-del %FILEFULL3DPR%.stl
-openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"" OOBB-generate-%STYLE%.scad
 
 SET STYLE=TRUE
 del %FILEFULL%.png
