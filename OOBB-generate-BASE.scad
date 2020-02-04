@@ -734,7 +734,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         if(item=="M3HoleScrewTop"){
                height=50;    
                z=height-10;
-               rad=OOBBm3Hole+(3.5/2);
+               rad=OOBBm3SocketHeadHole;
                OOBBHole3DRadiusComplete(0,0,rad,height,z);
 
         }
