@@ -9,7 +9,7 @@
 //servo holder negative (used in holder and base)
      
     //servoHolderCutoutSize = 6; //testing
-    servoHolderCutoutSize = 1; //SG90
+    servoHolderCutoutSize = 2; //SG90
     
 //servo bracket thickness (used in bracket and base)
 
