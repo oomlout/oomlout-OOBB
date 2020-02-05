@@ -22,13 +22,15 @@ mkdir %DIRECTORY%
 REM 3D Files
 
 SET MODE=JA3D
+SET STYLE=3DPR
+del %FILEFULL3DPR%.stl
+openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" OOBB-generate-%STYLE%.scad
+
+
 SET STYLE=TRUE
 del %FILEFULL%.stl
 openscad -o %FILEFULL%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\""  OOBB-generate-%STYLE%.scad
 
-SET STYLE=3DPR
-del %FILEFULL3DPR%.stl
-openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\"" OOBB-generate-%STYLE%.scad
 
 SET STYLE=TRUE
 del %FILEFULL%.png

@@ -2,12 +2,12 @@
 //########################################
     include <OOBB-Polygon.scad>;
     
-    /*
+    
     w=3;
-    h=2;
-    m="CI3D";
+    h=1;
+    m="JA3D";
     s="3DPR";
-    */
+    
     
     include <OOBB-generate-DIMENSIONS.scad>;
     
@@ -490,8 +490,37 @@ module OOBBHoleBolt3D(OOx,OODepth){
 
 
 module OOBBJAOutline(OOWidth,OOHeight){
-    OOBBPLOutlineBig(OOWidth,OOHeight,0);
-}
+    {
+    //Top Left
+    translate([OOBBSpacing * 1-OOBBRadiusOffset-1.5, OOBBSpacing * OOHeight+OOBBRadiusOffset]){
+        circle(OOBBRadius);
+    }
+    //Top Right
+    translate([OOBBSpacing * OOWidth+OOBBRadiusOffset + 1.5, OOBBSpacing * OOHeight+OOBBRadiusOffset]){
+        circle(OOBBRadius);
+    }
+    
+    //Bottom Square
+    width4 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 + 3;
+    height4 = 14.5;//(OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2;
+    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,8.75]){
+       square([width4,height4],true);
+    }
+
+    //TallSquare
+    width3 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2 - OOBBRadius*2 + 3;
+    height3 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2;
+    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
+        square([width3,height3],true);
+    } 
+ 
+    //WideSquare
+    width5 = (OOWidth-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2  + 3;
+    height5 = (OOHeight-1) * OOBBSpacing + OOBBRadius * 2 + OOBBRadiusOffset * 2- OOBBRadius*2;
+    translate([(OOBBSpacing + OOWidth * OOBBSpacing)/2,(OOBBSpacing + OOHeight * OOBBSpacing)/2]){
+        square([width5,height5],true);
+    }    
+}}
 
 
 
