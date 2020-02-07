@@ -2,12 +2,12 @@
 //########################################
     include <OOBB-Polygon.scad>;
     
-    
+    /*    
     w=3;
     h=1;
     m="JA3D";
     s="3DPR";
-    
+    */
     
     include <OOBB-generate-DIMENSIONS.scad>;
     
@@ -928,6 +928,26 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
 
                     
                    linear_extrude(1.5){
+                      translate([7.5/2,0,0]){
+                        square([7.5,5.25+extension],true);
+                      }
+                      translate([7.5+(9/2),0,0]){
+                        square([9,4.75+extension],true);
+                      }
+                      circle(rad);
+                   }
+
+            }
+        }
+        if(item=="ServoMicroHornCatchSingleBottomInsertion"){
+            translate([0,0,-4]){
+                   extension = 0;
+                   rad=7.4/2;
+                height=2.5;
+                OOBBHole3DRadiusComplete(0,0,rad,height,height);
+
+                    
+                   linear_extrude(4){
                       translate([7.5/2,0,0]){
                         square([7.5,5.25+extension],true);
                       }

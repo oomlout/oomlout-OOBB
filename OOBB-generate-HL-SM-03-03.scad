@@ -3,7 +3,7 @@
 ///########
 ///########  MAIN
 ///########
-
+//include <OOBB-generate-NICHE.scad>;
 
 
 //servo holder negative (used in holder and base)
@@ -276,6 +276,55 @@ module OOBB_HL_SM_03_03_BRACKET(bearingSize){
 ///########  SERVOHORN
 ///########
 module OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
+	
+	/*
+				BASE 2.5 (both in botTube)
+				HORN 1.5
+				TUBE 0.5  4.5
+				TUBE BIG 2
+				NUT GAP 5
+				TOP 3
+			*/
+    botTubeHeight=2;
+	bearingTubeHeight = bearingSize==6803 ? 5 : 4; //default to 6704
+	bearingInside = bearingSize==6803 ? OOBBBearing6803Inside : OOBBBearing6704Inside; //default to 6704
+	topTubeHeight = 3;
+	totalHeight = botTubeHeight+bearingTubeHeight+topTubeHeight+9;
+	difference(){
+
+		union(){
+			
+			
+			//bottomTube
+			
+			translate([0,0,0]){
+				OOBBcylinder(botTubeHeight,24/2,24/2);
+			}
+			//bearingTube    
+			
+			translate([0,0,botTubeHeight+bearingTubeHeight/2  ]){
+				cylinder(bearingTubeHeight,bearingInside,bearingInside,true);
+			}
+            
+			translate([0,0,botTubeHeight+bearingTubeHeight+topTubeHeight/2  ]){
+				cylinder(bearingTubeHeight,24/2,24/2,true);
+			}
+            translate([0,0,9]){
+                OOBB_WH_SOLID(3);
+            }	
+		}
+		OOBBInsertItemCoord("ServoMicroHornHole",0,0,height=4);
+		OOBBHole3D(0,0);
+		
+		//OOBBInsertItemCoord("ServoMicroHornCatch",0,0,4);
+		OOBBInsertItemCoord("ServoMicroHornCatchSingleBottomInsertion",0,0,4); //allows for 1.5mm thick arm and 2.5mm thick adapter tube
+		
+		
+	}
+	
+}
+
+module OLD01_OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
 	
 	/*
 				BASE 2.5 (both in botTube)
