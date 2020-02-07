@@ -666,7 +666,10 @@ module OOBBInsertItemMM90(item,ooX,ooY,ooZ=0,height=0,){
 module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
     translate([ooX,ooY,ooZ]){
         if(item=="OOBBHole"){
-            circle(OOBBHole);
+            height=50;    
+            z=height-10;
+            rad=OOBBHole;
+            OOBBHole3DRadiusComplete(0,0,rad,height,z);
         }
         if(item=="M2Rivet"){
             height=50;    

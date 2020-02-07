@@ -287,6 +287,7 @@ module OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
 			*/
     botTubeHeight=2;
 	bearingTubeHeight = bearingSize==6803 ? 5 : 4; //default to 6704
+	//bearingTubeHeight = 4; //default to 6704
 	bearingInside = bearingSize==6803 ? OOBBBearing6803Inside : OOBBBearing6704Inside; //default to 6704
 	topTubeHeight = 3;
 	totalHeight = botTubeHeight+bearingTubeHeight+topTubeHeight+9;
@@ -309,16 +310,24 @@ module OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
 			translate([0,0,botTubeHeight+bearingTubeHeight+topTubeHeight/2  ]){
 				cylinder(bearingTubeHeight,24/2,24/2,true);
 			}
-            translate([0,0,9]){
+            translate([0,0,totalHeight-9]){
                 OOBB_WH_SOLID(3);
             }	
 		}
 		OOBBInsertItemCoord("ServoMicroHornHole",0,0,height=4);
-		OOBBHole3D(0,0);
+		OOBBInsertItemCoord("OOBBHole",0,0,height=4);
+		
 		
 		//OOBBInsertItemCoord("ServoMicroHornCatch",0,0,4);
 		OOBBInsertItemCoord("ServoMicroHornCatchSingleBottomInsertion",0,0,4); //allows for 1.5mm thick arm and 2.5mm thick adapter tube
 		
+        //blank for screw insertion
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+1);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+2);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+3);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+4);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+5);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+6);
 		
 	}
 	
