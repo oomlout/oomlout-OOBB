@@ -369,7 +369,37 @@ module OOBBHole3DRadiusComplete(x,y,rad,height,z){
            }
        }
    }
+   
+module OOBBHole3DRadiusComplete(x,y,rad,height,z){    
+   translate([x,y,z-height]){
+       if(s=="3DPR"){
+           union(){
+                linear_extrude(height){
+                    circle(rad);
+                }
+                translate([0,0,10]){
+                    linear_extrude(OOBBfirstLayerLipOffset){
+                        circle(rad+OOBBfirstLayerLipDepth);
+                    }
+                }
+            }
+        }
+       else{
+           linear_extrude(height){
+               circle(rad);
+           }
+       }
+   }
+}}
+
+module OOBBHole3DRadiusSimple(x,y,rad,height,z){    
+   translate([x,y,z-height]){
+   linear_extrude(height){
+           circle(rad);
+       }
+    }
 }
+
 
 module OOBBCube3DComplete(x,y,wid,hei,height,z){    
    translate([x,y,z-height]){
@@ -639,6 +669,8 @@ module OOBBInsertItemCoord180(item,ooX,ooY,ooZ=0,height=0,){
     }
 }
 
+
+
 module OOBBInsertItemCoord90(item,ooX,ooY,ooZ=0,height=0,){
     translate([ooX*OOBBSpacing,ooY*OOBBSpacing,0]){
         rotate([0,0,90]){    
@@ -646,6 +678,17 @@ module OOBBInsertItemCoord90(item,ooX,ooY,ooZ=0,height=0,){
         }
     }
 }
+
+
+module OOBBInsertItemCoordRotate(item,ooX,ooY,ooZ=0,height=0,rot=0){
+    translate([ooX*OOBBSpacing,ooY*OOBBSpacing,0]){
+        rotate([0,0,rot]){    
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+        }
+    }
+}
+
+
 
 module OOBBInsertItemMM180(item,ooX,ooY,ooZ=0,height=0,){
     translate([ooX,ooY,0]){
@@ -658,6 +701,14 @@ module OOBBInsertItemMM180(item,ooX,ooY,ooZ=0,height=0,){
 module OOBBInsertItemMM90(item,ooX,ooY,ooZ=0,height=0,){
     translate([ooX,ooY,0]){
         rotate([0,0,90]){
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+        }
+    }
+}
+
+module OOBBInsertItemMMRotate(item,ooX,ooY,ooZ=0,height=0,rot=0){
+    translate([ooX,ooY,0]){
+        rotate([0,0,rot]){
             OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
         }
     }
@@ -734,8 +785,10 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         if(item=="M3SocketHead"){
             top = OOBBm3SocketHeadHole;
             bot = OOBBm3SocketHeadHole;
-            height = OOBBm3SocketHeadDepth;
-            OOBBCountersink3DComplete(0,0,top,bot,height,0);
+            h = OOBBm3SocketHeadDepth;
+            translate([0,0,0]){
+                OOBBCountersink3DComplete(0,0,top,bot,h,height);
+            }
         }
         if(item=="M3SocketHeadUpsideDown"){
             top = OOBBm3SocketHeadHole;
@@ -810,6 +863,21 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         if(item=="M6BoltClearance"){
                 OOBBHole3DRadiusComplete(0,0,13/2,height,0);
         }
+        if(item=="M6BoltClearanceCorner"){
+                union(){
+                OOBBHole3DRadiusSimple(0,0,13/2,height,0);
+                translate([-0,-13/4,-height]){
+                    linear_extrude(height){
+                        square([13,13/2],true);
+                    }
+                }  
+                translate([-13/4,0,-height]){
+                    linear_extrude(height){
+                        square([13/2,13],true);
+                    }
+                }
+            }
+        }  
         if(item=="Bearing606"){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing606Big,6,0);
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing606Little,100,50);
@@ -826,8 +894,15 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6704OutsideHold,4,0);
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6704Little,100,50);
         }
+        
+        if(item=="Bearing6704Little"){
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6704Little,100,50);
+        }
         if(item=="Bearing6803Hold"){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6803OutsideHold,5,0);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6803Little,100,50);
+        }
+        if(item=="Bearing6803Little"){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6803Little,100,50);
         }
         
