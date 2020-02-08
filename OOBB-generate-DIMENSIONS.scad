@@ -2,7 +2,8 @@
 //########################################
 
     //OPENSCAD Variables
-    $fn = 50;
+    //$fn = 50;
+    $fn = 25; //lower to speed up generation should use 50
 
     //CORE
     OOBBSpacing = 15;

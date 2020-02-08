@@ -55,7 +55,7 @@ module OOBB_HL_SM_03_03_HOLDER(bearingSize){
 	bearingHeight = bearingSize == 6803 ? 5 : 4;  //default to 6704
 	totalHeight = spacerHeight + bearingHeight;
 	capHeight = bearingHeight + 2;
-    holderBaseHeight = 5;
+    holderBaseHeight = 8;
     
         //side one
 		translate([0,0,0]){
@@ -69,7 +69,8 @@ module OOBB_HL_SM_03_03_HOLDER(bearingSize){
             }
         }
         //side two
-		translate([0,2,0]){
+		translate([0,2,0]){  //for printing
+        //translate([0,0,0]){    //for development
             difference(){
                 OOBB_HL_SM_03_03_HOLDER_CAP(capHeight);
                 OOBB_HL_SM_03_03_HOLDER_MAINHOLES(capHeight);
@@ -79,7 +80,9 @@ module OOBB_HL_SM_03_03_HOLDER(bearingSize){
                 OOBBCube3DComplete(2*OOBBSpacing,1*OOBBSpacing,45,30,60,30);
             }
         }
-        translate([0,50,capHeight-holderBaseHeight]){
+        //holder base
+        translate([0,50,capHeight-holderBaseHeight]){  //for printing
+        //translate([0,0,-20]){    // fodevelopment
             difference(){
                 OOBB_HL_SM_03_03_HOLDER_BASE(bearingSize, holderBaseHeight);
                 OOBB_HL_SM_03_03_HOLDER_MAINHOLES(holderBaseHeight);
@@ -140,7 +143,28 @@ module OOBB_HL_SM_03_03_HOLDER_BASE(bearingSize, holderBaseHeight){
             OOBBInsertItemCoord("Bearing6803Little",2,2,holderBaseHeight);    
         }
         OOBBInsertItemCoord("ServoMicroHole",2,2,height=holderBaseHeight-2);
-			
+        
+           
+		//Servo Low
+    OOBBInsertItemMM("M3NutCaptive",2.333*OOBBSpacing,3*OOBBSpacing+2,ooZ=OOBBNutM3Height,height=20);      
+    //Servo High
+    OOBBInsertItemMM("M3NutCaptive",2.333*OOBBSpacing,1*OOBBSpacing-2,ooZ=OOBBNutM3Height,height=20);      
+    //Base Low
+    OOBBInsertItemMM("M3NutCaptive",1.667*OOBBSpacing,1*OOBBSpacing-2,ooZ=OOBBNutM3Height,height=20);      
+    //Base High
+    OOBBInsertItemMM("M3NutCaptive",1.667*OOBBSpacing,3*OOBBSpacing+2,ooZ=OOBBNutM3Height,height=20);
+    
+    
+    //LEFT BOTTOM
+    OOBBInsertItemMM("M3NutCaptive",1*OOBBSpacing-2,1.667*OOBBSpacing,ooZ=holderBaseHeight-2,height=20);
+    //LEFT TOP
+    OOBBInsertItemMM("M3NutCaptive",1*OOBBSpacing-2,2.33*OOBBSpacing,ooZ=holderBaseHeight-2,height=20);
+    
+    //RIGHT BOTTOM
+    OOBBInsertItemMM("M3NutCaptive",3*OOBBSpacing+2,1.667*OOBBSpacing,ooZ=holderBaseHeight-2,height=20);
+    //RIGHT TOP
+    OOBBInsertItemMM("M3NutCaptive",3*OOBBSpacing+2,2.33*OOBBSpacing,ooZ=holderBaseHeight-2,height=20);
+    	
     }
 }
 
@@ -159,6 +183,17 @@ module OOBB_HL_SM_03_03_HOLDER_MAINHOLES(totalHeight){
     OOBBInsertItemMM("M3Hole",1.667*OOBBSpacing,1*OOBBSpacing-2);      
     //Base High
     OOBBInsertItemMM("M3Hole",1.667*OOBBSpacing,3*OOBBSpacing+2);
+    
+    
+    //LEFT BOTTOM
+    OOBBInsertItemMM("M3Hole",1*OOBBSpacing-2,1.667*OOBBSpacing);
+    //LEFT TOP
+    OOBBInsertItemMM("M3Hole",1*OOBBSpacing-2,2.33*OOBBSpacing);
+    
+    //RIGHT BOTTOM
+    OOBBInsertItemMM("M3Hole",3*OOBBSpacing+2,1.667*OOBBSpacing);
+    //RIGHT TOP
+    OOBBInsertItemMM("M3Hole",3*OOBBSpacing+2,2.33*OOBBSpacing);
     
 }
 
@@ -190,6 +225,7 @@ module OOBB_HL_SM_03_03_HOLDER_CAPTIVENUTS(bearingSize,capHeight){
     //Servo Low
     //OOBBInsertItemMM90("M3NutCaptive",2.333*OOBBSpacing,1*OOBBSpacing-2,ooZ=nutHeight,height=nutGap);
     OOBBInsertItemMM("M3SocketHead",2.333*OOBBSpacing,3*OOBBSpacing+2,height=capHeight);      
+      
     
     
     //Servo High
@@ -205,6 +241,17 @@ module OOBB_HL_SM_03_03_HOLDER_CAPTIVENUTS(bearingSize,capHeight){
     //Base High
     //OOBBInsertItemMM90("M3NutCaptive",1.667*OOBBSpacing,3*OOBBSpacing+2,ooZ=nutHeight,height=nutGap);
     OOBBInsertItemMM("M3SocketHead",1.667*OOBBSpacing,3*OOBBSpacing+2,height=capHeight);      
+    
+    
+    //LEFT BOTTOM
+    OOBBInsertItemMM("M3SocketHead",1*OOBBSpacing-2,1.667*OOBBSpacing,height=capHeight);
+    //LEFT TOP
+    OOBBInsertItemMM("M3SocketHead",1*OOBBSpacing-2,2.33*OOBBSpacing,height=capHeight);
+    
+    //RIGHT BOTTOM
+    OOBBInsertItemMM("M3SocketHead",3*OOBBSpacing+2,1.667*OOBBSpacing,height=capHeight);
+    //RIGHT TOP
+    OOBBInsertItemMM("M3SocketHead",3*OOBBSpacing+2,2.33*OOBBSpacing,height=capHeight);
     
  /*   
 //LINKING SQUARES
@@ -504,7 +551,8 @@ module OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
 			//bottomTube
 			
 			translate([0,0,0]){
-				OOBBcylinder(botTubeHeight,bearingLittle-0.5,bearingLittle-0.5);
+				//OOBBcylinder(botTubeHeight,bearingLittle-0.5,bearingLittle-0.5);
+                OOBBcylinder(botTubeHeight,18.5/2,18.5/2);
 			}
 			//bearingTube    
 			
@@ -513,10 +561,13 @@ module OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
 			}
             
 			translate([0,0,botTubeHeight+bearingTubeHeight+topTubeHeight/2  ]){
-				cylinder(topTubeHeight,bearingLittle-0.5,bearingLittle-0.5,true);
+				//cylinder(topTubeHeight,bearingLittle-0.5,bearingLittle-0.5,true);
+                cylinder(topTubeHeight,18.5/2,18.5/2,true);
 			}
-            translate([0,0,totalHeight-9]){
-                OOBB_WH_SOLID(3);
+            translate([0,0,totalHeight]){
+                rotate([0,180,0]){
+                    OOBB_WH_SOLID(3);
+                }
             }	
 		}
 		OOBBInsertItemCoord("ServoMicroHornHole",0,0,height=4);
@@ -533,6 +584,14 @@ module OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
         OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+4);
         OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+5);
         OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+6);
+		
+        //blank for screw insertion
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-1);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-2);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-3);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-4);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-5);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-6);
 		
 	}
 	

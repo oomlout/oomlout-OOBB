@@ -1,5 +1,7 @@
 //######  OOBB OpenSCAD Generation  ######
 //########################################
+    
+    
     include <OOBB-Polygon.scad>;
     
     /*    
@@ -1034,6 +1036,27 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                       }
                       circle(rad);
                    }
+                   
+                   //SLOT
+                            slotw = 3.5;
+                            holeRadius = 0.75;
+                            he=6;
+                            //slot
+                            #translate([7/2+5/2,0,4]){ //move to middle of remaining piece
+                                translate([-slotw/2+holeRadius,0,0]){
+                                    linear_extrude(he){
+                                        translate([0,0,0]){
+                                            circle(holeRadius);
+                                        }
+                                        translate([slotw-holeRadius*2,0,0]){
+                                            circle(holeRadius);
+                                        }
+                                        translate([slotw/2-holeRadius,0,0]){
+                                            square([slotw-holeRadius*2,holeRadius*2],true);
+                                        }
+                                    }
+                                }
+                            }
 
             }
         }
