@@ -2,8 +2,8 @@
 //########################################
 
     //OPENSCAD Variables
-    //$fn = 50;
-    $fn = 25; //lower to speed up generation should use 50
+    $fn = 50;
+    //$fn = 25; //lower to speed up generation should use 50
 
     //CORE
     OOBBSpacing = 15;
@@ -54,6 +54,7 @@
     OOBBBearing6704OutsideHold = s=="3DPR" ? OOBBBearing6704OutsideHold3D : OOBBBearing6704OutsideHoldTrue;
 
     OOBBBearing6704Little = 24/2;
+    OOBBBearing6704LittleInside = 21.5/2;
     
     //6803 Bearing
     OOBBBearing6803InsideTrue = 17/2;
@@ -69,6 +70,7 @@
     OOBBBearing6803OutsideHold = s=="3DPR" ? OOBBBearing6803OutsideHold3D : OOBBBearing6803OutsideHoldTrue;
 
     OOBBBearing6803Little = 21/2;
+    OOBBBearing6803LittleInside = 18.5/2;
 
     // NUTS
     OOBBNutM3WidthTrue = 6.351;    //5.5mm short side

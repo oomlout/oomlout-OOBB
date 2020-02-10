@@ -1,11 +1,4 @@
     
-    /*
-    m="TEST-COUNTERSINKM3";
-    w=3;
-    h=0;
-    s="TRUE";
-    extra="NONE";
-    */
     
 
 
@@ -13,8 +6,14 @@ if(m=="PLTEST-HoleTolerance"){
     OOBBPLTESTHoleTolerance();
 }else if(m=="TEST-SERVOHORN"){
     TEST_SERVOHORN();    
-}else if(m=="TEST-BEARING6704"){
-    TEST_BEARING6704();    
+}else if(m=="TEST-BEARING6704-OUTSIDE"){
+    TEST_BEARING6704();   
+}else if(m=="TEST-BEARING6704-MIDDLE"){
+    TEST_BEARING6704_MIDDLE();    
+}else if(m=="TEST-BEARING6803-OUTSIDE"){
+    TEST_BEARING6803();    
+}else if(m=="TEST-BEARING6803-MIDDLE"){
+    TEST_BEARING6803_MIDDLE();    
 }else if(m=="TEST-COUNTERSINKM3"){
     TEST_COUNTERSINKM3();    
 }else if(m=="TEST-SOCKETHEADM3"){
@@ -56,7 +55,82 @@ module TEST_BEARING6704(){
         
     }
 }
+
+
+module TEST_BEARING6704_MIDDLE(){
+    
+    union(){
+        OOBBPLOutline3D(5, 7, 3);
         
+        OOBBHole3DRadiusSimple(25,25,OOBBBearing6704InsideTrue+0,10,10);
+        OOBBHole3DRadiusSimple(25,25,OOBBBearing6704Little+0,5,5);
+        
+        OOBBHole3DRadiusSimple(25,55,OOBBBearing6704InsideTrue-0.050,10,10);
+        OOBBHole3DRadiusSimple(25,55,OOBBBearing6704Little+0,5,5);
+        
+        OOBBHole3DRadiusSimple(25,85,OOBBBearing6704InsideTrue-0.1,10,10);
+        OOBBHole3DRadiusSimple(25,85,OOBBBearing6704Little+0,5,5);
+        
+        OOBBHole3DRadiusSimple(55,25,OOBBBearing6704InsideTrue-0.15,10,10);
+        OOBBHole3DRadiusSimple(55,25,OOBBBearing6704Little+0,5,5);
+        
+        OOBBHole3DRadiusSimple(55,55,OOBBBearing6704InsideTrue-0.2,10,10);
+        OOBBHole3DRadiusSimple(55,55,OOBBBearing6704Little+0,5,5);
+        
+        
+    }
+}
+    
+
+module TEST_BEARING6803(){
+    
+    difference(){
+        OOBBPLOutline3D(5, 7, 7);
+        
+        OOBBHole3DRadiusComplete(25,25,OOBBBearing6803OutsideHoldTrue,5,7);
+        OOBBHole3DRadiusComplete(25,25,OOBBBearing6803Little,100,50);
+        
+        OOBBHole3DRadiusComplete(25,55,OOBBBearing6803OutsideHoldTrue+.1,5,7);
+        OOBBHole3DRadiusComplete(25,55,OOBBBearing6803Little,100,50);
+        
+        OOBBHole3DRadiusComplete(25,85,OOBBBearing6803OutsideHoldTrue+.2,5,7);
+        OOBBHole3DRadiusComplete(25,85,OOBBBearing6803Little,100,50);
+        
+        
+        OOBBHole3DRadiusComplete(55,25,OOBBBearing6803OutsideHoldTrue+.3,5,7);
+        OOBBHole3DRadiusComplete(55,25,OOBBBearing6803Little,100,50);
+        
+        OOBBHole3DRadiusComplete(55,55,OOBBBearing6803OutsideHoldTrue+.4,5,7);
+        OOBBHole3DRadiusComplete(55,55,OOBBBearing6803Little,100,50);
+        
+    }
+}
+
+
+module TEST_BEARING6803_MIDDLE(){
+    
+    union(){
+        OOBBPLOutline3D(5, 7, 3);
+        
+        OOBBHole3DRadiusSimple(25,25,OOBBBearing6803InsideTrue+0,10,10);
+        OOBBHole3DRadiusSimple(25,25,OOBBBearing6803Little+0,5,5);
+        
+        OOBBHole3DRadiusSimple(25,55,OOBBBearing6803InsideTrue-0.050,10,10);
+        OOBBHole3DRadiusSimple(25,55,OOBBBearing6803Little+0,5,5);
+        
+        OOBBHole3DRadiusSimple(25,85,OOBBBearing6803InsideTrue-0.1,10,10);
+        OOBBHole3DRadiusSimple(25,85,OOBBBearing6803Little+0,5,5);
+        
+        OOBBHole3DRadiusSimple(55,25,OOBBBearing6803InsideTrue-0.15,10,10);
+        OOBBHole3DRadiusSimple(55,25,OOBBBearing6803Little+0,5,5);
+        
+        OOBBHole3DRadiusSimple(55,55,OOBBBearing6803InsideTrue-0.2,10,10);
+        OOBBHole3DRadiusSimple(55,55,OOBBBearing6803Little+0,5,5);
+        
+        
+    }
+}
+    
         
         
 module TEST_SERVOHORN(){
