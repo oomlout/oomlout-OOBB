@@ -7,8 +7,8 @@
     w=3;
     h=0;
     s="3DPR";
-    extra="BASE";
-    //extra="NONE";
+    //extra="HORN";
+    extra="NONE";
   
     
 include <OOBB-generate-BASE.scad>;

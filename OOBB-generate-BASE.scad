@@ -729,7 +729,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             z=height-10;
             rad=OOBBm2Hole;
             rad2=5.2/2;
-            #OOBBHole3DRadiusComplete(0,0,rad,height,0);
+            OOBBHole3DRadiusComplete(0,0,rad,height,0);
             OOBBHole3DRadiusComplete(0,0,rad2,1.5,1.5);
         }
         if(item=="M2RivetUpsideDown"){
@@ -1042,7 +1042,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                             holeRadius = 0.75;
                             he=6;
                             //slot
-                            #translate([7/2+5/2,0,4]){ //move to middle of remaining piece
+                            translate([7/2+5/2,0,4]){ //move to middle of remaining piece
                                 translate([-slotw/2+holeRadius,0,0]){
                                     linear_extrude(he){
                                         translate([0,0,0]){

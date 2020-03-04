@@ -242,6 +242,73 @@ module OLD01_OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
 	}
 	
 }
+
+module OLD02_OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
+	
+	
+    botTubeHeight=2;
+	bearingTubeHeight = bearingSize==6803 ? 5 : 4; //default to 6704
+	//bearingTubeHeight = 4; //default to 6704
+	bearingInside = bearingSize==6803 ? OOBBBearing6803Inside : OOBBBearing6704Inside; //default to 6704
+	bearingLittle = bearingSize==6803 ? OOBBBearing6803Little : OOBBBearing6704Little;
+    topTubeHeight = 3;
+	totalHeight = botTubeHeight+bearingTubeHeight+topTubeHeight+9; //2+5+3+9=19
+	difference(){
+
+		union(){
+			
+			
+			//bottomTube
+			
+			translate([0,0,0]){
+				//OOBBcylinder(botTubeHeight,bearingLittle-0.5,bearingLittle-0.5);
+                OOBBcylinder(botTubeHeight,18.5/2,18.5/2);
+			}
+			//bearingTube    
+			
+			translate([0,0,botTubeHeight+bearingTubeHeight/2  ]){
+				cylinder(bearingTubeHeight,bearingInside,bearingInside,true);
+			}
+            
+			translate([0,0,botTubeHeight+bearingTubeHeight+topTubeHeight/2  ]){
+				//cylinder(topTubeHeight,bearingLittle-0.5,bearingLittle-0.5,true);
+                cylinder(topTubeHeight,18.5/2,18.5/2,true);
+			}
+            translate([0,0,totalHeight]){
+                rotate([0,180,0]){
+                    OOBB_WH_SOLID(3);
+                }
+            }	
+		}
+		OOBBInsertItemCoord("ServoMicroHornHole",0,0,height=4);
+		OOBBInsertItemCoord("OOBBHole",0,0,height=4);
+		
+		
+		//OOBBInsertItemCoord("ServoMicroHornCatch",0,0,4);
+		OOBBInsertItemCoord("ServoMicroHornCatchSingleBottomInsertion",0,0,4); //allows for 1.5mm thick arm and 2.5mm thick adapter tube
+		
+        //blank for screw insertion
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+1);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+2);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+3);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+4);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+5);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+6);
+		
+        //blank for screw insertion
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-1);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-2);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-3);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-4);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-5);
+        OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-6);
+		
+	}
+	
+}
+
+
+
 module OLD01_OOBB_HL_SM_03_03_BASE(bearingSize){
 	//height = 16   
 	union(){ 
