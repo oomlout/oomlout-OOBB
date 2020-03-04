@@ -57,7 +57,7 @@ module OOBB_HL_SM_03_03_HOLDER(bearingSize){
 	bearingHeight = bearingSize == 6803 ? 5 : 4;  //default to 6704
 	totalHeight = spacerHeight + bearingHeight;
 	capHeight = bearingHeight + 2;
-    holderBaseHeight = 8;
+    holderBaseHeight = 12;
     
         //side one
 		translate([0,0,0]){
@@ -67,21 +67,10 @@ module OOBB_HL_SM_03_03_HOLDER(bearingSize){
                 OOBB_HL_SM_03_03_HOLDER_BEARINGHOLE(bearingSize, capHeight -2);
                 OOBB_HL_SM_03_03_HOLDER_CAPTIVENUTS(bearingSize, capHeight);
                 //OOBB_HL_SM_03_03_HOLDER_SERVOBRACKETCLEARANCE();
-                OOBBCube3DComplete(2*OOBBSpacing,3*OOBBSpacing,45,30,60,30);
+        
             }
         }
-        //side two
-		translate([0,2,0]){  //for printing
-        //translate([0,0,0]){    //for development
-            difference(){
-                OOBB_HL_SM_03_03_HOLDER_CAP(capHeight);
-                OOBB_HL_SM_03_03_HOLDER_MAINHOLES(capHeight);
-                OOBB_HL_SM_03_03_HOLDER_BEARINGHOLE(bearingSize, capHeight -2);
-                OOBB_HL_SM_03_03_HOLDER_CAPTIVENUTS(bearingSize, capHeight);
-                //OOBB_HL_SM_03_03_HOLDER_SERVOBRACKETCLEARANCE();
-                OOBBCube3DComplete(2*OOBBSpacing,1*OOBBSpacing,45,30,60,30);
-            }
-        }
+        
         //holder base
         translate([0,50,capHeight-holderBaseHeight]){  //for printing
         //translate([0,0,-20]){    // fodevelopment
@@ -152,20 +141,7 @@ module OOBB_HL_SM_03_03_HOLDER_BASE(bearingSize, holderBaseHeight){
     //Servo High
     OOBBInsertItemMM("M3NutCaptive",2.333*OOBBSpacing,1*OOBBSpacing-2,ooZ=OOBBNutM3Height,height=20);      
     //Base Low
-    //OOBBInsertItemMM("M3NutCaptive",1.667*OOBBSpacing,1*OOBBSpacing-2,ooZ=OOBBNutM3Height,height=20);      
-    //Base High
-    //OOBBInsertItemMM("M3NutCaptive",1.667*OOBBSpacing,3*OOBBSpacing+2,ooZ=OOBBNutM3Height,height=20);
     
-    
-    //LEFT BOTTOM
-    OOBBInsertItemMM("M3NutCaptive",1*OOBBSpacing-2,1.667*OOBBSpacing,ooZ=holderBaseHeight-2,height=20);
-    //LEFT TOP
-    OOBBInsertItemMM("M3NutCaptive",1*OOBBSpacing-2,2.33*OOBBSpacing,ooZ=holderBaseHeight-2,height=20);
-    
-    //RIGHT BOTTOM
-    OOBBInsertItemMM("M3NutCaptive",3*OOBBSpacing+2,1.667*OOBBSpacing,ooZ=holderBaseHeight-2,height=20);
-    //RIGHT TOP
-    OOBBInsertItemMM("M3NutCaptive",3*OOBBSpacing+2,2.33*OOBBSpacing,ooZ=holderBaseHeight-2,height=20);
     	
     }
 }
@@ -187,15 +163,7 @@ module OOBB_HL_SM_03_03_HOLDER_MAINHOLES(totalHeight){
     OOBBInsertItemMM("M3Hole",1.667*OOBBSpacing,3*OOBBSpacing+2);
     
     
-    //LEFT BOTTOM
-    OOBBInsertItemMM("M3Hole",1*OOBBSpacing-2,1.667*OOBBSpacing);
-    //LEFT TOP
-    OOBBInsertItemMM("M3Hole",1*OOBBSpacing-2,2.33*OOBBSpacing);
     
-    //RIGHT BOTTOM
-    OOBBInsertItemMM("M3Hole",3*OOBBSpacing+2,1.667*OOBBSpacing);
-    //RIGHT TOP
-    OOBBInsertItemMM("M3Hole",3*OOBBSpacing+2,2.33*OOBBSpacing);
     
 }
 
@@ -212,17 +180,6 @@ module OOBB_HL_SM_03_03_HOLDER_BEARINGHOLE(bearingSize,totalHeight){
 
 
 module OOBB_HL_SM_03_03_HOLDER_CAPTIVENUTS(bearingSize,capHeight){
-    
-    
-    
-    /*
-    nutHeight = totalHeight-5; //the height the nut is inserted at
-    nutGap = 3.5;  //the length of the extrusion (distance from bottom is nutHeight - nutGap)
-    nutWindow = 0; //the height of the nut (nutgap - nutWindow is the height of the gap mistake not fixed.)
-    */
-    
-    //captive m3 nuts 2.5
-    
     
     //Servo Low
     //OOBBInsertItemMM90("M3NutCaptive",2.333*OOBBSpacing,1*OOBBSpacing-2,ooZ=nutHeight,height=nutGap);
@@ -247,40 +204,6 @@ module OOBB_HL_SM_03_03_HOLDER_CAPTIVENUTS(bearingSize,capHeight){
     OOBBInsertItemMM("M3NutCaptiveSingle",1.667*OOBBSpacing,3*OOBBSpacing+2,ooZ=capHeight-OOBBNutM3Height);      
     
     
-    //LEFT BOTTOM
-    OOBBInsertItemMM("M3SocketHead",1*OOBBSpacing-2,1.667*OOBBSpacing,height=capHeight);
-    //LEFT TOP
-    OOBBInsertItemMM("M3SocketHead",1*OOBBSpacing-2,2.33*OOBBSpacing,height=capHeight);
-    
-    //RIGHT BOTTOM
-    OOBBInsertItemMM("M3SocketHead",3*OOBBSpacing+2,1.667*OOBBSpacing,height=capHeight);
-    //RIGHT TOP
-    OOBBInsertItemMM("M3SocketHead",3*OOBBSpacing+2,2.33*OOBBSpacing,height=capHeight);
-    
- /*   
-//LINKING SQUARES
-    translate([OOBBSpacing*2.33,OOBBSpacing*0.5-1.5,nutHeight-nutGap+nutWindow]){
-        linear_extrude(nutGap-nutWindow){
-            square([OOBBNutM3WidthShortSide,15],true);
-        }
-    } 
-    
-    translate([OOBBSpacing*2.33,OOBBSpacing*3.5+1.5,nutHeight-nutGap+nutWindow]){
-        linear_extrude(nutGap-nutWindow){
-            square([OOBBNutM3WidthShortSide,15],true);
-        }
-    } 
-    translate([OOBBSpacing*1.67,OOBBSpacing*0.5-1.5,nutHeight-nutGap+nutWindow]){
-        linear_extrude(nutGap-nutWindow){
-            square([OOBBNutM3WidthShortSide,15],true);
-        }
-    }
-    translate([OOBBSpacing*1.67,OOBBSpacing*3.5+1.5,nutHeight-nutGap+nutWindow]){
-        linear_extrude(nutGap-nutWindow){
-            square([OOBBNutM3WidthShortSide,15],true);
-        }
-    }
-*/
 
     
 }
