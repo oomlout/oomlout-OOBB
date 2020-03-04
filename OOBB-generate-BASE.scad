@@ -885,8 +885,8 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing606Little,100,50);
         }
         if(item=="Bearing6810"){
-                OOBBHole3DRadiusComplete(0,0,65.6/2,7,0);
-                OOBBHole3DRadiusComplete(0,0,54/2,100,50);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6810Outside,7,0);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6810Little,100,50);
         }
         if(item=="Bearing6704"){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6704Outside,4,0);

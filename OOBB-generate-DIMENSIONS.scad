@@ -53,7 +53,7 @@
     OOBBBearing6704OutsideHold3D  = (OOBBBearing6704OutsideHoldTrue+(0.1/2));
     OOBBBearing6704OutsideHold = s=="3DPR" ? OOBBBearing6704OutsideHold3D : OOBBBearing6704OutsideHoldTrue;
 
-    OOBBBearing6704Little = 24/2;
+    OOBBBearing6704Little = (27-3)/2;
     OOBBBearing6704LittleInside = 21.5/2;
     
     //6803 Bearing
@@ -70,7 +70,23 @@
     OOBBBearing6803OutsideHold = s=="3DPR" ? OOBBBearing6803OutsideHold3D : OOBBBearing6803OutsideHoldTrue;
 
     OOBBBearing6803Little = 21/2;
-    OOBBBearing6803LittleInside = 18.5/2;
+    OOBBBearing6803LittleInside = (17+1.5)/2;
+
+    //6810 Bearing
+    OOBBBearing6810InsideTrue = 50/2;
+    OOBBBearing6810Inside3D  = 49.8/2;
+    OOBBBearing6810Inside = s=="3DPR" ? OOBBBearing6810Inside3D : OOBBBearing6810InsideTrue;
+
+    OOBBBearing6810OutsideTrue = 65/2;
+    OOBBBearing6810Outside3D  = (65-0.2)/2;
+    OOBBBearing6810Outside = s=="3DPR" ? OOBBBearing6810Outside3D : OOBBBearing6810OutsideTrue;
+
+    OOBBBearing6810OutsideHoldTrue = OOBBBearing6810OutsideTrue;
+    OOBBBearing6810OutsideHold3D  = (OOBBBearing6810OutsideHoldTrue+(0.2/2));
+    OOBBBearing6810OutsideHold = s=="3DPR" ? OOBBBearing6810OutsideHold3D : OOBBBearing6810OutsideHoldTrue;
+
+    OOBBBearing6810Little = (65-3)/2;
+    OOBBBearing6810LittleInside = (50+1.5)/2;
 
     // NUTS
     OOBBNutM3WidthTrue = 6.351;    //5.5mm short side

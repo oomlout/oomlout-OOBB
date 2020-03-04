@@ -1,19 +1,21 @@
     /*
     //m="WHS";
     //m="HL-B2X-07-04";
-    m="HL-SM-03-03-6803";
+    //m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
     //m="TEST-BEARING6803-MIDDLE";
-    w=3;
-    h=0;
+    m="BP-6810-05-05";
+    w=5;
+    h=5;
     s="3DPR";
-    extra="HOLDER";
-    //extra="NONE";
+    //extra="HOLDER";
+    extra="NONE";
     */
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
 include <OOBB-generate-HL-SM-03-03.scad>;
+include <OOBB-generate-BP.scad>;
 
 
 if(m=="HL-N17-05-03"){
@@ -21,9 +23,7 @@ if(m=="HL-N17-05-03"){
 }else if(m=="PLTEST-HoleTolerance"){
     OOBBPLTESTHoleTolerance();
 }else if(m=="BP-606-03-03"){
-    OOBB_BP_606_03_03();    
-}else if(m=="BP-6810-05-05"){
-    OOBB_BP_6810_05_05();   
+    OOBB_BP_606_03_03();  
 }else if(m=="HL-SM-03-03-6704"){
     OOBB_HL_SM_03_03(6704); 
 }else if(m=="HL-SM-03-03-6803"){
@@ -40,6 +40,8 @@ if(m=="HL-N17-05-03"){
     CI_03_CA_FL();    
 }else if(m=="HL-B2X-07-04"){
     HL_B2X_07_04();    
+}else if(m=="BP-6810-05-05"){
+    BP_6810_05_05();    
 }
 
 module HL_B2X_07_04(){
@@ -420,6 +422,7 @@ module OOBB_BP_606_03_03_HALF(){
 module OOBB_BP_606_03_03_FULL(){
     OOWidth = 3;
     OOHeight = 3;    
+    //outside
     difference(){
         OOBBPLOutline3D(OOWidth,OOHeight,9);
         //OOBB Holes
@@ -443,39 +446,14 @@ module OOBB_BP_606_03_03_FULL(){
         OOBBHole3D(2,3);
         //OOBBSlotWide3D(2,3);
         
-        OOBBInsertItemCoord("Bearing606",2,2,ooZ=7.5);
-        
-        
+        OOBBInsertItemCoord("Bearing606",2,2,ooZ=7.5);       
     }
+    
+    
     
     
 }
 
-module OOBB_BP_6810_05_05(){
-    OOWidth = 5;
-    OOHeight = 5;    
-    difference(){
-        OOBBPLOutline3D(OOWidth,OOHeight,9);
-        //OOBB Holes
-        OOBBHole3D(1,1);
-        //OOBBSlotTall3D(1,1);
-        //OOBBSlotWide3D(1,1);
-        OOBBHole3D(1,5);
-        
-        OOBBHole3D(5,1);
-        //OOBBSlotTall3D(3,1);
-        
-        OOBBHole3D(5,5);
-        
-        
-        
-        OOBBInsertItemCoord("Bearing6810",3,3,ooZ=8);
-        
-        
-    }
-    
-    
-}
 
 
 
