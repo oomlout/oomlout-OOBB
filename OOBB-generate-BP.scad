@@ -20,7 +20,7 @@ module BP_6806_04_04(){
         
         
         
-        OOBBInsertItemCoord("Bearing6806",OOCentre,OOCentre,ooZ=ooThickness/2+(bearingHeight/2));
+        OOBBInsertItemCoord("Bearing6806Hold",OOCentre,OOCentre,ooZ=ooThickness/2+(bearingHeight/2));
         
         
     }
@@ -76,7 +76,7 @@ module BP_6810_05_05(){
         
         
         
-        OOBBInsertItemCoord("Bearing6810",3,3,ooZ=ooThickness/2+(bearingHeight/2));
+        OOBBInsertItemCoord("Bearing6810Hold",3,3,ooZ=ooThickness/2+(bearingHeight/2));
         
         
     }

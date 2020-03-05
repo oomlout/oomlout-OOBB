@@ -896,6 +896,18 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6810Outside,7,0);
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6810Little,100,50);
         }
+        if(item=="Bearing6806Hold"){
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6806OutsideHold,7,0);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6806Little,100,50);
+        }
+        if(item=="Bearing6808Hold"){
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6808OutsideHold,7,0);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6808Little,100,50);
+        }
+        if(item=="Bearing6810Hold"){
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6810OutsideHold,7,0);
+                OOBBHole3DRadiusComplete(0,0,OOBBBearing6810Little,100,50);
+        }
         if(item=="Bearing6704"){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6704Outside,4,0);
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6704Little,100,50);
