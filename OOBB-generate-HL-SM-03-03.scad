@@ -20,27 +20,29 @@ include <OLD01_OOBB-generate-HL-SM-03-03.scad>;
 module OOBB_HL_SM_03_03(bearingSize){
 	//######  HOLDER PART
 	if( extra == "NONE" || extra=="HOLDER" || extra=="NOHORN"){
-		//translate([0,OOBBSpacing * 3,0]){
-        translate([0,0,0]){    
+		translate([0,OOBBSpacing * 3,0]){
+        //translate([0,0,0]){    
 			OOBB_HL_SM_03_03_HOLDER(bearingSize);    
 		}
 	}
 	//######  SERVO BRACKET
 	if( extra == "NONE" || extra=="BRACKET" || extra=="NOHORN"){
 		translate([OOBBSpacing * 2,OOBBSpacing * 2,0]){
+        //translate([0,0,0]){ 
 			OOBB_HL_SM_03_03_BRACKET(bearingSize);
 		}
 	}
 	//###### Servo Horn
 	if( extra == "NONE" || extra=="HORN"){    
 		translate([OOBBSpacing * 2,OOBBSpacing * 10,0]){    
+		//translate([0,0,0]){    
 			OOBB_HL_SM_03_03_SERVOHORN(bearingSize);
 		}
 	}
 	//######  Base
 	if( extra == "NONE" || extra=="BASE" || extra=="NOHORN"){    
-		//translate([0,OOBBSpacing * 6,0]){ 
-        translate([0,0,0]){    
+		translate([0,OOBBSpacing * 6,0]){ 
+        //translate([0,0,0]){    
 		
 			OOBB_HL_SM_03_03_BASE(bearingSize);
 		} 
@@ -133,14 +135,16 @@ module OOBB_HL_SM_03_03_HOLDER_BASE(bearingSize, holderBaseHeight){
         }else if(bearingSize == 6803){
             OOBBInsertItemCoord("Bearing6803Little",2,2,holderBaseHeight);    
         }
-        OOBBInsertItemCoord("ServoMicroHole",2,2,height=holderBaseHeight-2);
+        OOBBInsertItemCoord("ServoMicroHole",2,2,height=holderBaseHeight-8);
         
            
 		//Servo Low
-    OOBBInsertItemMM("M3NutCaptive",2.333*OOBBSpacing,3*OOBBSpacing+2,ooZ=OOBBNutM3Height,height=20);      
+    OOBBInsertItemMM("M3NutCaptive",2*OOBBSpacing,3*OOBBSpacing+2,ooZ=OOBBNutM3Height,height=20);      
     //Servo High
-    OOBBInsertItemMM("M3NutCaptive",2.333*OOBBSpacing,1*OOBBSpacing-2,ooZ=OOBBNutM3Height,height=20);      
-    //Base Low
+    OOBBInsertItemMM("M3NutCaptive",2*OOBBSpacing,1*OOBBSpacing-2,ooZ=OOBBNutM3Height,height=20);      
+   
+    OOBBInsertItemMM("M3NutCaptive",3*OOBBSpacing+2,2*OOBBSpacing,ooZ=OOBBNutM3Height,height=20);      
+    OOBBInsertItemMM("M3NutCaptive",1*OOBBSpacing-2,2*OOBBSpacing,ooZ=OOBBNutM3Height+5,height=30); //5 is a random number but works      
     
     	
     }
@@ -154,13 +158,13 @@ module OOBB_HL_SM_03_03_HOLDER_MAINHOLES(totalHeight){
     OOBBHole3D(3,1);
     OOBBHole3D(3,3);
     //Servo Low
-    OOBBInsertItemMM("M3Hole",2.333*OOBBSpacing,3*OOBBSpacing+2);      
+    OOBBInsertItemMM("M3Hole",2*OOBBSpacing,3*OOBBSpacing+2);      
     //Servo High
-    OOBBInsertItemMM("M3Hole",2.333*OOBBSpacing,1*OOBBSpacing-2);      
-    //Base Low
-    OOBBInsertItemMM("M3Hole",1.667*OOBBSpacing,1*OOBBSpacing-2);      
-    //Base High
-    OOBBInsertItemMM("M3Hole",1.667*OOBBSpacing,3*OOBBSpacing+2);
+    OOBBInsertItemMM("M3Hole",2*OOBBSpacing,1*OOBBSpacing-2);   
+ 
+    OOBBInsertItemMM("M3Hole",3*OOBBSpacing+2,2*OOBBSpacing);      
+    //Servo High
+    OOBBInsertItemMM("M3Hole",1*OOBBSpacing-2,2*OOBBSpacing);      
     
     
     
@@ -180,28 +184,15 @@ module OOBB_HL_SM_03_03_HOLDER_BEARINGHOLE(bearingSize,totalHeight){
 
 
 module OOBB_HL_SM_03_03_HOLDER_CAPTIVENUTS(bearingSize,capHeight){
-    
+    nutHeight = OOBBNutM3Height;
+    nutGap = nutHeight;
     //Servo Low
-    //OOBBInsertItemMM90("M3NutCaptive",2.333*OOBBSpacing,1*OOBBSpacing-2,ooZ=nutHeight,height=nutGap);
-    OOBBInsertItemMM("M3SocketHead",2.333*OOBBSpacing,3*OOBBSpacing+2,height=capHeight);      
-      
-    
-    
+    OOBBInsertItemMM("M3SocketHead",2*OOBBSpacing,3*OOBBSpacing+2,height=capHeight);      
     //Servo High
-    //OOBBInsertItemMM90("M3NutCaptive",2.333*OOBBSpacing,3*OOBBSpacing+2,ooZ=nutHeight,height=nutGap);O
-    OOBBInsertItemMM("M3SocketHead",2.333*OOBBSpacing,1*OOBBSpacing-2,height=capHeight);      
-    
-    
-    //Base Low
-    //OOBBInsertItemMM90("M3NutCaptive",1.667*OOBBSpacing,1*OOBBSpacing-2,ooZ=nutHeight,height=nutGap);
-    OOBBInsertItemMM("M3NutCaptiveSingle",1.667*OOBBSpacing,1*OOBBSpacing-2,ooZ=capHeight);      
-    OOBBInsertItemMM("M3NutCaptiveSingle",1.667*OOBBSpacing,1*OOBBSpacing-2,ooZ=capHeight-OOBBNutM3Height);      
-    
-    
-    //Base High
-    //OOBBInsertItemMM90("M3NutCaptive",1.667*OOBBSpacing,3*OOBBSpacing+2,ooZ=nutHeight,height=nutGap);
-    OOBBInsertItemMM("M3NutCaptiveSingle",1.667*OOBBSpacing,3*OOBBSpacing+2,ooZ=capHeight);      
-    OOBBInsertItemMM("M3NutCaptiveSingle",1.667*OOBBSpacing,3*OOBBSpacing+2,ooZ=capHeight-OOBBNutM3Height);      
+    OOBBInsertItemMM("M3SocketHead",2*OOBBSpacing,1*OOBBSpacing-2,height=capHeight);      
+    //Retaining Screws
+    OOBBInsertItemMM("M3SocketHead",3*OOBBSpacing+2,2*OOBBSpacing,height=capHeight);      
+    OOBBInsertItemMM("M3SocketHead",1*OOBBSpacing-2,2*OOBBSpacing,height=capHeight);      
     
     
 
@@ -247,7 +238,7 @@ module OOBB_HL_SM_03_03_BRACKET(bearingSize){
 				}
 			}
 			//piece with screw holes
-			translate([5,0,0]){
+			translate([0,0,0]){
 				//OOBBPLOutline3DComplete(10,42,6);
 				linear_extrude(servoBracketThickness){
 					square([10,42],true);
@@ -255,8 +246,8 @@ module OOBB_HL_SM_03_03_BRACKET(bearingSize){
 			}
 		}
 		OOBBInsertItemCoord("ServoMicroMount",0,0,height=12);
-		OOBBInsertItemMM("M3Slot",0.33*OOBBSpacing,1*OOBBSpacing+2);
-		OOBBInsertItemMM("M3Slot",0.33*OOBBSpacing,-1*OOBBSpacing-2);
+		OOBBInsertItemMM("M3Slot",0*OOBBSpacing,1*OOBBSpacing+2);
+		OOBBInsertItemMM("M3Slot",0*OOBBSpacing,-1*OOBBSpacing-2);
 		//2.333*OOBBSpacing,1*OOBBSpacing-2
 	}
 }
@@ -268,8 +259,8 @@ module OOBB_HL_SM_03_03_BRACKET(bearingSize){
 ///########
 
 	
-botTubeHeight=6;
-topTubeHeight = 3;
+botTubeHeight=5;
+topTubeHeight = 4;
 	
 module OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
 
@@ -279,33 +270,38 @@ module OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
 	bearingLittle = bearingSize==6803 ? OOBBBearing6803Little : OOBBBearing6704Little;
     totalHeight = botTubeHeight+bearingTubeHeight+topTubeHeight+9; //2+5+3+9=19
 	
+    topHeight = topTubeHeight + 9; //9 is wheel width
+    bottomHeight = botTubeHeight + bearingTubeHeight;
     
         //TOP PIECE
     //translate([0,0,0]){
-    translate([0,0,-botTubeHeight-bearingTubeHeight]){
-        
-            difference(){
-                union(){
-                    //bottomTube
-                    
-                    
-                    //topTube
-                    translate([0,0,botTubeHeight+bearingTubeHeight+topTubeHeight/2  ]){
-                        //cylinder(topTubeHeight,bearingLittle-0.5,bearingLittle-0.5,true);
-                        cylinder(topTubeHeight,bearingInside+1,bearingInside+1,true);
-                    }
-                    //wheel
-                    translate([0,0,totalHeight]){
-                        rotate([0,180,0]){
-                            OOBB_WH_SOLID(3);
+    translate([0,0,topHeight/2]){  //move to zero height
+        rotate([0,180,0]){ //rotate 180 to print upside down
+            translate([0,0,-bottomHeight - topHeight/2]){ //shift so centred for flip
+                difference(){
+                    union(){
+                        //bottomTube
+                        
+                        
+                        //topTube
+                        translate([0,0,botTubeHeight+bearingTubeHeight+topTubeHeight/2  ]){
+                            //cylinder(topTubeHeight,bearingLittle-0.5,bearingLittle-0.5,true);
+                            cylinder(topTubeHeight,bearingInside+1,bearingInside+1,true);
                         }
-                    }	
+                        //wheel
+                        translate([0,0,totalHeight]){
+                            rotate([0,180,0]){
+                                OOBB_WH_SOLID(3);
+                            }
+                        }	
+                    }
+                    OOBB_HL_SM_03_03_SERVOHORN_HOLES(bearingSize);
                 }
-                OOBB_HL_SM_03_03_SERVOHORN_HOLES(bearingSize);
             }
         }
-    
+    }
         // BOTTOM PIECE
+    //translate([0,0,0]){
     translate([0,-OOBBSpacing*2-3,0]){
         difference(){
             union(){
@@ -360,7 +356,8 @@ module OOBB_HL_SM_03_03_SERVOHORN_HOLES(bearingSize){
         OOBBInsertItemMM("M3SocketHead",OOBB_screwClamp2X,OOBB_screwClamp2Y,totalHeight);
         OOBBInsertItemMM("M3Hole",OOBB_screwClamp2X,OOBB_screwClamp2Y);
         OOBBInsertItemMM("M3NutCaptiveSingle",OOBB_screwClamp2X,OOBB_screwClamp2Y,OOBBNutM3Height);
-	
+
+        /*
         //blank for screw insertion
         OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+1);
         OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,1*OOBBSpacing+2);
@@ -376,7 +373,7 @@ module OOBB_HL_SM_03_03_SERVOHORN_HOLES(bearingSize){
         OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-4);
         OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-5);
         OOBBInsertItemMM("OOBBHole",0*OOBBSpacing,-1*OOBBSpacing-6);
-    
+        */
 }
 
 ///########

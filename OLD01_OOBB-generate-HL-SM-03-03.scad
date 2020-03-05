@@ -644,6 +644,30 @@ module OLD01_OOBB_HL_SM_03_03_BASE(bearingSize){
 }
 
 
+module OLD01_OOBB_HL_SM_03_03_BRACKET(bearingSize){
+	difference(){
+		union(){
+			//servo piece
+			translate([-5.35,0,0]){
+				//OOBBPLOutline3DComplete(33,20,6);
+				linear_extrude(servoBracketThickness){
+					square([33,20],true);
+				}
+			}
+			//piece with screw holes
+			translate([5,0,0]){
+				//OOBBPLOutline3DComplete(10,42,6);
+				linear_extrude(servoBracketThickness){
+					square([10,42],true);
+				}
+			}
+		}
+		OOBBInsertItemCoord("ServoMicroMount",0,0,height=12);
+		OOBBInsertItemMM("M3Slot",0.33*OOBBSpacing,1*OOBBSpacing+2);
+		OOBBInsertItemMM("M3Slot",0.33*OOBBSpacing,-1*OOBBSpacing-2);
+		//2.333*OOBBSpacing,1*OOBBSpacing-2
+	}
+}
 
 //################################################################################################
 //######  OLD OLD OLD OLD OLD OLD
