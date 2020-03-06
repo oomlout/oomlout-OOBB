@@ -906,6 +906,8 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         }
         if(item=="Bearing6810Hold"){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6810OutsideHold,7,0);
+            echo("6810 Hold Radius");
+            echo(OOBBBearing6810OutsideHold * 2);
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing6810Little,100,50);
         }
         if(item=="Bearing6704"){
