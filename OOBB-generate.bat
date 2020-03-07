@@ -7,6 +7,17 @@ SET CALLSTYLE=CALL
 SET HEIGHT=00
 SET EXTRA=NONE
 
+
+REM Niche items
+
+REM %CALLSTYLE% OOBB-generate-NICHE.bat
+START OOBB-generate-NICHE.ba
+
+REM Test Items
+
+REM %CALLSTYLE% OOBB-generate-TEST.bat
+START OOBB-generate-TEST.bat
+
 REM CI (Circles)
 
 
@@ -41,13 +52,7 @@ SET WIDTH=07
 
 
 
-REM Niche items
 
-%CALLSTYLE% OOBB-generate-NICHE.bat
-
-REM Test Items
-
-%CALLSTYLE% OOBB-generate-TEST.bat
 
 
 REM JA (Jacks)
@@ -260,13 +265,14 @@ SET WIDTH=20
 SET HEIGHT=20
 %CALLSTYLE% OOBB-generate-PL.bat
 
-SET WIDTH=25
-SET HEIGHT=25
-%CALLSTYLE% OOBB-generate-PL.bat
+REM Not generated due to taking a long time.
+REM SET WIDTH=25
+REM SET HEIGHT=25
+REM %CALLSTYLE% OOBB-generate-PL.bat
 
-SET WIDTH=30
-SET HEIGHT=30
-%CALLSTYLE% OOBB-generate-PL.bat
+REM SET WIDTH=30
+REM SET HEIGHT=30
+REM %CALLSTYLE% OOBB-generate-PL.bat
 
 
 
