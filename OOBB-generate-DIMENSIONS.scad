@@ -118,7 +118,7 @@
     OOBBBearing6810Outside = s=="3DPR" ? OOBBBearing6810Outside3D : OOBBBearing6810OutsideTrue;
 
     OOBBBearing6810OutsideHoldTrue = OOBBBearing6810OutsideTrue;
-    OOBBBearing6810OutsideHold3D  = (OOBBBearing6810OutsideHoldTrue+(0.45/2)); //0.35 not large enough
+    OOBBBearing6810OutsideHold3D  = (OOBBBearing6810OutsideHoldTrue+(0.6/2)); //0.45 almost large enough going to 0.6 for safetuy margin)
     OOBBBearing6810OutsideHold = s=="3DPR" ? OOBBBearing6810OutsideHold3D : OOBBBearing6810OutsideHoldTrue;
 
     OOBBBearing6810Little = OOBBBearing6810OutsideTrue-(3/2);
