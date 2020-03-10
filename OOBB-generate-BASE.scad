@@ -853,6 +853,30 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
         if(item=="M3NutCaptive"){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM3Width/2,height,0);
         }
+        if(item=="M3NutClearance"){  ///clearnce for an m3 nut
+            translate([0,0,-height]){
+                linear_extrude(height){
+                    circle(6.2/2);
+                }
+            }
+        }
+        if(item=="M3NutClearanceSlide"){ //add an extra half mm
+            OOBBInsertItemMM("M3NutClearance",0,0,ooZ=0,height=5);   
+            OOBBInsertItemMM("M3NutClearance",0.5,0,ooZ=0,height=5);   
+            OOBBInsertItemMM("M3NutClearance",-0.5,0,ooZ=0,height=5);   
+ 
+        }
+        if(item=="M3NutCaptiveSideInsert"){ 
+           OOBBPolygon3DComplete(6,0,0,OOBBNutM3Width/2,height,0);
+            OOBBInsertItemMM("M3NutCaptive",0,0,ooZ=0,height=height);   
+            translate([0,0,-height]){
+                linear_extrude(height){
+                    translate([0,10,0]){
+                        square([OOBBNutM3Width,20],true);
+                    }
+                }
+            } 
+        }
         if(item=="M3NutCaptiveSingle"){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM3Width/2,OOBBNutM3Height,0);
         }
