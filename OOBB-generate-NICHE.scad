@@ -1,4 +1,4 @@
-    /*
+    
     //m="WHS";
     //m="HL-B2X-07-04";
     m="HL-SM-03-03-6803";
@@ -8,9 +8,9 @@
     w=5;
     h=5;
     s="3DPR";
-    extra="HOLDERB";
-    //extra="NONE";
-    */
+    //extra="HOLDER";
+    extra="NONE";
+    
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
