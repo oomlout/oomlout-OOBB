@@ -22,6 +22,8 @@ if(m=="PLTEST-HoleTolerance"){
     TEST_SERVOMICROHORNCATCH();    
 }else if(m=="TEST-SERVOMICROHORNCATCHSINGLE"){
     TEST_SERVOMICROHORNCATCHSINGLE();    
+}else if(m=="TEST-SERVOMICROHORNCATCHSINGLECONTINUOUS"){
+    TEST_SERVOMICROHORNCATCHSINGLECONTINUOUS();    
 }else if(m=="TEST-FIRSTLAYERLIP"){
     TEST_FIRSTLAYERLIP();    
 }
@@ -528,4 +530,51 @@ module TEST_SERVOMICROHORNCATCHSINGLE(){
         }
         
     }
+}
+
+
+
+
+module TEST_SERVOMICROHORNCATCHSINGLECONTINUOUS(){
+      difference(){
+          translate([OOBBSpacing*1,0,0]){
+            OOBBPLOutline3D(2, 1, 4.25);
+            //OOBBPLOutline3D(2, 4.5, 3.75);
+          }
+        
+        //1
+            TS(0,1);
+            //TS(0.1,2);
+            //TS(0.2,3);
+            //TS(0.3,4);
+    }
+}
+
+module TS(extension,shift){
+    translate([OOBBSpacing *2,OOBBSpacing*shift,0]){
+          union(){
+                
+                rad=7.4/2;
+                height=2.5;
+                OOBBHole3DRadiusComplete(0,0,rad,height,height);
+                translate([0,0,2.5]){
+                   rad=7.4/2; 
+                   linear_extrude(2){
+                      
+                      translate([4/2,0,0]){
+                        square([4,7.1+extension],true);
+                      }
+                      
+                      translate([5.5/2,0,0]){
+                        square([8.5,6.1+extension],true);
+                      }
+                      
+                      translate([8.5+(9/2),0,0]){
+                        square([14,4.75+extension],true);
+                      }
+                      circle(rad);
+                   }
+                }
+            }
+        }
 }

@@ -1065,6 +1065,82 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
 
             }
         }
+        if(item=="ServoMicroHornCatchSingleContinuous"){
+        translate([0,0,-4]){
+        
+              union(){
+                
+                rad=7.4/2;
+                height=2.5;
+                OOBBHole3DRadiusComplete(0,0,rad,height,height);
+                translate([0,0,2]){
+                   rad=7.4/2; 
+                   linear_extrude(2){
+                      
+                      translate([4/2,0,0]){
+                        square([4,7.1+extension],true);
+                      }
+                      
+                      translate([5.5/2,0,0]){
+                        square([8.5,6.1+extension],true);
+                      }
+                      
+                      translate([8.5+(9/2),0,0]){
+                        square([14,4.75+extension],true);
+                      }
+                      circle(rad);
+                   }
+                }
+            }
+        }
+    }
+        if(item=="ServoMicroHornCatchSingleContinuousBottomInsertion"){
+        translate([0,0,-4]){
+              union(){
+                extension = 0;
+                rad=7.4/2;
+                height=2;
+                OOBBHole3DRadiusComplete(0,0,rad,height,height);
+                translate([0,0,0]){
+                   rad=7.4/2; 
+                   linear_extrude(4.5){
+                      
+                      translate([4/2,0,0]){
+                        square([4,7.1+extension],true);
+                      }
+                      
+                      translate([5.5/2,0,0]){
+                        square([8.5,6.1+extension],true);
+                      }
+                      
+                      translate([8.5+(9/2),0,0]){
+                        square([14,4.75+extension],true);
+                      }
+                      circle(rad);
+                   }
+                }
+            }
+               slotw = 3.5;
+                            holeRadius = 0.75;
+                            he=6;
+                            //slot
+                            translate([7/2+5/2,0,4]){ //move to middle of remaining piece
+                                translate([-slotw/2+holeRadius,0,0]){
+                                    linear_extrude(he){
+                                        translate([0,0,0]){
+                                            circle(holeRadius);
+                                        }
+                                        translate([slotw-holeRadius*2,0,0]){
+                                            circle(holeRadius);
+                                        }
+                                        translate([slotw/2-holeRadius,0,0]){
+                                            square([slotw-holeRadius*2,holeRadius*2],true);
+                                        }
+                                    }
+                                }
+                            }
+        }
+    }
         if(item=="ServoMicroHornCatchSingleBottomInsertion"){
             translate([0,0,-4]){
                    extension = 0;

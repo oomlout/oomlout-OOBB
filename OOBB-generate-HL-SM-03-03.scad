@@ -191,9 +191,35 @@ module OOBB_HL_SM_03_03_HOLDER_MAINHOLES_CAPONLY(totalHeight){
 module OOBB_HL_SM_03_03_HOLDER_MAINHOLES(totalHeight){
 //holes
     OOBBHole3D(1,1);
+    OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-1,1*OOBBSpacing-1);
+    OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-2,1*OOBBSpacing-2);
+    OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-3,1*OOBBSpacing-3);
+    OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-4,1*OOBBSpacing-4);
+    OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-5,1*OOBBSpacing-5);
+    
+    
     OOBBHole3D(1,3);
+    OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-1,3*OOBBSpacing+1);
+    OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-2,3*OOBBSpacing+2);
+    OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-3,3*OOBBSpacing+3);
+    OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-4,3*OOBBSpacing+4);
+    OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-5,3*OOBBSpacing+5);
+    
+    
     OOBBHole3D(3,1);
+    OOBBInsertItemMM("OOBBHole",3*OOBBSpacing+1,1*OOBBSpacing-1);
+    OOBBInsertItemMM("OOBBHole",3*OOBBSpacing+2,1*OOBBSpacing-2);
+    OOBBInsertItemMM("OOBBHole",3*OOBBSpacing+3,1*OOBBSpacing-3);
+    OOBBInsertItemMM("OOBBHole",3*OOBBSpacing+4,1*OOBBSpacing-4);
+    OOBBInsertItemMM("OOBBHole",3*OOBBSpacing+5,1*OOBBSpacing-5);
+    
+    
     OOBBHole3D(3,3);
+    OOBBInsertItemMM("OOBBHole",3*OOBBSpacing+1,3*OOBBSpacing+1);
+    OOBBInsertItemMM("OOBBHole",3*OOBBSpacing+2,3*OOBBSpacing+2);
+    OOBBInsertItemMM("OOBBHole",3*OOBBSpacing+3,3*OOBBSpacing+3);
+    OOBBInsertItemMM("OOBBHole",3*OOBBSpacing+4,3*OOBBSpacing+4);
+    OOBBInsertItemMM("OOBBHole",3*OOBBSpacing+5,3*OOBBSpacing+5);
     
     
     
@@ -282,6 +308,8 @@ module OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
 	
     topHeight = topTubeHeight + 9; //9 is wheel width
     bottomHeight = botTubeHeight + bearingTubeHeight;
+        
+    
     
         //TOP PIECE
     //translate([0,0,0]){
@@ -303,33 +331,39 @@ module OOBB_HL_SM_03_03_SERVOHORN(bearingSize){
                             rotate([0,180,0]){
                                 OOBB_WH_SOLID(3);
                             }
-                        }	
+                        }
+                               //bearing tube
+                        translate([0,0,botTubeHeight+bearingTubeHeight/2  ]){
+                            cylinder(bearingTubeHeight,bearingInside,bearingInside,true);
+                            } 
                     }
                     OOBB_HL_SM_03_03_SERVOHORN_HOLES(bearingSize);
                 }
             }
         }
+
     }
+    
         // BOTTOM PIECE
     //translate([0,0,0]){
-    translate([0,-OOBBSpacing*2-3,0]){
-        difference(){
-            union(){
-                
-                translate([0,0,0]){
-                    //OOBBcylinder(botTubeHeight,bearingLittle-0.5,bearingLittle-0.5);
-                    OOBBcylinder(botTubeHeight,bearingInside+1,bearingInside+1);
+    translate([0,-OOBBSpacing*2-3,5]){
+        rotate([0,180,0]){//rotate 180 to print upside down
+            difference(){
+                union(){
+                    
+                    translate([0,0,0]){
+                        //OOBBcylinder(botTubeHeight,bearingLittle-0.5,bearingLittle-0.5);
+                        OOBBcylinder(botTubeHeight,bearingInside+1,bearingInside+1);
+                    }
+                    //bearingTube    
+                    
+                    
+                    
+                    
+                    
                 }
-                //bearingTube    
-                
-                
-                translate([0,0,botTubeHeight+bearingTubeHeight/2  ]){
-                    cylinder(bearingTubeHeight,bearingInside,bearingInside,true);
-                }
-                
-                
+                OOBB_HL_SM_03_03_SERVOHORN_HOLES(bearingSize);
             }
-            OOBB_HL_SM_03_03_SERVOHORN_HOLES(bearingSize);
         }
     }    
 	
@@ -354,9 +388,12 @@ module OOBB_HL_SM_03_03_SERVOHORN_HOLES(bearingSize){
 		OOBBInsertItemCoord("OOBBHole",0,0,height=4);
 		
 		
-		//OOBBInsertItemCoord("ServoMicroHornCatch",0,0,4);
-		OOBBInsertItemCoord("ServoMicroHornCatchSingleBottomInsertion",0,0,4); //allows for 1.5mm thick arm and 2.5mm thick adapter tube
-	
+	//for tg90
+	//OOBBInsertItemCoord("ServoMicroHornCatchSingleBottomInsertion",0,0,4); //allows for 1.5mm thick arm and 2.5mm thick adapter tube
+	//for continuousRotation
+    OOBBInsertItemCoord("ServoMicroHornCatchSingleContinuousBottomInsertion",0,0,3.5); 
+    
+    
         //clamping screws
         OOBBInsertItemMM("M3SocketHead",OOBB_screwClamp1X,OOBB_screwClamp1Y,totalHeight);
         OOBBInsertItemMM("M3Hole",OOBB_screwClamp1X,OOBB_screwClamp1Y);

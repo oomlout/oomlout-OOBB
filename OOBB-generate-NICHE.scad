@@ -1,16 +1,16 @@
-    
+    /*
     //m="WHS";
     //m="HL-B2X-07-04";
-    m="HL-SM-03-03-6803";
+    //m="HL-SM-03-03-6803";
     //m="HL-PC-03-03";
-    //m="TEST-BEARING6803-MIDDLE";
+    //m="TEST-SERVOMICROHORNCATCHSINGLECONTINUOUS";
     //m="BP-6806-04-04";
-    w=5;
+    //w=5;
     h=5;
     s="3DPR";
     //extra="HOLDER";
-    extra="NONE";
-    
+    extra="HORN";
+    */
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
