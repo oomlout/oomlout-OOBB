@@ -194,7 +194,7 @@ module OOBBHolesForJA(OOWidth, OOHeight){
 module OOBBHolesFor(OOWidth, OOHeight){
     for(width = [1:OOWidth]){
         for(height = [1:OOHeight]){
-            OOBBInsertItemCoord("OOBBHole",width,height);
+            OOBBInsertItemCoord("OOBBHole2D",width,height);
         }
     }
 }
@@ -723,6 +723,12 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             z=height-10;
             rad=OOBBHole;
             OOBBHole3DRadiusComplete(0,0,rad,height,z);
+        }
+        if(item=="OOBBHole2D"){
+            height=50;    
+            z=height-10;
+            rad=OOBBHole;
+            circle(rad);
         }
         if(item=="M2Rivet"){
             height=50;    
