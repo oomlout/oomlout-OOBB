@@ -1028,6 +1028,13 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             translate([-4,0,height]){
                 OOBBCube3DComplete(0,0,wid,hei,height,0);
             }
+        }if(item=="ServoHole"){
+           //OOBBCube3DComplete(x,y,wid,hei,height,z)
+            wid=56 + 2;
+            hei=20+2;
+            translate([11,0,height]){
+                OOBBCube3DComplete(0,0,wid,hei,height,0);
+            }
         }
         if(item=="ServoMicroHornHole"){
                //height=50;    
