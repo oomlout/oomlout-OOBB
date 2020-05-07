@@ -1153,6 +1153,52 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                                 }
                             }
         }
+    }    if(item=="ServoFullHornCatchBottomInsertion"){
+        translate([0,0,-5.75]){
+              union(){
+                extension = 0;
+                rad=13.4/2; 
+                height=2;
+                OOBBHole3DRadiusComplete(0,0,rad,height,height);
+                translate([0,0,0]){
+                   
+                   linear_extrude(5.75){
+                      union(){
+                          translate([0,0,0]){
+                           square([8.5,14+extension],true);
+                          }
+                          
+                          translate([0,0,0]){
+                           square([25,7.75+extension],true);
+                          }
+                          
+                          circle(rad);
+                      }
+                   }
+                }
+            }
+            
+               slotw = 5.5;
+                            holeRadius = 0.75;
+                            he=6;
+                            //slot
+                            translate([7/2+5/2,0,5.75]){ //move to middle of remaining piece
+                                translate([-slotw/2+holeRadius,0,0]){
+                                    linear_extrude(he){
+                                        translate([0,0,0]){
+                                            circle(holeRadius);
+                                        }
+                                        translate([slotw-holeRadius*2,0,0]){
+                                            circle(holeRadius);
+                                        }
+                                        translate([slotw/2-holeRadius,0,0]){
+                                            square([slotw-holeRadius*2,holeRadius*2],true);
+                                        }
+                                    }
+                                }
+                            }
+            
+        }
     }
         if(item=="ServoMicroHornCatchSingleBottomInsertion"){
             translate([0,0,-4]){
@@ -1274,23 +1320,29 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                         }
                     }
                 
-               h2= 4 + 2.5;
-                translate([0,0,10+h2]){
-                    OOBBInsertItemMM("M45Sock",x1,y1,height=h2);
-                    OOBBInsertItemMM("M45Sock",x1,y2,height=h2);
-                    OOBBInsertItemMM("M45Sock",x2,y1,height=h2);
-                    OOBBInsertItemMM("M45Sock",x2,y2,height=h2);
-                }
+                h2= 4 + 2.5;
+                //translate([0,0,10+h2]){
+                //    OOBBInsertItemMM("M45Sock",x1,y1,height=h2);
+                //    OOBBInsertItemMM("M45Sock",x1,y2,height=h2);
+                //    OOBBInsertItemMM("M45Sock",x2,y1,height=h2);
+                //    OOBBInsertItemMM("M45Sock",x2,y2,height=h2);
+                //}
             }
             }
         
             
             OOBBInsertItemMM("M3Hole",x1,y1);
-            
-            
+            OOBBInsertItemMM("M3SocketHead",x1,y1,height=6.5+OOBBm3SocketHeadDepth);
+            OOBBInsertItemMM("M3NutCaptiveSingle",x1,y1,OOBBNutM3Height);
             OOBBInsertItemMM("M3Hole",x1,y2);
+            OOBBInsertItemMM("M3SocketHead",x1,y2,height=6.5+OOBBm3SocketHeadDepth);
+            OOBBInsertItemMM("M3NutCaptiveSingle",x1,y2,OOBBNutM3Height);
             OOBBInsertItemMM("M3Hole",x2,y1);
+            OOBBInsertItemMM("M3SocketHead",x2,y1,height=6.5+OOBBm3SocketHeadDepth);
+            OOBBInsertItemMM("M3NutCaptiveSingle",x2,y1,OOBBNutM3Height);
             OOBBInsertItemMM("M3Hole",x2,y2);
+            OOBBInsertItemMM("M3SocketHead",x2,y2,height=6.5+OOBBm3SocketHeadDepth);
+            OOBBInsertItemMM("M3NutCaptiveSingle",x2,y2,OOBBNutM3Height);
         }
       if(item=="M45Sock"){
           cylinder(height,4.4/2,4.4/2,true);

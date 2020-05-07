@@ -1,8 +1,8 @@
-    /*
+
     //m="WHS";
     //m="HL-B2X-07-04";
     //m="HL-SM-03-03-6803";
-    m="HL-SE-05-03-6803";
+    m="HL-SE-05-03-6704";
     //m="HL-PC-03-03";
     //m="TEST-SERVOMICROHORNCATCHSINGLECONTINUOUS";
     //m="BP-6806-04-04";
@@ -11,8 +11,7 @@
     s="3DPR";
     //extra="BRACKET";
     //extra="HORN";
-    //extra="NONE";
-    */
+    extra="NONE";
     
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -32,6 +31,8 @@ if(m=="HL-N17-05-03"){
     OOBB_HL_SM_03_03(6803);    
 }else if(m=="HL-SE-05-03-6803"){
     OOBB_HL_SE_05_03(6803);    
+}else if(m=="HL-SE-05-03-6704"){
+    OOBB_HL_SE_05_03(6704);    
 }else if(m=="HL-PZ-05-03"){
     OOBB_HL_PZ_05_03();    
 }else if(m=="HL-PC-03-03"){
