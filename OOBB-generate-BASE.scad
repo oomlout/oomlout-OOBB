@@ -1230,6 +1230,71 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 }
             }
         }
+
+        if(item=="ServoFullMount"){
+           //OOBBCube3DComplete(x,y,wid,hei,height,z)
+            height=50;    
+            z=height+10;
+            x1 = 14;
+            y1 = 5;
+            x2 = -36;
+            y2 = -5;
+            
+            translate([0,0,-10]){
+                difference(){
+                    union(){
+                        
+                        linear_extrude(height){
+                            translate([-11,0,height]){
+                                    //square
+                                    holeWidth = 42 + 2;
+                                    holeHeight = 21 + 2;
+                                    holeRadius = 0.75;
+                                    square([holeWidth,holeHeight],true);
+                                    //holes
+                                    x1 = 14;
+                                    y1 = 5;
+                                    x2 = -36;
+                                    y2 = -5;
+                            }                    
+                        }
+                        translate([-11,0,10+4]){
+                            linear_extrude(2.5){
+                                    //square
+                                    holeWidth = 56 + 2;
+                                    holeHeight = 21 + 2;
+                                    holeRadius = 0.75;
+                                    square([holeWidth,holeHeight],true);
+                                    //holes
+                                    x1 = 14;
+                                    y1 = 5;
+                                    x2 = -36;
+                                    y2 = -5;
+                            }                    
+                        }
+                    }
+                
+               h2= 4 + 2.5;
+                translate([0,0,10+h2]){
+                    OOBBInsertItemMM("M45Sock",x1,y1,height=h2);
+                    OOBBInsertItemMM("M45Sock",x1,y2,height=h2);
+                    OOBBInsertItemMM("M45Sock",x2,y1,height=h2);
+                    OOBBInsertItemMM("M45Sock",x2,y2,height=h2);
+                }
+            }
+            }
+        
+            
+            OOBBInsertItemMM("M3Hole",x1,y1);
+            
+            
+            OOBBInsertItemMM("M3Hole",x1,y2);
+            OOBBInsertItemMM("M3Hole",x2,y1);
+            OOBBInsertItemMM("M3Hole",x2,y2);
+        }
+      if(item=="M45Sock"){
+          cylinder(height,4.4/2,4.4/2,true);
+      }  
       if(item=="SetScrewKeyway"){
           rotate([90,0,0]){
               height=50;    

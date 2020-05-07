@@ -17,6 +17,8 @@ include <OLD01_OOBB-generate-HL-SM-03-03.scad>;
     servoHolderExtraClearance = 0.5;
     OOBBbaseBoltOffset = 8;
     
+    //full size servo variables
+    servoBracketThicknessFull = 4 +2.5; //add the thickness of the holder 
 
 module OOBB_HL_SM_03_03(bearingSize){
 	//######  HOLDER PART
@@ -62,9 +64,9 @@ module OOBB_HL_SE_05_03(bearingSize){
 	}
 	//######  SERVO BRACKET
 	if( extra == "NONE" || extra=="BRACKET" || extra=="NOHORN"){
-		translate([OOBBSpacing * 2,OOBBSpacing * 2,0]){
-        //translate([0,0,0]){ 
-			//OOBB_HL_SM_03_03_BRACKET(bearingSize);
+		//translate([OOBBSpacing * 2,OOBBSpacing * 2,0]){
+        translate([0,0,0]){ 
+			OOBB_HL_SE_03_03_BRACKET(bearingSize);
 		}
 	}
 	//###### Servo Horn
@@ -802,5 +804,21 @@ module OOBB_HL_SE_05_03_HOLDER_CAPTIVENUTS(bearingSize,capHeight){
     
 
     
+}
+
+///########
+///########
+///########  BRACKET
+///########
+module OOBB_HL_SE_03_03_BRACKET(bearingSize){
+	difference(){
+        translate([-4*OOBBSpacing,-2*OOBBSpacing,0]){
+            OOBBPLOutline3D(5,3,servoBracketThicknessFull);		
+        }
+            OOBBInsertItemCoord("ServoFullMount",0,0,height=12);
+            OOBBInsertItemMM("M3Slot",0*OOBBSpacing,1*OOBBSpacing+2);
+            OOBBInsertItemMM("M3Slot",0*OOBBSpacing,-1*OOBBSpacing-2);
+        
+	}
 }
 
