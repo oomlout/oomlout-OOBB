@@ -620,7 +620,7 @@ module OOBB_HL_SE_05_03_HOLDER(bearingSize){
         }
     if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERB" ){     
         //holder base
-        translate([0,50,capHeight-holderBaseHeight]){  //for printing
+        translate([0,50,0]){  //for printing
         
         //translate([0,0,-40]){    // fodevelopment
             translate([-OOBBSpacing*2,-OOBBSpacing*2,0]){
