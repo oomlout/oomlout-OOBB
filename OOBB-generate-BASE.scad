@@ -1276,7 +1276,50 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 }
             }
         }
-
+        if(item=="B1X"){
+            translate([0,0,-20.5]){
+                eC=1;
+                //OOBBCube3DComplete(x,y,wid,hei,height,z)
+                OOBBCube3DComplete(0,0,100+eC,30+eC,1.5+eC,1.5+eC);//pcb
+                OOBBCube3DComplete(5.5,0,78+eC,21+eC,18+eC,18+eC+1.5);//battery
+                OOBBCube3DComplete(-37.5,13.5,9+eC,5+eC,3+eC,1.5+3+eC+eC);//switch
+                OOBBCube3DComplete(-48,0,15+eC,15+eC,7+1.5+eC,7+eC+eC);//USB
+                //solder tabs
+                OOBBCube3DComplete(-37,0,7+eC,7+eC,2,1.5+2+eC);
+                OOBBCube3DComplete(46.5,0,7+eC,7+eC,2,1.5+2+eC);
+                
+                
+                
+                //six header clearances
+                xxx1 = -16.451;
+                xxx2 = 5.46;
+                xxx3 = 27.46;
+                yyy1 = 12.5;
+                yyy2 = -12.5;
+                zzz1 = 1.5+eC+2.54;
+                OOBBCube3DComplete(xxx1,yyy1,2.54*2+eC,2.54+eC,2.54+eC,zzz1);
+                OOBBCube3DComplete(xxx2,yyy1,2.54*2+eC,2.54+eC,2.54+eC,zzz1);
+                OOBBCube3DComplete(xxx3,yyy1,2.54*2+eC,2.54+eC,2.54+eC,zzz1);
+                OOBBCube3DComplete(xxx1,yyy2,2.54*2+eC,2.54+eC,2.54+eC,zzz1);
+                OOBBCube3DComplete(xxx2,yyy2,2.54*2+eC,2.54+eC,2.54+eC,zzz1);
+                OOBBCube3DComplete(xxx3,yyy2,2.54*2+eC,2.54+eC,2.54+eC,zzz1);
+                
+                xx1 = -47.5;
+                xx2 = 47.5;
+                yy1 = 12;
+                yy2 = -12;
+                shH = 18+4.5; //needs adjusting for various thicknesses
+                OOBBInsertItemMM("M3Hole",xx1,yy1);
+                OOBBInsertItemMM("M3SocketHead",xx1,yy1,height=shH);
+                OOBBInsertItemMM("M3Hole",xx1,yy2);
+                OOBBInsertItemMM("M3SocketHead",xx1,yy2,height=shH);
+                OOBBInsertItemMM("M3Hole",xx2,yy1);
+                OOBBInsertItemMM("M3SocketHead",xx2,yy1,height=shH);
+                OOBBInsertItemMM("M3Hole",xx2,yy2);
+                OOBBInsertItemMM("M3SocketHead",xx2,yy2,height=shH); 
+            }
+            
+        }
         if(item=="ServoFullMount"){
            //OOBBCube3DComplete(x,y,wid,hei,height,z)
             height=50;    

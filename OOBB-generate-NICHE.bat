@@ -135,6 +135,10 @@ SET TYPE=HL
 SET PART=HL-B2X-07-04
 %CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
+SET TYPE=HL
+SET PART=HL-B1X-09-02
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
+
 
 
 
