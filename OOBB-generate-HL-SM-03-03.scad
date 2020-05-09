@@ -600,7 +600,7 @@ module OOBB_HL_SE_05_03_HOLDER(bearingSize){
 	bearingHeight = bearingSize == 6803 ? 5 : 4;  //default to 6704
 	totalHeight = spacerHeight + bearingHeight;
 	capHeight = bearingHeight + 2 + baseCapHeight;
-    holderBaseHeight = 12;
+    holderBaseHeight = 6; //used to be 12
     if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERA" ){     
         //translate([-OOBBSpacing*2,-OOBBSpacing*2,capHeight]){ // to bring it to zer0
         translate([OOBBSpacing*2,OOBBSpacing*2.25,capHeight]){
@@ -701,17 +701,20 @@ module OOBB_HL_SE_05_03_HOLDER_BASE(bearingSize, holderBaseHeight,extraCapHeight
         }
            
 		//Servo Low
+        
     OOBBInsertItemMM("M3NutCaptive",2*OOBBSpacing,3*OOBBSpacing+2,ooZ=OOBBNutM3Height,height=20);      
     //Servo High
     OOBBInsertItemMM("M3NutCaptive",2*OOBBSpacing,1*OOBBSpacing-2,ooZ=OOBBNutM3Height,height=20);      
    
-    OOBBInsertItemMM("M3NutCaptive",3*OOBBSpacing+2,2*OOBBSpacing,ooZ=OOBBNutM3Height,height=20);      
     
-    OOBBInsertItemMM("M3NutCaptive",1*OOBBSpacing-2,2*OOBBSpacing,ooZ=holderBaseHeight-2,height=20);      
+    extraNutHeight =     holderBaseHeight+extraCapHeight-baseCapHeight-3;
+    OOBBInsertItemMM("M3NutCaptive",3*OOBBSpacing+2,2*OOBBSpacing,ooZ=extraNutHeight,height=20);      
+    
+    OOBBInsertItemMM("M3NutCaptive",1*OOBBSpacing-2,2*OOBBSpacing,ooZ=extraNutHeight,height=20);      
     
     
     
-    OOBBInsertItemCoord("ServoHole",2,2,height=holderBaseHeight-3);
+    OOBBInsertItemCoord("ServoHole",2,2,height=holderBaseHeight+extraCapHeight-baseCapHeight-5);
     //OOBB_HL_SM_03_03_BASE_HOLES();
     
     nutHeight = 4;
