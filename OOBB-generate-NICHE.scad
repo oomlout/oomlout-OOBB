@@ -1,4 +1,4 @@
-
+/*
     //m="WHS";
     //m="HL-B1X-09-02";
     //m="HL-SM-03-03-6803";
@@ -12,7 +12,8 @@
     //extra="BRACKET";
     extra="HOLDERB";
     //extra="NONE";
-    
+*/  
+  
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
 include <OOBB-generate-HL-SM-03-03.scad>;
@@ -142,7 +143,7 @@ module HL_B1X_09_02(){
                 OOBBHole3D(9,2);
             }
         }
-        #OOBBInsertItemMM("B1X",0,0,ooZ=18);
+        OOBBInsertItemMM("B1X",0,0,ooZ=18);
         
     }
 }

@@ -600,7 +600,7 @@ module OOBB_HL_SE_05_03_HOLDER(bearingSize){
 	bearingHeight = bearingSize == 6803 ? 5 : 4;  //default to 6704
 	totalHeight = spacerHeight + bearingHeight;
 	capHeight = bearingHeight + 2 + baseCapHeight;
-    holderBaseHeight = 6; //used to be 12
+    holderBaseHeight = 8; //used to be 12 6 too small may need to be 9
     if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERA" ){     
         //translate([-OOBBSpacing*2,-OOBBSpacing*2,capHeight]){ // to bring it to zer0
         translate([OOBBSpacing*2,OOBBSpacing*2.25,capHeight]){
