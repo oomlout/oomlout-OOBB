@@ -1281,9 +1281,9 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 eC=1;
                 //OOBBCube3DComplete(x,y,wid,hei,height,z)
                 OOBBCube3DComplete(0,0,100+eC,30+eC,1.5+eC,1.5+eC);//pcb
-                OOBBCube3DComplete(5.5,0,78+eC,21+eC,18+eC,18+eC+1.5);//battery
+                OOBBCube3DComplete(4,0,78+eC,21+eC,18+eC,18+eC+1.5);//battery
                 OOBBCube3DComplete(-37.5,13.5,9+eC,5+eC,3+eC,1.5+3+eC+eC);//switch
-                OOBBCube3DComplete(-48,0,15+eC,15+eC,7+1.5+eC,7+eC+eC);//USB
+                OOBBCube3DComplete(-49.5,0,15+eC,15+eC,7+1.5+eC,7+eC+eC);//USB
                 //solder tabs
                 OOBBCube3DComplete(-37,0,7+eC,7+eC,2,1.5+2+eC);
                 OOBBCube3DComplete(46.5,0,7+eC,7+eC,2,1.5+2+eC);
