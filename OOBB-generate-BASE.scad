@@ -909,6 +909,21 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                     }
                 }
             }
+        }
+        if(item=="M6BoltClearanceMiddle"){
+                union(){
+                OOBBHole3DRadiusSimple(0,0,13/2,height,0);
+                translate([-0,-13/4,-height]){
+                    linear_extrude(height){
+                        square([13,13/2],true);
+                    }
+                }  
+                translate([-13/4,0,-height]){
+                    linear_extrude(height){
+                        square([13/2,13],true);
+                    }
+                }
+            }
         }  
         if(item=="Bearing606"){
                 OOBBHole3DRadiusComplete(0,0,OOBBBearing606Big,6,0);
@@ -1186,6 +1201,23 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                                 translate([-slotw/2+holeRadius,0,0]){
                                     linear_extrude(he){
                                         translate([0,0,0]){
+                                        circle(holeRadius);
+                                        }
+                                        translate([slotw-holeRadius*2,0,0]){
+                                            circle(holeRadius);
+                                        }
+                                        translate([slotw/2-holeRadius,0,0]){
+                                            square([slotw-holeRadius*2,holeRadius*2],true);
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            //slot
+                            translate([-(7/2+5/2),0,5.75]){ //move to middle of remaining piece
+                                translate([-slotw/2+holeRadius,0,0]){
+                                    linear_extrude(he){
+                                        translate([0,0,0]){
                                             circle(holeRadius);
                                         }
                                         translate([slotw-holeRadius*2,0,0]){
@@ -1283,7 +1315,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 OOBBCube3DComplete(0,0,100+eC,30+eC,1.5+eC,1.5+eC);//pcb
                 OOBBCube3DComplete(4,0,78+eC,21+eC,18+eC,18+eC+1.5);//battery
                 OOBBCube3DComplete(-37.5,13.5,9+eC,5+eC,3+eC,1.5+3+eC+eC);//switch
-                OOBBCube3DComplete(-49.5,0,15+eC,15+eC,7+1.5+eC,7+eC+eC);//USB
+                OOBBCube3DComplete(-45.5,0,23+eC,15+eC,9+1.5+eC,9+eC+eC);//USB
                 //solder tabs
                 OOBBCube3DComplete(-37,0,7+eC,7+eC,2,1.5+2+eC);
                 OOBBCube3DComplete(46.5,0,7+eC,7+eC,2,1.5+2+eC);
@@ -1306,8 +1338,8 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 
                 xx1 = -47.5;
                 xx2 = 47.5;
-                yy1 = 12;
-                yy2 = -12;
+                yy1 = 12.5;
+                yy2 = -12.5;
                 shH = 18+4.5; //needs adjusting for various thicknesses
                 OOBBInsertItemMM("M3Hole",xx1,yy1);
                 OOBBInsertItemMM("M3SocketHead",xx1,yy1,height=shH);
@@ -1316,7 +1348,21 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                 OOBBInsertItemMM("M3Hole",xx2,yy1);
                 OOBBInsertItemMM("M3SocketHead",xx2,yy1,height=shH);
                 OOBBInsertItemMM("M3Hole",xx2,yy2);
-                OOBBInsertItemMM("M3SocketHead",xx2,yy2,height=shH); 
+                OOBBInsertItemMM("M3SocketHead",xx2,yy2,height=shH);
+               
+              //bottom side components
+                OOBBCube3DComplete(0,0,88,26,3+eC,0);//mainCavity
+                OOBBCube3DComplete(40,11.5,9,7,2.5+eC,0);//usb micro
+                OOBBCube3DComplete(-46,0,8,16,5+eC,0);//usbBig
+                OOBBCube3DComplete(40.5,-11.5,9,5,2+eC,0);//littleChip
+              //captive nuts
+                OOBBInsertItemMM("M3NutCaptiveSingle",xx1,yy1,ooZ=-6.5+OOBBNutM3Height);
+    OOBBInsertItemMM("M3NutCaptiveSingle",xx1,yy2,ooZ=-6.5+OOBBNutM3Height);
+    OOBBInsertItemMM("M3NutCaptiveSingle",xx2,yy1,ooZ=-6.5+OOBBNutM3Height);
+    OOBBInsertItemMM("M3NutCaptiveSingle",xx2,yy2,ooZ=-6.5+OOBBNutM3Height);
+       
+                
+                
             }
             
         }
@@ -1336,8 +1382,8 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
                         linear_extrude(height){
                             translate([-11,0,height]){
                                     //square
-                                    holeWidth = 42 + 2;
-                                    holeHeight = 21 + 2;
+                                    holeWidth = 42 + 0.5;
+                                    holeHeight = 21 + 0.5;
                                     holeRadius = 0.75;
                                     square([holeWidth,holeHeight],true);
                                     //holes

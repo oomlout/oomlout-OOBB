@@ -1,8 +1,8 @@
-/*
+
     //m="WHS";
-    //m="HL-B1X-09-02";
+    m="HL-B1X-09-02";
     //m="HL-SM-03-03-6803";
-    m="HL-SE-05-03-6704";
+    //m="HL-SE-05-03-6704";
     //m="HL-PC-03-03";
     //m="TEST-SERVOMICROHORNCATCHSINGLECONTINUOUS";
     //m="BP-6806-04-04";
@@ -10,9 +10,9 @@
     h=5;
     s="3DPR";
     //extra="BRACKET";
-    extra="HOLDERB";
-    //extra="NONE";
-*/  
+    //extra="HOLDERA";
+    extra="NONE";
+  
   
 include <OOBB-generate-BASE.scad>;
 include <OOBB-generate-TEST.scad>;
@@ -124,28 +124,63 @@ module HL_B2X_07_04(){
 }
 
 module HL_B1X_09_02(){
-    holderHeight=18;
-    difference(){
-    //    rotate([0,180,0]){     //rotate so bevel is on the top so when flipped in cura it has the bevel on the right side
-    //        translate([-4*OOBBSpacing,-3*OOBBSpacing,-4.5]){ //put centre at 0,
-        extraWidth=0.25;
-        translate([-OS*5,-OS*1.5,0]){
-            difference(){
-                translate([0,OS*-extraWidth/2,0]){
-                    OOBBPLOutline3D(9,2+extraWidth,15+3+2);
-                    //OOBBPLOutline3D(9,2+extraWidth,5); //testing height
-                }
-                OOBBHole3D(1,1);
-                OOBBHole3D(1,1.5);
-                OOBBHole3D(1,2);
-                OOBBHole3D(9,1);
-                OOBBHole3D(9,1.5);
-                OOBBHole3D(9,2);
-            }
-        }
-        OOBBInsertItemMM("B1X",0,0,ooZ=18);
-        
-    }
+    holderHeight=15+3+2;
+    extraWidth=0.25;
+    
+    translate([0,0,holderHeight]){
+        rotate([180,0,0]){    
+                                    //top main
+                                    difference(){
+                                    //    rotate([0,180,0]){     //rotate so bevel is on the top so when flipped in cura it has the bevel on the right side
+                                    //        translate([-4*OOBBSpacing,-3*OOBBSpacing,-4.5]){ //put centre at 0,
+                                        
+                                     
+                                        translate([-OS*5,-OS*1.5,0]){
+                                            difference(){
+                                                translate([0,OS*-extraWidth/2,0]){
+                                                    OOBBPLOutline3D(9,2+extraWidth,holderHeight);
+                                                    //OOBBPLOutline3D(9,2+extraWidth,5); //testing height
+                                                }
+                                                OOBBHole3D(1,1);
+                                                OOBBHole3D(1,1.5);
+                                                OOBBHole3D(1,2);
+                                                OOBBHole3D(9,1);
+                                                OOBBHole3D(9,1.5);
+                                                OOBBHole3D(9,2);
+                                            }
+                                        }
+                                        OOBBInsertItemMM("B1X",0,0,ooZ=18);
+                                     }
+     
+                                 }
+                             }
+     
+     
+        translate([0,OS*2.5,9]){
+                             //bottom cap
+                            difference(){
+                            //    rotate([0,180,0]){     //rotate so bevel is on the top so when flipped in cura it has the bevel on the right side
+                            //        translate([-4*OOBBSpacing,-3*OOBBSpacing,-4.5]){ //put centre at 0,
+                                
+                             
+                                translate([-OS*5,-OS*1.5,0]){
+                                    difference(){
+                                        capHeight = 8.5;
+                                        translate([0,OS*-extraWidth/2,-capHeight-0.5]){//extra tp take care of clearance positive to make clamping nice
+                                            OOBBPLOutline3D(9,2+extraWidth,capHeight);
+                                            //OOBBPLOutline3D(9,2+extraWidth,5); //testing height
+                                        }
+                                        OOBBHole3D(1,1);
+                                        OOBBHole3D(1,1.5);
+                                        OOBBHole3D(1,2);
+                                        OOBBHole3D(9,1);
+                                        OOBBHole3D(9,1.5);
+                                        OOBBHole3D(9,2);
+                                    }
+                                }
+                                OOBBInsertItemMM("B1X",0,0,ooZ=18);
+                                }
+                            }
 }
 
 module CI_03_CA_FL(){
