@@ -1493,6 +1493,66 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             }
         }
       }
+      OOEBextra = 0.1;
+      if(item=="OOEBNormal"){
+          translate([3.81,0,-8.5]){
+            //OOBBcubeAngled(x,y,z,width,height,depth,extra);
+            union(){
+                  OOBBcubeAngled(0,0,8.5,2.54*4+OOEBextra,2.54+OOEBextra,3,0.5);
+                  
+                linear_extrude(8.5){
+                    square([2.54*4+OOEBextra,2.54+OOEBextra],true);
+                }
+            }
+        }
+      }
+      if(item=="OOEBDual"){
+          
+          translate([2.54/2,0,-8.5]){
+              union(){
+                  OOBBcubeAngled(0,0,8.5,2.54*2+OOEBextra,2.54+OOEBextra,3,0.5);
+                linear_extrude(8.5){
+                    square([2.54*2+0.05,2.54+0.05],true);
+                }
+            }
+        }
+      }
+      if(item=="OOEBARDCUpsideDown"){
+          translate([0,0,-13]){
+            ex = 1;
+            //board
+            translate([0,0,0]){  
+                linear_extrude(10){
+                    square([18+ex,45+ex],true);
+                }
+            }
+            //usb
+            translate([0,-18.574,-4.5+1.3]){
+                linear_extrude(4.5){
+                    square([8+ex,9+ex],true);
+                }
+            }
+            //left pins
+            translate([-7.62,-0.318,-7.5+8]){
+                linear_extrude(12){
+                    square([2.54+ex,2.54*15+ex],true);
+                }
+            }
+            //left pins
+            translate([7.62,-0.318,-6.5+8]){
+                linear_extrude(12){
+                    square([2.54+ex,2.54*15+ex],true);
+                }
+            }
+        }
+      }
+      if(item=="OOEBDCJA"){
+          translate([0,0,-14]){
+            linear_extrude(14){
+                square([9+1,14+1],true);
+            }
+        }
+      }
       
       
       
@@ -1508,4 +1568,49 @@ module OOBBcylinder(height,radius1,radius2){
         }
        cylinder(OOBBfirstLayerLipDepth,radius1-OOBBfirstLayerLipOffset,radius2-OOBBfirstLayerLipOffset);            
         }
+}
+
+module OOBBcubeAngled(x,y,z,width,height,depth,extra){
+   /*
+    CubePoints = [
+  [  0,  0,  0 ],  //0
+  [ 10,  0,  0 ],  //1
+  [ 10,  7,  0 ],  //2
+  [  0,  7,  0 ],  //3
+  [  0,  0,  5 ],  //4
+  [ 10,  0,  5 ],  //5
+  [ 10,  7,  5 ],  //6
+  [  0,  7,  5 ]]; //7
+  
+CubeFaces = [
+  [0,1,2,3],  // bottom
+  [4,5,1,0],  // front
+  [7,6,5,4],  // top
+  [5,6,2,1],  // right
+  [6,7,3,2],  // back
+  [7,4,0,3]]; // left
+  
+polyhedron( CubePoints, CubeFaces );
+    */
+    CubePoints = [
+                  [  0,  0,  0 ],  //0
+                  [ width,  0,  0 ],  //1
+                  [ width+2*extra,  -2*extra,  depth ],  //2
+                  [  -2*extra,  -2*extra,  depth ],  //3
+                  [  0,  height,  0 ],  //4
+                  [ width,  height,  0 ],  //5
+                  [ width+2*extra,  height+2*extra,  depth ],  //6
+                  [  -2*extra,  height+2*extra,  depth ]]; //7
+  
+    CubeFaces = [
+                  [0,1,2,3],  // bottom
+                  [4,5,1,0],  // front
+                  [7,6,5,4],  // top
+                  [5,6,2,1],  // right
+                  [6,7,3,2],  // back
+                  [7,4,0,3]]; // left
+    translate([-width/2,-height/2,z-height]){
+        polyhedron( CubePoints, CubeFaces );
+    }
+    
 }

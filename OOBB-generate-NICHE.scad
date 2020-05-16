@@ -1,6 +1,7 @@
 
     //m="WHS";
-    m="HL-B1X-09-02";
+    //m="HL-B1X-09-02";
+    m="OBBB-04-03";
     //m="HL-SM-03-03-6803";
     //m="HL-SE-05-03-6704";
     //m="HL-PC-03-03";
@@ -52,6 +53,104 @@ if(m=="HL-N17-05-03"){
     BP_6806_04_04();    
 }else if(m=="BP-6810-05-05"){
     BP_6810_05_05();    
+}else if(m=="OBBB-04-03"){
+    OBBB_04_03();    
+}
+
+module OBBB_04_03(){
+ OBBB_04_03_TOP();
+ translate([OS*3,0,1.6+12]){
+ //translate([0,0,0]){
+     OBBB_04_03_BOTTOM();
+ }
+    
+}    
+    
+module OBBB_04_03_TOP(){
+    
+    //top
+    difference(){
+        translate([-OS*2,-OS*2.5,0]){
+            difference(){
+                OOBBPLOutline3D(3,4,8.5);
+                OOBBHole3D(1,4);
+                OOBBHole3D(2,4);
+                OOBBHole3D(3,4);
+            }
+        }
+        zz1 = 8.5;
+        xx1 = 3.35;
+        yy1 = 11.125;
+        OOBBInsertItemMM("OOEBNormal",xx1,yy1,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx1,yy1-2.54*1,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx1,yy1-2.54*2,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx1,yy1-2.54*3,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx1,yy1-2.54*4,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx1,yy1-2.54*5,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx1,yy1-2.54*6,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx1,yy1-2.54*7,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx1,yy1-2.54*8,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx1,yy1-2.54*9,zz1);
+        
+        
+        xx2 = -14.43;
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*1,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*2,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*3,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*4,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*5,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*6,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*7,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*8,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*9,zz1);
+        
+        OOBBInsertItemMM("OOEBDCJA",-11.5,-21.395,14);
+        OOBBInsertItemMM("OOEBDCJA",-11.5,-21.395+1,14); //extra to remove wall
+        
+        OOBBInsertItemMM("OOEBARDCUpsideDown",5.89,-6.337,3);
+        
+        
+        OOBBInsertItemMM90("OOEBDual",0.81,13.65-2.54,zz1);
+        
+    }
+}
+    
+module OBBB_04_03_BOTTOM(){
+           
+    //bottom
+    translate([0,0,-1.6]){
+    //translate([0,0,-1.6]){
+        difference(){
+            translate([-OS*2,-OS*2.5,-12]){
+                difference(){
+                    OOBBPLOutline3D(3,4,12);
+                    OOBBHole3D(1,4);
+                    OOBBHole3D(2,4);
+                    OOBBHole3D(3,4);
+                }
+            }
+        zz1 = 8.5-3;
+        yy1 = 11.125;
+        xx2 = -14.43;
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*1,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*2,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*3,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*4,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*5,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*6,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*7,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*8,zz1);
+        OOBBInsertItemMM("OOEBNormal",xx2,yy1-2.54*9,zz1);
+        
+        OOBBInsertItemMM("OOEBDCJA",-11.5,-21.395,14-3);
+        OOBBInsertItemMM("OOEBDCJA",-11.5,-21.395+1,14-3); //extra to remove wall
+            OOBBInsertItemMM("OOEBARDCUpsideDown",5.89,-6.337,3);
+        }   
+        
+        
+    }
 }
 
 module HL_B2X_07_04(){
