@@ -1506,6 +1506,80 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             }
         }
       }
+      if(item=="OOEBNormalUpsideDown"){
+          translate([3.81,0,0]){
+            //OOBBcubeAngled(x,y,z,width,height,depth,extra);
+            union(){
+                  OOBBcubeAngled(0,0,3,2.54*4+OOEBextra+0.5*2,2.54+OOEBextra+0.5*2,3,-0.5);
+                  
+                linear_extrude(8.5){
+                    square([2.54*4+OOEBextra,2.54+OOEBextra],true);
+                }
+            }
+        }
+      }
+      
+      if(item=="OOEBNormalCableUpsideDown"){
+          ex=0.1;
+          translate([2.54*3/2,0,0]){
+          //top
+            translate([0,0,0]){  
+                linear_extrude(6.23){
+                    square([2.54*4+ex,2.54+ex],true);
+                }
+            }  
+          //bar
+            translate([0,0,6.23]){  
+                linear_extrude(2.54+ex){
+                    square([2.54*6+ex,2.54+ex],true);
+                }
+            }     
+          //header
+            translate([2.54/2,0,6.23+2.54]){  
+                linear_extrude(14){
+                    square([2.54*3+ex,2.54+ex],true);
+                }
+            }
+            //cable
+            translate([2.54/2,0,6.23+2.54+14]){  
+                linear_extrude(3){
+                    square([5.62+ex,2.54+ex],true);
+                }
+            }      
+          }
+          
+      }
+      if(item=="OOEBNormalCable"){
+       //needs shifting to be right
+           ex=0.1;
+          translate([0,0,0]){
+          //top
+            translate([0,0,0]){  
+                linear_extrude(6.23){
+                    square([2.54*4+ex,2.54+ex],true);
+                }
+            }  
+          //bar
+            translate([0,0,-2.54]){  
+                linear_extrude(2.54+ex){
+                    square([2.54*6+ex,2.54+ex],true);
+                }
+            }     
+          //header
+            translate([2.54/2,0,-2.54-14]){  
+                linear_extrude(14){
+                    square([2.54*3+ex,2.54+ex],true);
+                }
+            }
+            //cable
+            translate([2.54/2,0,-2.54-14-3]){  
+                linear_extrude(3){
+                    square([5.62+ex,2.54+ex],true);
+                }
+            }      
+          }
+          
+      }
       if(item=="OOEBDual"){
           
           translate([2.54/2,0,-8.5]){
