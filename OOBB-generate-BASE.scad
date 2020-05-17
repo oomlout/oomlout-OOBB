@@ -659,64 +659,69 @@ module OOBBPLOutlineComplete(wid,hei){
 }
 
 
-module OOBBInsertItemCoord(item,ooX,ooY,ooZ=0,height=0,){
-    OOBBInsertItemMM(item,ooX*OOBBSpacing,ooY*OOBBSpacing,ooZ=ooZ,height=height);    
+
+//#########################################################################################
+//#########################################################################################
+//#########          INSERT ROUTINES
+
+module OOBBInsertItemCoord(item,ooX,ooY,ooZ=0,height=0,ex=0){
+    OOBBInsertItemMM(item,ooX*OOBBSpacing,ooY*OOBBSpacing,ooZ=ooZ,height=height,ex=ex);    
 }
 
-module OOBBInsertItemCoord180(item,ooX,ooY,ooZ=0,height=0,){
+module OOBBInsertItemCoord180(item,ooX,ooY,ooZ=0,height=0,ex=0){
     translate([ooX*OOBBSpacing,ooY*OOBBSpacing,0]){
         rotate([0,0,180]){    
-            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height,ex=ex);    
         }
     }
 }
 
 
 
-module OOBBInsertItemCoord90(item,ooX,ooY,ooZ=0,height=0,){
+module OOBBInsertItemCoord90(item,ooX,ooY,ooZ=0,height=0,ex=0){
     translate([ooX*OOBBSpacing,ooY*OOBBSpacing,0]){
         rotate([0,0,90]){    
-            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height,ex=ex);    
         }
     }
 }
 
 
-module OOBBInsertItemCoordRotate(item,ooX,ooY,ooZ=0,height=0,rot=0){
+module OOBBInsertItemCoordRotate(item,ooX,ooY,ooZ=0,height=0,rot=0,ex=0){
     translate([ooX*OOBBSpacing,ooY*OOBBSpacing,0]){
         rotate([0,0,rot]){    
-            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height,ex=ex);    
         }
     }
 }
 
 
 
-module OOBBInsertItemMM180(item,ooX,ooY,ooZ=0,height=0,){
+module OOBBInsertItemMM180(item,ooX,ooY,ooZ=0,height=0,ex=0){
     translate([ooX,ooY,0]){
         rotate([0,0,180]){
-            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height,ex=ex);    
         }
     }
 }
 
-module OOBBInsertItemMM90(item,ooX,ooY,ooZ=0,height=0,){
+module OOBBInsertItemMM90(item,ooX,ooY,ooZ=0,height=0,ex=0){
     translate([ooX,ooY,0]){
         rotate([0,0,90]){
-            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height,ex=ex);    
         }
     }
 }
 
-module OOBBInsertItemMMRotate(item,ooX,ooY,ooZ=0,height=0,rot=0){
+module OOBBInsertItemMMRotate(item,ooX,ooY,ooZ=0,height=0,rot=0,ex=0){
     translate([ooX,ooY,0]){
         rotate([0,0,rot]){
-            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height);    
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height,ex=ex);    
         }
     }
 }
 
-module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
+module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0,ex=0){
     translate([ooX,ooY,ooZ]){
         if(item=="OOBBHole"){
             height=50;    
@@ -1493,61 +1498,21 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0){
             }
         }
       }
-      OOEBextra = 0.1;
       if(item=="OOEBNormal"){
-          translate([3.81,0,-8.5]){
-            //OOBBcubeAngled(x,y,z,width,height,depth,extra);
-            union(){
-                  OOBBcubeAngled(0,0,8.5,2.54*4+OOEBextra,2.54+OOEBextra,3,0.5);
-                  
-                linear_extrude(8.5){
-                    square([2.54*4+OOEBextra,2.54+OOEBextra],true);
-                }
-            }
-        }
+         OOEBNormalInsert(ex=ex);
       }
       if(item=="OOEBNormalUpsideDown"){
-          translate([3.81,0,0]){
-            //OOBBcubeAngled(x,y,z,width,height,depth,extra);
-            union(){
-                  OOBBcubeAngled(0,0,3,2.54*4+OOEBextra+0.5*2,2.54+OOEBextra+0.5*2,3,-0.5);
-                  
-                linear_extrude(8.5){
-                    square([2.54*4+OOEBextra,2.54+OOEBextra],true);
-                }
-            }
-        }
+          
+         OOEBNormalInsertUpsideDown(ex=ex);
+          
       }
       
       if(item=="OOEBNormalCableUpsideDown"){
-          ex=0.1;
-          translate([2.54*3/2,0,0]){
-          //top
-            translate([0,0,0]){  
-                linear_extrude(6.23){
-                    square([2.54*4+ex,2.54+ex],true);
-                }
-            }  
-          //bar
-            translate([0,0,6.23]){  
-                linear_extrude(2.54+ex){
-                    square([2.54*6+ex,2.54+ex],true);
-                }
-            }     
-          //header
-            translate([2.54/2,0,6.23+2.54]){  
-                linear_extrude(14){
-                    square([2.54*3+ex,2.54+ex],true);
-                }
-            }
-            //cable
-            translate([2.54/2,0,6.23+2.54+14]){  
-                linear_extrude(3){
-                    square([5.62+ex,2.54+ex],true);
-                }
-            }      
+          if(ex==0){
+            OOEBNormalCableInsertUpsideDown(0.1);
+          }else{
+            OOEBNormalCableInsertUpsideDown(ex);
           }
-          
       }
       if(item=="OOEBNormalCable"){
        //needs shifting to be right
@@ -1687,4 +1652,59 @@ polyhedron( CubePoints, CubeFaces );
         polyhedron( CubePoints, CubeFaces );
     }
     
+}
+
+module OOEBNormalInsert(ex){
+    translate([3.81,0,-8.5]){
+        //OOBBcubeAngled(x,y,z,width,height,depth,extra);
+        union(){
+            OOBBcubeAngled(0,0,8.5,2.54*4+ex,2.54+ex,3,0.5);
+            linear_extrude(8.5){
+                square([2.54*4+ex,2.54+ex],true);
+            }
+        }
+    }
+}
+
+module OOEBNormalInsertUpsideDown(ex){
+    translate([0,0,0]){
+            //OOBBcubeAngled(x,y,z,width,height,depth,extra);
+            union(){
+                  OOBBcubeAngled(0,0,3.5,2.54*4+ex+0.5*2,2.54+ex+0.5*2,3,-0.5);
+                  
+                linear_extrude(8.5){
+                    square([2.54*4+ex,2.54+ex],true);
+                }
+            }
+        }
+}
+
+module OOEBNormalCableInsertUpsideDown(ex){
+          OOBBInsertItemMM("OOEBNormalUpsideDown",0,0,0,ex=ex);
+          translate([0,0,0]){
+          //top
+            translate([0,0,0]){  
+                linear_extrude(6){
+                    square([2.54*4+ex,2.54+ex],true);
+                }
+            }  
+          //bar
+            translate([0,0,6]){  
+                linear_extrude(2.54){
+                    square([2.54*6+ex,2.54+ex],true);
+                }
+            }     
+          //header
+            translate([2.54/2,0,6+2.54]){  
+                linear_extrude(14){
+                    square([2.54*3+ex,2.54+ex],true);
+                }
+            }
+            //cable
+            translate([2.54/2,0,6+2.54+14]){  
+                linear_extrude(3){
+                    square([5.62+ex,2.54+ex],true);
+                }
+            }      
+          }
 }

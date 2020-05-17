@@ -1,11 +1,11 @@
 
     //m="WHS";
-    m="HL-B1X-09-02";
+    //m="HL-B1X-09-02";
     //m="OBBB-04-03";
     //m="HL-SM-03-03-6803";
     //m="HL-SE-05-03-6704";
     //m="HL-PC-03-03";
-    //m="TEST-SERVOMICROHORNCATCHSINGLECONTINUOUS";
+    m="TEST-OOEBNORMAL";
     //m="BP-6806-04-04";
     w=5;
     h=5;

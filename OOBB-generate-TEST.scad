@@ -26,6 +26,8 @@ if(m=="PLTEST-HoleTolerance"){
     TEST_SERVOMICROHORNCATCHSINGLECONTINUOUS();    
 }else if(m=="TEST-FIRSTLAYERLIP"){
     TEST_FIRSTLAYERLIP();    
+}else if(m=="TEST-OOEBNORMAL"){
+    TEST_OOEBNORMAL();    
 }
 
 module TEST_FIRSTLAYERLIP(){
@@ -577,4 +579,57 @@ module TS(extension,shift){
                 }
             }
         }
+}
+
+module TEST_OOEBNORMAL(){
+    
+    //mode="";
+    mode="3DPR";
+    
+    if(mode=="3DPR"){
+        translate([0,0,17]){
+            rotate([0,180,0]){
+                TEST_OOEBNORMAL_TOP();
+            }
+        }
+        translate([OS*3,0,0]){
+            rotate([0,180,0]){
+                TEST_OOEBNORMAL_BOTTOM();
+            }
+        }    
+    }else{
+        TEST_OOEBNORMAL_TOP();
+        TEST_OOEBNORMAL_BOTTOM();
+    }
+}
+
+module TEST_OOEBNORMAL_TOP(){
+    difference(){
+        translate([-OS*2,-OS*2,0]){
+            OOBBPLOutline3D(3, 3, 17);
+        }
+        TEXT_OOEBNORMAL_HOLES();
+    }
+}
+
+module TEST_OOEBNORMAL_BOTTOM(){
+    difference(){
+        translate([-OS*2,-OS*2,-6]){
+            OOBBPLOutline3D(3, 3, 6);
+        }
+        TEXT_OOEBNORMAL_HOLES();
+    }
+}
+
+module TEXT_OOEBNORMAL_HOLES(){
+    he = -6;
+    st = -16;
+    sp = 8;
+    xx1 = 0;
+    OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+0*sp,he,ex=0.1);
+    OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+1*sp,he,ex=0.2);
+    OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+2*sp,he,ex=0.3);
+    OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+3*sp,he,ex=0.4);
+    OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+4*sp,he,ex=0.5);
+    
 }
