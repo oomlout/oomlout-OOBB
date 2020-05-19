@@ -626,10 +626,10 @@ module TEXT_OOEBNORMAL_HOLES(){
     st = -16;
     sp = 8;
     xx1 = 0;
-    OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+0*sp,he,ex=0.1);
-    OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+1*sp,he,ex=0.2);
-    OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+2*sp,he,ex=0.3);
-    OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+3*sp,he,ex=0.4);
-    OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+4*sp,he,ex=0.5);
+    #OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+0*sp,he,ex=0.1);
+    #OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+1*sp,he,ex=0.2);
+    #OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+2*sp,he,ex=0.3);
+    #OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+3*sp,he,ex=0.4);
+    #OOBBInsertItemMM("OOEBNormalCableUpsideDown",xx1,st+4*sp,he,ex=0.5);
     
 }

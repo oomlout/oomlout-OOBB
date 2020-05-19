@@ -1509,7 +1509,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0,ex=0){
       
       if(item=="OOEBNormalCableUpsideDown"){
           if(ex==0){
-            OOEBNormalCableInsertUpsideDown(0.1);
+            OOEBNormalCableInsertUpsideDown(0.5);
           }else{
             OOEBNormalCableInsertUpsideDown(ex);
           }
@@ -1680,7 +1680,7 @@ module OOEBNormalInsertUpsideDown(ex){
 }
 
 module OOEBNormalCableInsertUpsideDown(ex){
-          OOBBInsertItemMM("OOEBNormalUpsideDown",0,0,0,ex=ex);
+          OOBBInsertItemMM("OOEBNormalUpsideDown",0,0,0,ex=0);
           translate([0,0,0]){
           //top
             translate([0,0,0]){  
@@ -1690,18 +1690,18 @@ module OOEBNormalCableInsertUpsideDown(ex){
             }  
           //bar
             translate([0,0,6]){  
-                linear_extrude(2.54){
+                linear_extrude(2.54+ex){
                     square([2.54*6+ex,2.54+ex],true);
                 }
             }     
           //header
-            translate([2.54/2,0,6+2.54]){  
+            translate([2.54/2,0,6+2.54+ex]){  
                 linear_extrude(14){
                     square([2.54*3+ex,2.54+ex],true);
                 }
             }
             //cable
-            translate([2.54/2,0,6+2.54+14]){  
+            translate([2.54/2,0,6+2.54+ex+14]){  
                 linear_extrude(3){
                     square([5.62+ex,2.54+ex],true);
                 }
