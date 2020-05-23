@@ -1,11 +1,11 @@
 
     //m="WHS";
-    //m="HL-B1X-09-02";
+    m="HL-B1X-09-02";
     //m="OBBB-04-03";
     //m="HL-SM-03-03-6803";
     //m="HL-SE-05-03-6704";
     //m="HL-PC-03-03";
-    m="TEST-OOEBNORMAL";
+    //m="TEST-OOEBNORMAL";
     //m="BP-6806-04-04";
     w=5;
     h=5;
@@ -241,7 +241,7 @@ module HL_B1X_09_02(){
         }
     }else{
         HL_B1X_09_02_TOP(holderHeight);
-        //HL_B1X_09_02_BOTTOM();
+        HL_B1X_09_02_BOTTOM();
     }
 }
     
@@ -271,7 +271,12 @@ module HL_B1X_09_02_TOP(holderHeight){
             }
         }
         OOBBInsertItemMM("B1X",0,0,ooZ=18);
-            OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53,3.81-2.54*3,ooZ=-8.5);    OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53-2,3.81-2.54*3,ooZ=-8.5);  OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53-4,3.81-2.54*3,ooZ=-8.5); OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53-6,3.81-2.54*3,ooZ=-8.5); OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53-8,3.81-2.54*3,ooZ=-8.5); OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53-10,3.81-2.54*3,ooZ=-8.5);
+        OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53,0,ooZ=-8.5);    
+        OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53-2,0,ooZ=-8.5);  
+        OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53-4,0,ooZ=-8.5); 
+        OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53-6,0,ooZ=-8.5); 
+        OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53-8,0,ooZ=-8.5); 
+        OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53-10,0,ooZ=-8.5);
      }
 }
                             
@@ -301,8 +306,8 @@ module HL_B1X_09_02_BOTTOM(){
             }
         }
         OOBBInsertItemMM("B1X",0,0,ooZ=18);
-        OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53,3.81-2.54*3,ooZ=-8.5);
-        OOBBInsertItemMM90("OOEBNormalUpsideDown",53,3.81-2.54*3,ooZ=-capHeight);
+        OOBBInsertItemMM90("OOEBNormalCableUpsideDown",53,0,ooZ=-capHeight-0.5);
+        
     }
 }
 
