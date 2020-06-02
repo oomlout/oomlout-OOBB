@@ -1546,12 +1546,12 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0,ex=0){
           
       }
       if(item=="OOEBDual"){
-          
+          OOEBextra = 0.5;
           translate([2.54/2,0,-8.5]){
               union(){
                   OOBBcubeAngled(0,0,8.5,2.54*2+OOEBextra,2.54+OOEBextra,3,0.5);
                 linear_extrude(8.5){
-                    square([2.54*2+0.05,2.54+0.05],true);
+                    square([2.54*2+OOEBextra,2.54+OOEBextra],true);
                 }
             }
         }
@@ -1588,7 +1588,7 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0,ex=0){
       if(item=="OOEBDCJA"){
           translate([0,0,-14]){
             linear_extrude(14){
-                square([9+1,14+1],true);
+                square([9+2,14+1],true);
             }
         }
       }

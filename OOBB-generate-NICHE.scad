@@ -1,7 +1,7 @@
 
     //m="WHS";
-    m="HL-B1X-09-02";
-    //m="OBBB-04-03";
+    //m="HL-B1X-09-02";
+    m="OBBB-04-03";
     //m="HL-SM-03-03-6803";
     //m="HL-SE-05-03-6704";
     //m="HL-PC-03-03";
@@ -59,7 +59,7 @@ if(m=="HL-N17-05-03"){
 
 module OBBB_04_03(){
  OBBB_04_03_TOP();
- translate([OS*3,0,1.6+12]){
+ translate([OS*3,0,1.6+10]){
  //translate([0,0,0]){
      OBBB_04_03_BOTTOM();
  }
@@ -122,9 +122,9 @@ module OBBB_04_03_BOTTOM(){
     translate([0,0,-1.6]){
     //translate([0,0,-1.6]){
         difference(){
-            translate([-OS*2,-OS*2.5,-12]){
+            translate([-OS*2,-OS*2.5,-10]){
                 difference(){
-                    OOBBPLOutline3D(3,4,12);
+                    OOBBPLOutline3D(3,4,10);
                     OOBBHole3D(1,4);
                     OOBBHole3D(2,4);
                     OOBBHole3D(3,4);
@@ -146,7 +146,7 @@ module OBBB_04_03_BOTTOM(){
         
         OOBBInsertItemMM("OOEBDCJA",-11.5,-21.395,14-3);
         OOBBInsertItemMM("OOEBDCJA",-11.5,-21.395+1,14-3); //extra to remove wall
-            OOBBInsertItemMM("OOEBARDCUpsideDown",5.89,-6.337,3);
+            OOBBInsertItemMM("OOEBARDCUpsideDown",5.89,-6.337,4.5);
         }   
         
         
