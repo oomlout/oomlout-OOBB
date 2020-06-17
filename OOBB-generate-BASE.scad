@@ -1437,6 +1437,72 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0,ex=0){
             OOBBInsertItemMM("M3Hole",x2,y2);
             OOBBInsertItemMM("M3SocketHead",x2,y2,height=6.5+OOBBm3SocketHeadDepth);
             OOBBInsertItemMM("M3NutCaptiveSingle",x2,y2,OOBBNutM3Height);
+        }if(item=="ServoFullMountTop"){
+           //OOBBCube3DComplete(x,y,wid,hei,height,z)
+            height=50;    
+            z=height+10;
+            x1 = 14;
+            y1 = 5;
+            x2 = -36;
+            y2 = -5;
+            
+            translate([0,0,-10]){
+                difference(){
+                    union(){
+                        
+                        linear_extrude(height){
+                            translate([-11,0,height]){
+                                    //square
+                                    holeWidth = 42 + 2;
+                                    holeHeight = 21 + 0.5;
+                                    holeRadius = 0.75;
+                                    square([holeWidth,holeHeight],true);
+                                    //holes
+                                    x1 = 14;
+                                    y1 = 5;
+                                    x2 = -36;
+                                    y2 = -5;
+                            }                    
+                        }
+                        translate([-11,0,10+4]){
+                            linear_extrude(2.5+50){
+                                    //square
+                                    holeWidth = 56 + 2;
+                                    holeHeight = 21 + 1;
+                                    holeRadius = 0.75;
+                                    square([holeWidth,holeHeight],true);
+                                    //holes
+                                    x1 = 14;
+                                    y1 = 5;
+                                    x2 = -36;
+                                    y2 = -5;
+                            }                    
+                        }
+                    }
+                
+                h2= 4 + 2.5;
+                //translate([0,0,10+h2]){
+                //    OOBBInsertItemMM("M45Sock",x1,y1,height=h2);
+                //    OOBBInsertItemMM("M45Sock",x1,y2,height=h2);
+                //    OOBBInsertItemMM("M45Sock",x2,y1,height=h2);
+                //    OOBBInsertItemMM("M45Sock",x2,y2,height=h2);
+                //}
+            }
+            }
+        
+            
+            OOBBInsertItemMM("M3Hole",x1,y1);
+            OOBBInsertItemMM("M3SocketHead",x1,y1,height=6.5+OOBBm3SocketHeadDepth);
+            OOBBInsertItemMM("M3NutCaptiveSingle",x1,y1,OOBBNutM3Height);
+            OOBBInsertItemMM("M3Hole",x1,y2);
+            OOBBInsertItemMM("M3SocketHead",x1,y2,height=6.5+OOBBm3SocketHeadDepth);
+            OOBBInsertItemMM("M3NutCaptiveSingle",x1,y2,OOBBNutM3Height);
+            OOBBInsertItemMM("M3Hole",x2,y1);
+            OOBBInsertItemMM("M3SocketHead",x2,y1,height=6.5+OOBBm3SocketHeadDepth);
+            OOBBInsertItemMM("M3NutCaptiveSingle",x2,y1,OOBBNutM3Height);
+            OOBBInsertItemMM("M3Hole",x2,y2);
+            OOBBInsertItemMM("M3SocketHead",x2,y2,height=6.5+OOBBm3SocketHeadDepth);
+            OOBBInsertItemMM("M3NutCaptiveSingle",x2,y2,OOBBNutM3Height);
         }
       if(item=="M45Sock"){
           cylinder(height,4.4/2,4.4/2,true);

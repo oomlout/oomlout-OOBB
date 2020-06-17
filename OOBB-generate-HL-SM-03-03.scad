@@ -18,7 +18,7 @@ include <OLD01_OOBB-generate-HL-SM-03-03.scad>;
     OOBBbaseBoltOffset = 8;
     
     //full size servo variables
-    servoBracketThicknessFull = 4 +2.5; //add the thickness of the holder 
+    servoBracketThicknessFull = 4+6 +2.5; //add the thickness of the holder 
 
 module OOBB_HL_SM_03_03(bearingSize){
 	//######  HOLDER PART
@@ -53,7 +53,11 @@ module OOBB_HL_SM_03_03(bearingSize){
 	}   
 }
 
-
+//todo
+//add a second M3 hole to hold servo on each side
+//remove slot for single hole
+//make screws come up from bottom
+//add block to lock m3 nuts on servo
 module OOBB_HL_SE_05_03(bearingSize){
 	//######  HOLDER PART
 	if( extra == "NONE" || extra=="HOLDER"  || extra=="HOLDERA"  || extra=="HOLDERB" || extra=="NOHORN"){
@@ -62,6 +66,7 @@ module OOBB_HL_SE_05_03(bearingSize){
 			OOBB_HL_SE_05_03_HOLDER(bearingSize);    
 		}
 	}
+    
 	//######  SERVO BRACKET
 	if( extra == "NONE" || extra=="BRACKET" || extra=="NOHORN"){
 		translate([OOBBSpacing * 3,OOBBSpacing * 8.5,0]){
@@ -69,6 +74,7 @@ module OOBB_HL_SE_05_03(bearingSize){
 			OOBB_HL_SE_05_03_BRACKET(bearingSize);
 		}
 	}
+    
 	//###### Servo Horn
 	if( extra == "NONE" || extra=="HORN"){    
 		translate([OOBBSpacing * 6,OOBBSpacing * 4,0]){    
@@ -107,7 +113,7 @@ module OOBB_HL_SM_03_03_HOLDER(bearingSize){
 	capHeight = bearingHeight + 2 + extraCapHeight;
     holderBaseHeight = 12;
     
-    if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERA" ){     
+    if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERA"  || extra=="NOHORN"){     
         translate([OOBBSpacing*2,OOBBSpacing*2.25,capHeight]){
             rotate([0,180,0]){
                 translate([-OOBBSpacing*2,-OOBBSpacing*2,0]){
@@ -123,7 +129,7 @@ module OOBB_HL_SM_03_03_HOLDER(bearingSize){
                 }
             }
         }
-    if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERB" ){     
+    if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERB"  || extra=="NOHORN"){     
         //holder base
         translate([0,50,capHeight-holderBaseHeight]){  //for printing
         //translate([0,0,-20]){    // fodevelopment
@@ -600,8 +606,8 @@ module OOBB_HL_SE_05_03_HOLDER(bearingSize){
 	bearingHeight = bearingSize == 6803 ? 5 : 4;  //default to 6704
 	totalHeight = spacerHeight + bearingHeight;
 	capHeight = bearingHeight + 2 + baseCapHeight;
-    holderBaseHeight = 8; //used to be 12 6 too small may need to be 9
-    if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERA" ){     
+    holderBaseHeight = 2; //used to be 12 6 too small may need to be 9
+    if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERA" || extra=="NOHORN" ){     
         //translate([-OOBBSpacing*2,-OOBBSpacing*2,capHeight]){ // to bring it to zer0
         translate([OOBBSpacing*2,OOBBSpacing*2.25,capHeight]){
             rotate([0,180,0]){
@@ -618,7 +624,7 @@ module OOBB_HL_SE_05_03_HOLDER(bearingSize){
                 }
          }
         }
-    if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERB" ){     
+    if( extra == "NONE"|| extra=="HOLDER" || extra=="HOLDERB" || extra=="NOHORN" ){     
         //holder base
         translate([0,50,0]){  //for printing
         
@@ -777,6 +783,12 @@ module OOBB_HL_SE_05_03_HOLDER_MAINHOLES(totalHeight){
     OOBBInsertItemMM("OOBBHole",3*OOBBSpacing,3*OOBBSpacing+5);
     */
     
+    
+    
+    OOBBInsertItemCoord("OOBBHole",4,1);
+    OOBBInsertItemCoord("OOBBHole",4,3);
+    
+    
     //OOBBInsertItemCoord("OOBBHole",2,3);
     OOBBInsertItemCoord("OOBBHole",5,3);
     //OOBBInsertItemCoord("OOBBHole",4,3);
@@ -841,7 +853,7 @@ module OOBB_HL_SE_05_03_BRACKET(bearingSize){
                 }
             }          
         }
-            OOBBInsertItemCoord("ServoFullMount",0,0,height=12);
+            OOBBInsertItemCoord("ServoFullMountTop",0  ,0,height=12);
             OOBBInsertItemMM("M3Slot",0*OOBBSpacing,1*OOBBSpacing+2);
             OOBBInsertItemMM("M3Slot",0*OOBBSpacing,-1*OOBBSpacing-2);
         
