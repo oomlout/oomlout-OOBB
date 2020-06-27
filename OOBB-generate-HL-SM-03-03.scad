@@ -21,8 +21,6 @@ include <OOBB-generate-HL-SE-05-03.scad>;
     servoHolderExtraClearance = 0.5;
     OOBBbaseBoltOffset = 8;
     
-    //full size servo variables
-    servoBracketThicknessFull = 4+6 +2.5; //add the thickness of the holder 
 
 module OOBB_HL_SM_03_03(){
 	//######  HOLDER PART

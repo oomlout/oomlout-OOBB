@@ -1,16 +1,25 @@
 
+
+
+
+
+//thicknesses
 baseCapHeight = 5;        
 spacerHeight = 12;
 extraCapHeight = baseCapHeight+7;  //this is the amount to stretch the cap
 bearingHeight = 4;  //default to 6704
 totalHeight = spacerHeight + bearingHeight;
-capHeight = bearingHeight + 2 + baseCapHeight;
 holderBaseHeight = 2; //used to be 12 6 too small may need to be 9
 
+thicknessHolderA = bearingHeight + 2 + baseCapHeight;
+thicknessHolderB = 0;
+thicknessBracket = 12.5;
 
-heightTop = capHeight;
-heightCapB = heightTop - capHeight;
-bearingInsertionHeight = 0;
+
+
+heightHolderA = thicknessHolderA + thicknessHolderB + thicknessBracket;
+heightHolderB = thicknessHolderB + thicknessBracket;
+heightBracket = thicknessBracket;
 
 
 //todo
@@ -86,17 +95,6 @@ module OOBB_HL_SE_05_03(){
 
 
 
-//////////////////////////////////////////////////// SE-05-03
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 ///########
 ///########
@@ -105,45 +103,35 @@ module OOBB_HL_SE_05_03(){
         
 module OOBB_HL_SE_05_03_HOLDER_A(){
     difference(){
-            OOBB_HL_SE_05_03_HOLDER_CAP();
+            OOBB_HL_SE_05_03_HOLDER_A_BASE();
             OOBB_HL_SE_05_03_HOLDER_MAINHOLES();
             OOBB_HL_SE_05_03_HOLDER_MAINHOLES_CAPONLY();
             OOBB_HL_SE_05_03_HOLDER_BEARINGHOLE();
-            //OOBB_HL_SE_05_03_HOLDER_CAPTIVENUTS(capHeight);
+            OOBB_HL_SE_05_03_HOLDER_CAPTIVENUTS();
     }
 }
 
 
 module OOBB_HL_SE_05_03_HOLDER_B(){ 
     difference(){
-        OOBB_HL_SE_05_03_HOLDER_BASE(holderBaseHeight, extraCapHeight);
-        OOBB_HL_SE_05_03_HOLDER_MAINHOLES(holderBaseHeight);
-        OOBB_HL_SE_05_03_HOLDER_MAINHOLES_CAPONLY(holderBaseHeight);
+        OOBB_HL_SE_05_03_HOLDER_B_BASE();
+        OOBB_HL_SE_05_03_HOLDER_MAINHOLES();
+        OOBB_HL_SE_05_03_HOLDER_MAINHOLES_CAPONLY();
     }
 }
        
-
-module OOBB_HL_SE_05_03_HOLDER_CAP(){
-    translate([OS * -2,OS *-2,-capHeight+heightTop]){
-        difference(){
-            union(){
-                OOBBPLOutline3D(3,3,capHeight);
-                OOBBPLOutline3D(5,3,capHeight-4);
-            }
-            TOP = 3;
-            RIGHT = 3;
-            BOTTOM = 1;
-            LEFT = 1;
-            OOBBInsertItemCoordRotate("M6BoltClearanceCorner",LEFT,TOP,capHeight,height=4,rot=270);
-            OOBBInsertItemMMRotate("M6BoltClearanceCorner",LEFT*OOBBSpacing-1,TOP*OOBBSpacing,capHeight,height=4,rot=270);
-            OOBBInsertItemCoordRotate("M6BoltClearanceMiddle",LEFT,BOTTOM,capHeight,height=4,rot=0);
-            OOBBInsertItemMMRotate("M6BoltClearanceMiddle",LEFT*OOBBSpacing-1,BOTTOM*OOBBSpacing,capHeight,height=4,rot=0);
-        
-            }
+module OOBB_HL_SE_05_03_BRACKET(){
+    difference(){
+        OOBB_HL_SE_05_03_BRACKET_BASE();
+        OOBB_HL_SE_05_03_HOLDER_MAINHOLES();
+        OOBB_HL_SE_05_03_BRACKET_HOLES();
     }
 }
 
-module OOBB_HL_SE_05_03_HOLDER_BASE(holderBaseHeight,extraCapHeight){
+
+////######  BASE ROUTNES
+
+module OOBB_HL_SE_05_03_HOLDER_A_BASE(){
     difference(){
         union(){
             OOBBPLOutline3D(5,3,holderBaseHeight+extraCapHeight-baseCapHeight);
@@ -190,7 +178,51 @@ module OOBB_HL_SE_05_03_HOLDER_BASE(holderBaseHeight,extraCapHeight){
 }
 
 
-module OOBB_HL_SE_05_03_HOLDER_MAINHOLES_CAPONLY(totalHeight){
+module OOBB_HL_SE_05_03_HOLDER_BASE_B(){
+    difference(){
+            union(){
+                translate([OS * -2,OS *-2,-capHeight+heightTop]){
+                    OOBBPLOutline3D(3,3,holderAHeight);
+                    OOBBPLOutline3D(5,3,holderAHeight-4);
+                }
+            }
+            TOP = 1;
+            RIGHT = 1;
+            BOTTOM = -1;
+            LEFT = -1;
+            OOBBInsertItemCoordRotate("M6BoltClearanceCorner",LEFT,TOP,capHeight,height=4,rot=270);
+            OOBBInsertItemMMRotate("M6BoltClearanceCorner",LEFT*OOBBSpacing-1,TOP*OOBBSpacing,capHeight,height=4,rot=270);
+            OOBBInsertItemCoordRotate("M6BoltClearanceMiddle",LEFT,BOTTOM,capHeight,height=4,rot=0);
+            OOBBInsertItemMMRotate("M6BoltClearanceMiddle",LEFT*OOBBSpacing-1,BOTTOM*OOBBSpacing,capHeight,height=4,rot=0);
+        
+            }
+    
+}
+
+module OOBB_HL_SE_05_03_BRACKET_BASE(){
+    translate([OS*-2,OS*-2,0]){
+        OOBBPLOutline3D(5,3,thicknessBracket);
+    }
+}
+
+
+
+////######  HOLE ROUTINES
+
+
+module OOBB_HL_SE_05_03_BRACKET_HOLES(){
+    OOBBInsertItemCoord("ServoFullMountTop",0  ,0,height=12);
+    OOBBInsertItemMM("M3Slot",0*OOBBSpacing,1*OOBBSpacing+2);
+    OOBBInsertItemMM("M3Slot",0*OOBBSpacing,-1*OOBBSpacing-2);
+}
+
+
+
+
+
+
+
+module OOBB_HL_SE_05_03_HOLDER_MAINHOLES_CAPONLY(){
     OOBBInsertItemMM("M3Hole",3*OOBBSpacing+2,2*OOBBSpacing);      
     OOBBInsertItemMM("M3Hole",1*OOBBSpacing-2,2*OOBBSpacing);      
  //Servo Low
@@ -201,40 +233,29 @@ module OOBB_HL_SE_05_03_HOLDER_MAINHOLES_CAPONLY(totalHeight){
 
 module OOBB_HL_SE_05_03_HOLDER_MAINHOLES(){
 //holes
-    translate([OS * -2,OS *-2,0]){
         
-        OOBBHole3D(1,1);
-        OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-1,1*OOBBSpacing-1);
-        OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-2,1*OOBBSpacing-2);
-        OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-3,1*OOBBSpacing-3);
-        OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-4,1*OOBBSpacing-4);
-        OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-5,1*OOBBSpacing-5);
-        
-        
-        OOBBHole3D(1,3);
-        OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-1,3*OOBBSpacing+1);
-        OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-2,3*OOBBSpacing+2);
-        OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-3,3*OOBBSpacing+3);
-        OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-4,3*OOBBSpacing+4);
-        OOBBInsertItemMM("OOBBHole",1*OOBBSpacing-5,3*OOBBSpacing+5);
+        OOBBHole3D(-1,1);
+        OOBBInsertItemMM("OOBBHole",-1*OOBBSpacing-1,-1*OOBBSpacing-1);
+        OOBBInsertItemMM("OOBBHole",-1*OOBBSpacing-2,-1*OOBBSpacing-2);
+        OOBBInsertItemMM("OOBBHole",-1*OOBBSpacing-3,-1*OOBBSpacing-3);
+        OOBBInsertItemMM("OOBBHole",-1*OOBBSpacing-4,-1*OOBBSpacing-4);
+        OOBBInsertItemMM("OOBBHole",-1*OOBBSpacing-5,-1*OOBBSpacing-5);
         
         
-        OOBBInsertItemCoord("OOBBHole",4,1);
-        OOBBInsertItemCoord("OOBBHole",4,3);
+        OOBBHole3D(-1,1);
+        OOBBInsertItemMM("OOBBHole",-1*OOBBSpacing-1,1*OOBBSpacing+1);
+        OOBBInsertItemMM("OOBBHole",-1*OOBBSpacing-2,1*OOBBSpacing+2);
+        OOBBInsertItemMM("OOBBHole",-1*OOBBSpacing-3,1*OOBBSpacing+3);
+        OOBBInsertItemMM("OOBBHole",-1*OOBBSpacing-4,1*OOBBSpacing+4);
+        OOBBInsertItemMM("OOBBHole",-1*OOBBSpacing-5,1*OOBBSpacing+5);
         
         
-        //OOBBInsertItemCoord("OOBBHole",2,3);
-        OOBBInsertItemCoord("OOBBHole",5,3);
-        //OOBBInsertItemCoord("OOBBHole",4,3);
-        
-        //OOBBInsertItemCoord("OOBBHole",2,1);
-        OOBBInsertItemCoord("OOBBHole",5,1);
-        //OOBBInsertItemCoord("OOBBHole",4,1);
-        
-        
-        OOBBInsertItemCoord("OOBBHole",5,2);
-        
-    }
+        OOBBInsertItemCoord("OOBBHole",2,1);
+        OOBBInsertItemCoord("OOBBHole",2,-1);
+    
+        OOBBInsertItemCoord("OOBBHole",3,1);
+        OOBBInsertItemCoord("OOBBHole",3,0);
+        OOBBInsertItemCoord("OOBBHole",3,-1);
     
 }
 
@@ -246,7 +267,7 @@ module OOBB_HL_SE_05_03_HOLDER_BEARINGHOLE(){
 }
 
 
-module OOBB_HL_SE_05_03_HOLDER_CAPTIVENUTS(capHeight){
+module OOBB_HL_SE_05_03_HOLDER_CAPTIVENUTS(){
     nutHeight = OOBBNutM3Height;
     nutGap = nutHeight;
     //Servo Low
@@ -266,30 +287,6 @@ module OOBB_HL_SE_05_03_HOLDER_CAPTIVENUTS(capHeight){
     
 }
 
-///########
-///########
-///########  BRACKET
-///########
-module OOBB_HL_SE_05_03_BRACKET(){
-	difference(){
-        translate([-4*OOBBSpacing,-2*OOBBSpacing,0]){
-            difference(){
-                OOBBPLOutline3D(5,3,servoBracketThicknessFull);
-                translate([6*OOBBSpacing,0,0]){
-                    mirror([1,0,0]){
-                    
-                        OOBB_HL_SE_05_03_HOLDER_MAINHOLES(30);
-                    }
-                }
-            }          
-        }
-            OOBBInsertItemCoord("ServoFullMountTop",0  ,0,height=12);
-            OOBBInsertItemMM("M3Slot",0*OOBBSpacing,1*OOBBSpacing+2);
-            OOBBInsertItemMM("M3Slot",0*OOBBSpacing,-1*OOBBSpacing-2);
-        
-            
-	}
-}
 
 
 ///########
