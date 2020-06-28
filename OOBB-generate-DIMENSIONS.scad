@@ -56,6 +56,8 @@
     OOBBBearing6704Little = (27-3)/2;
     OOBBBearing6704LittleInside = 21.5/2;
     
+    OOBBBearing6704Thickness = 4;
+    
     //6803 Bearing
     OOBBBearing6803InsideTrue = 17/2;
     OOBBBearing6803Inside3D  = 16.8/2;
