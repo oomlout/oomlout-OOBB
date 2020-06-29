@@ -12,7 +12,7 @@ totalHeight = spacerHeight + bearingHeight;
 holderBaseHeight = 2; //used to be 12 6 too small may need to be 9
 
 thicknessHolderA = bearingHeight + 2 + baseCapHeight;
-thicknessHolderB = 5+4.5;
+thicknessHolderB = 5+5;
 thicknessBracket = 12.5;
 
 
@@ -30,7 +30,7 @@ heightBracket = thicknessBracket;
 module OOBB_HL_SE_05_03(){
    mode = "3DPR";
     //mode = "EXPLODED";
-    //mode = "NONE";
+   //mode = "NONE";
     
     if(mode == "3DPR"){
 
@@ -214,7 +214,7 @@ module OOBB_HL_SE_05_03_HOLDER_MAINHOLES(){
         longJoiningScrewX2 = 0;
         longJoiningScrewY2 = 1*OS+2;
         longJoiningScrewZ1 = heightHolderA-OOBBm3SocketHeadDepth;
-        longScrewLength=25;
+        longScrewLength=30;
         OOBBinsert("M3SocketHeadFull",longJoiningScrewX1,longJoiningScrewY1,z=longJoiningScrewZ1,length=longScrewLength);
         OOBBinsert("M3NutCaptiveSingle",longJoiningScrewX1,longJoiningScrewY1,z=longJoiningScrewZ1-longScrewLength+2.5);
         OOBBinsert("M3NutCaptiveSingle",longJoiningScrewX1,longJoiningScrewY1,z=longJoiningScrewZ1-longScrewLength+3.5);
@@ -238,7 +238,7 @@ module OOBB_HL_SE_05_03_HOLDER_MAINHOLES(){
     */
 
     //servo mount
-        OOBBinsert("ServoFullMountTop",0,0,z=6,height=7+4.5,rot=180);
+        OOBBinsert("ServoFullMountTop",0,0,z=6,height=7+5,rot=180);
         //OOBBInsertItemMM("M3Slot",0*OOBBSpacing,1*OOBBSpacing+2);
         //OOBBInsertItemMM("M3Slot",0*OOBBSpacing,-1*OOBBSpacing-2);
  /*           
