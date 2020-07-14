@@ -1,9 +1,9 @@
 
-    //m="WHS";
+    m="WH";
     //m="HL-B1X-09-02";
     //m="OBBB-04-03";
     //m="HL-SM-03-03";
-    m="HL-SE-05-03";
+    //m="HL-SE-05-03";
     //m="HL-PC-03-03";
     //m="TEST-OOEBNORMAL";
     //m="BP-6806-04-04";
@@ -325,7 +325,7 @@ module CI_03_CA_FL(){
     
 }
 
-module OOBB_WH_SOLID(width){
+module OOBB_WH(width){
     oringCrossSection = 5.33/2;
     oringGrooveDepth = 2;
     wheelThickness = 9;
@@ -379,7 +379,7 @@ module OOBB_WH_SOLID(width){
         }
         
         //original single
-        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
+        OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
         
         //9mm single
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
@@ -423,7 +423,7 @@ module OOBB_WH_SERVO(width, bSize){
     
         union(){
         translate([0,0,botTubeHeight+bigTubeHeight]){
-        OOBB_WH(width);
+        OOBB_WH_SOLID(width);
         }
             difference(){
 
