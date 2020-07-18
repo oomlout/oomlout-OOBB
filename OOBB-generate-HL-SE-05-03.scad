@@ -294,7 +294,7 @@ module OOBB_HL_SE_05_03_HOLDER_MAINHOLES(){
 botTubeHeightFull=7;
 topTubeHeightFull = 4;
 	
-module OOBB_HL_SE_05_03_SERVOHORN(){
+module OOBB_HL_SE_05_03_SERVOHORN_WHEEL(){
 
 	bearingTubeHeight = 4; //default to 6704
 	//bearingTubeHeight = 4; //default to 6704
@@ -334,6 +334,94 @@ module OOBB_HL_SE_05_03_SERVOHORN(){
                             } 
                     }
                     OOBB_HL_SE_05_03_SERVOHORN_HOLES();
+                }
+            }
+        }
+
+    }
+    
+        // BOTTOM PIECE
+    //translate([0,0,0]){
+    translate([0,-OOBBSpacing*2-3,7]){
+        rotate([0,180,0]){//rotate 180 to print upside down
+            difference(){
+                union(){
+                    
+                    translate([0,0,0]){
+                        //OOBBcylinder(botTubeHeightFull,bearingLittle-0.5,bearingLittle-0.5);
+                        OOBBcylinder(botTubeHeightFull,bearingInside+1,bearingInside+1);
+                    }
+                    //bearingTube    
+                    
+                    
+                    
+                    
+                    
+                }
+                OOBB_HL_SE_05_03_SERVOHORN_HOLES();
+            }
+        }
+    }    
+	
+}
+
+
+module OOBB_HL_SE_05_03_SERVOHORN(){
+
+	bearingTubeHeight = 4; //default to 6704
+	//bearingTubeHeight = 4; //default to 6704
+	bearingInside = OOBBBearing6704Inside; //default to 6704
+	bearingLittle = OOBBBearing6704Little;
+    totalHeight = botTubeHeightFull+bearingTubeHeight+topTubeHeight+9; //2+5+3+9=19
+	
+    topHeight = topTubeHeightFull + 9; //9 is wheel width
+    bottomHeight = botTubeHeightFull + bearingTubeHeight;
+        
+    
+    
+        //TOP PIECE
+    //translate([0,0,0]){
+    translate([0,0,topHeight/2]){  //move to zero height
+        rotate([0,180,0]){ //rotate 180 to print upside down
+            translate([0,0,-bottomHeight - topHeight/2]){ //shift so centred for flip
+                difference(){
+                    union(){
+                        //bottomTube
+                        
+                        
+                        //topTube
+                        translate([0,0,botTubeHeightFull+bearingTubeHeight+topTubeHeightFull/2  ]){
+                            //cylinder(topTubeHeight,bearingLittle-0.5,bearingLittle-0.5,true);
+                            cylinder(topTubeHeightFull,bearingInside+1,bearingInside+1,true);
+                        }
+                        //wheel
+                        translate([0,0,totalHeight]){
+                            rotate([0,180,0]){
+                                translate([-1*OS,-2*OS,0]){
+                                    union(){
+                                        translate([4,0,0]){
+                                            OOBBPLOutline3D(1,3,9);
+                                        }
+                                        translate([-4,0,0]){
+                                            OOBBPLOutline3D(1,3,9);
+                                        }
+                                        OOBBPLOutline3D(1,3,9);
+                                    }
+                                }
+                                //OOBB_WH_SOLID(3);
+                            }
+                        }
+                               //bearing tube
+                        translate([0,0,botTubeHeightFull+bearingTubeHeight/2  ]){
+                            cylinder(bearingTubeHeight,bearingInside,bearingInside,true);
+                            } 
+                    }
+                    OOBB_HL_SE_05_03_SERVOHORN_HOLES();
+                    OOBBinsert("OOBBHole",0,-1*OS,0);
+                    OOBBinsert("OOBBHole",0,1*OS,0);
+                    OOBBinsert("M6BoltClearanceSide",0,1*OS,19,height=4,rot=180);
+                    OOBBinsert("M6BoltClearanceSide",0,-1*OS,19,height=4,rot=0);
+                    
                 }
             }
         }

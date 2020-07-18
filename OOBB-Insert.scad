@@ -287,6 +287,21 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0,ex=0,length=0){
                 }
             }
         }
+        if(item=="M6BoltClearanceSide"){
+                union(){
+                OOBBHole3DRadiusSimple(0,0,13/2,height,0);
+                translate([-0,-13/4,-height]){
+                    linear_extrude(height){
+                        square([13,13/2],true);
+                    }
+                }  
+                translate([-13/4,0,-height]){
+                    linear_extrude(height){
+                        //square([13/2,13],true);
+                    }
+                }
+            }
+        }
         if(item=="M6BoltClearanceMiddle"){
                 union(){
                 OOBBHole3DRadiusSimple(0,0,13/2,height,0);
