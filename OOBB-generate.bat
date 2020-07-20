@@ -11,7 +11,7 @@ SET EXTRA=NONE
 REM Niche items
 
 REM %CALLSTYLE% OOBB-generate-NICHE.bat
-START OOBB-generate-NICHE.ba
+START OOBB-generate-NICHE.bat
 
 REM Test Items
 
