@@ -55,8 +55,8 @@ SET TYPE=HL
 
 
 
-REM SET EXTRA=NONE
-REM %CALLSTYLE% OOBB-generate-NICHE-generic.bat
+SET EXTRA=NONE
+%CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 REM SET EXTRA=HOLDER
 REM %CALLSTYLE% OOBB-generate-NICHE-generic.bat
@@ -74,8 +74,8 @@ REM %CALLSTYLE% OOBB-generate-NICHE-generic.bat
 REM SET EXTRA=BASE
 REM %CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
-SET EXTRA=HORN
-%CALLSTYLE% OOBB-generate-NICHE-generic.bat
+REM SET EXTRA=HORN
+REM %CALLSTYLE% OOBB-generate-NICHE-generic.bat
 
 
 REM SET EXTRA=NOHORN
