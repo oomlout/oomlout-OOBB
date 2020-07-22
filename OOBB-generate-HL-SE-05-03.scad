@@ -66,6 +66,15 @@ module OOBB_HL_SE_05_03(){
                 OOBB_HL_SE_05_03_SERVOHORN();
             }
         }
+        //###### NutBracket
+        if( extra == "NONE" || extra=="NUTBRACKET"){    
+            translate([7*OS,6*OS,0]){    
+                OOBB_HL_SE_05_03_NUTBRACKET();
+                translate([0,10,0]){    
+                    OOBB_HL_SE_05_03_NUTBRACKET();
+                }
+            }
+        }
     }
     else if(mode=="EXPLODED"){
         translate([0,0,40]){
@@ -83,10 +92,11 @@ module OOBB_HL_SE_05_03(){
     }
     else if(mode=="NONE"){
     
-                OOBB_HL_SE_05_03_HOLDER_A();
-                OOBB_HL_SE_05_03_HOLDER_B();    
-                OOBB_HL_SE_05_03_BRACKET();
+                //OOBB_HL_SE_05_03_HOLDER_A();
+                //OOBB_HL_SE_05_03_HOLDER_B();    
+                //OOBB_HL_SE_05_03_BRACKET();
                 //OOBB_HL_SE_05_03_SERVOHORN();
+                OOBB_HL_SE_05_03_NUTBRACKET();
     }
 }
 
@@ -132,7 +142,7 @@ module OOBB_HL_SE_05_03_HOLDER_A_BASE(){
             union(){
                 translate([OS * -2,OS * -2,0]){
                     OOBBPLOutline3D(3,3,thicknessHolderA);
-                    OOBBPLOutline3D(5,3,thicknessHolderA-4);
+                    //OOBBPLOutline3D(5,3,thicknessHolderA-4);
                 }
             }
             TOP = 1;
@@ -171,8 +181,24 @@ module OOBB_HL_SE_05_03_BRACKET_BASE(){
     }
 }
 
+module OOBB_HL_SE_05_03_NUTBRACKET(){
+    translate([0,0,10]){
+        difference(){
+            OOBBCube3DComplete(x=0,y=0,wid=21,hei=7,height=10,z=0);
+            OOBBCube3DComplete(x=0,y=0.5,wid=3,hei=6,height=3,z=0);
+            OOBBinsert(x=5,y=0,z=0,"M3NutCaptiveSingle");
+            OOBBinsert(x=5,y=0,z=0,"M3Hole");
+            OOBBinsert(x=-5,y=0,z=0,"M3NutCaptiveSingle");
+            OOBBinsert(x=-5,y=0,z=0,"M3Hole");
+        }
+    }
+}
+
 
 ////######  HOLE ROUTINES
+
+
+
 
 module OOBB_HL_SE_05_03_HOLDER_MAINHOLES(){
 //holes
