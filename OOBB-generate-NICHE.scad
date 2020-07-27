@@ -11,9 +11,9 @@
     h=5;
     s="3DPR";
     //extra="BRACKET";
-    //extra="HOLDERA";
+    extra="HOLDERA";
     //extra="HORN";
-    extra="NUTBRACKET";
+    //extra="NUTBRACKET";
     //extra="NONE";
   
   
@@ -24,7 +24,7 @@ include <OOBB-generate-BP.scad>;
 
 
 if(m=="HL-N17-05-03"){
-    OOBB_HL_N17_05_03();    
+    OOBB_xHL_N17_05_03();    
 }else if(m=="PLTEST-HoleTolerance"){
     OOBBPLTESTHoleTolerance();
 }else if(m=="BP-606-03-03"){

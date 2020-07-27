@@ -128,7 +128,10 @@
 
     // NUTS
     OOBBNutM3WidthTrue = 6.351;    //5.5mm short side
-    OOBBNutM3Width3D = 6.928; //needs to be the long side // //6mm short side    
+    //OOBBNutM3Width3D = 6.928; //needs to be the long side old value 2020/07 
+    OOBBNutM3Width3D = 7.028; //needs to be the long side 
+    
+    // //6mm short side    
     
     OOBBNutM3Width = s=="3DPR" ? OOBBNutM3Width3D : OOBBNutM3WidthTrue;
     

@@ -4,9 +4,9 @@
 //#########          INSERT ROUTINES
 
 
-module OOBBinsert(item,x=0,y=0,z=0,height=0,width=0,length=0,rot=0,ex=0){
+module OOBBinsert(item,x=0,y=0,z=0,height=0,width=0,length=0,rot=0,rotY=0,rotX=0,ex=0){
     //OOBBInsertItemMMRotate(item,ooX,ooY,ooZ=0,height=0,rot=0,ex=0)
-    OOBBInsertItemMMRotate(item,ooX=x,ooY=y,ooZ=z,height=height,rot=rot,ex=ex,length=length);
+    OOBBInsertItemMMRotate(item,ooX=x,ooY=y,ooZ=z,height=height,rot=rot,rotX=rotX,rotY=rotY,ex=ex,length=length);
 }
 
 
@@ -64,9 +64,9 @@ module OOBBInsertItemMM90(item,ooX,ooY,ooZ=0,height=0,ex=0){
     }
 }
 
-module OOBBInsertItemMMRotate(item,ooX,ooY,ooZ=0,height=0,rot=0,ex=0,length=0){
+module OOBBInsertItemMMRotate(item,ooX,ooY,ooZ=0,height=0,rot=0,ex=0,length=0,rotX=0,rotY=0){
     translate([ooX,ooY,0]){
-        rotate([0,0,rot]){
+        rotate([rotX,rotY,rot]){
             OOBBInsertItemMM(item,0,0,ooZ=ooZ,height=height,ex=ex,length=length);
             }
     }
