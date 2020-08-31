@@ -229,6 +229,10 @@ SET WIDTH=10
 SET HEIGHT=10
 %CALLSTYLE% OOBB-generate-PL.bat
 
+SET WIDTH=11
+SET HEIGHT=01
+%CALLSTYLE% OOBB-generate-PL.bat
+
 SET WIDTH=12
 SET HEIGHT=01
 %CALLSTYLE% OOBB-generate-PL.bat
@@ -263,6 +267,10 @@ SET HEIGHT=15
 
 SET WIDTH=20
 SET HEIGHT=20
+%CALLSTYLE% OOBB-generate-PL.bat
+
+SET WIDTH=25
+SET HEIGHT=01
 %CALLSTYLE% OOBB-generate-PL.bat
 
 REM Not generated due to taking a long time.
