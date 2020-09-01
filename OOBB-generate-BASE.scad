@@ -28,6 +28,8 @@ if(m=="PL2D"){
     OOBBPL2D(w,h);
 }else if(m=="PL3D"){
     OOBBPL3D(w,h,3);
+}else if(m=="PL3DT"){
+    OOBBPL3D(w,h,t);
 }else if(m=="CP3D"){
     OOBBCP3D(w,h,12);
 }else if(m=="JA2D"){
