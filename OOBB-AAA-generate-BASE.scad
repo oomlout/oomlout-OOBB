@@ -28,23 +28,28 @@ module HL_N20_03_03(width,height){
 }
 
 module HL_GM1_03_03(width,height){
-    depth=15;
+    depth=18;
     echo("Building HL-GM1-03-03");
     difference(){
         union(){
+            shift = 4;
             oi("oobbBase",width=width,height=height,depth=depth,z=3);
-            oi("oobbBase",x=-3,width=width,height=height,depth=depth,z=3);
+            oi("oobbBase",x=-shift,width=width,height=height,depth=depth,z=3);
+            oi("oobbBase",y=-shift,width=width,height=height,depth=depth,z=3);
+            oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=3);
         }
         
-        #oi("gearMotor1",ex=3);
+        oi("gearMotor1",ex=3,rad=2,rotZ=45);
+        oi("gearMotor1",rad=2,rotZ=45,z=-2);
+        oi("gearMotor1",rad=2,rotZ=45,z=-4);
         //oobb holes
         //oi("holeM6",x=15,y=0);
         oi("holeM6",x=15,y=15);
         oi("holeM6",x=15,y=-15);
         //oi("holeM6",x=-15,y=0);
         oi("holeM6",x=-15,y=15);
-        oi("holeM6",x=-15,y=-15);
-        oi("holeM6",x=0,y=15);
-        oi("holeM6",x=0,y=-15);
+        //oi("holeM6",x=-15,y=-15);
+        //oi("holeM6",x=0,y=15);
+        //oi("holeM6",x=0,y=-15);
     }
 }
