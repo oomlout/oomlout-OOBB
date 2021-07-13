@@ -3,7 +3,7 @@
     //m="HL-B1X-09-02";
     //m="OBBB-04-03";
     //m="HL-SM-03-03";
-    //m="HL-SE-05-03";
+    //m="HL-TP-03-03_RA";
     //m="HL-PC-03-03";
     //m="TEST-OOEBNORMAL";
     //m="BP-6806-04-04";
@@ -53,6 +53,10 @@ if(m=="HL-N17-05-03"){
     BP_6810_05_05();    
 }else if(m=="OBBB-04-03"){
     OBBB_04_03();    
+}else if(m=="HL-TP-03-03"){
+    OBBB_HL_TP_03_03();    
+}else if(m=="HL-TP-03-03-RA"){
+    OBBB_HL_TP_03_03_RA();    
 }
 
 module OBBB_04_03(){
@@ -612,6 +616,56 @@ module OOBB_BP_606_03_03_HALF(){
         
     }
     
+    
+}
+
+module OBBB_HL_TP_03_03()    {
+    OOWidth = 3;
+    OOHeight = 3;    
+    difference(){
+        OOBBPLOutline3D(OOWidth,OOHeight,9);
+        //OOBB Holes
+        OOBBHole3D(1,1);
+        //OOBBSlotTall3D(1,1);
+        //OOBBSlotWide3D(1,1);
+        OOBBHole3D(1,2);
+        //OOBBSlotTall3D(1,2);
+        OOBBHole3D(1,3);
+        //OOBBSlotWide3D(1,3);
+        
+        OOBBHole3D(3,1);
+        //OOBBSlotTall3D(3,1);
+        
+        OOBBHole3D(3,2);
+        //OOBBSlotTall3D(3,2);
+        OOBBHole3D(3,3);
+        
+        OOBBHole3D(2,1);
+        //OOBBSlotWide3D(2,1);
+        OOBBHole3D(2,3);
+        //OOBBSlotWide3D(2,3);
+        OOBBInsertItemCoord("TripodNutCaptive",2,2,ooZ=7.5);
+      OOBBInsertItemCoord("M7Hole",2,2);
+    }
+    
+}
+
+module OBBB_HL_TP_03_03_RA()    {
+    OOWidth = 3;
+    OOHeight = 3;    
+    difference(){
+        OOBBPLOutline3D(OOWidth,OOHeight,12);
+        //OOBB Holes
+        
+        OOBBHole3D(2,1);
+        //OOBBSlotWide3D(2,1);
+        OOBBHole3D(2,3);
+        //OOBBSlotWide3D(2,3);
+        OOBBInsertItemCoord("TripodNutCaptive",2,2,ooZ=7.5);
+      OOBBInsertItemCoord("M7Hole",2,2);
+        OOBBInsertItemCoordRotateX("OOBBHole",1,6,rot=90,ooZ=6);        
+    OOBBInsertItemCoordRotateX("OOBBHole",3,6,rot=90,ooZ=6);        
+    }
     
 }
 

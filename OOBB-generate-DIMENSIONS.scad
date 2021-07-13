@@ -148,7 +148,14 @@
     OOBBNutM3Height = s=="3DPR" ? OOBBNutM3Height3D : OOBBNutM3HeightTrue;
     
 
-
+    OOBBNutTripodWidthTrue = 12.8;    //short side 10
+    OOBBNutTripodWidth3D = 14; //needs to be the long side (short side is   
+    OOBBNutTripodWidth = s=="3DPR" ? OOBBNutTripodWidth3D : OOBBNutTripodWidthTrue;
+    
+    OOBBNutTripodHeightTrue = 5.2;    //actually 4.85 extra for clearance
+    OOBBNutTripodHeight3D = 5.2;    
+    
+    OOBBNutTripodHeight = s=="3DPR" ? OOBBNutTripodHeight3D : OOBBNutTripodHeightTrue;
 
     
     OOBBNutM6WidthTrue = 11.547;    //short side 10
@@ -157,6 +164,10 @@
     
 
     OOBBNutM6Width = s=="3DPR" ? OOBBNutM6Width3D : OOBBNutM6WidthTrue;
+    
+    
+    
+    
     
     OOBBNutM6WidthShortTrue = 10;    
     OOBBNutM6WidthShort3D = 11; //needs to be the long side    

@@ -46,6 +46,14 @@ module OOBBInsertItemCoordRotate(item,ooX,ooY,ooZ=0,height=0,rot=0,ex=0){
     }
 }
 
+module OOBBInsertItemCoordRotateX(item,ooX,ooY,ooZ=0,height=0,rot=0,ex=0){
+    translate([ooX*OOBBSpacing,ooY*OOBBSpacing,ooZ]){
+        rotate([rot,0,0]){    
+            OOBBInsertItemCoord(item,0,0,ooZ=ooZ,height=height,ex=ex);    
+        }
+    }
+}
+
 
 
 module OOBBInsertItemMM180(item,ooX,ooY,ooZ=0,height=0,ex=0){
@@ -195,6 +203,14 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0,ex=0,length=0){
                OOBBHole3DRadiusComplete(0,0,rad,height,z);
 
         }
+        
+        if(item=="M7Hole"){
+               height=50;    
+               z=height-10;
+               rad=OOBBm6Hole+(1.5/2);
+               OOBBHole3DRadiusComplete(0,0,rad,height,z);
+
+        }
         if(item=="M3HoleExtra"){    
                z=ooZ;
                rad=OOBBm3Hole;
@@ -265,6 +281,10 @@ module OOBBInsertItemMM(item,ooX,ooY,ooZ=0,height=0,ex=0,length=0){
         }
         if(item=="M6NutCaptiveSingle"){
            OOBBPolygon3DComplete(6,0,0,OOBBNutM6Width/2,OOBBNutM6Height,0);
+        }
+        
+        if(item=="TripodNutCaptive"){
+           OOBBPolygon3DComplete(6,0,0,OOBBNutTripodWidth/2,OOBBNutTripodHeight,0);
         }
         if(item=="M6NutCaptiveSingleBig"){
            OOBBPolygon3DComplete(6,0,0,(OOBBNutM6Width+0.5)/2,OOBBNutM6Height+0.5,0);
