@@ -6,6 +6,8 @@ if(m=="HL-N20-03-03"){
     HL_GM1_03_03(w,h);
 }if(m=="CN-BAS2-05-05"){
     CN_BAS2_05_05(w,h);
+}if(m=="TEST-OOEBWIMOT-05-05"){
+    TEST_OOEBWIMOT_05_05(w,h);
 }
 
 module HL_N20_03_03(width,height){
@@ -114,4 +116,32 @@ module CN_BAS2_05_05(width,height){
             oi("holeM6",y=-30,x=30);
         }
     }    
+}
+
+module TEST_OOEBWIMOT_05_05(width,height){
+    //bottom
+    
+    echo("Building TEST-OOEBWIMO-05-05");
+        depth=6;
+        difference(){
+            union(){
+            oi("oobbBase",width=width,height=height,depth=depth);
+            oi("oobbBase",y=5,width=width,height=height,depth=depth);
+            oi("oobbBase",y=-5,width=width,height=height,depth=depth);
+            }
+            //clearance
+            oi("ooebWIMOT",x=-36,y=30,width=width,height=height,depth=depth,ex=0.1,rad=0);
+            oi("ooebWIMOT",x=-36,y=15,width=width,height=height,depth=depth,ex=0.2,rad=0);
+            oi("ooebWIMOT",x=-36,y=0,width=width,height=height,depth=depth,ex=0.3,rad=0);
+            oi("ooebWIMOT",x=-36,y=-15,width=width,height=height,depth=depth,ex=0.4,rad=0);
+            oi("ooebWIMOT",x=-36,y=-30,width=width,height=height,depth=depth,ex=0.5,rad=0);
+            //height
+            stan = 0.2;
+            oi("ooebWIMOT",x=36,y=30,width=width,height=height,depth=depth,ex=stan,rad=0.1,rotZ=180);
+            oi("ooebWIMOT",x=36,y=15,width=width,height=height,depth=depth,ex=stan,rad=0.2,rotZ=180);
+            oi("ooebWIMOT",x=36,y=0,width=width,height=height,depth=depth,ex=stan,rad=0.3,rotZ=180);
+            oi("ooebWIMOT",x=36,y=-15,width=width,height=height,depth=depth,ex=stan,rad=0.4,rotZ=180);
+            oi("ooebWIMOT",x=36,y=-30,width=width,height=height,depth=depth,ex=stan,rad=0.5,rotZ=180);
+        }
+    
 }
