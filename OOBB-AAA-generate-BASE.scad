@@ -72,6 +72,8 @@ module CN_BAS2_05_05(width,height){
             oi("ooebWIMOT",x=-36,y=-15,rotZ=0);
             oi("ooebWIMOT",x=36,y=-15,rotZ=180);
             //wiring hole
+            oi("holeM10",x=5,y=-15);
+            oi("holeM10",x=-5,y=-15);
             oi("holeM10",x=0,y=-15);
             oi("batteryAAASINGTH",x=0,y=0,z=-plateThick,rad=2);
             oi("batteryAAASINGTH",x=0,y=15,z=-plateThick,rad=2);
@@ -99,6 +101,8 @@ module CN_BAS2_05_05(width,height){
             //oi("ooebWIMOT",x=-36,y=-15,rotZ=0);
             //oi("ooebWIMOT",x=36,y=-15,rotZ=180);
             //wiring hole
+            oi("holeM10",x=5,y=-15);
+            oi("holeM10",x=-5,y=-15);
             oi("holeM10",x=0,y=-15);
             oi("batteryAAASINGTH",x=0,y=0,z=-100);
             oi("batteryAAASINGTH",x=0,y=15,z=-100);
