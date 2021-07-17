@@ -9,6 +9,9 @@ if(m=="HL-N20-03-03"){
 }if(m=="TEST-OOEBWIMOT-05-05"){
     TEST_OOEBWIMOT_05_05(w,h);
 }
+if(m=="TEST-GM1SHAFT-05-05"){
+    TEST_GM1SHAFT_05_05(w,h);
+}
 
 module HL_N20_03_03(width,height){
     depth=12;
@@ -149,3 +152,24 @@ module TEST_OOEBWIMOT_05_05(width,height){
         }
     
 }
+
+module TEST_GM1SHAFT_05_05(width,height){
+    //bottom
+    
+    echo("Building TEST-GM1SHAFT-05-05");
+    base=3;
+    bump=6;
+    difference(){
+        //oi("oobbBase",width=width,height=height,depth=base);            
+    }
+    difference(){
+        union(){
+            oi("cylinder",x=0,y=0,depth=6,z=0,rad=17/2);
+            OOBB_WH_SOLID(3);
+        }
+        
+        oi("gearMotor1Shaft",x=0,y=0,z=12);
+    }
+}
+
+

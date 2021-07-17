@@ -5,6 +5,7 @@
     include <OOBB-Polygon.scad>;
     include <OOBB-Insert.scad>;
     include <OPSC-base.scad>;
+    
     include <OOBB-AAA-generate-base.scad>;
     
     /*    
@@ -71,10 +72,10 @@ module OOBBPL2D(OOWidth,OOHeight   ){
     }
 }
 
-module OOBBCI3D(OOWidth,OOExtrude){
+module OOBBCI3D(OOWidth,OOExtrude,middle=true){
     difference(){
         OOBBCIOutline3D(OOWidth,OOExtrude);
-        OOBBHolesForCI3D(OOWidth);
+        OOBBHolesForCI3D(OOWidth,middle=middle);
     }
 
 }
@@ -222,7 +223,7 @@ module OOBBHolesForCP3D(OOWidth, OOHeight, level){
             }
 }
 
-module OOBBHolesForCI3D(OOWidth){
+module OOBBHolesForCI3D(OOWidth,middle=true){
     
     if(OOWidth == 3){
         rotate([0,0,45]){
@@ -233,7 +234,6 @@ module OOBBHolesForCI3D(OOWidth){
         }
     }
     
-    echo("#####################################################");
             for(height = [-(round(OOWidth/2)-1):round(OOWidth/2)-1]){
                 for(width = [-(round(OOWidth/2)-1):round(OOWidth/2)-1]){
                     /*
@@ -269,8 +269,12 @@ module OOBBHolesForCI3D(OOWidth){
                     
                     if((CIwidthAtHeight - buffer) > abs(width * OOBBSpacing))  {
                         if((CIheightAtWidth - buffer) > abs(height * OOBBSpacing))  {
-                        
-                       OOBBHole3D(width,height);                   
+                            if(!middle && width == 0 && height == 0){
+                                echo("SKIPPING MIDDLE HOLE");
+                            }else{
+                                OOBBHole3D(width,height);     
+                                //echo("ADDING HOLE", middle, width, height);              
+                            }
                         }    
                         
                     }

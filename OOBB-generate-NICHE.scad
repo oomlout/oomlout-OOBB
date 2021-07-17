@@ -377,7 +377,7 @@ module OOBB_WH_SOLID(width){
     extrudeRadius = (((width * OOBBSpacing - 3) + oringCrossSection*2)-oringGrooveDepth*2)  / 2;
     
     difference(){
-        OOBBCI3D(width,wheelThickness);
+        OOBBCI3D(width,wheelThickness,middle=false);
         rotate_extrude(convexity = 10){
             translate([extrudeRadius, wheelThickness/2, 0]){
             circle(r = oringCrossSection);
@@ -385,7 +385,7 @@ module OOBB_WH_SOLID(width){
         }
         
         //original single
-        OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
+        //OOBBInsertItemCoord("Bearing606",0,0,ooZ=12);
         
         //9mm single
         //OOBBInsertItemCoord("Bearing606",0,0,ooZ=7.5);
