@@ -160,15 +160,21 @@ module TEST_GM1SHAFT_05_05(width,height){
     base=3;
     bump=6;
     difference(){
-        //oi("oobbBase",width=width,height=height,depth=base);            
-    }
-    difference(){
         union(){
-            oi("cylinder",x=0,y=0,depth=6,z=0,rad=17/2);
-            OOBB_WH_SOLID(3);
-        }
-        
-        oi("gearMotor1Shaft",x=0,y=0,z=12);
+            oi("oobbBase",width=width,height=height,depth=base,z=0);
+            oi("cylinder",rad=17/2,x=-20,y=-20,depth=6,z=6);
+            oi("cylinder",rad=17/2,x=-20,y=0,depth=6,z=6);
+            oi("cylinder",rad=17/2,x=-20,y=20,depth=6,z=6);
+            oi("cylinder",rad=17/2,x=20,y=-20,depth=6,z=6);
+            oi("cylinder",rad=17/2,x=20,y=0,depth=6,z=6);
+            oi("cylinder",rad=17/2,x=20,y=20,depth=6,z=6);
+        }            
+        oi("gearMotor1Shaft",x=-20,y=-20,z=12,rad=-0.3);
+        oi("gearMotor1Shaft",x=-20,y=0,z=12,rad=-0.2);
+        oi("gearMotor1Shaft",x=-20,y=20,z=12,rad=-0.1);
+        oi("gearMotor1Shaft",x=20,y=-20,z=12,rad=-0);
+        oi("gearMotor1Shaft",x=20,y=0,z=12,rad=-0.1);
+        oi("gearMotor1Shaft",x=20,y=20,z=12,rad=0.2);
     }
 }
 
