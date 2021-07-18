@@ -7,7 +7,7 @@
 
     //CORE
     OOBBSpacing = 15;
-    OS=OOBBSpacing;
+    OS=15;
     OOBBRadius  = 10/2;
     OOBBMaterialThickness = 3;
     OOBBRadiusOffset = 1;
