@@ -40,10 +40,11 @@ module HL_GM1_03_03(width,height){
     difference(){
         union(){
             shift = 4;
-            oi("oobbBase",width=width,height=height,depth=depth,z=3);
-            oi("oobbBase",x=-shift,width=width,height=height,depth=depth,z=3);
-            oi("oobbBase",y=-shift,width=width,height=height,depth=depth,z=3);
-            oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=3);
+            plateThickness = 2;
+            oi("oobbBase",width=width,height=height,depth=depth,z=plateThickness);
+            oi("oobbBase",x=-shift,width=width,height=height,depth=depth,z=plateThickness);
+            oi("oobbBase",y=-shift,width=width,height=height,depth=depth,z=plateThickness);
+            oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=plateThickness);
         }
         
         oi("gearMotor1",ex=3,rad=2,rotZ=45);
