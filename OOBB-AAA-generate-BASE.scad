@@ -47,9 +47,9 @@ module HL_GM1_03_03(width,height){
             oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=plateThickness);
         }
         
-        oi("gearMotor1",ex=3,rad=2,rotZ=45);
-        oi("gearMotor1",rad=2,rotZ=45,z=-2);
-        oi("gearMotor1",rad=2,rotZ=45,z=-4);
+        oi("gearMotor1",ex=2,rad=0,rotZ=45);
+        oi("gearMotor1",rad=0,rotZ=45,z=-2);
+        oi("gearMotor1",rad=0,rotZ=45,z=-4);
         //oobb holes
         //oi("holeM6",x=15,y=0);
         oi("holeM6",x=15,y=15);
@@ -59,6 +59,17 @@ module HL_GM1_03_03(width,height){
         //oi("holeM6",x=-15,y=-15);
         //oi("holeM6",x=0,y=15);
         //oi("holeM6",x=0,y=-15);
+        // wiring
+        translate([0,0,0]){
+            rotate([0,0,45]){
+                oi("ooebWIMOT",x=-24.5,y=-(2.54+.1)/2-(21.5/2+(2.54+.1)/2)-.2,z=-18/2,rotX=90, 
+rotZ=0);
+                //wire route
+                oi("cube",width=30,height=1.5,depth=2,x=-10,y=-21.5/2-1.2,z=-1);
+                oi("cube",width=3,height=2,depth=8,x=3.5,y=-21.5/2-1.4,z=-2);
+            }
+        }
+        
     }
 }
 
