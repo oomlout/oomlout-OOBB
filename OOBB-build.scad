@@ -8,7 +8,8 @@ m="HL-GM1-03-03";
 //m="TEST-GM1SHAFT-05-05";
 w=3;
 h=3;
-extra="BOTTOM";
+//extra="NONE";
+extra="WIRINGBLOCK";
 
 
 include <OOBB-generate-3DPR.scad>
