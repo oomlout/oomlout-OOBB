@@ -89,14 +89,14 @@ module HL_GM1_03_03_HOLES(width,height){
     oi("holeM6",x=15,y=15);
     oi("holeM6",x=15,y=-15);
     oi("holeM6",x=-15,y=15);
-    oi("holeM6",x=-15,y=-15);
+    //oi("holeM6",x=-15,y=-15);
           
     //wiring      
     oi("WI-M2",x=-42/2-4,y=-1.5-1.5-gv("GMOT-01-HEIGHT")/2,z=-gv("GMOT-01-DEPTH")+7,rotX=90);    
     w = 30;
     h=1.5;
-    oi("cube",width=w,height=h,depth=3,x=-42/2-4+w/2,y=-gv("GMOT-01-HEIGHT")/2-h/2,z=-5);
-    oi("cube",width=3,height=h,depth=10,x=4,y=-gv("GMOT-01-HEIGHT")/2-h/2,z=-5);
+    oi("cube",width=w,height=h,depth=3,x=-42/2-4+w/2,y=-gv("GMOT-01-HEIGHT")/2-h/2,z=0);
+    oi("cube",width=3,height=h,depth=15,x=4,y=-gv("GMOT-01-HEIGHT")/2-h/2,z=0);
 }
 
 
