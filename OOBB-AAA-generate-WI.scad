@@ -12,8 +12,14 @@ if(m=="WI-HV-03-03"){
 if(m=="WI-SM-03-03"){
     WI_SM_03_03(w,h);
 }
-if(m=="WI-BP-03-03"){
-    WI_BP_03_03(w,h);
+if(m=="WI-BP-03-03-CS"){
+    WI_BP_03_03_CS(w,h);
+}
+if(m=="WI-BP-03-03-NU"){
+    WI_BP_03_03_NU(w,h);
+}
+if(m=="WI-BP-03-03-BA"){
+    WI_BP_03_03_BA(w,h);
 }
 
 module WI_M2_03_03(width,height){
@@ -48,7 +54,7 @@ module WI_SM_03_03(width,height){
     }
 }
 
-module WI_BP_03_03(width,height){
+module WI_BP_03_03_CS(width,height){
     echo("Building WI-BP-03-03");
     difference(){
         WI_XX_03_03(width,height,hole=false);
@@ -57,6 +63,25 @@ module WI_BP_03_03(width,height){
     }
 }
 
+
+module WI_BP_03_03_NU(width,height){
+    echo("Building WI-BP-03-03");
+    difference(){
+        WI_XX_03_03(width,height,hole=false);
+        oi("nutM3",x=gv("OS1"),y=0,depth=2);
+        oi("nutM3",x=-gv("OS1"),y=0,depth=2);
+    }
+}
+
+
+module WI_BP_03_03_BA(width,height){
+    echo("Building WI-BP-03-03");
+    difference(){
+        WI_XX_03_03(width,height,hole=false);
+        //oi("countersunkM3",x=gv("OS1"),y=0);
+        //oi("countersunkM3",x=-gv("OS1"),y=0);
+    }
+}
 
 module WI_XX_03_03(width,height,hole=true){
     depth=3;
