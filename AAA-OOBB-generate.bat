@@ -12,6 +12,7 @@ REM WI
 
 
 %SKIP%%CALLSTYLE% AAA-OOBB-generate-WI.bat
+%SKIP%%CALLSTYLE% AAA-OOBB-generate-WH.bat
 
 
 
