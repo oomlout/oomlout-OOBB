@@ -9,6 +9,6 @@ module WH_03_GM1(width){
             extr=15;
             oi("cylinder",rad=17/2,depth=extr,z=extr);
         }
-        oi("gearMotor1Shaft",x=0,y=0,rad=-0.1);
+        oi("gearMotor1Shaft",x=0,y=0,rad=0.1);
     }
 }
