@@ -52,12 +52,12 @@ module TEST_N20SHAFT_05_05(width,height){
             oi("cylinder",rad=10/2,x=20,y=0,depth=6,z=6);
             oi("cylinder",rad=10/2,x=20,y=20,depth=6,z=6);
         }            
-        oi("n20Shaft",x=-20,y=-20,z=12,rad=-0.3);
-        oi("n20Shaft",x=-20,y=0,z=12,rad=-0.2);
-        oi("n20Shaft",x=-20,y=20,z=12,rad=-0.1);
-        oi("n20Shaft",x=20,y=-20,z=12,rad=-0);
-        oi("n20Shaft",x=20,y=0,z=12,rad=-0.1);
-        oi("n20Shaft",x=20,y=20,z=12,rad=0.2);
+        oi("n20Shaft",x=-20,y=-20,z=12,rad=0);
+        oi("n20Shaft",x=-20,y=0,z=12,rad=0.1);
+        oi("n20Shaft",x=-20,y=20,z=12,rad=0.2);
+        oi("n20Shaft",x=20,y=-20,z=12,rad=0.3);
+        oi("n20Shaft",x=20,y=0,z=12,rad=-0.4);
+        oi("n20Shaft",x=20,y=20,z=12,rad=0.5);
     }
 }
 
