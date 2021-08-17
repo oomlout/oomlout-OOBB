@@ -24,6 +24,9 @@ if(m=="WI-BP-03-03-BA"){
 if(m=="WI-BP-03-03-BAH"){
     WI_BP_03_03_BAH(w,h);
 }
+if(m=="WI-BP-03-03-BAN"){
+    WI_BP_03_03_BAN(w,h);
+}
 
 module WI_M2_03_03(width,height){
     echo("Building WI-M2-03-03");
@@ -83,6 +86,15 @@ module WI_BP_03_03_BA(width,height){
         WI_XX_03_03(width,height,hole=false);
         //oi("countersunkM3",x=gv("OS1"),y=0);
         //oi("countersunkM3",x=-gv("OS1"),y=0);
+    }
+}
+
+module WI_BP_03_03_BAN(width,height){
+    echo("Building WI-BP-03-03");
+    difference(){
+        WI_XX_03_03(width,height,hole=false);
+        oi("nutM3",x=gv("OS1"),y=0,depth=2.5);
+        oi("nutM3",x=-gv("OS1"),y=0,depth=2.5);
     }
 }
 
