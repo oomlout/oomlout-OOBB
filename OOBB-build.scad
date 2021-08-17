@@ -5,8 +5,12 @@
 //m="HL-GM1-03-03";
 //m="HL-N20-03-03";
 //m="CN-BAS2-05-05";
-//m="TEST-OOEBWIMOT-05-05";
-//m="TEST-GM1SHAFT-05-05";
+
+
+    //TEST
+        //m="TEST-OOEBWIMOT-05-05";
+        //m="TEST-GM1SHAFT-05-05";
+        m="TEST-N20SHAFT-05-05";
 
 
     //WI
@@ -18,10 +22,10 @@
         //m="WI-BP-03-03-BAN";
     //WH
         //m="WH-03-GM1";
-        m="WH-03-N20";
+        //m="WH-03-N20";
  
-w=3;
-h=3;
+w=5;
+h=5;
 extra="NONE";
 //extra="BOTTOM";
 //extra="WIRINGBLOCK";
