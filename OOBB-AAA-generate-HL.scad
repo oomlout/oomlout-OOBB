@@ -11,8 +11,8 @@ module HL_N20_03_03(width,height){
         oi("oobbBase",width=width,height=height,depth=depth);
         oi("n20Motor",x=0,y=0,z=-2,rotZ=90);
         //nut cutouts for clearance
-        oi("cube",x=-15,width=15,height=100,depth=6);
-        oi("cube",x=15,width=15,height=100,depth=6);
+        //oi("cube",x=-15,width=15,height=100,depth=6);
+        //oi("cube",x=15,width=15,height=100,depth=6);
         //oobb holes
         oi("holeM6",x=15,y=0);
         oi("holeM6",x=15,y=15);
