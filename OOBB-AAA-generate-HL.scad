@@ -2,6 +2,10 @@ if(m=="HL-N20-03-03"){
     HL_N20_03_03(w,h);
 }if(m=="HL-GM1-03-03"){
     HL_GM1_03_03(w,h);
+}if(m=="HL-RC-03-03"){
+    HL_RC_03_03(w,h);
+}if(m=="HL-CN-03-03"){
+    HL_CN_03_03(w,h);
 }
 
 module HL_N20_03_03(width,height){
@@ -150,5 +154,39 @@ module HL_GM1_03_03_OLD01(width,height){
                 oi("cube",width=3,height=8,depth=2,x=10.5,y=-2,z=0);
                 }
         }
+    }
+}
+
+module HL_RC_03_03(width,height){
+    depth=12;
+    echo("Building HL-RC-03-03");
+    difference(){
+        union(){
+            translate([0,0,-3]){
+                WI_BP_03_03_BA(width,height);
+            }
+            WI_BP_03_03_BA(width,height);
+            
+            oi("oobbBase",x=0,y=-10,z=2.25,width=3,height=1.25,depth=4,rotX=90);
+        }
+       oi("holeM8",x=0,y=8);
+       oi("RC-RECEIVER",rotX=90,z=25);
+
+    }
+}
+
+module HL_CN_03_03(width,height){
+    depth=12;
+    echo("Building HL-CN-03-03");
+    difference(){
+        oi("oobbBase",width=width,height=height,depth=12);
+        //central hole
+        oi("cube",width=24,height=24,depth=9);
+        oi("DCJA",x=0,y=14.1,z=0,rotZ=90);
+        oi("ooebWIMOThole",x=-7.5,y=-15.805+3,z=0);
+        oi("ooebWIMOThole",x=-7.5,y=-15.805,z=-gv("I011"));
+        oi("ooebWIMOThole",x=7.5,y=-15.805+3,z=0);
+        oi("ooebWIMOThole",x=7.5,y=-15.805,z=-gv("I011"));
+        WI_holes();
     }
 }

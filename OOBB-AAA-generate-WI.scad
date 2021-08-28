@@ -113,11 +113,15 @@ module WI_XX_03_03(width,height,hole=true){
         if(hole){
             oi("holeM8",x=0,y=8);
         }
-        oi("holeM3",x=gv("OS1"),y=0);
-        oi("holeM3",x=-gv("OS1"),y=0);
-        oi("holeM6",x=gv("OS1"),y=-gv("OS1"));
-        oi("holeM6",x=-gv("OS1"),y=-gv("OS1"));
-        oi("holeM6",x=gv("OS1"),y=gv("OS1"));
-        oi("holeM6",x=-gv("OS1"),y=gv("OS1"));
-    }    
+        WI_holes();
+        }    
+}
+
+module WI_holes(){
+    oi("holeM3",x=gv("OS1"),y=0);
+    oi("holeM3",x=-gv("OS1"),y=0);
+    oi("holeM6",x=gv("OS1"),y=-gv("OS1"));
+    oi("holeM6",x=-gv("OS1"),y=-gv("OS1"));
+    oi("holeM6",x=gv("OS1"),y=gv("OS1"));
+    oi("holeM6",x=-gv("OS1"),y=gv("OS1"));
 }
