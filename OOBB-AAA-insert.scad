@@ -17,7 +17,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     else if(item == "hexIDN20" || item=="n20Motor"){
         //motor
         oi("cube",width=12+2,height=10+2,depth=30,z=0);
-        //shaft
+//        //shaft
         oi("cylinder",rad=5/2,depth=10,z=10);
         //screw holes
         oi("cylinder",rad=holeM16D,x=4.5,z=10,depth=10);
@@ -219,7 +219,11 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 oi("holeM25D",x=-rcSpacingX/2,y=-rcSpacingY/2,color=color);
                 oi("cube",width=27,height=42-12,depth=100,z=50);
                 oi("cube",width=27-12,height=42,depth=100,z=50);
-            }else if(item == "DCJA"){
-                oi("cube",width=14,height=9,depth=11);
+            }else if(item == "DCJA" || item == "DCJP-21D-X-THTH-01"){
+                oi("cube",width=14,height=9,depth=11,z=11);
+                oi("cube",width=11,height=15,depth=6,z=-5+11,x=-1.5);
+                
+            }else{
+                echo("NO OOBB ITEM");
             }
         }

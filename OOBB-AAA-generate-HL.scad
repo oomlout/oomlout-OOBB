@@ -180,9 +180,11 @@ module HL_CN_03_03(width,height){
     echo("Building HL-CN-03-03");
     difference(){
         oi("oobbBase",width=width,height=height,depth=12);
+        oi("nutM3",y=0,x=gv("OS1"),z=-(depth-gv("NUTM3HEIGHT")),depth=gv("NUTM3HEIGHT"));
+        oi("nutM3",y=0,x=-gv("OS1"),z=-(depth-gv("NUTM3HEIGHT")),depth=gv("NUTM3HEIGHT"));
         //central hole
         oi("cube",width=24,height=24,depth=9);
-        oi("DCJA",x=0,y=14.1,z=0,rotZ=90);
+        oi("DCJP-21D-X-THTH-01",x=0,y=14.1,z=0,rotZ=90,rotX=180);
         oi("ooebWIMOThole",x=-7.5,y=-15.805+3,z=0);
         oi("ooebWIMOThole",x=-7.5,y=-15.805,z=-gv("I011"));
         oi("ooebWIMOThole",x=7.5,y=-15.805+3,z=0);
