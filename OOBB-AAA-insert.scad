@@ -53,6 +53,33 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             default = 0;
             //shaft
             difference(){
+                od=5.5;
+                cutout=1;
+                oi("cylinder",rad=(od+rad+default)/2,depth=100,z=50);
+                oi("cube",width=cutout*2,height=od,x=od/2+rad+default,depth=100,z=50);
+                oi("cube",width=cutout*2,height=od,x=-od/2-rad-default,depth=100,z=50);
+            }
+            //cutout square
+            oi("cube",width=7.5,height=1.5,x=3.75,depth=100,z=50);
+            //clearance hoop
+            difference(){
+                //big cyulinder
+                oi("cylinder",rad=17/2,depth=100,z=50);
+                //little cylinder
+                //oi("cylinder",rad=13/2,depth=100,z=50);
+                //trying smaller
+                oi("cylinder",rad=11/2,depth=100,z=50);
+                oi("cube",width=7,height=20,depth=100,z=50,x=-5.9);
+            }
+        }
+        
+        
+    }else if(item == "hexIDGearMotor1ShaftOld" || item=="gearMotor1ShaftOld"){
+        //shaft
+        union(){
+            default = 0;
+            //shaft
+            difference(){
                 oi("cylinder",rad=(7+rad+default)/2,depth=100,z=50);
                 oi("cube",width=2.1,height=7,x=3.45+rad+default,depth=100,z=50);
                 oi("cube",width=2.1,height=7,x=-3.45-rad-default,depth=100,z=50);
