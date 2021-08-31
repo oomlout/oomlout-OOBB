@@ -24,10 +24,34 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("cylinder",rad=holeM16D,x=-4.5,z=10,depth=10);
         
     }
-    else if(item == "hexIDGearMotor1" || item=="gearMotor1" || item=="GMOT-01"){
+    else if(item == "hexIDGearMotor2" || item=="gearMotor2" || item=="GMOT-01"){
         //motor
         oi("cube",x=-21.5,width=65+rad,height=22.5+rad,depth=21,z=0);
         oi("cube",x=13.5,width=5+rad,height=6+rad,depth=3+rad,z=-11+rad/2);
+        //shaft (7 diameter)
+        //shaft clearance
+        oi("cylinder",rad=20/2,depth=33,z=6);
+        //extra clearance hole a few shifted to get it smoother
+        oi("cylinder",x=-11,rad=5/2,depth=33,z=3);
+        oi("cylinder",x=-11+1,rad=5/2,depth=33,z=3);
+        oi("cylinder",x=-11+2,rad=5/2,depth=33,z=3);
+        oi("cylinder",x=-11+3,rad=5/2,depth=33,z=3);
+        oi("cylinder",x=-11+4,rad=5/2,depth=33,z=3);
+        
+        oi("holeM3",x=13.5,y=0);
+        oi("holeM3",x=-20,y=9);
+        oi("holeM3",x=-20,y=-9);
+        if(ex != 0){
+            oi("countersunkM25D",x=13.5,y=0,z=ex);
+            oi("countersunkM25D",x=-20,y=9,z=ex);
+            oi("countersunkM25D",x=-20,y=-9,z=ex);
+        }
+        //shaft
+    }
+    else if(item == "hexIDGearMotor1" || item=="gearMotor1" || item=="GMOT-02"){
+        //motor
+        oi("cube",x=-21,width=65+rad,height=22.5+rad,depth=19,z=0);
+        oi("cube",x=14,width=5+rad,height=5+rad,depth=3+rad,z=-9+rad/2);
         //shaft (7 diameter)
         //shaft clearance
         oi("cylinder",rad=20/2,depth=33,z=6);
@@ -37,13 +61,13 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("cylinder",x=-11.25+2,rad=5/2,depth=33,z=3);
         oi("cylinder",x=-11.25+3,rad=5/2,depth=33,z=3);
         oi("cylinder",x=-11.25+4,rad=5/2,depth=33,z=3);
-        oi("holeM25D",x=13.5,y=0);
-        oi("holeM25D",x=-20,y=9);
-        oi("holeM25D",x=-20,y=-9);
+        oi("holeM3",x=13.5,y=0);
+        oi("holeM3",x=-20,y=9);
+        oi("holeM3",x=-20,y=-9);
         if(ex != 0){
-            oi("countersunkM25D",x=13.5,y=0,z=ex);
-            oi("countersunkM25D",x=-20,y=9,z=ex);
-            oi("countersunkM25D",x=-20,y=-9,z=ex);
+            oi("countersunkM3",x=13.5,y=0,z=ex);
+            oi("countersunkM3",x=-20,y=9,z=ex);
+            oi("countersunkM3",x=-20,y=-9,z=ex);
         }
         //shaft
     }
@@ -53,11 +77,14 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             default = 0;
             //shaft
             difference(){
-                od=5.5;
+                od=5.5+rad+default;                
                 cutout=1;
-                oi("cylinder",rad=(od+rad+default)/2,depth=100,z=50);
-                oi("cube",width=cutout*2,height=od,x=od/2+rad+default,depth=100,z=50);
-                oi("cube",width=cutout*2,height=od,x=-od/2-rad-default,depth=100,z=50);
+                union(){
+                    oi("cylinder",rad=(od)/2,depth=100,z=50);
+                    oi("cone",rad=od/2,rad2=od/2+1,depth=2,z=ex);
+                }
+                oi("cube",width=cutout*2,height=od,x=od/2,depth=100,z=50);
+                oi("cube",width=cutout*2,height=od,x=-od/2,depth=100,z=50);
             }
             //cutout square
             oi("cube",width=7.5,height=1.5,x=3.75,depth=100,z=50);
@@ -74,7 +101,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         }
         
         
-    }else if(item == "hexIDGearMotor1ShaftOld" || item=="gearMotor1ShaftOld"){
+    }else if(item == "hexIDGearMotor2Shaft" || item=="gearMotor2Shaft"){
         //shaft
         union(){
             default = 0;

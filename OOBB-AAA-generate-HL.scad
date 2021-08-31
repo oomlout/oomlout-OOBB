@@ -54,7 +54,7 @@ module HL_GM1_03_03(width,height){
     if(extra=="NONE" || extra=="BOTTOM"){
         difference(){
             depth=7+2;
-            bottomLevel=-21;
+            bottomLevel=-19;
             //base plate
             union(){
                 shift = 4;
@@ -76,7 +76,7 @@ module HL_GM1_03_03_HOLES(width,height){
     bottomLevel=-21;
     oi("gearMotor1",ex=2,rad=0,rotZ=0);
     //oobb holes
-    oi("nutM3",x=gv("GMOT-01-HOLE1X"),y=gv("GMOT-01-HOLE1Y"),z=-gv("GMOT-01-DEPTH")+7,depth=3);
+    oi("nutM3",x=gv("GMOT-01-HOLE1X"),y=gv("GMOT-01-HOLE1Y"),z=-gv("GMOT-01-DEPTH")+9,depth=5);
     oi("nutM3",x=gv("GMOT-01-HOLE2X"),y=gv("GMOT-01-HOLE2Y"),z=-gv("GMOT-01-DEPTH"),depth=5);
     oi("nutM3",x=gv("GMOT-01-HOLE3X"),y=gv("GMOT-01-HOLE3Y"),z=-gv("GMOT-01-DEPTH"),depth=5);
     //joiner
@@ -98,7 +98,7 @@ module HL_GM1_03_03_HOLES(width,height){
     //wiring      
     oi("WI-M2",x=-42/2-4,y=-1.5-1.5-gv("GMOT-01-HEIGHT")/2,z=-gv("GMOT-01-DEPTH")+7,rotX=90);    
     w = 30;
-    h=1.5;
+    h=2.5;
     oi("cube",width=w,height=h,depth=3,x=-42/2-4+w/2,y=-gv("GMOT-01-HEIGHT")/2-h/2,z=0);
     oi("cube",width=3,height=h,depth=15,x=4,y=-gv("GMOT-01-HEIGHT")/2-h/2,z=0);
 }
@@ -124,7 +124,7 @@ module HL_GM1_03_03_OLD01(width,height){
             }
             
             oi("gearMotor1",ex=2,rad=0,rotZ=45);
-            oi("gearMotor1",rad=0,rotZ=45,z=-2);
+            #oi("gearMotor1",rad=0,rotZ=45,z=-2);
             oi("gearMotor1",rad=0,rotZ=45,z=-4);
             //oobb holes
             //oi("holeM6",x=15,y=0);
