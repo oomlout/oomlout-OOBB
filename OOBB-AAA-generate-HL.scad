@@ -37,11 +37,13 @@ module HL_GM1_03_03(width,height){
     wiringDepth = 4;
     shift = 4;
     space = 0.25;
-    plateThickness = 2;
-    join = 9+3;
+    plateThickness = 3;
+    join = 9;
     topDepth=plateThickness+join; //plate thickness, plus distance to tab plus thickness of tab, plus nut height
     botDepth=plateThickness+gv("GMOT-01-DEPTH")-join;
     bottomLevel=-gv("GMOT-01-DEPTH");
+    //sizing cube
+    //oi("cube",width=70,height=3,depth=25,z=plateThickness);
     if(extra=="NONE" || extra=="TOP"){
         difference(){
             //base plate
