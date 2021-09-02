@@ -53,7 +53,7 @@ module HL_GM1_03_03(width,height){
                 //oi("oobbBase",y=-shift,width=width,height=height,depth=depth,z=plateThickness);
                 //oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=plateThickness);
             }
-            HL_GM1_03_03_HOLES(join=join);
+            HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness);
             }
         }
     if(extra=="NONE" || extra=="BOTTOM"){
@@ -66,13 +66,13 @@ module HL_GM1_03_03(width,height){
                 //oi("oobbBase",y=-shift,width=width,height=height,depth=depth,z=plateThickness);
                 //oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=plateThickness);
             }
-            HL_GM1_03_03_HOLES(join=join);
+            HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness);
             }
         }
             
 }
 
-module HL_GM1_03_03_HOLES(width,height,join){
+module HL_GM1_03_03_HOLES(width,height,join,plateThickness){
     bottomLevel=-gv("GMOT-01-DEPTH");
     oi("gearMotor1",ex=3,rad=0,rotZ=0);
     //oobb holes
@@ -81,11 +81,11 @@ module HL_GM1_03_03_HOLES(width,height,join){
     oi("nutM3",x=gv("GMOT-01-HOLE3X"),y=gv("GMOT-01-HOLE3Y"),z=-gv("GMOT-01-DEPTH"),depth=5);
     //joiner
     oi("holeM3",x=0,y=17);
-    oi("countersunkM3",x=0,y=17,z=2);
+    oi("countersunkM3",x=0,y=17,z=plateThickness);
     oi("nutM3",x=0,y=17,z=bottomLevel);
 
     oi("holeM3",x=0,y=-17);
-    oi("countersunkM3",x=0,y=-17,z=2);
+    oi("countersunkM3",x=0,y=-17,z=plateThickness);
     oi("nutM3",x=0,y=-17,z=bottomLevel);
                         
             

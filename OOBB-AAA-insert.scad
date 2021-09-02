@@ -61,7 +61,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("cylinder",x=-11.25+2,rad=5/2,depth=33,z=3);
         oi("cylinder",x=-11.25+3,rad=5/2,depth=33,z=3);
         oi("cylinder",x=-11.25+4,rad=5/2,depth=33,z=3);
-        oi("holeM3",x=13.5,y=0);
+        oi("holeM3",x=13.5,y=0,z=250-12);
         oi("holeM3",x=-20,y=9);
         oi("holeM3",x=-20,y=-9);
         if(ex != 0){

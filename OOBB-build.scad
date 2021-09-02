@@ -13,7 +13,7 @@
 
 
     //TEST
-        //m="TEST-OOEBWIMOT-05-05";
+        //m="TEST-OOEBWIMOT-05-05";a||\
         //m="TEST-GM1SHAFT-05-05";
         //m="TEST-N20SHAFT-05-05";
 
@@ -32,7 +32,7 @@
 w=3;
 h=3;
 //extra="NONE";
-extra="TOP";
+extra="BOTTOM";
 //extra="WIRINGBLOCK";
 
 
