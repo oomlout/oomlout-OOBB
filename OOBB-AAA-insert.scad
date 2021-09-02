@@ -73,31 +73,71 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     }
     else if(item == "hexIDGearMotor1Shaft" || item=="gearMotor1Shaft"){
         //shaft
+        chamfer=2;
         union(){
             default = 0;
             //shaft
-            difference(){
+            //difference(){
                 od=5.5+rad+default;                
                 cutout=1;
-                union(){
-                    oi("cylinder",rad=(od)/2,depth=100,z=50);
-                    oi("cone",rad=od/2,rad2=od/2+1,depth=2,z=ex);
+                difference(){
+                    //main Shaft
+                    union(){
+                        oi("cylinder",rad=(od)/2,depth=depth);
+                        //cone for bezel
+                        oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
+                        oi("cone",rad2=od/2,rad=od/2+chamfer/2,depth=chamfer,z=-depth+chamfer);
+                    }
+                    //flat sides
+                    union(){
+                        //get the long side of the triangle for the cutout
+                        cutoutSide=sqrt((chamfer)*(chamfer)+(chamfer)*(chamfer));
+                        difference(){
+                            //flat side positive
+                            oi("cube",width=cutout*2,height=od,x=od/2,depth=depth);
+                            //wedge cutout
+                            oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                            oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
+                        }
+                        difference(){
+                            //flat side positive
+                            oi("cube",width=cutout*2,height=od,x=-od/2,depth=depth);
+                            //wedge cutout
+                            oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                            oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
+                        }
+                    }
                 }
-                oi("cube",width=cutout*2,height=od,x=od/2,depth=100,z=50);
-                oi("cube",width=cutout*2,height=od,x=-od/2,depth=100,z=50);
-            }
+                //
+                /*
+                difference(){
+                    union(){
+                        
+                        }
+                    //main flat side
+                    //top chamfer
+                    intersection(){
+                        oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
+                        }
+                    intersection(){
+                        oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
+                        oi("cube",x=-1.75,y=-od/2,width=2.828,height=2.828,depth=od,rotX=90,rotY=45);
+                    }
+                }
+            //}
             //cutout square
-            oi("cube",width=7.5,height=1.5,x=3.75,depth=100,z=50);
+            oi("cube",width=7.5,height=1.5,x=3.75,depth=depth);
             //clearance hoop
             difference(){
                 //big cyulinder
-                oi("cylinder",rad=17/2,depth=100,z=50);
+                //oi("cylinder",rad=17/2,depth=depth);
                 //little cylinder
-                //oi("cylinder",rad=13/2,depth=100,z=50);
+                
                 //trying smaller
-                oi("cylinder",rad=11/2,depth=100,z=50);
-                oi("cube",width=7,height=20,depth=100,z=50,x=-5.9);
+                //oi("cylinder",rad=11/2,depth=depth);
+                //oi("cube",width=7,height=20,depth=depth,x=-5.9);
             }
+            */
         }
         
         
@@ -276,7 +316,12 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             }else if(item == "DCJA" || item == "DCJP-21D-X-THTH-01"){
                 oi("cube",width=14,height=9,depth=11,z=11);
                 oi("cube",width=11,height=15,depth=6,z=-5+11,x=-1.5);
-                
+            ///////////////
+            // OOBB PARTS    
+            }else if(item == "WH-03-GM1"){
+                WH_03_GM1(width);
+            }else if(item == "WH-03-N20"){
+                WH_03_N20(width);
             }else{
                 echo("NO OOBB ITEM");
             }

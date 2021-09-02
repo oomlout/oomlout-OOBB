@@ -1,11 +1,4 @@
-if(m=="WH-03-GM1"){
-    WH_03_GM1(w);
-}
-if(m=="WH-03-N20"){
-    WH_03_N20(w);
-}
-
-module WH_03_GM1(width){
+    module WH_03_GM1(width){
     extr=15;
     difference(){
         union(){
@@ -13,7 +6,8 @@ module WH_03_GM1(width){
             
             oi("cylinder",rad=17/2,depth=extr,z=extr);
         }
-        oi("gearMotor1Shaft",x=0,y=0,rad=0.15,ex=extr);
+        oi("gearMotor1Shaft",x=0,y=0,z=extr,rad=0.15,depth=15,ex=extr);
+        //oi("gearMotor1Shaft",x=0,y=0,rad=0.15,ex=0,rotX=180);
     }
     
 }

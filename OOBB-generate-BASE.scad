@@ -17,7 +17,7 @@
     
     include <OOBB-generate-DIMENSIONS.scad>;
     
-    
+    oi(m,width=w,height=h);     
     
     echo("#########################################");
     echo("######  OOBB Open SCAD Generation  ######");
