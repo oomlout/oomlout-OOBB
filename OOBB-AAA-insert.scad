@@ -50,7 +50,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     }
     else if(item == "hexIDGearMotor1" || item=="gearMotor1" || item=="GMOT-02"){
         //motor
-        oi("cube",x=-21,width=65+rad,height=22.5+rad,depth=19.5,z=0);
+        oi("cube",x=-21,width=65+rad,height=22.5+rad,depth=19+1.5,z=0);
         oi("cube",x=14,width=5+rad,height=5+rad,depth=3+rad,z=-9+rad/2);
         //shaft (7 diameter)
         //shaft clearance
@@ -96,14 +96,14 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                             //flat side positive
                             oi("cube",width=cutout*2,height=od,x=od/2,depth=depth);
                             //wedge cutout
-                            oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                            #oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
                             oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
                         }
                         difference(){
                             //flat side positive
                             oi("cube",width=cutout*2,height=od,x=-od/2,depth=depth);
                             //wedge cutout
-                            oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                            #oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
                             oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
                         }
                     }
@@ -124,20 +124,21 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         oi("cube",x=-1.75,y=-od/2,width=2.828,height=2.828,depth=od,rotX=90,rotY=45);
                     }
                 }
+                */
             //}
             //cutout square
             oi("cube",width=7.5,height=1.5,x=3.75,depth=depth);
             //clearance hoop
             difference(){
                 //big cyulinder
-                //oi("cylinder",rad=17/2,depth=depth);
+                oi("cylinder",rad=17/2,depth=depth);
                 //little cylinder
                 
                 //trying smaller
-                //oi("cylinder",rad=11/2,depth=depth);
-                //oi("cube",width=7,height=20,depth=depth,x=-5.9);
+                oi("cylinder",rad=11/2,depth=depth);
+                oi("cube",width=7,height=20,depth=depth,x=-5.9);
             }
-            */
+            
         }
         
         

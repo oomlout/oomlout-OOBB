@@ -37,7 +37,7 @@ module HL_GM1_03_03(width,height){
     wiringDepth = 4;
     shift = 4;
     space = 0.25;
-    plateThickness = 3;
+    plateThickness = 2.5;
     join = 9;
     topDepth=plateThickness+join; //plate thickness, plus distance to tab plus thickness of tab, plus nut height
     botDepth=plateThickness+gv("GMOT-01-DEPTH")-join;
