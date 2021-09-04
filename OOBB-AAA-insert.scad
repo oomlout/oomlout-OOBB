@@ -50,7 +50,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     }
     else if(item == "hexIDGearMotor1" || item=="gearMotor1" || item=="GMOT-02"){
         //motor
-        oi("cube",x=-21,width=gv("GMOT-01-WIDTH")+rad,height=gv("GMOT-01-HEIGHT")+rad,depth=gv("GMOT-01-DEPTH"),z=0);
+        oi("cube",x=-21,width=OOBBgv("GMOT-01-WIDTH")+rad,height=OOBBgv("GMOT-01-HEIGHT")+rad,depth=OOBBgv("GMOT-01-DEPTH"),z=0);
         oi("cube",x=14,width=5+rad,height=5+rad,depth=3+rad,z=-9+rad/2);
         //shaft (7 diameter)
         //shaft clearance
@@ -327,3 +327,17 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 echo("NO OOBB ITEM");
             }
         }
+        
+        
+function OOBBgv(name) =  
+  //GMOT-01
+    name=="GMOT-01-WIDTH"      ? 65 :
+    name=="GMOT-01-HEIGHT"     ? 22.5 :
+    name=="GMOT-01-DEPTH"      ? 19 + 1.5 :
+    name=="GMOT-01-HOLE1X"     ? 13.5 :
+    name=="GMOT-01-HOLE1Y"     ? 0 :
+    name=="GMOT-01-HOLE2X"     ? -20 :
+    name=="GMOT-01-HOLE2Y"     ? 9 :
+    name=="GMOT-01-HOLE3X"     ? -20 :
+    name=="GMOT-01-HOLE3Y"     ? -9 :
+    "ERROR";
