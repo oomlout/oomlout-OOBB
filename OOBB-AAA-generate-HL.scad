@@ -74,7 +74,7 @@ module HL_GM1_03_03(width,height){
 
 module HL_GM1_03_03_HOLES(width,height,join,plateThickness){
     bottomLevel=-gv("GMOT-01-DEPTH");
-    oi("gearMotor1",ex=3,rad=0,rotZ=0);
+    oi("gearMotor1",ex=plateThickness,rad=0,rotZ=0);
     //oobb holes
     oi("cylinder",rad=gv("NUTM3WIDTH")/2+0.5,x=gv("GMOT-01-HOLE1X"),y=gv("GMOT-01-HOLE1Y"),z=-9-3,depth=3);
     oi("nutM3",x=gv("GMOT-01-HOLE2X"),y=gv("GMOT-01-HOLE2Y"),z=-gv("GMOT-01-DEPTH"),depth=5);
