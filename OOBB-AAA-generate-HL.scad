@@ -1,13 +1,3 @@
-if(m=="HL-N20-03-03"){
-    HL_N20_03_03(w,h);
-}if(m=="HL-GM1-03-03"){
-    HL_GM1_03_03(w,h);
-}if(m=="HL-RC-03-03"){
-    HL_RC_03_03(w,h);
-}if(m=="HL-CN-03-03"){
-    HL_CN_03_03(w,h);
-}
-
 module HL_N20_03_03(width,height){
     depth=12;
     echo("Building HL-N20-03-03");

@@ -1,13 +1,3 @@
-if(m=="TEST-OOEBWIMOT-05-05"){
-    TEST_OOEBWIMOT_05_05(w,h);
-}
-if(m=="TEST-GM1SHAFT-05-05"){
-    TEST_GM1SHAFT_05_05(w,h);
-}
-if(m=="TEST-N20SHAFT-05-05"){
-    TEST_N20SHAFT_05_05(w,h);
-}
-
 module TEST_OOEBWIMOT_05_05(width,height){
     //bottom
     

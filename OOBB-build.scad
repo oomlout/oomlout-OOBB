@@ -1,19 +1,31 @@
 
 
 //Mode
+
+    //BP
+        m="BP-606-03-03";
+
+    //CI
+        //m="CI-01";
+
     //HL
-        m="HL-GM1-03-03";
+        //m="HL-GM1-03-03";
         //m="HL-GM1-03-03";
         //m="HL-N20-03-03";
         //m="HL-RC-03-03";
         //m="HL-CN-03-03";
     
+    //JA
+        //m="JA-03-02";
+    
     //CN
         //m="CN-BAS2-05-05";
 
+    //PL
+        //m="PL-01-01";
 
     //TEST
-        //m="TEST-OOEBWIMOT-05-05";a||\
+        //m="TEST-OOEBWIMOT-05-05";
         //m="TEST-GM1SHAFT-05-05";
         //m="TEST-N20SHAFT-05-05";
 

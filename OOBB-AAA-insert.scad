@@ -319,11 +319,97 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 oi("cube",width=11,height=15,depth=6,z=-5+11,x=-1.5);
             ///////////////
             // OOBB PARTS    
+
+                ///////////////
+                // BP PARTS 
+            }else if(item == "BP-606-03-03"){
+                OOBB_BP_606_03_03(); 
+            }else if(item == "BP-6806-04-04"){
+                BP_6806_04_04();    
+            }else if(item == "BP-6810-05-05"){
+                BP_6810_05_05();    
+    
+                
+                ///////////////
+                // CI PARTS 
+            }else if(item[0] == "C" && item[1] == "I" && item[2] == "-"){
+                OOBBCI3D(w,3);
+                
+                ///////////////
+                // CN PARTS 
+            }else if(item == "CN-BAS2-05-05"){
+                CN_BAS2_05_05(w,h);
+            
+
+                ///////////////
+                // HL PARTS 
+            }else if(item == "HL-N20-03-03"){
+                HL_N20_03_03(w,h);
+            }else if(item == "HL-GM1-03-03"){
+                HL_GM1_03_03(w,h);
+            }else if(item == "HL-RC-03-03"){
+                HL_RC_03_03(w,h);
+            }else if(item == "HL-CN-03-03"){
+                HL_CN_03_03(w,h);
+
+                ///////////////
+                // JA PARTS 
+            }else if(item[0] == "J" && item[1] == "A" && item[2] == "-"){
+                OOBBJA3D(w,h,12);
+
+                ///////////////
+                // PL PARTS 
+            }else if(item[0] == "P" && item[1] == "L" && item[2] == "-"){
+                OOBBPL3D(w,h,3);
+           
+
+                ///////////////
+                // TEST PARTS                 
+            }else if(item == "TEST-OOEBWIMOT-05-05"){
+                TEST_OOEBWIMOT_05_05(w,h);
+            }else if(item == "TEST-GM1SHAFT-05-05"){
+                TEST_GM1SHAFT_05_05(w,h);
+            }else if(item == "TEST-N20SHAFT-05-05"){
+                TEST_N20SHAFT_05_05(w,h);
+                          
+
+                ///////////////
+                // WH PARTS                 
             }else if(item == "WH-03-GM1"){
                 WH_03_GM1(width);
             }else if(item == "WH-03-N20"){
-                WH_03_N20(width);
-            }else{
+                WH_03_N20(width);                
+            
+                ///////////////
+                // WI PARTS                             
+            }else if(item == "WI-M2-03-03"){
+                WI_M2_03_03(w,h);
+            }else if(item == "WI-BA-03-03"){
+                WI_BA_03_03(w,h);
+            }else if(item == "WI-HV-03-03"){
+                WI_HV_03_03(w,h);
+            }else if(item == "WI-SM-03-03"){
+                WI_SM_03_03(w,h);
+            }else if(item == "WI-BP-03-03-CS"){
+                WI_BP_03_03_CS(w,h);
+            }else if(item == "WI-BP-03-03-NU"){
+                WI_BP_03_03_NU(w,h);
+            }else if(item == "WI-BP-03-03-BA"){
+                WI_BP_03_03_BA(w,h);
+            }else if(item == "WI-BP-03-03-BAH"){
+                WI_BP_03_03_BAH(w,h);
+            }else if(item == "WI-BP-03-03-BAN"){
+                WI_BP_03_03_BAN(w,h);
+            }            
+            
+            
+            
+            
+            
+            
+            
+            
+            else{
                 echo("NO OOBB ITEM");
             }
         }

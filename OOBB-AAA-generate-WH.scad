@@ -1,4 +1,4 @@
-    module WH_03_GM1(width){
+module WH_03_GM1(width){
     extr=15;
     difference(){
         union(){

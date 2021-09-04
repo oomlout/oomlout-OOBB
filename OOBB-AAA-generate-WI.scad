@@ -1,33 +1,3 @@
-
-//WI
-if(m=="WI-M2-03-03"){
-    WI_M2_03_03(w,h);
-}
-if(m=="WI-BA-03-03"){
-    WI_BA_03_03(w,h);
-}
-if(m=="WI-HV-03-03"){
-    WI_HV_03_03(w,h);
-}
-if(m=="WI-SM-03-03"){
-    WI_SM_03_03(w,h);
-}
-if(m=="WI-BP-03-03-CS"){
-    WI_BP_03_03_CS(w,h);
-}
-if(m=="WI-BP-03-03-NU"){
-    WI_BP_03_03_NU(w,h);
-}
-if(m=="WI-BP-03-03-BA"){
-    WI_BP_03_03_BA(w,h);
-}
-if(m=="WI-BP-03-03-BAH"){
-    WI_BP_03_03_BAH(w,h);
-}
-if(m=="WI-BP-03-03-BAN"){
-    WI_BP_03_03_BAN(w,h);
-}
-
 module WI_M2_03_03(width,height){
     echo("Building WI-M2-03-03");
     difference(){
