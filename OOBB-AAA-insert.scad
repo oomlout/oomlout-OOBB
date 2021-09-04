@@ -214,7 +214,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         if(ex == 0 && rad == 0){
             //dep=2.54+ 0.06;
             dep=3;
-            ext=0.1;
+            ext=0.2;
             union(){
                 oi("cube",x=11.27,y=0,width=22.54+ext,height=5.08+ext,depth=dep);
                 oi("cube",x=7.27,y=0,width=2.54+ext,height=10.16+ext,depth=dep);
@@ -419,7 +419,7 @@ function OOBBgv(name) =
   //GMOT-01
     name=="GMOT-01-WIDTH"      ? 65 :
     name=="GMOT-01-HEIGHT"     ? 22.5 :
-    name=="GMOT-01-DEPTH"      ? 19 + 1.5 :
+    name=="GMOT-01-DEPTH"      ? 19 + 0.5 :
     name=="GMOT-01-HOLE1X"     ? 13.5 :
     name=="GMOT-01-HOLE1Y"     ? 0 :
     name=="GMOT-01-HOLE2X"     ? -20 :
