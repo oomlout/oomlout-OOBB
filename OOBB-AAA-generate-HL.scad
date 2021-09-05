@@ -27,11 +27,13 @@ module HL_GM1_03_03(width,height){
     wiringDepth = 4;
     shift = 4;
     space = 0.25;
-    plateThickness = 2.5;
+    plateThickness = 3.75;
     join = 9;
     topDepth=plateThickness+join; //plate thickness, plus distance to tab plus thickness of tab, plus nut height
     botDepth=plateThickness+OOBBgv("GMOT-01-DEPTH")-join;
     bottomLevel=-OOBBgv("GMOT-01-DEPTH");
+    totalDepth=topDepth+botDepth;
+   echo("    Total Depth :", totalDepth);
     //sizing cube
     //oi("cube",width=70,height=3,depth=25,z=plateThickness);
     if(extra=="NONE" || extra=="TOP"){
@@ -47,16 +49,20 @@ module HL_GM1_03_03(width,height){
             }
         }
     if(extra=="NONE" || extra=="BOTTOM"){
-        difference(){
-            //base plate
-            union(){
-                oi("oobbBase",width=width,height=height,depth=botDepth,z=bottomLevel+OOBBgv("GMOT-01-DEPTH")-join);
-                oi("oobbBase",x=-shift,width=width,height=height,depth=botDepth,z=bottomLevel+OOBBgv("GMOT-01-DEPTH")-join);
-                
-                //oi("oobbBase",y=-shift,width=width,height=height,depth=depth,z=plateThickness);
-                //oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=plateThickness);
-            }
-            HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness);
+        union(){
+            difference(){
+                //base plate
+                union(){
+                    oi("oobbBase",width=width,height=height,depth=botDepth,z=bottomLevel+OOBBgv("GMOT-01-DEPTH")-join);
+                    oi("oobbBase",x=-shift,width=width,height=height,depth=botDepth,z=bottomLevel+OOBBgv("GMOT-01-DEPTH")-join);
+                    
+                    //oi("oobbBase",y=-shift,width=width,height=height,depth=depth,z=plateThickness);
+                    //oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=plateThickness);
+                }
+                HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness);
+                }
+            //add plate to cover bottom of mounting holes
+            oi("cube",depth=1,x=-20,y=0,z=-plateThickness+1+bottomLevel,width=5,height=24);  
             }
         }
             
@@ -66,17 +72,17 @@ module HL_GM1_03_03_HOLES(width,height,join,plateThickness){
     bottomLevel=-OOBBgv("GMOT-01-DEPTH");
     oi("gearMotor1",ex=plateThickness,rad=0,rotZ=0);
     //oobb holes
-    oi("cylinder",rad=gv("NUTM3WIDTH")/2+0.5,x=OOBBgv("GMOT-01-HOLE1X"),y=OOBBgv("GMOT-01-HOLE1Y"),z=-9-3,depth=3);
-    oi("nutM3",x=OOBBgv("GMOT-01-HOLE2X"),y=OOBBgv("GMOT-01-HOLE2Y"),z=-OOBBgv("GMOT-01-DEPTH"),depth=5);
-    oi("nutM3",x=OOBBgv("GMOT-01-HOLE3X"),y=OOBBgv("GMOT-01-HOLE3Y"),z=-OOBBgv("GMOT-01-DEPTH"),depth=5);
+    oi("cylinder",rad=gv("NUTM3WIDTH")/2+0.5,x=OOBBgv("GMOT-01-HOLE1X"),y=OOBBgv("GMOT-01-HOLE1Y"),z=-9,depth=6);
+    oi("nutM3",x=OOBBgv("GMOT-01-HOLE2X"),y=OOBBgv("GMOT-01-HOLE2Y"),z=-OOBBgv("GMOT-01-DEPTH"),depth=3);
+    oi("nutM3",x=OOBBgv("GMOT-01-HOLE3X"),y=OOBBgv("GMOT-01-HOLE3Y"),z=-OOBBgv("GMOT-01-DEPTH"),depth=3);
     //joiner
     oi("holeM3",x=0,y=17);
     oi("countersunkM3",x=0,y=17,z=plateThickness);
-    oi("nutM3",x=0,y=17,z=bottomLevel);
+    oi("nutM3",x=0,y=17,z=bottomLevel,depth=5);
 
     oi("holeM3",x=0,y=-17);
     oi("countersunkM3",x=0,y=-17,z=plateThickness);
-    oi("nutM3",x=0,y=-17,z=bottomLevel);
+    oi("nutM3",x=0,y=-17,z=bottomLevel,depth=5);
                         
             
     oi("holeM6",x=15,y=15);

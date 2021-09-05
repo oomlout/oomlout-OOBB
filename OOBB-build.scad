@@ -3,13 +3,13 @@
 //Mode
 
     //BP
-        m="BP-606-03-03";
+        //m="BP-606-03-03";
 
     //CI
         //m="CI-01";
 
     //HL
-        //m="HL-GM1-03-03";
+        m="HL-GM1-03-03";
         //m="HL-GM1-03-03";
         //m="HL-N20-03-03";
         //m="HL-RC-03-03";
@@ -43,8 +43,8 @@
  
 w=3;
 h=3;
-extra="NONE";
-//extra="BOTTOM";
+//extra="NONE";
+extra="BOTTOM";
 //extra="WIRINGBLOCK";
 
 
