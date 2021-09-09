@@ -127,10 +127,11 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 */
             //}
             //cutout square
-            oi("cube",width=7.5,height=1.5,x=3.75,depth=depth);
+            oi("cube",width=6,height=1.5,x=2.75,depth=depth);
+            //oi("cube",width=7.5,height=1.5,x=3.75,depth=depth);
             //clearance hoop
             difference(){
-                bigOD = 17;
+                bigOD = 12;
                 //big cyulinder
                 oi("cylinder",rad=bigOD/2,depth=depth);
                 //little cylinder
