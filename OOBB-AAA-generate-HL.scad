@@ -32,21 +32,27 @@ module HL_GM1_03_03_BP6803(width,height){
     bottomLevel=-OOBBgv("GMOT-01-DEPTH");
     totalDepth=topDepth+botDepth;
     
-    HL_GM1_03_03(width,height);
+    //HL_GM1_03_03(width,height);
     difference(){
-        wallThickness = 4;
         bearingDepth=gv("BEARING-6803-DEPTH");
         h=-totalDepth+plateThickness;
-        //oi("cylinder",z=h,rad=gv("BEARING-6803-OUTSIDE")+wallThickness,depth=gv("BEARING-6803-DEPTH"));
         union(){
-            oi("oobbBase",width=width,height=height,depth=bearingDepth,z=h);
-            oi("oobbBase",x=-shift,width=width,height=height,depth=bearingDepth,z=h);
+            oi("oobbBase",width=width,height=height,depth=bearingDepth,z=0);
+            oi("oobbBase",x=-shift,width=width,height=height,depth=bearingDepth,z=0);
         }
-        HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness);
-        oi("bearing6803",z=h);
+        //HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness);
+        #oi("bearing6803",z=0);
         oi("holeM12",x=15,y=15,z=h,depth=15);
         oi("holeM12",x=15,y=-15,z=h,depth=15);
         oi("holeM12",x=-15,y=15,z=h,depth=15);
+        
+        //joiner
+        oi("holeM3",x=0,y=17);
+        #oi("nutM3",x=0,y=17,z=0,depth=2.5);
+
+        oi("holeM3",x=0,y=-17);
+        #oi("nutM3",x=0,y=-17,z=0,depth=2.5);
+        
     }
 }
 
