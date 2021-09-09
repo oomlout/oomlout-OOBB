@@ -54,13 +54,13 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("cube",x=14,width=5+rad,height=5+rad,depth=3+rad,z=-9+rad/2);
         //shaft (7 diameter)
         //shaft clearance
-        oi("cylinder",rad=20/2,depth=33,z=6);
+        oi("cylinder",rad=20/2,depth=100,z=50);
         //extra clearance hole a few shifted to get it smoother
-        oi("cylinder",x=-11.25,rad=5/2,depth=33,z=3);
-        oi("cylinder",x=-11.25+1,rad=5/2,depth=33,z=3);
-        oi("cylinder",x=-11.25+2,rad=5/2,depth=33,z=3);
-        oi("cylinder",x=-11.25+3,rad=5/2,depth=33,z=3);
-        oi("cylinder",x=-11.25+4,rad=5/2,depth=33,z=3);
+        oi("cylinder",x=-11.25,rad=5/2,depth=100,z=50);
+        oi("cylinder",x=-11.25+1,rad=5/2,depth=100,z=50);
+        oi("cylinder",x=-11.25+2,rad=5/2,depth=100,z=50);
+        oi("cylinder",x=-11.25+3,rad=5/2,depth=100,z=50);
+        oi("cylinder",x=-11.25+4,rad=5/2,depth=100,z=50);
         oi("holeM3",x=13.5,y=0,z=250-12);
         oi("holeM3",x=-20,y=9);
         oi("holeM3",x=-20,y=-9);
@@ -96,14 +96,14 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                             //flat side positive
                             oi("cube",width=cutout*2,height=od,x=od/2,depth=depth);
                             //wedge cutout
-                            #oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                            oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
                             oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
                         }
                         difference(){
                             //flat side positive
                             oi("cube",width=cutout*2,height=od,x=-od/2,depth=depth);
                             //wedge cutout
-                            #oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                            oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
                             oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
                         }
                     }
@@ -130,8 +130,9 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             oi("cube",width=7.5,height=1.5,x=3.75,depth=depth);
             //clearance hoop
             difference(){
+                bigOD = 17;
                 //big cyulinder
-                oi("cylinder",rad=17/2,depth=depth);
+                oi("cylinder",rad=bigOD/2,depth=depth);
                 //little cylinder
                 
                 //trying smaller
@@ -346,6 +347,10 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             }else if(item == "HL-N20-03-03"){
                 HL_N20_03_03(w,h);
             }else if(item == "HL-GM1-03-03"){
+                HL_GM1_03_03(w,h);
+            }else if(item == "HL-GM1-03-03-BP6803"){
+                HL_GM1_03_03_BP6803(w,h);
+            }else if(item == "HL-GM1-04-03"){
                 HL_GM1_03_03(w,h);
             }else if(item == "HL-RC-03-03"){
                 HL_RC_03_03(w,h);

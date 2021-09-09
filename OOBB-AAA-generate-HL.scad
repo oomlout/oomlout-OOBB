@@ -19,6 +19,13 @@ module HL_N20_03_03(width,height){
     }
 }
 
+module HL_GM1_03_03_BP6803(width,height){
+    difference(){
+        HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness);
+    }
+    HL_GM1_03_03(width,height);
+}
+
 module HL_GM1_03_03(width,height){
     
     echo("Building HL-GM1-03-03");

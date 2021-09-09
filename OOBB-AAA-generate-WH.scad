@@ -1,12 +1,12 @@
 module WH_03_GM1(width){
-    extr=15;
+    extr=21;
     difference(){
         union(){
             OOBB_WH_SOLID(width);
             
             oi("cylinder",rad=17/2,depth=extr,z=extr);
         }
-        oi("gearMotor1Shaft",x=0,y=0,z=extr,rad=0.175,depth=15,ex=extr);
+        oi("gearMotor1Shaft",x=0,y=0,z=extr,rad=0.175,depth=extr,ex=extr);
         //oi("gearMotor1Shaft",x=0,y=0,rad=0.15,ex=0,rotX=180);
     }
     
