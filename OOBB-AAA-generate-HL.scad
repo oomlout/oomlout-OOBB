@@ -44,9 +44,9 @@ module HL_GM1_03_03_BP6803(width,height){
         }
         //HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness);
         oi("bearing6803",z=0);
-        oi("holeM12",x=15,y=15,z=h,depth=15);
-        oi("holeM12",x=15,y=-15,z=h,depth=15);
-        oi("holeM12",x=-15,y=15,z=h,depth=15);
+        oi("roundedClearanceM12",x=15,y=15,z=h,depth=15);
+        oi("roundedClearanceM12",x=15,y=-15,rotZ=270);
+        oi("roundedClearanceM12",x=-15,y=15,rotZ=90);
         
         //joiner
         oi("holeM3",x=0,y=17);
