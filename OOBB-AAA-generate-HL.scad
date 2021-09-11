@@ -101,7 +101,7 @@ module HL_GM1_03_03(width,height){
                 HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness);
                 }
             //add plate to cover bottom of mounting holes
-            oi("cube",depth=1,x=-20,y=0,z=-plateThickness+1+bottomLevel,width=5,height=24);  
+            oi("cube",depth=1,x=-20,y=0,z=-plateThickness+1+bottomLevel,width=8,height=24);  
             }
         }
             
@@ -109,18 +109,18 @@ module HL_GM1_03_03(width,height){
 
 module HL_GM1_03_03_HOLES(width,height,join,plateThickness){
     bottomLevel=-OOBBgv("GMOT-01-DEPTH");
-    oi("gearMotor1",ex=plateThickness,rad=0,rotZ=0);
+    oi("gearMotor1",ex=plateThickness,rad=0,rotZ=0,z=0);
     //oobb holes
     oi("cylinder",rad=gv("NUTM3WIDTH")/2+0.5,x=OOBBgv("GMOT-01-HOLE1X"),y=OOBBgv("GMOT-01-HOLE1Y"),z=-9,depth=6);
     oi("nutM3",x=OOBBgv("GMOT-01-HOLE2X"),y=OOBBgv("GMOT-01-HOLE2Y"),z=-OOBBgv("GMOT-01-DEPTH"),depth=20);
     oi("nutM3",x=OOBBgv("GMOT-01-HOLE3X"),y=OOBBgv("GMOT-01-HOLE3Y"),z=-OOBBgv("GMOT-01-DEPTH"),depth=20);
     //joiner
     oi("holeM3",x=0,y=17);
-    oi("countersunkM3",x=0,y=17,z=plateThickness);
+    oi("capscrewM3",x=0,y=17,z=plateThickness);
     oi("nutM3",x=0,y=17,z=bottomLevel,depth=15);
 
     oi("holeM3",x=0,y=-17);
-    oi("countersunkM3",x=0,y=-17,z=plateThickness);
+    oi("capscrewM3",x=0,y=-17,z=plateThickness);
     oi("nutM3",x=0,y=-17,z=bottomLevel,depth=15);
                         
             
