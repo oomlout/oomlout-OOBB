@@ -82,11 +82,14 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 cutout=1;
                 difference(){
                     //main Shaft
+                    
                     union(){
                         oi("cylinder",rad=(od)/2,depth=depth);
-                        //cone for bezel
-                        oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
-                        oi("cone",rad2=od/2,rad=od/2+chamfer/2,depth=chamfer,z=-depth+chamfer);
+                        //cone for bezel (chamfer)
+                         if(ex > 4){
+                            oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
+                            oi("cone",rad2=od/2,rad=od/2+chamfer/2,depth=chamfer,z=-depth+chamfer);
+                        }
                     }
                     //flat sides
                     union(){
@@ -368,6 +371,16 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             }else if(item[0] == "P" && item[1] == "L" && item[2] == "-"){
                 OOBBPL3D(w,h,3);
            
+
+                ///////////////
+                // SP PARTS                 
+            }else if(item == "SP-GM1-03"){
+                SP_GM1(extr=3);
+            }else if(item == "SP-GM1-06"){
+                SP_GM1(extr=6);
+
+
+
 
                 ///////////////
                 // TEST PARTS                 

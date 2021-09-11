@@ -18,6 +18,7 @@ REM WI
 %SKIP%%CALLSTYLE% AAA-OOBB-generate-HL.bat
 %SKIP%%CALLSTYLE% AAA-OOBB-generate-JA.bat
 %SKIP%%CALLSTYLE% AAA-OOBB-generate-PL.bat
+%SKIP%%CALLSTYLE% AAA-OOBB-generate-SP.bat
 %SKIP%%CALLSTYLE% AAA-OOBB-generate-TEST.bat
 %SKIP%%CALLSTYLE% AAA-OOBB-generate-WH.bat
 %SKIP%%CALLSTYLE% AAA-OOBB-generate-WI.bat
