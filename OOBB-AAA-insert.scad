@@ -61,7 +61,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("cylinder",x=-11.25+2,rad=5/2,depth=100,z=50);
         oi("cylinder",x=-11.25+3,rad=5/2,depth=100,z=50);
         oi("cylinder",x=-11.25+4,rad=5/2,depth=100,z=50);
-        oi("holeM3",x=13.5,y=0,z=250-12);
+        oi("holeM3",x=13.5,y=0,depth=500,z=250-12);
         oi("holeM3",x=-20,y=9);
         oi("holeM3",x=-20,y=-9);
         if(ex != 0){
@@ -337,8 +337,11 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 
                 ///////////////
                 // CI PARTS 
+            }else if(item == "CI-03-GM1"){
+                CI_03_GM1(w); //needs to be before filter                
             }else if(item[0] == "C" && item[1] == "I" && item[2] == "-"){
                 OOBBCI3D(w,3);
+
                 
                 ///////////////
                 // CN PARTS 

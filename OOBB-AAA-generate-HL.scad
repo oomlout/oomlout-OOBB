@@ -25,7 +25,7 @@ module HL_GM1_03_03_BP6803(width,height){
     wiringDepth = 4;
     shift = 4;
     space = 0.25;
-    plateThickness = 3.75;
+    plateThickness = 2.25;
     join = 9;
     topDepth=plateThickness+join; //plate thickness, plus distance to tab plus thickness of tab, plus nut height
     botDepth=plateThickness+OOBBgv("GMOT-01-DEPTH")-join;
@@ -66,7 +66,7 @@ module HL_GM1_03_03(width,height){
     wiringDepth = 4;
     shift = 4;
     space = 0.25;
-    plateThickness = 3.75;
+    plateThickness = 2.25;
     join = 9;
     topDepth=plateThickness+join; //plate thickness, plus distance to tab plus thickness of tab, plus nut height
     botDepth=plateThickness+OOBBgv("GMOT-01-DEPTH")-join;

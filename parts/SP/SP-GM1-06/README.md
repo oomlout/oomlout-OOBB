@@ -1,2 +1,0 @@
-![SP-GM1-06](OOBB-SP-GM1-06.png)  
-SP-GM1-06  
