@@ -10,7 +10,7 @@
         //m="CI-03-GM1";
 
     //HL
-        m="HL-GM1-03-03";
+        //m="HL-GM1-03-03";
         //m="HL-GM1-03-03-BP6803";
         //m="HL-GM1-04-03";
         //m="HL-GM1-03-03";
@@ -25,7 +25,7 @@
         //m="CN-BAS2-05-05";
 
     //PL
-        //m="PL-01-01";
+        //m="PL-05-03";
 
     //SP
         //m="SP-GM1-03";
@@ -48,8 +48,8 @@
         //m="WH-03-GM1";
         //m="WH-03-N20";
  
-w=3;
-h=3;
+w=5;
+h=8;
 extra="NONE";
 //extra="BOTTOM";
 //extra="WIRINGBLOCK";

@@ -10,6 +10,24 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("holeM3",x=holeSpacing/2,y=holeSpacing/2);
         oi("holeM3",x=-holeSpacing/2,y=holeSpacing/2);
         oi("holeM3",x=holeSpacing/2,y=-holeSpacing/2);
+    } 
+    else if(item=="oobbBase"){
+            oi("cubeRounded",width=(width*15)-3,height=(height*15)-3,depth=depth,rad=5);
+    } 
+    else if(item=="oobbCircle"){
+            oi("cylinder",rad=((width*15)-3)/2,depth=depth);
+    } 
+    else if(item=="oobbHole"){
+        OPSCInsert("hole",rad=holeM6,x=-(OOwidth*15/2)+((width-1)*15)+15/2,y=-(OOheight*15/2)+((height-1)*15)+15/2);
+    } 
+    else if(item=="oobbHolesCircle"){
+        oobbHolesCircle(OOWidth=width);
+    }
+    else if(item=="oobbHoles"){
+        oi("holeArray",rad=holeM6,width=width,height=height,ex=15);
+    } 
+    else if(item=="oobbHoleClearance"){
+        OPSCInsert("hole",rad=12/2,x=((width-1)*15)+15/2,y=((height-1)*15)+15/2);
     }
     else if(item == "hexIDHole" || item=="pocketMagnifierHole"){
         oi("cube",width=80,height=43,depth=100,z=50);
@@ -340,7 +358,8 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             }else if(item == "CI-03-GM1"){
                 CI_03_GM1(w); //needs to be before filter                
             }else if(item[0] == "C" && item[1] == "I" && item[2] == "-"){
-                OOBBCI3D(w,3);
+                CI(w,3);
+                //OOBBCI3D(w,3);
 
                 
                 ///////////////
@@ -372,7 +391,8 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 ///////////////
                 // PL PARTS 
             }else if(item[0] == "P" && item[1] == "L" && item[2] == "-"){
-                OOBBPL3D(w,h,3);
+                PL(w,h,3);
+                //OOBBPL3D(w,h,3);
            
 
                 ///////////////
@@ -435,7 +455,75 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 echo("NO OOBB ITEM");
             }
         }
-        
+
+
+module oobbHolesCircle(OOWidth, middle=true){
+    if(OOWidth == 3){
+        rotate([0,0,45]){
+            oi("holeM6",x=0*OOBBSpacing,y=0*OOBBSpacing);
+            oi("holeM6",x=0*OOBBSpacing,y=1*OOBBSpacing);
+            oi("holeM6",x=0*OOBBSpacing,y=-1*OOBBSpacing);
+            oi("holeM6",x=1*OOBBSpacing,y=0*OOBBSpacing);
+            oi("holeM6",x=-1*OOBBSpacing,y=0*OOBBSpacing);
+            
+        }
+    }
+    
+            for(height = [-(round(OOWidth/2)-1):round(OOWidth/2)-1]){
+                for(width = [-(round(OOWidth/2)-1):round(OOWidth/2)-1]){
+                    /*
+                    //middle full rows
+                    if(width == round(OOWidth/2) || height == round(OOWidth/2)){ 
+                        OOBBHole3D(width,height);                        
+                    }
+                    */
+                    CIcenter = 0;
+                    CIradius = (OOWidth * OOBBSpacing - 3)/2;
+                    CIheight = height * OOBBSpacing;
+                    CIwidth = width * OOBBSpacing;
+                    
+                    buffer = 5.99;
+                    rowHeight = -(round(OOWidth/2) * OOBBSpacing) + height * OOBBSpacing;
+                    
+                    CIwidthAtHeight = sqrt((CIradius*CIradius) - (CIheight * CIheight));
+                    CIheightAtWidth = sqrt((CIradius*CIradius) - (CIwidth * CIwidth));
+                    /*
+                    echo();
+                    echo();
+                    echo();
+                    echo("height  ",height);
+                    echo("width  ",width);
+                    echo("CIcente  ",CIcenter);
+                    echo("CIradius  ",CIradius);
+                    echo("CIheight  ",CIheight);
+                    echo("CIwidthAtHeight  ",CIwidthAtHeight);
+                    echo("CIheightAtWidth  ",CIheightAtWidth);
+                    echo("width * OOBBSpacing  ",width * OOBBSpacing);
+                    echo("rowHeight  ",rowHeight);
+                    */
+                    
+                    if((CIwidthAtHeight - buffer) > abs(width * OOBBSpacing))  {
+                        if((CIheightAtWidth - buffer) > abs(height * OOBBSpacing))  {
+                            if(!middle && width == 0 && height == 0){
+                                echo("SKIPPING MIDDLE HOLE");
+                            }else{
+                                oi("holeM6",x=width*OOBBSpacing,y=height*OOBBSpacing);
+            
+                                //echo("ADDING HOLE", middle, width, height);              
+                            }
+                        }    
+                        
+                    }
+                    
+                }
+            }
+            
+            
+            
+            
+            
+}
+    
         
 function OOBBgv(name) =  
   //GMOT-01
