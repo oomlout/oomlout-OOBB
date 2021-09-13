@@ -15,4 +15,11 @@ include <OOBB-AAA-generate-WI.scad>
 
 include <OOBB-AAA-insert.scad>
 
-oi(m,width=w,height=h);
+if(o=="LAZE"){
+    projection(){
+        oi(m,width=w,height=h);
+    }
+}
+ else{
+     oi(m,width=w,height=h);
+ }

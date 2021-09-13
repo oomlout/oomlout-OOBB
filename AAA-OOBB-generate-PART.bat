@@ -28,16 +28,27 @@ SET MODE=%PART%
 
 SET STYLE=3DPR
 del %FILEFULL3DPR%.stl
-openscad -o %FILEFULL3DPR%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"" OOBB-generate-%STYLE%.scad
+openscad -o %FILEFULL3DPR%.stl -D "o=\"3D\";w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"" OOBB-generate-%STYLE%.scad
 
 SET STYLE=TRUE
 del %FILEFULL%.stl
-openscad -o %FILEFULL%.stl -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\";"  OOBB-generate-%STYLE%.scad
+openscad -o %FILEFULL%.stl -D "o=\"3D\";w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\";"  OOBB-generate-%STYLE%.scad
 
 
 SET STYLE=TRUE
 del %FILEFULL%.png
-openscad -o %FILEFULL%.png -D "w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"" --render OOBB-generate-%STYLE%.scad
+openscad -o %FILEFULL%.png -D "o=\"3D\";w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"" --render OOBB-generate-%STYLE%.scad
+
+SET STYLE=TRUE
+del %FILEFULL%.dxf
+openscad -o %FILEFULL%.dxf -D "o=\"LAZE\";w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"" --render OOBB-generate-%STYLE%.scad
+
+SET STYLE=TRUE
+del %FILEFULL%.svg
+openscad -o %FILEFULL%.svg -D "o=\"LAZE\";w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"" --render OOBB-generate-%STYLE%.scad
+del %FILEFULL%.pdf
+inkscape.exe --export-filename="%FILEFULL%.pdf" "%FILEFULL%.svg"	
+	
 
 
 
