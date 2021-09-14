@@ -127,10 +127,9 @@ module HL_GM1_03_03_HOLES(width,height,join,plateThickness){
                         
     //OOBB Holes        
     oi("holeM6",x=15,y=15);
-    oi("holeM6",x=15,y=15);
     oi("holeM6",x=15,y=-15);
     oi("holeM6",x=-15,y=15);
-    //oi("holeM6",x=-15,y=-15);
+    oi("holeM6",x=-15,y=-15);
     
     /*  Now soldered on    
         //wiring      
