@@ -1,6 +1,6 @@
 module CI(width,depth=3){
     difference(){
-        oi("oobbCircle",width=width,depth=depth);
+        oi("oobbCircle",width=width,depth=depth,z=depth);
         oi("oobbHolesCircle",width=width);
     }
 }
@@ -13,7 +13,6 @@ module CI_03_GM1(width){
     difference(){
         union(){
             CI(width=width,depth=6);
-            //OOBBCI3D(w,6) ;           
             oi("cylinder",rad=17.1/2,depth=extr,z=extr);
         
             }

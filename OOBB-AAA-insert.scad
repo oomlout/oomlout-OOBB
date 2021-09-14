@@ -91,7 +91,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     }
     else if(item == "hexIDGearMotor1Shaft" || item=="gearMotor1Shaft"){
         //shaft
-        chamfer=2;
+        chamfer=1;
         union(){
             default = 0;
             //shaft

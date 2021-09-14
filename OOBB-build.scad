@@ -1,4 +1,4 @@
-
+o="3D";
 
 //Mode
 
@@ -7,7 +7,7 @@
 
     //CI
         //m="CI-01";
-        //m="CI-03-GM1";
+        m="CI-03-GM1";
 
     //HL
         //m="HL-GM1-03-03";
@@ -48,8 +48,8 @@
         //m="WH-03-GM1";
         //m="WH-03-N20";
  
-w=5;
-h=8;
+w=3;
+h=3;
 extra="NONE";
 //extra="BOTTOM";
 //extra="WIRINGBLOCK";
