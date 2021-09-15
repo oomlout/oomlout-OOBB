@@ -11,10 +11,11 @@ o="3D";
         
     //GE
         //m="GE-03";
+        m="GE-03-01-LI";
         //m="GE-01-GM1";
 
     //HL
-        m="HL-GM1-03-03";
+        //m="HL-GM1-03-03";
         //m="HL-GM1-03-03-BP6803";
         //m="HL-GM1-04-03";
         //m="HL-GM1-03-03";
@@ -53,7 +54,7 @@ o="3D";
         //m="WH-03-N20";
  
 w=3;
-h=3;
+h=1;
 //extra="NONE";
 extra="BOTTOM";
 //extra="WIRINGBLOCK";

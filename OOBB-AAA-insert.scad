@@ -374,6 +374,8 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 GE_GM1(w); //needs to be before filter   
             }else if(item == "GE-03-GM1"){
                 GE_GM1(w); //needs to be before filter   
+            }else if(item == "GE-03-01-LI"){
+                GE_LI(w,h); //needs to be before filter   
             }else if(item[0] == "G" && item[1] == "E" && item[2] == "-"){
                 GE(w,6);                
             

@@ -2,6 +2,19 @@ use <MCAD/involute_gears.scad>
 
 
 
+module GE_LI(width,height){
+    difference(){
+        union(){
+            oi("oobbBase",width=width-.2,height=height+0.2,depth=6);
+            oi("cylinder",rad=holeM6Minus,x=15,depth=5,z=-6);
+            oi("cylinder",rad=holeM6Minus,x=-15,depth=5,z=-6);
+        }
+    oi("nutM6",depth=0,z=2);
+    oi("holeM6",z=0);
+    }
+    //oi("GE-03",z=-12);
+}
+
 module GE_GM1(width){
     extr=21-6;
     difference(){
