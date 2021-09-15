@@ -367,6 +367,16 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             }else if(item == "CN-BAS2-05-05"){
                 CN_BAS2_05_05(w,h);
             
+            
+                ///////////////
+                // GE PARTS 
+            }else if(item == "GE-01-GM1"){
+                GE_GM1(w); //needs to be before filter   
+            }else if(item == "GE-03-GM1"){
+                GE_GM1(w); //needs to be before filter   
+            }else if(item[0] == "G" && item[1] == "E" && item[2] == "-"){
+                GE(w,6);                
+            
 
                 ///////////////
                 // HL PARTS 

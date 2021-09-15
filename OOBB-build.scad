@@ -7,10 +7,14 @@ o="3D";
 
     //CI
         //m="CI-01";
-        m="CI-03-GM1";
+        //m="CI-03-GM1";
+        
+    //GE
+        //m="GE-03";
+        //m="GE-01-GM1";
 
     //HL
-        //m="HL-GM1-03-03";
+        m="HL-GM1-03-03";
         //m="HL-GM1-03-03-BP6803";
         //m="HL-GM1-04-03";
         //m="HL-GM1-03-03";
@@ -26,7 +30,7 @@ o="3D";
 
     //PL
         //m="PL-05-03";
-
+    
     //SP
         //m="SP-GM1-03";
         //m="SP-GM1-06";
@@ -50,8 +54,8 @@ o="3D";
  
 w=3;
 h=3;
-extra="NONE";
-//extra="BOTTOM";
+//extra="NONE";
+extra="BOTTOM";
 //extra="WIRINGBLOCK";
 
 
