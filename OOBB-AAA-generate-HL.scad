@@ -85,6 +85,7 @@ module HL_GM1_03_03(width,height){
                 //oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=plateThickness);
             }
             HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness,botDepth=botDepth);
+            //oi("roundedClearanceM12",x=15,y=15,depth=6); //working on this will require a shifting of the gearbox as well
             }
         }
     if(extra=="NONE" || extra=="BOTTOM"){
@@ -99,6 +100,7 @@ module HL_GM1_03_03(width,height){
                     //oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=plateThickness);
                 }
                 HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness,botDepth=botDepth);
+                
                 }
             //add plate to cover bottom of mounting holes
             //oi("cube",depth=1,x=-20,y=0,z=-plateThickness+1+bottomLevel,width=8,height=24);  (removed because now 25mm thick) 

@@ -30,9 +30,71 @@ module GE_GM1(width){
 }
 
 module GE(width,depth=3){
+
+    
+    /////////////////////// TEST SECTION
+    //https://github.com/openscad/MCAD/blob/master/involute_gears.scad
+    
+    
+    pressureAngle=14.5; 
+    pressureAngle1=28.5; //default
+    pressureAngle2=20; // to try
+    pressureAngle3=14.5; // old fashion
+    
+    clearance=0.5;
+    clearance1=1;
+    clearance2=5;
+    clearance3=10;
+    
+    backlash=0.25;
+    backlash1=0;
+    backlash2=1;
+    backlash3=2;
+    
+    involute_facets = 0;
+    involute_facets1 = 0;
+    involute_facets2 = 1;
+    involute_facets3 = 20;
+    
+    /*
+    gear(   number_of_teeth=numTeeth,
+            circular_pitch=circularPitch,
+            bore_diameter=0,
+            pressure_angle=pressureAngle,
+            clearance=clearance,
+            backlash=backlash,
+            involute_facets = involute_facets,
+            flat=true);
+    translate([0,0,20]){
+    gear(   number_of_teeth=numTeeth,
+            circular_pitch=circularPitch,
+            bore_diameter=0,
+            pressure_angle=pressureAngle,
+            clearance=clearance,
+            backlash=backlash,
+            involute_facets = involute_facets,
+            flat=true);             
+    }
+    translate([0,0,40]){
+    gear(   number_of_teeth=numTeeth,
+            circular_pitch=circularPitch,
+            bore_diameter=0,
+            pressure_angle=pressureAngle,
+            clearance=clearance,
+            backlash=backlash,
+            involute_facets = involute_facets,
+            flat=true);             
+    } 
+ 
+    */
+ 
+    //#oi("cylinder",rad=width*15/2,depth=10,z=6);
+    
     numTeeth = width * 8;
     circularPitch = 337.5;
     
+    
+    //////////////////// END TEST SECTION
     
     //numTeeth*pitch = circumfrence
     //180
@@ -40,13 +102,23 @@ module GE(width,depth=3){
     // 45 * 180 =  8100
     // https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/MCAD#bevel_gear()
     
+
     difference(){
         linear_extrude(depth){
-            gear(number_of_teeth=numTeeth,circular_pitch=circularPitch,bore_diameter=0,flat=true);
+            gear(   number_of_teeth=numTeeth,
+                circular_pitch=circularPitch,
+                bore_diameter=0,
+                pressure_angle=pressureAngle,
+                clearance=clearance,
+                backlash=backlash,
+                involute_facets = involute_facets,
+                flat=true);             
         }
         oi("oobbHolesCircle",width=width);
     }
+
     
-    //#oi("cylinder",rad=width*15/2,depth=10,z=6);
+    
+    
     
 }
