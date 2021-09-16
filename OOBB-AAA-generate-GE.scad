@@ -102,20 +102,25 @@ module GE(width,depth=3){
     // 45 * 180 =  8100
     // https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/MCAD#bevel_gear()
     
+    
+        difference(){
+            translate([0,0,-depth]){
+                linear_extrude(depth){
+                    gear(   number_of_teeth=numTeeth,
+                        circular_pitch=circularPitch,
+                        bore_diameter=0,
+                        pressure_angle=pressureAngle,
+                        clearance=clearance,
+                        backlash=backlash,
+                        involute_facets = involute_facets,
+                        flat=true);             
+                }
+            }
 
-    difference(){
-        linear_extrude(depth){
-            gear(   number_of_teeth=numTeeth,
-                circular_pitch=circularPitch,
-                bore_diameter=0,
-                pressure_angle=pressureAngle,
-                clearance=clearance,
-                backlash=backlash,
-                involute_facets = involute_facets,
-                flat=true);             
+            oi("oobbHolesCircle",width=width);
+            oi("bearing606");
         }
-        oi("oobbHolesCircle",width=width);
-    }
+    
 
     
     
