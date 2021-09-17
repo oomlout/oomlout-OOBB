@@ -29,7 +29,28 @@ module GE_GM1(width){
     
 }
 
+module GE_01_606(width,depth=6){
+    difference(){
+        union(){
+            OOBBgear(width=width,depth=depth);    
+            oi("cylinder",rad=20/2,depth=7,z=7);
+        }
+        oi("holeM6");
+        oi("bearing606",z=7);
+    }
+}
+
 module GE(width,depth=3){
+        difference(){
+            OOBBgear(width=width,depth=depth);
+            oi("oobbHolesCircle",width=width);
+            oi("bearing606");
+        }
+        
+}
+
+
+module OOBBgear(width,depth){
 
     
     /////////////////////// TEST SECTION
@@ -46,7 +67,7 @@ module GE(width,depth=3){
     clearance2=5;
     clearance3=10;
     
-    backlash=0.25;
+    backlash=0.75;
     backlash1=0;
     backlash2=1;
     backlash3=2;
@@ -101,11 +122,10 @@ module GE(width,depth=3){
     // 45 * 2pi =  282.6
     // 45 * 180 =  8100
     // https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/MCAD#bevel_gear()
+      
     
-    
-        difference(){
-            translate([0,0,-depth]){
-                linear_extrude(depth){
+        translate([0,0,-depth]){
+                    linear_extrude(depth){
                     gear(   number_of_teeth=numTeeth,
                         circular_pitch=circularPitch,
                         bore_diameter=0,
@@ -116,14 +136,6 @@ module GE(width,depth=3){
                         flat=true);             
                 }
             }
-
-            oi("oobbHolesCircle",width=width);
-            oi("bearing606");
-        }
-    
-
-    
-    
     
     
 }

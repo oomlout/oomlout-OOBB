@@ -371,7 +371,9 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 ///////////////
                 // GE PARTS 
             }else if(item == "GE-01-GM1"){
-                GE_GM1(w); //needs to be before filter   
+                GE_GM1(w); //needs to be before filter 
+            }else if(item == "GE-01-606"){
+                GE_01_606(w);  
             }else if(item == "GE-03-GM1"){
                 GE_GM1(w); //needs to be before filter   
             }else if(item == "GE-03-01-LI"){
