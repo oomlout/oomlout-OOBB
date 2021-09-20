@@ -57,7 +57,7 @@ module OOBBgear(width,depth){
     //https://github.com/openscad/MCAD/blob/master/involute_gears.scad
     
     
-    pressureAngle=14.5; 
+    pressureAngle=20; 
     pressureAngle1=28.5; //default
     pressureAngle2=20; // to try
     pressureAngle3=14.5; // old fashion

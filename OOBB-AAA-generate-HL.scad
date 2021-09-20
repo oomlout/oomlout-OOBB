@@ -20,24 +20,14 @@ module HL_N20_03_03(width,height){
 }
 
 module HL_GM1_03_03_BP6803(width,height){
-    wiringWidth = 35;
-    wiringHeight = 13;
-    wiringDepth = 4;
+    jointOffset = OOBBgv("HL-GM1-JOINTOFFSET");
     shift = 4;
-    space = 0.25;
-    plateThickness = 3.75;
-    join = 9;
-    topDepth=plateThickness+join; //plate thickness, plus distance to tab plus thickness of tab, plus nut height
-    botDepth=plateThickness+OOBBgv("GMOT-01-DEPTH")-join;
-    bottomLevel=-OOBBgv("GMOT-01-DEPTH");
-    totalDepth=topDepth+botDepth;
     
     translate([0,0,40]){
         //HL_GM1_03_03(width,height);
     }
     difference(){
         bearingDepth=gv("BEARING-6803-DEPTH");
-        h=-totalDepth+plateThickness;
         union(){
             oi("oobbBase",width=width,height=height,depth=bearingDepth,z=0);
             oi("oobbBase",x=-shift,width=width,height=height,depth=bearingDepth,z=0);
@@ -49,11 +39,11 @@ module HL_GM1_03_03_BP6803(width,height){
         oi("roundedClearanceM12",x=-15,y=15,rotZ=90);
         oi("roundedClearanceM12",x=-15,y=-15,rotZ=180);
         //joiner
-        oi("holeM3",x=0,y=16);
-        oi("capscrewM3",x=0,y=16,z=-bearingDepth+gv("NUT-M3-HEIGHT"),depth=gv("NUT-M3-HEIGHT"));
+        oi("holeM3",x=0,y=jointOffset);
+        oi("countersunkM3",x=0,y=jointOffset,z=-bearingDepth,depth=gv("NUT-M3-HEIGHT"),rotY=180);
 
-        oi("holeM3",x=0,y=-16);
-        oi("capscrewM3",x=0,y=-16,z=-bearingDepth+gv("NUT-M3-HEIGHT"),depth=gv("NUT-M3-HEIGHT"));
+        oi("holeM3",x=0,y=-jointOffset);
+        oi("countersunkM3",x=0,y=-jointOffset,z=-bearingDepth,depth=gv("NUT-M3-HEIGHT"),rotY=180);
         
     }
 }
@@ -119,18 +109,19 @@ module HL_GM1_03_03_HOLES(width,height,join,plateThickness,botDepth,motorOffset)
     oi("nutM3",x=OOBBgv("GMOT-01-HOLE3X"),y=OOBBgv("GMOT-01-HOLE3Y"),z=bottomLevel-plateThickness+botDepth,depth=botDepth);
     
     //joiner
-    jointOffset = 16;
+    jointOffset = OOBBgv("HL-GM1-JOINTOFFSET");
     nutHeight= bottomLevel + 4;
     oi("holeM3",x=0,y=jointOffset);
-    oi("capscrewM3",x=0,y=jointOffset,z=plateThickness);
+    oi("countersunkM3",x=0,y=jointOffset,z=plateThickness);
     oi("nutM3Slot",x=0,y=jointOffset,z=nutHeight-motorOffset,depth=4,rotZ=180);
 
     oi("holeM3",x=0,y=-jointOffset);
-    oi("capscrewM3",x=0,y=-jointOffset,z=plateThickness);
+    oi("countersunkM3",x=0,y=-jointOffset,z=plateThickness);
     oi("nutM3Slot",x=0,y=-jointOffset,z=nutHeight-motorOffset,depth=4);
     
     oi("holeM3",x=OOBBgv("GMOT-01-HOLE1X"),y=0);
-    oi("capscrewM3",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=plateThickness);
+    oi("slot",rad=holeM3,x=OOBBgv("GMOT-01-HOLE1X"),y=0,rotZ=180,depth=OOBBgv("GMOT-01-DEPTH"),z=plateThickness+motorOffset);
+    oi("countersunkM3",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=plateThickness);
     oi("nutM3Slot",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=nutHeight-motorOffset,depth=4,rotZ=90);
     
     
@@ -138,7 +129,9 @@ module HL_GM1_03_03_HOLES(width,height,join,plateThickness,botDepth,motorOffset)
     oi("holeM6",x=15,y=15);
     oi("holeM6",x=15,y=-15);
     oi("holeM6",x=-15,y=15);
+    oi("slot",rad=holeM6,x=-15,y=15,rotZ=-90,depth=OOBBgv("GMOT-01-DEPTH"),z=plateThickness+motorOffset);
     oi("holeM6",x=-15,y=-15);
+    oi("slot",rad=holeM6,x=-15,y=-15,rotZ=90,depth=OOBBgv("GMOT-01-DEPTH"),z=plateThickness+motorOffset);
     
     /*  Now soldered on    
         //wiring      

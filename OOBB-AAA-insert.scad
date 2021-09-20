@@ -550,4 +550,10 @@ function OOBBgv(name) =
     name=="GMOT-01-HOLE2Y"     ? 9 :
     name=="GMOT-01-HOLE3X"     ? -20 :
     name=="GMOT-01-HOLE3Y"     ? -9 :
+//HL-GM1
+    name=="HL-GM1-JOINTOFFSET" ? 17:
+
+
     "ERROR";
+  
+    
