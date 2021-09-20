@@ -33,7 +33,7 @@ module GE_01_606(width,depth=6){
     difference(){
         union(){
             OOBBgear(width=width,depth=depth);    
-            oi("cylinder",rad=20/2,depth=7,z=7);
+            oi("cylinder",rad=25/2,depth=7,z=7);
         }
         oi("holeM6");
         oi("bearing606",z=7);
