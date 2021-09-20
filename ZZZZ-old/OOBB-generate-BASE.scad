@@ -647,3 +647,11 @@ module OOBBPLOutlineComplete(wid,hei){
     
 }
 
+module OOBBHole3D(OOx,OOy){
+    height=50;    
+    z=height-10;
+    rad=OOBBHole;
+    //OOBBHole3DRadiusComplete(OOx*OOBBSpacing,OOy*OOBBSpacing,rad,height,z);
+    oi("holeM6",x=OOx*OOBBSpacing,y=OOy*OOBBSpacing);
+}
+

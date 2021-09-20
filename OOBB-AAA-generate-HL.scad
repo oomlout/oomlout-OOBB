@@ -45,6 +45,7 @@ module HL_GM1_03_03_BP6803(width,height){
         oi("holeM3",x=0,y=-jointOffset);
         oi("countersunkM3",x=0,y=-jointOffset,z=-bearingDepth,depth=gv("NUT-M3-HEIGHT"),rotY=180);
         
+        
     }
 }
 
@@ -76,7 +77,7 @@ module HL_GM1_03_03(width,height){
                 //oi("oobbBase",y=-shift,width=width,height=height,depth=depth,z=plateThickness);
                 //oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=plateThickness);
             }
-            HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness,botDepth=botDepth,motorOffset=motorOffset);
+            HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness,botDepth=botDepth,motorOffset=motorOffset,totalDepth=totalDepth);
             }
         }
     if(extra=="NONE" || extra=="BOTTOM"){
@@ -90,36 +91,42 @@ module HL_GM1_03_03(width,height){
                     //oi("oobbBase",y=-shift,width=width,height=height,depth=depth,z=plateThickness);
                     //oi("oobbBase",x=-shift,y=-shift,width=width,height=height,depth=depth,z=plateThickness);
                 }
-                HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness,botDepth=botDepth,motorOffset =motorOffset);
+                HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness,botDepth=botDepth,motorOffset =motorOffset,totalDepth=totalDepth);
                 oi("roundedClearanceM12",x=15,y=15,depth=gv("NUT-M6-DEPTH"),z=bottomOfPart+gv("NUT-M6-DEPTH"));
                 oi("roundedClearanceM12",x=15,y=-15,rotZ=-90,depth=gv("NUT-M6-DEPTH"),z=bottomOfPart+gv("NUT-M6-DEPTH"));
                 }
             //add plate to cover bottom of mounting holes
-            //oi("cube",depth=1,x=-20,y=0,z=-plateThickness+1+bottomLevel,width=8,height=24);  (removed because now 25mm thick) 
+            //oi("cube",depth=1,x=-20,y=0,z=-plateThickness+1+bottomLevel,width=8,height=24); 
             }
         }
             
 }
 
-module HL_GM1_03_03_HOLES(width,height,join,plateThickness,botDepth,motorOffset){
+module HL_GM1_03_03_HOLES(width,height,join,plateThickness,botDepth,motorOffset,totalDepth){
     bottomLevel=-OOBBgv("GMOT-01-DEPTH");
-    oi("gearMotor1",ex=plateThickness+motorOffset,rad=0,rotZ=0,z=-motorOffset);//shifted to create bolt clearance (6-3.75=2.25)
+    topLevel=plateThickness;
+
+    oi("gearMotor1",ex=plateThickness+motorOffset,rad=0.5,rotZ=0,z=-motorOffset);//shifted to create bolt clearance (6-3.75=2.25)
     //oi("cylinder",rad=gv("NUTM3WIDTH")/2+0.5,x=OOBBgv("GMOT-01-HOLE1X"),y=OOBBgv("GMOT-01-HOLE1Y"),z=-9-motorOffset,depth=6); (clearance for nut when using three scres to secure motor)
-    oi("nutM3",x=OOBBgv("GMOT-01-HOLE2X"),y=OOBBgv("GMOT-01-HOLE2Y"),z=bottomLevel-plateThickness+botDepth,depth=botDepth);
-    oi("nutM3",x=OOBBgv("GMOT-01-HOLE3X"),y=OOBBgv("GMOT-01-HOLE3Y"),z=bottomLevel-plateThickness+botDepth,depth=botDepth);
+    nutClearance = 1;
+    nutSurroundClearance = 0.5;
+    oi("nutM3",x=OOBBgv("GMOT-01-HOLE2X"),y=OOBBgv("GMOT-01-HOLE2Y"),z=bottomLevel-plateThickness+botDepth+nutClearance,depth=botDepth-nutClearance,rad=nutSurroundClearance);
+    oi("nutM3",x=OOBBgv("GMOT-01-HOLE3X"),y=OOBBgv("GMOT-01-HOLE3Y"),z=bottomLevel-plateThickness+botDepth+nutClearance,depth=botDepth-nutClearance,rad=nutSurroundClearance);
     
     //joiner
     jointOffset = OOBBgv("HL-GM1-JOINTOFFSET");
-    nutHeight= bottomLevel + 4;
-    oi("holeM3",x=0,y=jointOffset);
-    oi("countersunkM3",x=0,y=jointOffset,z=plateThickness);
-    oi("nutM3Slot",x=0,y=jointOffset,z=nutHeight-motorOffset,depth=4,rotZ=180);
-
-    oi("holeM3",x=0,y=-jointOffset);
-    oi("countersunkM3",x=0,y=-jointOffset,z=plateThickness);
-    oi("nutM3Slot",x=0,y=-jointOffset,z=nutHeight-motorOffset,depth=4);
     
-    oi("holeM3",x=OOBBgv("GMOT-01-HOLE1X"),y=0);
+    oi("holeM3",x=0,y=jointOffset,z=topLevel,depth=totalDepth-nutClearance);
+    oi("countersunkM3",x=0,y=jointOffset,z=plateThickness);
+    nutSlotDepth=6;
+    nutHeight= bottomLevel + nutSlotDepth + 2;
+    oi("nutM3Slot",x=0,y=jointOffset+0.5,z=nutHeight-motorOffset,depth=nutSlotDepth,rotZ=180);
+
+    oi("holeM3",x=0,y=-jointOffset,z=topLevel,depth=totalDepth-nutClearance);
+    oi("countersunkM3",x=0,y=-jointOffset,z=plateThickness);
+    oi("nutM3Slot",x=0,y=-jointOffset-0.5,z=nutHeight-motorOffset,depth=nutSlotDepth);
+    
+    oi("holeM3",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=topLevel,depth=totalDepth-nutClearance);
     oi("slot",rad=holeM3,x=OOBBgv("GMOT-01-HOLE1X"),y=0,rotZ=180,depth=OOBBgv("GMOT-01-DEPTH"),z=plateThickness+motorOffset);
     oi("countersunkM3",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=plateThickness);
     oi("nutM3Slot",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=nutHeight-motorOffset,depth=4,rotZ=90);

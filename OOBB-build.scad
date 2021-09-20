@@ -16,7 +16,7 @@ o="3D";
         //m="GE-01-606";
 
     //HL
-        m="HL-GM1-03-03";
+        //m="HL-GM1-03-03";
         //m="HL-GM1-03-03-BP6803";
         //m="HL-GM1-04-03";
         //m="HL-GM1-03-03";
@@ -56,9 +56,9 @@ o="3D";
  
 w=3;
 h=3;
-extra="NONE";
+//extra="NONE";
 //extra="TOP";
-//extra="BOTTOM";
+extra="BOTTOM";
 //extra="WIRINGBLOCK";
 
 

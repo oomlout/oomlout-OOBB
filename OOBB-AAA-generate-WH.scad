@@ -2,8 +2,8 @@ module WH_03_GM1(width){
     extr=21;
     difference(){
         union(){
-            OOBB_WH_SOLID(width);
-            
+            //OOBB_WH_SOLID(width);
+            OOBB_WH_SOLID(3.33); //to fit o-rings I have
             oi("cylinder",rad=17.1/2,depth=extr,z=extr);
         }
         oi("gearMotor1Shaft",x=0,y=0,z=extr,rad=0.175,depth=extr,ex=extr);
