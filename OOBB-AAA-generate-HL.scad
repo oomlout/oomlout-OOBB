@@ -23,9 +23,8 @@ module HL_GM1_03_03_BP6803(width,height){
     jointOffset = OOBBgv("HL-GM1-JOINTOFFSET");
     shift = 4;
     
-    translate([0,0,40]){
-        //HL_GM1_03_03(width,height);
-    }
+    oi("HL-GM1-03-03",z=-5-1.75-2);
+
     difference(){
         bearingDepth=gv("BEARING-6803-DEPTH");
         union(){
@@ -40,10 +39,14 @@ module HL_GM1_03_03_BP6803(width,height){
         oi("roundedClearanceM12",x=-15,y=-15,rotZ=180);
         //joiner
         oi("holeM3",x=0,y=jointOffset);
-        oi("countersunkM3",x=0,y=jointOffset,z=-bearingDepth,depth=gv("NUT-M3-HEIGHT"),rotY=180);
+        oi("countersunkM3",x=0,y=jointOffset,z=0,rotY=0);
 
         oi("holeM3",x=0,y=-jointOffset);
-        oi("countersunkM3",x=0,y=-jointOffset,z=-bearingDepth,depth=gv("NUT-M3-HEIGHT"),rotY=180);
+        oi("countersunkM3",x=0,y=-jointOffset,z=0,rotY=0);
+        
+        //Motor holding screw
+        oi("hole",x=OOBBgv("GMOT-01-HOLE2X"),y=OOBBgv("GMOT-01-HOLE2Y"),rad=gv("CAPSCREW-M3-TOP"));
+        oi("hole",x=OOBBgv("GMOT-01-HOLE3X"),y=OOBBgv("GMOT-01-HOLE3Y"),rad=gv("CAPSCREW-M3-TOP"));
         
         
     }
@@ -96,7 +99,7 @@ module HL_GM1_03_03(width,height){
                 oi("roundedClearanceM12",x=15,y=-15,rotZ=-90,depth=gv("NUT-M6-DEPTH"),z=bottomOfPart+gv("NUT-M6-DEPTH"));
                 }
             //add plate to cover bottom of mounting holes
-            //oi("cube",depth=1,x=-20,y=0,z=-plateThickness+1+bottomLevel,width=8,height=24); 
+            oi("cube",depth=1,x=-20,y=0,z=-plateThickness+1+bottomLevel,width=8,height=24); 
             }
         }
             
@@ -106,7 +109,7 @@ module HL_GM1_03_03_HOLES(width,height,join,plateThickness,botDepth,motorOffset,
     bottomLevel=-OOBBgv("GMOT-01-DEPTH");
     topLevel=plateThickness;
 
-    oi("gearMotor1",ex=plateThickness+motorOffset,rad=0.5,rotZ=0,z=-motorOffset);//shifted to create bolt clearance (6-3.75=2.25)
+    oi("gearMotor1",ex=plateThickness+motorOffset,rad=0.75,rotZ=0,z=-motorOffset);//shifted to create bolt clearance (6-3.75=2.25)
     //oi("cylinder",rad=gv("NUTM3WIDTH")/2+0.5,x=OOBBgv("GMOT-01-HOLE1X"),y=OOBBgv("GMOT-01-HOLE1Y"),z=-9-motorOffset,depth=6); (clearance for nut when using three scres to secure motor)
     nutClearance = 1;
     nutSurroundClearance = 0.5;
@@ -119,7 +122,7 @@ module HL_GM1_03_03_HOLES(width,height,join,plateThickness,botDepth,motorOffset,
     oi("holeM3",x=0,y=jointOffset,z=topLevel,depth=totalDepth-nutClearance);
     oi("countersunkM3",x=0,y=jointOffset,z=plateThickness);
     nutSlotDepth=6;
-    nutHeight= bottomLevel + nutSlotDepth + 2;
+    nutHeight= bottomLevel + nutSlotDepth;
     oi("nutM3Slot",x=0,y=jointOffset+0.5,z=nutHeight-motorOffset,depth=nutSlotDepth,rotZ=180);
 
     oi("holeM3",x=0,y=-jointOffset,z=topLevel,depth=totalDepth-nutClearance);
@@ -129,7 +132,7 @@ module HL_GM1_03_03_HOLES(width,height,join,plateThickness,botDepth,motorOffset,
     oi("holeM3",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=topLevel,depth=totalDepth-nutClearance);
     oi("slot",rad=holeM3,x=OOBBgv("GMOT-01-HOLE1X"),y=0,rotZ=180,depth=OOBBgv("GMOT-01-DEPTH"),z=plateThickness+motorOffset);
     oi("countersunkM3",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=plateThickness);
-    oi("nutM3Slot",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=nutHeight-motorOffset,depth=4,rotZ=90);
+    oi("nutM3Slot",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=nutHeight-motorOffset-2,depth=4,rotZ=90);
     
     
     //OOBB Holes        
