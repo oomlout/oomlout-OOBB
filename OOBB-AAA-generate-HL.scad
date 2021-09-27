@@ -102,6 +102,8 @@ module HL_GM1_03_03(width,height){
                 HL_GM1_03_03_HOLES(join=join,plateThickness=plateThickness,botDepth=botDepth,motorOffset =motorOffset,totalDepth=totalDepth);
                 oi("roundedClearanceM12",x=15,y=15,depth=gv("NUT-M6-DEPTH"),z=bottomOfPart+gv("NUT-M6-DEPTH"));
                 oi("roundedClearanceM12",x=15,y=-15,rotZ=-90,depth=gv("NUT-M6-DEPTH"),z=bottomOfPart+gv("NUT-M6-DEPTH"));
+                //oi("slot",rad=holeM12,x=-15,y=15,rotZ=90,depth=gv("NUT-M6-DEPTH"),z=bottomOfPart+gv("NUT-M6-DEPTH"));
+                //oi("slot",rad=holeM12,x=-15,y=-15,rotZ=-90,depth=gv("NUT-M6-DEPTH"),z=bottomOfPart+gv("NUT-M6-DEPTH")); //hits gearmotor screws.
                 }
             //add plate to cover bottom of mounting holes
             oi("cube",depth=1,x=-20,y=0,z=-plateThickness+1+bottomLevel,width=8,height=24); 
@@ -145,8 +147,8 @@ module HL_GM1_03_03_HOLES(width,height,join,plateThickness,botDepth,motorOffset,
                 oi("countersunkM3",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=plateThickness);
                 oi("nutM3Slot",x=OOBBgv("GMOT-01-HOLE1X"),y=0,z=nutHeight-motorOffset-2,depth=4,rotZ=90);
     */
-    nutDepth=5;
-    nutClearance2=1.25;
+    nutDepth=3.5;
+    nutClearance2=0;
     
     oi("holeM3",x=0,y=jointOffset);
     oi("countersunkM3",x=0,y=jointOffset,z=plateThickness);
