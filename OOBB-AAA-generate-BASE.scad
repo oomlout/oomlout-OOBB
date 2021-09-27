@@ -21,7 +21,28 @@ if(o=="LAZE"){
     projection(){
         oi(m,width=w,height=h);
     }
-}
- else{
+}else if(o=="3DPR"){
+    //inset first layer
+    layerHeight=0.5;
+    layerInset=0.25;
+    union(){
+        //firstLayer
+            linear_extrude(layerHeight){
+                offset(-layerInset){
+                    projection(){
+                        intersection(){
+                            oi(m,width=w,height=h);
+                            oi("cube",width=1000,height=1000,depth=layerHeight);
+                        }
+                    }
+                }
+            }
+        //rest with firstlayer removed
+            difference(){
+                oi(m,width=w,height=h);
+                oi("cube",width=1000,height=1000,depth=layerHeight);
+            }
+        }            
+}else{     
      oi(m,width=w,height=h);
  }

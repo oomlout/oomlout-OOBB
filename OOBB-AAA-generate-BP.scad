@@ -1,9 +1,27 @@
 module BP(bearing,width,height){
-    depth=9;
+    depth=12;
+    bearingDepth=gv(str("BEARING-",bearing,"-DEPTH"));
     if(extra=="HALF"){
         intersection(){
             BP_FULL(bearing,width,height,depth);
             oi("cube",width=1000,height=1000,depth=depth/2);
+        }
+    }else if(extra=="TOP"){
+        translate([0,0,-(depth-bearingDepth)/2]){
+            rotate([0,180,0]){
+                intersection(){
+                    BP_FULL(bearing,width,height,depth);
+                    oi("cube",width=1000,height=1000,depth=(depth-bearingDepth)/2);
+                }
+            }
+        }
+    }else if(extra=="MIDDLE"){
+        translate([0,0,(depth-bearingDepth)/2]){
+            intersection(){
+                BP_FULL(bearing,width,height,depth);
+                echo("BearingDepth=",bearingDepth);
+                oi("cube",width=1000,height=1000,depth=bearingDepth,z=-(depth-bearingDepth)/2);
+            }
         }
     }else{
         BP_FULL(bearing,width,height,depth);
@@ -35,10 +53,10 @@ module BP_FULL(bearing,width,height,depth){
             //bottom
         oi("holeM3",y=0,x=-gv("OS1"));
         oi("countersunkM3",y=0,x=-gv("OS1"),z=-depth,rotY=180);
-        #oi("nutM3",y=0,x=-gv("OS1"),depth=gv("NUT-M3-DEPTH"));
+        oi("nutM3",y=0,x=-gv("OS1"),depth=gv("NUT-M3-DEPTH"));
         oi("holeM3",y=0,x=gv("OS1"));
         oi("countersunkM3",y=0,x=gv("OS1"),z=-depth,rotY=180);
-        #oi("nutM3",y=0,x=gv("OS1"),depth=gv("NUT-M3-DEPTH"));
+        oi("nutM3",y=0,x=gv("OS1"),depth=gv("NUT-M3-DEPTH"));
         //Bearing
         //echo(str("BEARING-",bearing,"-DEPTH"),gv(str("BEARING-",bearing,"-DEPTH")));
         oi(str("bearing",bearing),z=-(depth-gv(str("BEARING-",bearing,"-DEPTH")))/2);

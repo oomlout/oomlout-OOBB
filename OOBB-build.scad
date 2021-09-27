@@ -1,4 +1,6 @@
-o="3D";
+o="3DPR";
+//o="3D";
+//o="LAZE";
 
 //Mode
 
@@ -57,10 +59,14 @@ o="3D";
 w=3;
 h=3;
 //extra="NONE";
-//extra="TOP";
+extra="TOP";
 //extra="BOTTOM";
-extra="HALF";
+//extra="HALF";
+//extra="MIDDLE";
 //extra="WIRINGBLOCK";
 
 
 include <OOBB-generate-3DPR.scad>
+
+
+
