@@ -23,10 +23,11 @@ if(o=="LAZE"){
     }
 }else if(o=="3DPR"){
     //inset first layer
-    layerHeight=0.5;
+    layerHeight=0.4;
     layerInset=0.25;
     union(){
         //firstLayer
+        translate([0,0,0]){
             linear_extrude(layerHeight){
                 offset(-layerInset){
                     projection(){
@@ -37,10 +38,11 @@ if(o=="LAZE"){
                     }
                 }
             }
+        }
         //rest with firstlayer removed
             difference(){
                 oi(m,width=w,height=h);
-                oi("cube",width=1000,height=1000,depth=layerHeight);
+                oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
             }
         }            
 }else{     

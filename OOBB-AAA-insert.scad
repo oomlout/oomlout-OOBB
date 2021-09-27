@@ -346,7 +346,9 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 ///////////////
                 // BP PARTS 
             }else if(item == "BP-606-03-03"){
-                BP_606_03_03(); 
+                BP_606_03_03();             
+            }else if(item == "BP-6803-03-03"){
+                BP_6803_03_03(); 
             }else if(item == "BP-6806-04-04"){
                 BP_6806_04_04();    
             }else if(item == "BP-6810-05-05"){

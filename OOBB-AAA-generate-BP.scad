@@ -1,5 +1,5 @@
 module BP(bearing,width,height){
-    depth=12;
+    depth=9;
     bearingDepth=gv(str("BEARING-",bearing,"-DEPTH"));
     if(extra=="HALF"){
         intersection(){
@@ -44,19 +44,19 @@ module BP_FULL(bearing,width,height,depth){
         oi("holeM6",x=-gv("OS1"),y=-gv("OS1"));
         //joining Holes
             //top
-        oi("holeM3",x=0,y=-gv("OS1"));
-        oi("countersunkM3",x=0,y=-gv("OS1"),z=0);
-        oi("nutM3",x=0,y=-gv("OS1"),z=-depth,depth=gv("NUT-M3-DEPTH"),rotY=180);
-        oi("holeM3",x=0,y=gv("OS1"));
-        oi("countersunkM3",x=0,y=gv("OS1"),z=0);
-        oi("nutM3",x=0,y=gv("OS1"),z=-depth,depth=gv("NUT-M3-DEPTH"),rotY=180);
+        oi("holeM3",x=0,y=-gv("OS")-2);
+        oi("countersunkM3",x=0,y=-gv("OS")-2,z=0);
+        oi("nutM3",x=0,y=-gv("OS1")-2,z=-depth,depth=gv("NUT-M3-DEPTH"),rotY=180);
+        oi("holeM3",x=0,y=gv("OS1")+2);
+        oi("countersunkM3",x=0,y=gv("OS1")+2,z=0);
+        oi("nutM3",x=0,y=gv("OS1")+2,z=-depth,depth=gv("NUT-M3-DEPTH"),rotY=180);
             //bottom
-        oi("holeM3",y=0,x=-gv("OS1"));
-        oi("countersunkM3",y=0,x=-gv("OS1"),z=-depth,rotY=180);
-        oi("nutM3",y=0,x=-gv("OS1"),depth=gv("NUT-M3-DEPTH"));
-        oi("holeM3",y=0,x=gv("OS1"));
-        oi("countersunkM3",y=0,x=gv("OS1"),z=-depth,rotY=180);
-        oi("nutM3",y=0,x=gv("OS1"),depth=gv("NUT-M3-DEPTH"));
+        oi("holeM3",y=0,x=-gv("OS1")-2);
+        oi("countersunkM3",y=0,x=-gv("OS1")-2,z=-depth,rotY=180);
+        oi("nutM3",y=0,x=-gv("OS1")-2,depth=gv("NUT-M3-DEPTH"),rotZ=90);
+        oi("holeM3",y=0,x=gv("OS1")+2);
+        oi("countersunkM3",y=0,x=gv("OS1")+2,z=-depth,rotY=180);
+        oi("nutM3",y=0,x=gv("OS1")+2,depth=gv("NUT-M3-DEPTH"),rotZ=90);
         //Bearing
         //echo(str("BEARING-",bearing,"-DEPTH"),gv(str("BEARING-",bearing,"-DEPTH")));
         oi(str("bearing",bearing),z=-(depth-gv(str("BEARING-",bearing,"-DEPTH")))/2);

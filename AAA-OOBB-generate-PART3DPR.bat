@@ -28,4 +28,4 @@ SET MODE=%PART%
 
 SET STYLE=3DPR
 del %FILEFULL3DPR%.stl
-openscad -o %FILEFULL3DPR%.stl -D "o=\"3D\";w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"" OOBB-generate-%STYLE%.scad
+openscad -o %FILEFULL3DPR%.stl -D "o=\"3DPR\";w=%WIDTH%;h=%HEIGHT%;m=\"%MODE%\";extra=\"%EXTRA%\"" OOBB-generate-%STYLE%.scad
