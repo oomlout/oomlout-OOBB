@@ -83,7 +83,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("holeM3",x=-20,y=9);
         oi("holeM3",x=-20,y=-9);
         if(ex != 0){
-            oi("countersunkM3",x=13.5,y=0,z=ex);
+            if(holes) oi("countersunkM3",x=13.5,y=0,z=ex);
             oi("countersunkM3",x=-20,y=9,z=ex);
             oi("countersunkM3",x=-20,y=-9,z=ex);
         }
@@ -389,7 +389,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             }else if(item == "HL-N20-03-03"){
                 HL_N20_03_03(w,h);
             }else if(item == "HL-GM1-03-03"){
-                HL_GM1_03_03(w,h);
+                HL_GM1_03_03(w,h,ex=ex);
             }else if(item == "HL-GM1-03-03-BP6803"){
                 HL_GM1_03_03_BP6803(w,h);
             }else if(item == "HL-GM1-04-03"){
