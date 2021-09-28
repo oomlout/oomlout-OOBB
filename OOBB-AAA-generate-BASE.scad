@@ -24,7 +24,7 @@ if(o=="LAZE"){
 }else if(o=="3DPR"){
     //inset first layer
     layerHeight=0.4;
-    layerInset=0.25;
+    layerInset=0.35;
     union(){
         //firstLayer
         translate([0,0,0]){

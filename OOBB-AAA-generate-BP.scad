@@ -1,5 +1,5 @@
 module BP(bearing,width,height){
-    depth=9;
+    depth=12;
     bearingDepth=gv(str("BEARING-",bearing,"-DEPTH"));
     if(extra=="HALF"){
         intersection(){
