@@ -44,20 +44,44 @@ module BP_FULL(bearing,width,height,depth){
         oi("holeM6",x=gv("OS1"),y=-gv("OS1"));
         oi("holeM6",x=-gv("OS1"),y=-gv("OS1"));
         //joining Holes
-            //top
-        oi("holeM3",x=0,y=-gv("OS")-2);
-        oi("countersunkM3",x=0,y=-gv("OS")-2,z=0);
-        oi("nutM3",x=0,y=-gv("OS1")-2,z=-depth,depth=gv("NUT-M3-DEPTH"),rotY=180);
-        oi("holeM3",x=0,y=gv("OS1")+2);
-        oi("countersunkM3",x=0,y=gv("OS1")+2,z=0);
-        oi("nutM3",x=0,y=gv("OS1")+2,z=-depth,depth=gv("NUT-M3-DEPTH"),rotY=180);
-            //bottom
-        oi("holeM3",y=0,x=-gv("OS1")-2);
-        oi("countersunkM3",y=0,x=-gv("OS1")-2,z=-depth,rotY=180);
-        oi("nutM3",y=0,x=-gv("OS1")-2,depth=gv("NUT-M3-DEPTH"),rotZ=90);
-        oi("holeM3",y=0,x=gv("OS1")+2);
-        oi("countersunkM3",y=0,x=gv("OS1")+2,z=-depth,rotY=180);
-        oi("nutM3",y=0,x=gv("OS1")+2,depth=gv("NUT-M3-DEPTH"),rotZ=90);
+        
+        //top
+        if(bearing[0]=="6" && bearing[1]=="0" &&bearing[2]=="6"){
+            shift = 9.445;
+            //606 bearings to keep all OOBB holes
+            oi("holeM3",x=shift,y=-shift);
+            oi("countersunkM3",x=shift,y=-shift,z=0);
+            oi("nutM3",x=shift,y=-shift,z=-depth,depth=gv("NUT-M3-DEPTH"),rotY=180);
+            
+            oi("holeM3",x=-shift,y=shift);
+            oi("countersunkM3",x=-shift,y=shift,z=0);
+            oi("nutM3",x=-shift,y=shift,z=-depth,depth=gv("NUT-M3-DEPTH"),rotY=180);
+                //bottom
+            oi("holeM3",x=shift,y=shift);
+            oi("countersunkM3",x=shift,y=shift,z=-depth,rotY=180);
+            oi("nutM3",x=shift,y=shift,depth=gv("NUT-M3-DEPTH"),rotZ=90);
+            
+            oi("holeM3",x=-shift,y=-shift);
+            oi("countersunkM3",x=-shift,y=-shift,z=-depth,rotY=180);
+            oi("nutM3",x=-shift,y=-shift,depth=gv("NUT-M3-DEPTH"),rotZ=90);
+        }else{
+            //bearings other than 606
+            oi("holeM3",x=0,y=-gv("OS")-2);
+            oi("countersunkM3",x=0,y=-gv("OS")-2,z=0);
+            oi("nutM3",x=0,y=-gv("OS1")-2,z=-depth,depth=gv("NUT-M3-DEPTH"),rotY=180);
+            
+            oi("holeM3",x=0,y=gv("OS1")+2);
+            oi("countersunkM3",x=0,y=gv("OS1")+2,z=0);
+            oi("nutM3",x=0,y=gv("OS1")+2,z=-depth,depth=gv("NUT-M3-DEPTH"),rotY=180);
+                //bottom
+            oi("holeM3",y=0,x=-gv("OS1")-2);
+            oi("countersunkM3",y=0,x=-gv("OS1")-2,z=-depth,rotY=180);
+            oi("nutM3",y=0,x=-gv("OS1")-2,depth=gv("NUT-M3-DEPTH"),rotZ=90);
+            
+            oi("holeM3",y=0,x=gv("OS1")+2);
+            oi("countersunkM3",y=0,x=gv("OS1")+2,z=-depth,rotY=180);
+            oi("nutM3",y=0,x=gv("OS1")+2,depth=gv("NUT-M3-DEPTH"),rotZ=90);
+        }        
         //Bearing
         //echo(str("BEARING-",bearing,"-DEPTH"),gv(str("BEARING-",bearing,"-DEPTH")));
         oi(str("bearing",bearing),z=-(depth-gv(str("BEARING-",bearing,"-DEPTH")))/2);
