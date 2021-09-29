@@ -404,7 +404,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 ///////////////
                 // JA PARTS 
             }else if(item[0] == "J" && item[1] == "A" && item[2] == "-"){
-                OOBBJA3D(w,h,12);
+                JA(w,h,9);
 
                 ///////////////
                 // PL PARTS 
