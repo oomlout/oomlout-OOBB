@@ -16,10 +16,10 @@ module GE_LI(width,height){
 }
 
 module GE_GM1(width){
-    extr=21-6;
+    extr=18-6;
     difference(){
         union(){
-            GE(width=width,depth=6);
+            oi("GE-01",z=6);
             oi("cylinder",rad=17.1/2,depth=extr,z=extr+6);
         
             }
@@ -40,11 +40,11 @@ module GE_01_606(width,depth=6){
     }
 }
 
-module GE(width,depth=3){
+module GE(width,depth=3,bearing=false){
         difference(){
             OOBBgear(width=width,depth=depth);
             oi("oobbHolesCircle",width=width);
-            oi("bearing606");
+            if(bearing) oi("bearing606");
         }
         
 }

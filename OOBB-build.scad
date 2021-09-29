@@ -1,4 +1,4 @@
-//o="3DPR";
+//="3DPR";
 o="3D";
 //o="LAZE";
 
@@ -14,15 +14,15 @@ o="3D";
     //GE
         //m="GE-03";
         //m="GE-03-01-LI";
-        //m="GE-01-GM1";
+        m="GE-01-GM1";
         //m="GE-01-606";
 
     //HL
         //m="HL-GM1-03-03";
-        m="HL-GM1-03-03-BP6803";
+        //m="HL-GM1-03-03-BP6803";
         //m="HL-GM1-04-03";
         //m="HL-GM1-03-03";
-      //m="HL-N20-03-03";
+        //m="HL-N20-03-03";
         //m="HL-RC-03-03";
         //m="HL-CN-03-03";
     
@@ -56,12 +56,12 @@ o="3D";
         //m="WH-03-GM1";
         //m="WH-03-N20";
  
-w=3;
+w=1;
 h=3;
 //extra="NONE";
-extra="TOP";
+//extra="TOP";
 //extra="BOTTOM";
-//extra="HALF";
+extra="HALF";
 //extra="MIDDLE";
 //extra="WIRINGBLOCK";
 
@@ -70,4 +70,3 @@ include <OOBB-generate-3DPR.scad>
 
 
 
-//

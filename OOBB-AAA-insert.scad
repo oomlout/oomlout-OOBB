@@ -246,7 +246,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         }else{
             dep=2.54+ rad;
             ext=ex;
-            echo("TEST");
+            //echo("TEST");
             union(){
                 oi("cube",x=11.27,y=0,width=22.54+ext,height=5.08+ext,depth=dep);
                 oi("cube",x=7.27,y=0,width=2.54+ext,height=10.16+ext,depth=dep);
@@ -376,6 +376,8 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 GE_GM1(w); //needs to be before filter 
             }else if(item == "GE-01-606"){
                 GE_01_606(w);  
+            }else if(item == "GE-03-606"){
+                GE(w,6,bearing=true);
             }else if(item == "GE-03-GM1"){
                 GE_GM1(w); //needs to be before filter   
             }else if(item == "GE-03-01-LI"){

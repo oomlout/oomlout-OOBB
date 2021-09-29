@@ -1,5 +1,6 @@
 module BP(bearing,width,height){
-    depth=12;
+    depth = extra=="HALF" ? 9 : 12;
+    
     bearingDepth=gv(str("BEARING-",bearing,"-DEPTH"));
     if(extra=="HALF"){
         intersection(){
@@ -19,7 +20,7 @@ module BP(bearing,width,height){
         translate([0,0,(depth-bearingDepth)/2]){
             intersection(){
                 BP_FULL(bearing,width,height,depth);
-                echo("BearingDepth=",bearingDepth);
+                //echo("BearingDepth=",bearingDepth);
                 oi("cube",width=1000,height=1000,depth=bearingDepth,z=-(depth-bearingDepth)/2);
             }
         }

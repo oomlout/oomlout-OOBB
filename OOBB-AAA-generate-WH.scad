@@ -1,5 +1,5 @@
 module WH_03_GM1(width){
-    extr=21;
+    extr=18;
     difference(){
         union(){
             //OOBB_WH_SOLID(width);
