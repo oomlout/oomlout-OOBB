@@ -1,5 +1,5 @@
-//o="3DPR";
-o="3D";
+o="3DPR";
+//o="3D";
 //o="LAZE";
 
 //Mode
@@ -19,7 +19,7 @@ o="3D";
 
     //HL
         //m="HL-GM1-03-03";
-        //m="HL-GM1-03-03-BP6803";
+        m="HL-GM1-03-03-BP6803";
         //m="HL-GM1-04-03";
         //m="HL-GM1-03-03";
         //m="HL-N20-03-03";
@@ -53,15 +53,15 @@ o="3D";
         //m="WI-BP-03-03-BA";
         //m="WI-BP-03-03-BAN";
     //WH
-        m="WH-03-GM1";
+        //m="WH-03-GM1";
         //m="WH-03-N20";
  
 w=3;
 h=3;
-//extra="NONE";
+extra="NONE";
 //extra="TOP";
 //extra="BOTTOM";
-extra="HALF";
+//extra="HALF";
 //extra="MIDDLE";
 //extra="WIRINGBLOCK";
 
