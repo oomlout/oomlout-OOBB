@@ -472,7 +472,13 @@ module oobbHolesCircle(OOWidth, middle=true){
   
 
 module gearMotor1Shaft(ex,depth,rad){
-    gearMotor1Shaft_TEST(ex,depth,rad);
+    //gearMotor1Shaft_TEST(ex,depth,rad);
+    //gearMotor1Shaft_CLASSIC(ex,depth,rad);
+    gearMotor1Shaft_M6(ex,depth,rad);
+}
+
+module gearMotor1Shaft_M6(ex,depth,rad){
+    oi("holeM6");
 }
 
 module gearMotor1Shaft_TEST(ex,depth,rad){
