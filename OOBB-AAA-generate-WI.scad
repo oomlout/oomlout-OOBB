@@ -77,14 +77,16 @@ module WI_BP_03_03_BAH(width,height){
 }
 
 module WI_XX_03_03(width,height,hole=true){
-    depth=3;
-    difference(){
-        oi("oobbBase",width=width,height=height,depth=depth);
-        if(hole){
-            oi("holeM8",x=0,y=8);
+    translate([0,0,0.4]){
+        depth=3;
+        difference(){
+            oi("oobbBase",width=width,height=height,depth=depth);
+            if(hole){
+                oi("holeM8",x=0,y=8);
+            }
+            WI_holes();
+            }    
         }
-        WI_holes();
-        }    
 }
 
 module WI_holes(){
