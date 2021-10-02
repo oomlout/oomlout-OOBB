@@ -1,10 +1,13 @@
 
 OOBBSpacing = 15;
 
-$fn = 500;
+
 
 include <OPSC-base.scad>
 
+$fn = 25;
+//$fn = 50;
+//$fn = 100;
 
 include <OOBB-AAA-generate-BP.scad>
 include <OOBB-AAA-generate-CI.scad>

@@ -83,7 +83,11 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("holeM3",x=-20,y=9);
         oi("holeM3",x=-20,y=-9);
         if(ex != 0){
-            if(holes) oi("countersunkM3",x=13.5,y=0,z=ex);
+            //echo("HOLES: ", holes);
+            if(holes == 0) {
+                oi("countersunkM3",x=13.5,y=0,z=ex);
+                //echo("     Including Countersink");
+            }
             oi("countersunkM3",x=-20,y=9,z=ex);
             oi("countersunkM3",x=-20,y=-9,z=ex);
         }
@@ -317,7 +321,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             }else if(item == "HL-N20-03-03"){
                 HL_N20_03_03(w,h);
             }else if(item == "HL-GM1-03-03"){
-                HL_GM1_03_03(w,h,ex=ex);
+                HL_GM1_03_03(w,h,ex=ex,holes=holes);
             }else if(item == "HL-GM1-03-03-BP6803"){
                 HL_GM1_03_03_BP6803(w,h);
             }else if(item == "HL-GM1-04-03"){
@@ -380,13 +384,11 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 WI_BP_03_03_CS(w,h);
             }else if(item == "WI-BP-03-03-NU"){
                 WI_BP_03_03_NU(w,h);
-            }else if(item == "WI-BP-03-03-BA"){
-                WI_BP_03_03_BA(w,h);
-            }else if(item == "WI-BP-03-03-BAH"){
-                WI_BP_03_03_BAH(w,h);
-            }else if(item == "WI-BP-03-03-BAN"){
-                WI_BP_03_03_BAN(w,h);
-            }            
+            }else if(item == "WI-BP-03-03"){
+                WI_BP_03_03(w,h);
+            }else if(item == "WI-BP-03-03-HO"){
+                WI_BP_03_03_HO(w,h);
+            }
             
             
             

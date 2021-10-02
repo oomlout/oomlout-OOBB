@@ -25,7 +25,7 @@ module HL_GM1_03_03_BP6803(width,height){
     
     if(extra=="TOP"){
         //oi("HL-GM1-03-03",z=0,ex=false);  // for top up printing (with supports)
-        oi("HL-GM1-03-03",z=-gv("BEARING-6803-DEPTH")+0.4,ex=false);  // for bottom up printing
+        oi("HL-GM1-03-03",z=-gv("BEARING-6803-DEPTH")+0.4,ex=false,holes=false);  // for bottom up printing
     }
     //translate([0,0,jointOffset-1]){   // for top up printing (with supports)
     
@@ -59,7 +59,7 @@ module HL_GM1_03_03_BP6803(width,height){
     }
 }
 
-module HL_GM1_03_03(width,height,ex=true){
+module HL_GM1_03_03(width,height,ex=true,holes=true){
     //ex is false if doing bearing and true if doing normal (to get rid of countersinks)
     wiringWidth = 35;
     wiringHeight = 13;
