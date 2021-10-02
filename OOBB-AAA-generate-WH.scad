@@ -5,7 +5,7 @@ module WH_03_GM1(width){
     difference(){
         union(){
             //OOBB_WH_SOLID(width);
-            WH(width=3.5,depth=wheelDepth); //to fit o-rings I have
+            //WH(width=3.5,depth=wheelDepth); //to fit o-rings I have
             oi("cylinder",rad=17.1/2,depth=extr,z=extr);
             oi("cylinder",rad=19/2,depth=bearingRing,z=wheelDepth+bearingRing);
         }

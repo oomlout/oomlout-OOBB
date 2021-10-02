@@ -98,9 +98,9 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             //difference(){
                 od=5.5+rad+default;                
                 cutout=1;
+
                 difference(){
-                    //main Shaft
-                    
+                    //main Shaft                    
                     union(){
                         oi("cylinder",rad=(od)/2,depth=depth);
                         //cone for bezel (chamfer)
@@ -109,25 +109,29 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                             oi("cone",rad2=od/2,rad=od/2+chamfer/2,depth=chamfer,z=-depth+chamfer);
                         }
                     }
+                
                     //flat sides
-                    union(){
-                        //get the long side of the triangle for the cutout
-                        cutoutSide=sqrt((chamfer)*(chamfer)+(chamfer)*(chamfer));
-                        difference(){
-                            //flat side positive
-                            oi("cube",width=cutout*2,height=od,x=od/2,depth=depth);
-                            //wedge cutout
-                            oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
-                            oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
-                        }
-                        difference(){
-                            //flat side positive
-                            oi("cube",width=cutout*2,height=od,x=-od/2,depth=depth);
-                            //wedge cutout
-                            oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
-                            oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
+                    #rotate([0,0,90]){
+                        union(){
+                            //get the long side of the triangle for the cutout
+                            cutoutSide=sqrt((chamfer)*(chamfer)+(chamfer)*(chamfer));
+                            difference(){
+                                //flat side positive
+                                oi("cube",width=cutout*2,height=od,x=od/2,depth=depth);
+                                //wedge cutout
+                                oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                                oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
+                            }
+                            difference(){
+                                //flat side positive
+                                oi("cube",width=cutout*2,height=od,x=-od/2,depth=depth);
+                                //wedge cutout
+                                oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                                oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
+                            }
                         }
                     }
+                
                 }
                 //
                 /*
