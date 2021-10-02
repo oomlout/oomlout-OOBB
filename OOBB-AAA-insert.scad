@@ -90,85 +90,7 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         //shaft
     }
     else if(item == "hexIDGearMotor1Shaft" || item=="gearMotor1Shaft"){
-        //shaft
-        chamfer=1;
-        union(){
-            default = 0;
-            //shaft
-            //difference(){
-                od=5.5+rad+default;                
-                cutout=1;
-
-                difference(){
-                    //main Shaft                    
-                    union(){
-                        oi("cylinder",rad=(od)/2,depth=depth);
-                        //cone for bezel (chamfer)
-                         if(ex > 4){
-                            oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
-                            oi("cone",rad2=od/2,rad=od/2+chamfer/2,depth=chamfer,z=-depth+chamfer);
-                        }
-                    }
-                
-                    //flat sides
-                    #rotate([0,0,90]){
-                        union(){
-                            //get the long side of the triangle for the cutout
-                            cutoutSide=sqrt((chamfer)*(chamfer)+(chamfer)*(chamfer));
-                            difference(){
-                                //flat side positive
-                                oi("cube",width=cutout*2,height=od,x=od/2,depth=depth);
-                                //wedge cutout
-                                oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
-                                oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
-                            }
-                            difference(){
-                                //flat side positive
-                                oi("cube",width=cutout*2,height=od,x=-od/2,depth=depth);
-                                //wedge cutout
-                                oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
-                                oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
-                            }
-                        }
-                    }
-                
-                }
-                //
-                /*
-                difference(){
-                    union(){
-                        
-                        }
-                    //main flat side
-                    //top chamfer
-                    intersection(){
-                        oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
-                        }
-                    intersection(){
-                        oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
-                        oi("cube",x=-1.75,y=-od/2,width=2.828,height=2.828,depth=od,rotX=90,rotY=45);
-                    }
-                }
-                */
-            //}
-            //cutout square
-            oi("cube",width=6,height=1.5,x=2.75,depth=depth);
-            //oi("cube",width=7.5,height=1.5,x=3.75,depth=depth);
-            //clearance hoop
-            difference(){
-                bigOD = 12;
-                //big cyulinder
-                oi("cylinder",rad=bigOD/2,depth=depth);
-                //little cylinder
-                
-                //trying smaller
-                oi("cylinder",rad=11/2,depth=depth);
-                oi("cube",width=7,height=20,depth=depth,x=-5.9);
-            }
-            
-        }
-        
-        
+        gearMotor1Shaft(ex=ex,depth=depth,rad=rad);        
     }else if(item == "hexIDGearMotor2Shaft" || item=="gearMotor2Shaft"){
         //shaft
         union(){
@@ -545,7 +467,160 @@ module oobbHolesCircle(OOWidth, middle=true){
             
             
 }
+  
+
+module gearMotor1Shaft(ex,depth,rad){
+    gearMotor1Shaft_TEST(ex,depth,rad);
+}
+
+module gearMotor1Shaft_TEST(ex,depth,rad){
+//shaft
+        chamfer=1;
+        #union(){
+            default = 0;
+            //shaft
+            //difference(){
+                od=5.5+rad+default;                
+                cutout=1;
     
+                /////// SHAFT START
+                difference(){
+                    //main Shaft                    
+                    union(){
+                        oi("cylinder",rad=(od)/2,depth=depth);
+                        //cone for bezel (chamfer)
+                         if(ex > 4){
+                            oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
+                            oi("cone",rad2=od/2,rad=od/2+chamfer/2,depth=chamfer,z=-depth+chamfer);
+                        }
+                    }                
+                    //flat sides
+                    rotate([0,0,0]){
+                        union(){
+                            //get the long side of the triangle for the cutout
+                            cutoutSide=sqrt((chamfer)*(chamfer)+(chamfer)*(chamfer));
+                            difference(){
+                                //flat side positive
+                                oi("cube",width=cutout*2,height=od,x=od/2,depth=depth);
+                                //wedge cutout
+                                oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                                oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
+                            }
+                            difference(){
+                                //flat side positive
+                                oi("cube",width=cutout*2,height=od,x=-od/2,depth=depth);
+                                //wedge cutout
+                                oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                                oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
+                            }
+                        }
+                    }
+                }
+                /////// SHAFT END
+                /////// CUTOUT START
+            oi("cube",width=6,height=1.5,x=2.75,depth=depth);
+            oi("cube",width=6,height=1.5,x=-2.75,depth=depth);
+
+            difference(){
+                bigOD = 12;
+                littleOD = 11;
+                //big cyulinder
+                oi("cylinder",rad=bigOD/2,depth=depth);
+                //little cylinder
+                
+                //trying smaller
+                oi("cylinder",rad=11/2,depth=depth);
+                oi("cube",width=20,height=7,depth=depth,y=-8);
+                oi("cube",width=20,height=7,depth=depth,y=8);
+            }
+            
+        }
+        
+            
+}
+
+module gearMotor1Shaft_CLASSIC(ex,depth,rad){
+//shaft
+        chamfer=1;
+        union(){
+            default = 0;
+            //shaft
+            //difference(){
+                od=5.5+rad+default;                
+                cutout=1;
+
+                difference(){
+                    //main Shaft                    
+                    union(){
+                        oi("cylinder",rad=(od)/2,depth=depth);
+                        //cone for bezel (chamfer)
+                         if(ex > 4){
+                            oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
+                            oi("cone",rad2=od/2,rad=od/2+chamfer/2,depth=chamfer,z=-depth+chamfer);
+                        }
+                    }
+                
+                    //flat sides
+                    rotate([0,0,90]){
+                        union(){
+                            //get the long side of the triangle for the cutout
+                            cutoutSide=sqrt((chamfer)*(chamfer)+(chamfer)*(chamfer));
+                            difference(){
+                                //flat side positive
+                                oi("cube",width=cutout*2,height=od,x=od/2,depth=depth);
+                                //wedge cutout
+                                oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                                oi("cube",x=1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
+                            }
+                            difference(){
+                                //flat side positive
+                                oi("cube",width=cutout*2,height=od,x=-od/2,depth=depth);
+                                //wedge cutout
+                                oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45);
+                                oi("cube",x=-1.75,y=-od/2,width=cutoutSide,height=cutoutSide,depth=od,rotX=90,rotY=45,z=-depth);
+                            }
+                        }
+                    }
+                
+                }
+                //
+                /*
+                difference(){
+                    union(){
+                        
+                        }
+                    //main flat side
+                    //top chamfer
+                    intersection(){
+                        oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
+                        }
+                    intersection(){
+                        oi("cone",rad=od/2,rad2=od/2+chamfer/2,depth=chamfer);
+                        oi("cube",x=-1.75,y=-od/2,width=2.828,height=2.828,depth=od,rotX=90,rotY=45);
+                    }
+                }
+                */
+            //}
+            //cutout square
+            oi("cube",width=6,height=1.5,x=2.75,depth=depth);
+            //oi("cube",width=7.5,height=1.5,x=3.75,depth=depth);
+            //clearance hoop
+            difference(){
+                bigOD = 12;
+                //big cyulinder
+                oi("cylinder",rad=bigOD/2,depth=depth);
+                //little cylinder
+                
+                //trying smaller
+                oi("cylinder",rad=11/2,depth=depth);
+                oi("cube",width=7,height=20,depth=depth,x=-5.9);
+            }
+            
+        }
+        
+            
+}
+
         
 function OOBBgv(name) =  
   //GMOT-01

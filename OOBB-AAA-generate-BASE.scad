@@ -1,6 +1,8 @@
 
 OOBBSpacing = 15;
 
+$fn = 500;
+
 include <OPSC-base.scad>
 
 
