@@ -18,6 +18,7 @@ o="3D";
         //m="GE-01-606";
 
     //HL
+        m="HL-B4AA-06-05";
         //m="HL-GM1-03-03";
         //m="HL-GM1-03-03-BP6803";
         //m="HL-GM1-04-03";
@@ -52,13 +53,13 @@ o="3D";
         //m="WI-HV-03-03";
         //m="WI-BP-03-03-BA";
         //m="WI-BP-03-03";
-        m="WI-BP-03-03-NU";
+        //m="WI-BP-03-03-NU";
     //WH
         //m="WH-03-GM1";
         //m="WH-03-N20";
  
-w=3;
-h=3;
+w=5;
+h=6;
 //extra="NONE";
 extra="TOP";
 //extra="BOTTOM";

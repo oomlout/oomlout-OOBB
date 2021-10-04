@@ -42,6 +42,15 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("cylinder",rad=holeM16D,x=-4.5,z=10,depth=10);
         
     }
+    else if(item == "B4AAS"){//4AA Switched Battery Box
+        oi("cube",width=65+ex,height=70+ex,z=20+ex,depth=20+ex);
+        //battery switch
+        oi("cube",x=20.5,y=18,width=14,height=14,depth=25,z=20+ex+25);
+        //screw hole
+        oi("holeM6",x=0,y=21,z=1,depth=25);
+        //wire hole
+        oi("cube",x=-25.5,y=46.5,z=20,depth=10,width=3,height=40);
+    }
     else if(item == "hexIDGearMotor2" || item=="gearMotor2" || item=="GMOT-01"){
         //motor
         oi("cube",x=-21.5,width=65+rad,height=22.5+rad,depth=21,z=0);
@@ -318,6 +327,8 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
 
                 ///////////////
                 // HL PARTS 
+            }else if(item == "HL-B4AA-06-05"){
+                HL_B4AA_06_05(w,h);
             }else if(item == "HL-N20-03-03"){
                 HL_N20_03_03(w,h);
             }else if(item == "HL-GM1-03-03"){

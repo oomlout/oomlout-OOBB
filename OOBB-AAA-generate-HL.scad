@@ -1,3 +1,21 @@
+module HL_B4AA_06_05(width,height){
+    depth=20+3;
+    
+    
+    difference(){
+        oi("oobbBase",width=width,height=height,depth=depth,z=depth);
+        //OOBB holes
+        //oi("holeM6",x=-(width-1)/2 * gv("OS") + 0*gv("OS"),y=(height-1)/2*gv("OS"));
+        oi("holeM6",x=-(width-1)/2 * gv("OS") + 1*gv("OS"),y=(height-1)/2*gv("OS"));
+        oi("holeM6",x=-(width-1)/2 * gv("OS") + 2*gv("OS"),y=(height-1)/2*gv("OS"));
+        oi("holeM6",x=-(width-1)/2 * gv("OS") + 3*gv("OS"),y=(height-1)/2*gv("OS"));
+        oi("holeM6",x=-(width-1)/2 * gv("OS") + 4*gv("OS"),y=(height-1)/2*gv("OS"));
+        oi("B4AAS",x=0,y=-8.5,ex=1,z=3);    
+    }
+    
+}
+
+
 module HL_N20_03_03(width,height){
     depth=12;
     echo("Building HL-N20-03-03");
