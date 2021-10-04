@@ -1,5 +1,5 @@
-//o="3DPR";
-o="3D";
+o="3DPR";
+//o="3D";
 //o="LAZE";
 
 //Mode
@@ -18,9 +18,9 @@ o="3D";
         //m="GE-01-606";
 
     //HL
-        m="HL-B4AA-06-05";
+        //m="HL-B4AA-06-05";
         //m="HL-GM1-03-03";
-        //m="HL-GM1-03-03-BP6803";
+        m="HL-GM1-03-03-BP6803";
         //m="HL-GM1-04-03";
         //m="HL-GM1-03-03";
         //m="HL-N20-03-03";
@@ -58,10 +58,10 @@ o="3D";
         //m="WH-03-GM1";
         //m="WH-03-N20";
  
-w=5;
-h=6;
-//extra="NONE";
-extra="TOP";
+w=3;
+h=3;
+extra="NONE";
+//extra="TOP";
 //extra="BOTTOM";
 //extra="HALF";
 //extra="MIDDLE";

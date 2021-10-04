@@ -46,10 +46,12 @@ module HL_GM1_03_03_BP6803(width,height){
         oi("HL-GM1-03-03",z=-gv("BEARING-6803-DEPTH")+0.4,ex=false,holes=false);  // for bottom up printing
     }
     //translate([0,0,jointOffset-1]){   // for top up printing (with supports)
+    bearingDepth=gv("BEARING-6803-DEPTH");
+    shiftExtra = extra=="NONE" ? bearingDepth-0.40001 : 0;
     
-        translate([0,0,0.4]){ //for bottom up printing
+        translate([0,0,0.4+shiftExtra]){ //for bottom up printing
                 difference(){
-                    bearingDepth=gv("BEARING-6803-DEPTH");
+                    
                     union(){
                         oi("oobbBase",width=width,height=height,depth=bearingDepth,z=0);
                         oi("oobbBase",x=-shift,width=width,height=height,depth=bearingDepth,z=0);
