@@ -45,11 +45,11 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     else if(item == "B4AAS"){//4AA Switched Battery Box
         oi("cube",width=65+ex,height=70+ex,z=20+ex,depth=20+ex);
         //battery switch
-        oi("cube",x=20.5,y=18,width=14,height=14,depth=25,z=20+ex+25);
+        oi("cube",x=20.5,y=26.5,width=14,height=14,depth=25,z=20+ex+25);
         //screw hole
-        oi("holeM6",x=0,y=21,z=1,depth=25);
+        oi("holeM6",x=0,y=29.5,z=1,depth=25);
         //wire hole
-        oi("cube",x=-25.5,y=46.5,z=20,depth=10,width=3,height=40);
+        oi("cube",x=-25.5,y=55,z=20,depth=10,width=3,height=40);
     }
     else if(item == "hexIDGearMotor2" || item=="gearMotor2" || item=="GMOT-01"){
         //motor
@@ -484,8 +484,8 @@ module oobbHolesCircle(OOWidth, middle=true){
 
 module gearMotor1Shaft(ex,depth,rad){
     //gearMotor1Shaft_TEST(ex,depth,rad);
-    //gearMotor1Shaft_CLASSIC(ex,depth,rad);
-    gearMotor1Shaft_M6(ex,depth,rad);
+    gearMotor1Shaft_CLASSIC(ex,depth,rad);
+    //gearMotor1Shaft_M6(ex,depth,rad);
 }
 
 module gearMotor1Shaft_M6(ex,depth,rad){
@@ -514,7 +514,7 @@ module gearMotor1Shaft_TEST(ex,depth,rad){
                         }
                     }                
                     //flat sides
-                    rotate([0,0,0]){
+                    rotate([0,0,90]){
                         union(){
                             //get the long side of the triangle for the cutout
                             cutoutSide=sqrt((chamfer)*(chamfer)+(chamfer)*(chamfer));
@@ -541,8 +541,8 @@ module gearMotor1Shaft_TEST(ex,depth,rad){
             oi("cube",width=6,height=1.5,x=-2.75,depth=depth);
 
             difference(){
-                bigOD = 12;
-                littleOD = 11;
+                bigOD = 14;
+                littleOD = 10.5;
                 //big cyulinder
                 oi("cylinder",rad=bigOD/2,depth=depth);
                 //little cylinder

@@ -10,7 +10,7 @@ module HL_B4AA_06_05(width,height){
         oi("holeM6",x=-(width-1)/2 * gv("OS") + 2*gv("OS"),y=(height-1)/2*gv("OS"));
         oi("holeM6",x=-(width-1)/2 * gv("OS") + 3*gv("OS"),y=(height-1)/2*gv("OS"));
         oi("holeM6",x=-(width-1)/2 * gv("OS") + 4*gv("OS"),y=(height-1)/2*gv("OS"));
-        oi("B4AAS",x=0,y=-8.5,ex=1,z=3);    
+        #oi("B4AAS",x=0,y=-8.5,ex=1,z=3);    
     }
     
 }

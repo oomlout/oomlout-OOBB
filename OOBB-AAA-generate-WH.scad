@@ -3,16 +3,17 @@ module WH_03_GM1(width){
     bearingRing=3.5;
     wheelDepth=9;
     difference(){
-        
-        union(){
-            WH(width=3.5,depth=wheelDepth); //to fit o-rings I have
-            oi("cylinder",rad=17.1/2,depth=extr,z=extr);
-            //oi("cylinder",rad=19/2,depth=bearingRing,z=wheelDepth+bearingRing);
+            union(){
+                WH(width=3.5,depth=wheelDepth); //to fit o-rings I have
+                oi("cylinder",rad=17.1/2,depth=extr,z=extr);
+                oi("cylinder",rad=19/2,depth=bearingRing,z=wheelDepth+bearingRing);
+                // to top for when printing without wheel
+                //oi("cylinder",rad=19/2,depth=bearingRing+wheelDepth,z=wheelDepth+bearingRing);
+            }
+            
+            #oi("gearMotor1Shaft",x=0,y=0,z=extr,rad=0.175,depth=extr,ex=extr);
+            //oi("gearMotor1Shaft",x=0,y=0,rad=0.15,ex=0,rotX=180);
         }
-        
-        #oi("gearMotor1Shaft",x=0,y=0,z=extr,rad=0.175,depth=extr,ex=extr);
-        //oi("gearMotor1Shaft",x=0,y=0,rad=0.15,ex=0,rotX=180);
-    }
     
 }
 
