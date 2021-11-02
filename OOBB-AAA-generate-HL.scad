@@ -289,17 +289,24 @@ module HL_RC_03_03(width,height){
 module HL_CN_03_03(width,height){
     depth=12;
     echo("Building HL-CN-03-03");
-    difference(){
-        oi("oobbBase",width=width,height=height,depth=12);
-        oi("nutM3",y=0,x=gv("OS1"),z=-(depth-gv("NUTM3HEIGHT")),depth=gv("NUTM3HEIGHT"));
-        oi("nutM3",y=0,x=-gv("OS1"),z=-(depth-gv("NUTM3HEIGHT")),depth=gv("NUTM3HEIGHT"));
-        //central hole
-        oi("cube",width=24,height=24,depth=9);
-        oi("DCJP-21D-X-THTH-01",x=0,y=14.1,z=0,rotZ=90,rotX=180);
-        oi("ooebWIMOThole",x=-7.5,y=-15.805+3,z=0);
-        oi("ooebWIMOThole",x=-7.5,y=-15.805,z=-gv("I011"));
-        oi("ooebWIMOThole",x=7.5,y=-15.805+3,z=0);
-        oi("ooebWIMOThole",x=7.5,y=-15.805,z=-gv("I011"));
-        WI_holes();
+    translate([0,0,depth]){
+        difference(){
+            oi("oobbBase",width=width,height=height,depth=12);
+            oi("countersunkM3",y=0,x=gv("OS1"),z=-(depth),rotY=180);
+            oi("countersunkM3",y=0,x=-gv("OS1"),z=-(depth),rotY=180);
+            //central hole
+            shift=8;
+            #oi("cube",y=shift/2,width=24,height=24+shift,depth=9);
+            #oi("cube",y=14,width=26+shift,height=12,depth=9);
+            oi("DCJP-21D-X-THTH-01",x=0,y=14.1,z=0,rotZ=90,rotX=180);
+            oi("ooebWIMOThole",x=-7.5,y=-15.805+3,z=0);
+            oi("ooebWIMOThole",x=-7.5,y=-15.805,z=-gv("I011"));
+            oi("ooebWIMOThole",x=7.5,y=-15.805+3,z=0);
+            oi("ooebWIMOThole",x=7.5,y=-15.805,z=-gv("I011"));
+            oi("holeM6",x=-gv("OS1"),y=-gv("OS1"));
+            oi("holeM6",x=gv("OS1"),y=-gv("OS1"));
+            oi("holeM3",x=-gv("OS1"),y=0);
+            oi("holeM3",x=gv("OS1"),y=0);
+        }
     }
 }

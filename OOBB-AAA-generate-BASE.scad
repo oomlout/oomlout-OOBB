@@ -11,7 +11,6 @@ $fn = 100;
 
 include <OOBB-AAA-generate-BP.scad>
 include <OOBB-AAA-generate-CI.scad>
-include <OOBB-AAA-generate-CN.scad>
 include <OOBB-AAA-generate-GE.scad>
 include <OOBB-AAA-generate-HL.scad>
 include <OOBB-AAA-generate-JA.scad>
