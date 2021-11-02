@@ -302,12 +302,6 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 CI(w,3);
                 //OOBBCI3D(w,3);
 
-                
-                ///////////////
-                // CN PARTS 
-            }else if(item == "CN-BAS2-05-05"){
-                CN_BAS2_05_05(w,h);
-            
             
                 ///////////////
                 // GE PARTS 
