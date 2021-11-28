@@ -295,6 +295,13 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     
                 
                 ///////////////
+                // CA PARTS 
+            }else if(item == "CA-03-01"){
+                CA_03_01(); //needs to be before filter                
+            
+            
+            
+            ///////////////
                 // CI PARTS 
             }else if(item == "CI-03-GM1"){
                 CI_03_GM1(w); //needs to be before filter                

@@ -1,3 +1,25 @@
+module CA_03_01(){
+    depth = 3;
+    dia=25;
+    hei= 25;
+    difference(){
+        union(){
+            oi("oobbBase",width=03,height=01,depth=depth,z=depth);
+
+            oi("cylinder",rad=dia/2,depth=hei-hei/2,z=hei-hei/2);
+            oi("sphere",rad=dia/2,z=hei/2);
+            
+        }
+        oi("holeM6",x=gv("OS1"),y=0);
+        oi("holeM6",x=-gv("OS1"),y=0);
+        oi("holeM12",x=-gv("OS1"),y=0,depth=hei,z=3+hei);
+        oi("holeM12",x=gv("OS1"),y=0,depth=hei,z=3+hei);
+    } 
+    
+}
+
+
+
 module TEST_OOEBWIMOT_05_05(width,height){
     //bottom
     
