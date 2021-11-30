@@ -312,3 +312,20 @@ module HL_CN_03_03(width,height){
         }
     }
 }
+
+module HL_PZ_05_03(width,height){
+    echo("Making: HL-PZ-05-03");
+   difference(){
+      union(){
+        oi("oobbBase",width=width,height=height,depth=3);
+        oi("oobbBase",y=1.5,width=width,height=height,depth=3);
+       } 
+        oi("holeM6",x=-gv("OS1")*2,y=-gv("OS1"));
+       oi("holeM6",x=-gv("OS1")*1,y=-gv("OS1"));
+       oi("holeM6",x=-gv("OS1")*0,y=-gv("OS1"));
+       oi("holeM6",x=-gv("OS1")*-1,y=-gv("OS1"));
+       oi("holeM6",x=-gv("OS1")*-2,y=-gv("OS1"));
+        
+       oi("raspberryPiZero",x=0,y=7.5,z=-3,rotX=180);
+   }
+}

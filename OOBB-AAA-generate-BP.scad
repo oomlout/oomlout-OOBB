@@ -47,6 +47,13 @@ module BP_FULL(bearing,width,height,depth){
         
         //top
         if(bearing[0]=="6" && bearing[1]=="0" &&bearing[2]=="6"){
+            //extra holes for 606
+            oi("holeM6",x=0,y=gv("OS1"));
+            oi("holeM6",x=0,y=-gv("OS1"));
+            oi("holeM6",x=gv("OS1"),y=0);
+            oi("holeM6",x=-gv("OS1"),y=0);
+            
+            
             shift = 9.445;
             //606 bearings to keep all OOBB holes
             oi("holeM3",x=shift,y=-shift);
@@ -95,6 +102,7 @@ module BP_FULL(bearing,width,height,depth){
 
 
 module BP_606_03_03(){
+    echo("Making: BP-606-03-03");
     BP(bearing="606",width=3,height=3);
 }
 

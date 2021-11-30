@@ -170,6 +170,13 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("holeM2",x=-22.5);
         
     }
+    else if(item == "hexIDraspberryPiZero" || item=="raspberryPiZero"){
+          oi("rivetM25D",x=-29,y=11.5,z=0);
+          oi("rivetM25D",-29,-11.5,0);
+          oi("rivetM25D",29,11.5,0);
+          oi("rivetM25D",29,-11.5,0);
+          oi("cube",x=0,y=-11.5,z=3,width=52,height=7);
+    }
     else if(item == "ooebWIMOT" ||  item == "WI-M2"){
         //ex = extra padding around
         //rad = extra height
@@ -338,6 +345,10 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 HL_GM1_03_03_BP6803(w,h);
             }else if(item == "HL-GM1-04-03"){
                 HL_GM1_03_03(w,h);
+            }else if(item == "HL-PZ-05-03"){
+                translate([0,0,0.3]){
+                    HL_PZ_05_03(w,h);
+                }
             }else if(item == "HL-RC-03-03"){
                 HL_RC_03_03(w,h);
             }else if(item == "HL-CN-03-03"){
@@ -638,10 +649,13 @@ module gearMotor1Shaft_CLASSIC(ex,depth,rad){
             
         }
         
-            
+//            
 }
 
-        
+module raspberryPiZero(){
+    
+}   
+
 function OOBBgv(name) =  
   //GMOT-01
     name=="GMOT-01-WIDTH"      ? 65 :
