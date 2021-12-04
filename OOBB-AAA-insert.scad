@@ -346,8 +346,12 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             }else if(item == "HL-GM1-04-03"){
                 HL_GM1_03_03(w,h);
             }else if(item == "HL-PZ-05-03"){
-                translate([0,0,0.3]){
+                translate([0,0,-3]){
                     HL_PZ_05_03(w,h);
+                }
+            }else if(item == "HL-P4-07-06"){
+                translate([0,0,-2.7]){
+                    HL_P4_07_06(w,h);
                 }
             }else if(item == "HL-RC-03-03"){
                 HL_RC_03_03(w,h);
@@ -651,10 +655,7 @@ module gearMotor1Shaft_CLASSIC(ex,depth,rad){
         
 //            
 }
-
-module raspberryPiZero(){
-    
-}   
+ 
 
 function OOBBgv(name) =  
   //GMOT-01

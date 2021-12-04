@@ -313,6 +313,34 @@ module HL_CN_03_03(width,height){
     }
 }
 
+module HL_P4_07_06(width,height){
+    difference(){
+        linear_extrude(3){
+            import("parts\\HL\\HL-P4-07-06\\HL-P4-07-06-outline.svg");
+        }
+        #oi("rivetM25D",x=-39,y=24.5,z=0,rotY=180);
+        #oi("rivetM25D",x=-39,y=-24.5,z=0,rotY=180);
+        #oi("rivetM25D",x=19,y=24.5,z=0,rotY=180);
+        #oi("rivetM25D",x=19,y=-24.5,z=0,rotY=180);
+        //OOBB holes
+        y1=37.5;
+        oi("holeM6",x=gv("OS3"),y=y1);
+        oi("holeM6",x=gv("OS2"),y=y1);
+        oi("holeM6",x=gv("OS1"),y=y1);
+        oi("holeM6",x=0,y=y1);
+        oi("holeM6",x=-gv("OS1"),y=y1);
+        oi("holeM6",x=-gv("OS2"),y=y1);
+        oi("holeM6",x=-gv("OS3"),y=y1);
+        oi("holeM6",x=gv("OS3"),y=-y1);
+        oi("holeM6",x=gv("OS2"),y=-y1);
+        oi("holeM6",x=gv("OS1"),y=-y1);
+        oi("holeM6",x=0,y=-y1);
+        oi("holeM6",x=-gv("OS1"),y=-y1);
+        //oi("holeM6",x=-gv("OS2"),y=-y1);
+        //oi("holeM6",x=-gv("OS3"),y=-y1);
+    }
+}
+
 module HL_PZ_05_03(width,height){
     echo("Making: HL-PZ-05-03");
    difference(){
