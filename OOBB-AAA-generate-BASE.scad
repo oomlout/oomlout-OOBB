@@ -22,7 +22,7 @@ include <OOBB-AAA-insert.scad>
 
 if(o=="LAZE"){
     projection(){
-        oi(m,width=w,height=h);
+        oi(m,width=w,height=h,depth=t);
     }
 }else if(o=="3DPR"){
     //inset first layer
@@ -35,7 +35,7 @@ if(o=="LAZE"){
                 offset(-layerInset){
                     projection(){
                         intersection(){
-                            oi(m,width=w,height=h);
+                            oi(m,width=w,height=h,depth=t);
                             oi("cube",width=1000,height=1000,depth=layerHeight);
                         }
                     }
@@ -44,10 +44,10 @@ if(o=="LAZE"){
         }
         //rest with firstlayer removed
             difference(){
-                oi(m,width=w,height=h);
+                oi(m,width=w,height=h,depth=t);
                 oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
             }
         }            
 }else{     
-     oi(m,width=w,height=h);
- }
+    oi(m,width=w,height=h,depth=t);
+}

@@ -315,7 +315,7 @@ module HL_CN_03_03(width,height){
 
 module HL_P4_07_06(width,height){
     difference(){
-        linear_extrude(3){
+        linear_extrude(4.5){
             import("parts\\HL\\HL-P4-07-06\\HL-P4-07-06-outline.svg");
         }
         #oi("rivetM25D",x=-39,y=24.5,z=0,rotY=180);
@@ -345,8 +345,8 @@ module HL_PZ_05_03(width,height){
     echo("Making: HL-PZ-05-03");
    difference(){
       union(){
-        oi("oobbBase",width=width,height=height,depth=3);
-        oi("oobbBase",y=1.5,width=width,height=height,depth=3);
+        oi("oobbBase",width=width,height=height,depth=4.5);
+        oi("oobbBase",y=1.5,width=width,height=height,depth=4.5);
        } 
         oi("holeM6",x=-gv("OS1")*2,y=-gv("OS1"));
        oi("holeM6",x=-gv("OS1")*1,y=-gv("OS1"));
@@ -354,6 +354,35 @@ module HL_PZ_05_03(width,height){
        oi("holeM6",x=-gv("OS1")*-1,y=-gv("OS1"));
        oi("holeM6",x=-gv("OS1")*-2,y=-gv("OS1"));
         
-       oi("raspberryPiZero",x=0,y=7.5,z=-3,rotX=180);
+       oi("raspberryPiZero",x=0,y=7.5,z=-4.5,rotX=180,rotZ=180);
+   }
+}
+
+module HL_PC_03_03(width,height){
+    echo("Making: HL-PC-03-03");
+    depth = 4.5;
+    difference(){
+        union(){
+            oi("oobbBase",width=width,height=height,depth=4.5);
+        }
+        yShift = -0;
+        xShift = 0;
+        difference(){
+            //oi("cube",x=5.5+xShift,width=24,height=25,depth=depth); //just the camera
+            oi("cube",x=8.5+xShift,width=28,height=25,depth=depth);  //open bottom
+            oi("cubeRounded",rad=1.25,x=8+xShift,y=-10.75,width=9,height=9.5,depth=depth);
+            oi("cubeRounded",rad=1.25,x=9+xShift,y=10.75,width=7,height=9.5,depth=depth);
+            oi("cubeRounded",rad=1.25,x=-5.5+xShift,y=10.75,width=7,height=9.5,depth=depth);
+        }
+        oi("rivetM2",x=8+xShift,y=-10.5,rotY=180,z=-depth);
+        oi("rivetM2",x=8+xShift,y=10.5,rotY=180,z=-depth);
+        oi("rivetM2",x=-4.5+xShift,y=10.5,rotY=180,z=-depth);
+        
+        oi("holeM6",x=-gv("OS1"),y=0);
+        oi("holeM6",x=-gv("OS1"),y=-gv("OS1"));
+        oi("holeM6",x=-gv("OS1"),y=gv("OS1"));
+        
+
+
    }
 }

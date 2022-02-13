@@ -345,12 +345,16 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 HL_GM1_03_03_BP6803(w,h);
             }else if(item == "HL-GM1-04-03"){
                 HL_GM1_03_03(w,h);
+            }else if(item == "HL-PC-03-03"){
+                translate([0,0,0.3]){
+                    HL_PC_03_03(w,h);
+                }
             }else if(item == "HL-PZ-05-03"){
-                translate([0,0,-3]){
+                translate([0,0,0.3]){
                     HL_PZ_05_03(w,h);
                 }
             }else if(item == "HL-P4-07-06"){
-                translate([0,0,-2.7]){
+                translate([0,0,-4.2]){
                     HL_P4_07_06(w,h);
                 }
             }else if(item == "HL-RC-03-03"){
@@ -366,7 +370,11 @@ module OOBBInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 ///////////////
                 // PL PARTS 
             }else if(item[0] == "P" && item[1] == "L" && item[2] == "-"){
-                PL(w,h,3);
+                if(depth == 100){
+                    PL(w,h,3);
+                }else{
+                    PL(w,h,depth);
+                }
                 //OOBBPL3D(w,h,3);
            
 
