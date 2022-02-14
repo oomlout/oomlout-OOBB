@@ -318,10 +318,10 @@ module HL_P4_07_06(width,height){
         linear_extrude(4.5){
             import("parts\\HL\\HL-P4-07-06\\HL-P4-07-06-outline.svg");
         }
-        #oi("rivetM25D",x=-39,y=24.5,z=0,rotY=180);
-        #oi("rivetM25D",x=-39,y=-24.5,z=0,rotY=180);
-        #oi("rivetM25D",x=19,y=24.5,z=0,rotY=180);
-        #oi("rivetM25D",x=19,y=-24.5,z=0,rotY=180);
+        oi("rivetM25D",x=-39,y=24.5,z=0,rotY=180);
+        oi("rivetM25D",x=-39,y=-24.5,z=0,rotY=180);
+        oi("rivetM25D",x=19,y=24.5,z=0,rotY=180);
+        oi("rivetM25D",x=19,y=-24.5,z=0,rotY=180);
         //OOBB holes
         y1=37.5;
         oi("holeM6",x=gv("OS3"),y=y1);
@@ -354,16 +354,24 @@ module HL_PZ_05_03(width,height){
        oi("holeM6",x=-gv("OS1")*-1,y=-gv("OS1"));
        oi("holeM6",x=-gv("OS1")*-2,y=-gv("OS1"));
         
-       oi("raspberryPiZero",x=0,y=7.5,z=-4.5,rotX=180,rotZ=180);
+       //oi("raspberryPiZero",x=0,y=7.5,z=-4.5,rotX=180,rotZ=180);
+       yy = 7.5;
+       xx = 0;
+       zz=-4.5;
+       oi("rivetM25D",x=-29+xx,y=11.5+yy,z=0+zz,rotX=180,rotZ=180,holes=false);
+       oi("rivetM25D",-29+xx,-11.5+yy,0+zz,rotX=180,rotZ=90,holes=false);
+       oi("rivetM25D",29+xx,11.5+yy,0+zz,rotX=180,rotZ=180,holes=false);
+       oi("rivetM25D",29+xx,-11.5+yy,0+zz,rotX=180,rotZ=-90,holes=false);
+       oi("cube",x=xx,y=-11.5+yy,z=-6+zz,width=52,height=7,rotX=180,rotZ=180,holes=false);
    }
 }
 
 module HL_PC_03_03(width,height){
     echo("Making: HL-PC-03-03");
-    depth = 4.5;
+    depth = 5;
     difference(){
         union(){
-            oi("oobbBase",width=width,height=height,depth=4.5);
+            oi("oobbBase",width=width,height=height,depth=depth);
         }
         yShift = -0;
         xShift = 0;
@@ -377,6 +385,7 @@ module HL_PC_03_03(width,height){
         oi("rivetM2",x=8+xShift,y=-10.5,rotY=180,z=-depth);
         oi("rivetM2",x=8+xShift,y=10.5,rotY=180,z=-depth);
         oi("rivetM2",x=-4.5+xShift,y=10.5,rotY=180,z=-depth);
+        oi("rivetM2",x=-6+xShift,y=10.5,rotY=180,z=-depth);
         
         oi("holeM6",x=-gv("OS1"),y=0);
         oi("holeM6",x=-gv("OS1"),y=-gv("OS1"));
