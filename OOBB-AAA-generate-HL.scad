@@ -344,9 +344,10 @@ module HL_P4_07_06(width,height){
 module HL_PZ_05_03(width,height){
     echo("Making: HL-PZ-05-03");
    difference(){
+       depth = 4.5;
       union(){
-        oi("oobbBase",width=width,height=height,depth=4.5);
-        oi("oobbBase",y=1.5,width=width,height=height,depth=4.5);
+        oi("oobbBase",width=width,height=height,depth=depth);
+        oi("oobbBase",y=1.5,width=width,height=height,depth=depth);
        } 
         oi("holeM6",x=-gv("OS1")*2,y=-gv("OS1"));
        oi("holeM6",x=-gv("OS1")*1,y=-gv("OS1"));
@@ -362,7 +363,8 @@ module HL_PZ_05_03(width,height){
        oi("rivetM25D",-29+xx,-11.5+yy,0+zz,rotX=180,rotZ=90,holes=false);
        oi("rivetM25D",29+xx,11.5+yy,0+zz,rotX=180,rotZ=180,holes=false);
        oi("rivetM25D",29+xx,-11.5+yy,0+zz,rotX=180,rotZ=-90,holes=false);
-       oi("cube",x=xx,y=-11.5+yy,z=-6+zz,width=52,height=7,rotX=180,rotZ=180,holes=false);
+       oi("cube",x=xx,y=-11.5+yy,z=-6+zz,width=52,height=7,rotX=180,rotZ=180);
+       oi("cube",x=20+xx,y=11.5+yy,z=depth+zz,width=12,height=7.5,depth=1.5);
    }
 }
 
