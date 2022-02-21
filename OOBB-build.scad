@@ -6,7 +6,7 @@ o="3D";
 //Mode
 
     //BP
-        //m="BP-606-03-03";
+        m="BP-606-03-03";
         //m="BP-6803-03-03";
     //CA
         //m="CA-03-01";
@@ -30,7 +30,7 @@ o="3D";
         //m="HL-GM1-03-03";
         //m="HL-N20-03-03";
         //m="HL-PC-03-03";
-        m="HL-PZ-05-03";
+        //m="HL-PZ-05-03";
         //m="HL-P4-07-06";
         //m="HL-RC-03-03";
         //m="HL-CN-03-03";
@@ -66,12 +66,12 @@ o="3D";
         //m="WH-03-N20";
  
 t=3;
-w=5;
+w=3;
 h=3;
-extra="NONE";
+//extra="NONE";
 //extra="TOP";
 //extra="BOTTOM";
-//extra="HALF";
+extra="HALF";
 //extra="MIDDLE";
 //extra="WIRINGBLOCK";
 
