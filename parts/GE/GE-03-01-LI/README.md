@@ -1,2 +1,0 @@
-![GE-03-01-LI](OOBB-GE-03-01-LI.png)  
-GE-03-01-LI  

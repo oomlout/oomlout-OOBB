@@ -1,2 +1,0 @@
-![WH-05-SERVO](OOBB-WH-05-SERVO.png)  
-WH-05-SERVO  

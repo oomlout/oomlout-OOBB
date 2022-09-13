@@ -1,2 +1,0 @@
-![OBBB-04-03](OOBB-OBBB-04-03.png)  
-OBBB-04-03  

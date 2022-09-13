@@ -1,2 +1,0 @@
-![HL-SE-05-03](OOBB-HL-SE-05-03.png)  
-HL-SE-05-03  

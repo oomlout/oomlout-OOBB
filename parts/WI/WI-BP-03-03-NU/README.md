@@ -1,2 +1,0 @@
-![WI-BP-03-03-NU](OOBB-WI-BP-03-03-NU.png)  
-WI-BP-03-03-NU  

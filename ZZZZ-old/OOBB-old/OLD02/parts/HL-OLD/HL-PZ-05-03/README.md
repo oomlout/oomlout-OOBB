@@ -1,2 +1,0 @@
-![HL-PZ-05-03](OOBB-HL-PZ-05-03.png)  
-HL-PZ-05-03  

@@ -1,22 +1,26 @@
-from datetime import datetime
-import time
+from OPSC import *
 
-import OOMP
-import TAXAparts
-import TAXAdetails
+oobbSpacing = 15
+os = oobbSpacing
 
-import datetime
-from operator import itemgetter
+def getFileName(typ,width,height,depth=3):
+    rv = ""
+    rv = "parts/" + typ + "/" + typ + "-" + str(str(width).zfill(2)) + "-" + str(str(height).zfill(2))
+    if depth != 3:
+        rv = rv + "D" + str(depth).zfill(2)
+    return rv
 
-baseDir = ""
-templateDir = baseDir + "template\\"
-labelDir = baseDir + "label\\"
-tempDir = baseDir + "temp\\"
+def makePL(width,height,depth):    
+    part = item()
 
-def getPartByOOMPID(part):
-    #print("     Get Part By TAXA: " + part)
-    for x in OOMP.parts:
-        ##print("        " + str(x.getTag("taxaID").value))
-        if x.getTag("oompID").value == part:
-            return x     
-    return OOMP.oompItem("")
+    part.addPos(insert("cubeRounded",width=(os * width)-3,height=(os * height)-3, depth=depth))
+
+
+    savePart(type,width,height,depth,part)
+
+def savePart(type,width,height,depth,part):
+    filename = getFileName(type,width,height,depth) + ".scad"
+    saveToScad(filename,part)
+    saveToDxf(filename,part)
+    saveToPng(filename,part)
+    saveToStl(filename,part)
