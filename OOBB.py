@@ -94,7 +94,7 @@ def makeJA(width,overwrite=False):
 def makeJAfull(width,mode="3DPR",overwrite=False):
     #totalWidth=width*obs
     #totalHeight=height*obs
-    thickness = 9
+    thickness = 12
     typ = "JA"
     extra = ""
     print("Making: " + OOBB.getFileName(typ,width=width,extra=extra))   
@@ -293,7 +293,7 @@ def savePartSplit(typ,part,width=0,height=0,depth=3,mode="TRUE",extra="",start=0
         filename = getFileName(typ,width,height,depth, extra = extra) + ext + ".scad"
         print("    Saving Part Split: " + filename)    
         if overwrite or not os.path.exists(filename):
-            saveToScad(filename,part.getSplit(start=start,depth=splitDepth,tileDif=tileDif))
+            saveToScad(filename,part.getSplit(start=start,depth=splitDepth,rotY=180,tileDif=tileDif))
         if (overwrite or  not os.path.exists(filename.replace(".scad",".png"))) and not justScad:    
             saveToPng(filename)
         if (overwrite or  not os.path.exists(filename.replace(".scad",".stl"))) and not justScad:            
