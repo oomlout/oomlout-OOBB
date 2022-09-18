@@ -7,7 +7,7 @@ overwrite=True
 overwrite=False
 
 OOBB.scadOnly=True
-#OOBB.scadOnly=False
+OOBB.scadOnly=False
 
 ###### ALL-
 OOBB.makeAll(overwrite=overwrite)
