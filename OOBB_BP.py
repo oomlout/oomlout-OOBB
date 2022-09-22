@@ -24,7 +24,7 @@ def makeBPAll(width,height,thickness,bearing,overwrite=False,mode="3DPR"):
     #mountingHoles
     ###### Outer holes
     if True:
-        bearingRadius = bearings[bearing]["BIG"] + 5
+        bearingRadius = d["BEARINGS"][bearing]["BIG"] + 5
         for x in range(0,width):
             for y in range(0,height):
                 oobbX = OOBB.getOOBBCoord(x,width)
@@ -35,7 +35,7 @@ def makeBPAll(width,height,thickness,bearing,overwrite=False,mode="3DPR"):
     ###### inner holes
     if True:
         if bearing != "6805":
-            innerRadius = bearings[bearing]["INSIDE"] - 4
+            innerRadius = d["BEARINGS"][bearing]["INSIDE"] - 4
             for x in range(0,width):
                 for y in range(0,height):
                     oobbX = OOBB.getOOBBCoord(x,width)
@@ -43,12 +43,12 @@ def makeBPAll(width,height,thickness,bearing,overwrite=False,mode="3DPR"):
                     if (oobbX * oobbX) + (oobbY * oobbY) < (innerRadius * innerRadius)  :
                         part.addNeg(OOBB.getHole(x+1,y+1,width,height,m=""))
         else:
-            offset = bearings[bearing]["BPHOLES"][1]
+            offset = d["BEARINGS"][bearing]["BPHOLES"][1]
             part.addNeg(insert("holeM6",x=offset,y=-offset,m=""))
             part.addNeg(insert("holeM6",x=-offset,y=offset,m=""))
 
     #joiningScrews
-    for bp in bearings[bearing]["BPHOLES"]:        
+    for bp in d["BEARINGS"][bearing]["BPHOLES"]:        
         x=bp
         y=bp
         if(bearing == "6805") and bp < 10:

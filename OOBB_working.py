@@ -13,7 +13,7 @@ OOBB.scadOnly=False
 #OOBB.makeAll(overwrite=overwrite)
 
 ###### BP
-OOBB_BP.makeBPs(overwrite)
+#OOBB_BP.makeBPs(overwrite)
 #OOBB_BP.makeBP(5,3,12,"6805",overwrite)
 #OOBB_BP.makeBP(5,5,12,"6808",overwrite)
 #OOBB_BP.makeBP(7,5,12,"6810",overwrite)
@@ -34,8 +34,8 @@ OOBB_BP.makeBPs(overwrite)
 #OOBB_HL.makeHL_BREB170(overwrite)
 
 ######  JAs
-#OOBB.makeJAs(overwrite)
-#OOBB.makeJA(3,overwrite)
+OOBB.makeJAs(overwrite)
+OOBB.makeJA(3,overwrite)
 
 ###### PLs
 #OOBB.makePLs(overwrite=overwrite)
@@ -47,4 +47,4 @@ OOBB_BP.makeBPs(overwrite)
 ###### SHEETS
 #OOBB_SHEET.makeSheets(overwrite)
 
-input("ALL DONE")
+#input("ALL DONE")

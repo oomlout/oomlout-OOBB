@@ -88,12 +88,14 @@ def makeJAs(overwrite=False):
         makeJA(plate[0],overwrite=overwrite)    
 
 def makeJA(width,overwrite=False):
+    if width > 2:
+        makeJAfull(width=width,mode="3DPR",overwrite=overwrite,ex="SPLIT")    
     makeJAfull(width=width,mode="3DPR",overwrite=overwrite)
     makeJAfull(width=width,mode="TRUE",overwrite=overwrite)
 
-def makeJAfull(width,mode="3DPR",overwrite=False):
+def makeJAfull(width,mode="3DPR",ex="",overwrite=False):
     #totalWidth=width*obs
-    #totalHeight=height*obs
+    totalHeight= 30
     thickness = 12
     typ = "JA"
     extra = ""
@@ -109,9 +111,15 @@ def makeJAfull(width,mode="3DPR",overwrite=False):
         part.addNeg(OOBB.getHole(x,1,width,1,m=""))
         part.addNeg(OOBB.getHole(x,1,width,1,rotX=90,depth=13.5,m=""))
     #joiningScrews
-    x=7.5
-    y=12.5
-    #OOBB.addScrew(part,x,y,thickness)
+    if ex == "SPLIT":
+        for w in range(0,width-1):
+            x=(-((int(width/2)) * oobbSpacing) + w * oobbSpacing)+oobbSpacing/2
+            y=0
+            m=""
+            if w % 2 == 1:
+                OOBB.addScrew(part,x,y,thickness,m=m)
+            else:
+                OOBB.addScrew(part,x,y,thickness,rotZ=180,m=m)
     #############################################################################
     #############################################################################
     ######  Bottom Block
@@ -121,14 +129,22 @@ def makeJAfull(width,mode="3DPR",overwrite=False):
     hei = 13.5
     part.addPos(insert("cube",width=wid,height=hei,x=x,y=y,z=thickness/2,depth=thickness))
     ###### Nut Holes
-    for x in range(0,width):
-        x=getOOBBCoord(x,width)
-        y=-8
-        wid = nuts["M6"]["WIDTH"]
-        hei = nuts["M6"]["DEPTH"]
-        depth = thickness
-        m=""
-        part.addNeg(insert("cube",x=x,y=y,z=depth/2,width=wid,height=hei,depth=depth,m=m))
+    if ex != "SPLIT":
+        for x in range(0,width):
+            x=getOOBBCoord(x,width)
+            y=-8
+            wid = d["NUTS"]["M6"]["WIDTH"]
+            hei = d["NUTS"]["M6"]["DEPTH"]
+            depth = thickness
+            m=""
+            part.addNeg(insert("cube",x=x,y=y,z=depth/2,width=wid,height=hei,depth=depth,m=m))
+    else:
+        for x in range(0,width):
+            x=getOOBBCoord(x,width)
+            y=-10
+            depth = thickness
+            m=",rotZ=15,"
+            part.addNeg(insert("nutM6",x=x,y=y,ex=1,rotX=90,rotY=30,m=m))
 
 
     ##################################################################################
@@ -138,9 +154,10 @@ def makeJAfull(width,mode="3DPR",overwrite=False):
     start=thickness/2
     splitDif=thickness/2
     
-    #OOBB.savePartSplit(typ,width=width,height=height,part=part,mode=mode,extra=extra,start=start,splitDepth=splitDif,tileDif=totalHeight+3,overwrite=overwrite,justScad = OOBB.scadOnly)
-
-    OOBB.savePart(typ,width=width,part=part,mode=mode,extra=extra,overwrite=overwrite,justScad = OOBB.scadOnly)
+    if ex == "SPLIT":
+        OOBB.savePartSplit(typ,width=width,part=part,mode=mode,extra=extra,start=start,splitDepth=splitDif,tileDif=totalHeight+3,overwrite=overwrite,justScad = OOBB.scadOnly)
+    else:
+        OOBB.savePart(typ,width=width,part=part,mode=mode,extra=extra,overwrite=overwrite,justScad = OOBB.scadOnly)
 
 
 
