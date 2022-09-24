@@ -9,7 +9,7 @@ rotate(a = [0, 180, 0]) {
 					translate(v = [0, 0, 6.0000000000]) {
 						rotate(a = [0, 0, 0]) {
 							translate(v = [0, 0, -3.0000000000]) {
-								cube(center = true, size = [100, 100, 6.0000000000]);
+								cube(center = true, size = [1000, 1000, 6.0000000000]);
 							}
 						}
 					}
@@ -507,7 +507,7 @@ rotate(a = [0, 180, 0]) {
 							translate(v = [0, 0, 0.0000000000]) {
 								rotate(a = [0, 0, 0]) {
 									translate(v = [0, 0, -3.0000000000]) {
-										cube(center = true, size = [100, 100, 6.0000000000]);
+										cube(center = true, size = [1000, 1000, 6.0000000000]);
 									}
 								}
 							}
