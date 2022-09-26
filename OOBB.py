@@ -303,18 +303,19 @@ def getOOBBCoordCenter(x,wid):
     rv = (-fullWidth/2 + obs/2) + (x*obs)
     return rv
 
-def savePartSplit(typ,part,width=0,height=0,depth=3,mode="TRUE",extra="",start=0,splitDepth=6,tileDif=200,overwrite=False,justScad=False):
+def savePartSplit(typ,part,width=0,height=0,depth=3,z=0,mode="TRUE",extra="",start=0,splitDepth=6,tileDif=200,overwrite=False,justScad=False):
     if mode == "3DPR":
         ext = ""
         ext= "-" + "SPLIT"
         filename = getFileName(typ,width,height,depth, extra = extra) + ext + ".scad"
         print("    Saving Part Split: " + filename)    
         if overwrite or not os.path.exists(filename):
-            saveToScad(filename,part.getSplit(start=start,depth=splitDepth,rotY=180,tileDif=tileDif))
+            saveToScad(filename,part.getSplit(start=start,depth=splitDepth,rotY=180,z=z,tileDif=tileDif))
+        if (overwrite or  not os.path.exists(filename.replace(".scad",".stl"))) and not justScad:            
+            saveToStl(filename)
         if (overwrite or  not os.path.exists(filename.replace(".scad",".png"))) and not justScad:    
             saveToPng(filename)
-        if (overwrite or  not os.path.exists(filename.replace(".scad",".stl"))) and not justScad:            
-            saveToStl(filename)    
+    
 
 def savePart(typ,part,width=0,height=0,depth=3,mode="TRUE",extra="",overwrite=False,justScad=False):
     
@@ -325,10 +326,11 @@ def savePart(typ,part,width=0,height=0,depth=3,mode="TRUE",extra="",overwrite=Fa
     filenameFlat = getFileName(typ,width,height,depth, extra=extra) + ext + "-FLAT.scad"
     if overwrite or not os.path.exists(filename):
         saveToScad(filename,part.getPart())
-    if (overwrite or  not os.path.exists(filename.replace(".scad",".png"))) and not justScad:    
-        saveToPng(filename)
     if (overwrite or  not os.path.exists(filename.replace(".scad",".stl"))) and not justScad:        
         saveToStl(filename)    
+    if (overwrite or  not os.path.exists(filename.replace(".scad",".png"))) and not justScad:    
+        saveToPng(filename)
+
     if overwrite or  not os.path.exists(filenameFlat):    
         saveToScad(filenameFlat,part.getLaser())
     if (overwrite or  not os.path.exists(filename.replace(".scad",".dxf"))) and not justScad:    
