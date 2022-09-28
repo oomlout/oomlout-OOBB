@@ -282,12 +282,12 @@ def getPlate(width,height,depth,x=0,y=0,z=0):
 
     return insert("cubeRounded",x=x,y=y,z=z,width=wid,height=hei, depth=depth)
 
-def getHole(x,y,width,height,depth=0,rotX=0,rotY=0,rotZ=0,m=""):
+def getHole(x,y,width,height,depth=0,rotX=0,rotY=0,rotZ=0,m="",size="M6"):
     fullWidth = width * obs
     fullHeight = height * obs
     xx= (-fullWidth/2 + obs/2) + ((x-1)*obs)
     yy= (-fullHeight/2 + obs/2) + ((y-1)*obs)
-    return insert("holeM6", x=xx,y=yy,rotX=rotX,rotY=rotY,rotZ=rotZ,depth=depth,m=m)
+    return insert("hole" + size, x=xx,y=yy,rotX=rotX,rotY=rotY,rotZ=rotZ,depth=depth,m=m)
 
 
 ##################################################

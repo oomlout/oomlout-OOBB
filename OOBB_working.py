@@ -32,7 +32,9 @@ OOBB.scadOnly=False
 #OOBB_HL.makeHL_T100(overwrite)
 #OOBB_HL.makeHL_BREB400(overwrite)
 #OOBB_HL.makeHL_BREB170(overwrite)
+#OOBB_HL.makeHL_SE(overwrite)
 OOBB_HL.makeHL_SM(overwrite)
+#OOBB_HL.makeHL_PICO(overwrite)
 
 ######  JAs
 
