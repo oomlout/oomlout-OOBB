@@ -35,7 +35,7 @@ difference() {
 			translate(v = [-15.0000000000, 22.5000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.0000000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -44,7 +44,7 @@ difference() {
 			translate(v = [0.0000000000, 22.5000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.0000000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -53,7 +53,7 @@ difference() {
 			translate(v = [15.0000000000, 22.5000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.0000000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}

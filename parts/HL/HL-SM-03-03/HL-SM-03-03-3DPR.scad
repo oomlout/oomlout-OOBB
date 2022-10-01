@@ -73,7 +73,7 @@ difference() {
 										translate(v = [1.2500000000, 0, 0]) {
 											rotate(a = [0, 0, 0]) {
 												translate(v = [0, 0, -250]) {
-													cylinder(h = 500, r = 1.1500000000);
+													cylinder(h = 500, r = 0.6000000000);
 												}
 											}
 										}
@@ -82,7 +82,7 @@ difference() {
 										translate(v = [-1.2500000000, 0, 0]) {
 											rotate(a = [0, 0, 0]) {
 												translate(v = [0, 0, -250]) {
-													cylinder(h = 500, r = 1.1500000000);
+													cylinder(h = 500, r = 0.6000000000);
 												}
 											}
 										}
@@ -99,7 +99,7 @@ difference() {
 										translate(v = [1.2500000000, 0, 0]) {
 											rotate(a = [0, 0, 0]) {
 												translate(v = [0, 0, -250]) {
-													cylinder(h = 500, r = 1.1500000000);
+													cylinder(h = 500, r = 0.6000000000);
 												}
 											}
 										}
@@ -108,7 +108,7 @@ difference() {
 										translate(v = [-1.2500000000, 0, 0]) {
 											rotate(a = [0, 0, 0]) {
 												translate(v = [0, 0, -250]) {
-													cylinder(h = 500, r = 1.1500000000);
+													cylinder(h = 500, r = 0.6000000000);
 												}
 											}
 										}
@@ -134,7 +134,7 @@ difference() {
 										translate(v = [0.5000000000, 0, 0]) {
 											rotate(a = [0, 0, 0]) {
 												translate(v = [0, 0, -250]) {
-													cylinder(h = 500, r = 2.2000000000);
+													cylinder(h = 500, r = 1.7000000000);
 												}
 											}
 										}
@@ -143,7 +143,7 @@ difference() {
 										translate(v = [-0.5000000000, 0, 0]) {
 											rotate(a = [0, 0, 0]) {
 												translate(v = [0, 0, -250]) {
-													cylinder(h = 500, r = 2.2000000000);
+													cylinder(h = 500, r = 1.7000000000);
 												}
 											}
 										}
@@ -160,7 +160,7 @@ difference() {
 										translate(v = [0.5000000000, 0, 0]) {
 											rotate(a = [0, 0, 0]) {
 												translate(v = [0, 0, -250]) {
-													cylinder(h = 500, r = 2.2000000000);
+													cylinder(h = 500, r = 1.7000000000);
 												}
 											}
 										}
@@ -169,7 +169,7 @@ difference() {
 										translate(v = [-0.5000000000, 0, 0]) {
 											rotate(a = [0, 0, 0]) {
 												translate(v = [0, 0, -250]) {
-													cylinder(h = 500, r = 2.2000000000);
+													cylinder(h = 500, r = 1.7000000000);
 												}
 											}
 										}
@@ -273,7 +273,7 @@ difference() {
 						translate(v = [-15.0000000000, 0.0000000000, 0]) {
 							rotate(a = [0, 0, 0]) {
 								translate(v = [0, 0, -250]) {
-									cylinder(h = 500, r = 3.7500000000);
+									cylinder(h = 500, r = 3.2500000000);
 								}
 							}
 						}
@@ -282,7 +282,7 @@ difference() {
 						translate(v = [0.0000000000, 0.0000000000, 0]) {
 							rotate(a = [0, 0, 0]) {
 								translate(v = [0, 0, -250]) {
-									cylinder(h = 500, r = 3.7500000000);
+									cylinder(h = 500, r = 3.2500000000);
 								}
 							}
 						}
@@ -291,7 +291,7 @@ difference() {
 						translate(v = [15.0000000000, 0.0000000000, 0]) {
 							rotate(a = [0, 0, 0]) {
 								translate(v = [0, 0, -250]) {
-									cylinder(h = 500, r = 3.7500000000);
+									cylinder(h = 500, r = 3.2500000000);
 								}
 							}
 						}
@@ -407,7 +407,7 @@ difference() {
 			translate(v = [-15.0000000000, -15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -416,7 +416,7 @@ difference() {
 			translate(v = [-15.0000000000, 15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -425,7 +425,7 @@ difference() {
 			translate(v = [15.0000000000, -15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -434,7 +434,7 @@ difference() {
 			translate(v = [15.0000000000, 15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -447,7 +447,7 @@ difference() {
 							translate(v = [15, 7.5000000000, 0]) {
 								rotate(a = [0, 0, 0]) {
 									translate(v = [0, 0, -250]) {
-										cylinder(h = 500, r = 2.2000000000);
+										cylinder(h = 500, r = 1.7000000000);
 									}
 								}
 							}
@@ -456,7 +456,7 @@ difference() {
 							translate(v = [15, -7.5000000000, 0]) {
 								rotate(a = [0, 0, 0]) {
 									translate(v = [0, 0, -250]) {
-										cylinder(h = 500, r = 2.2000000000);
+										cylinder(h = 500, r = 1.7000000000);
 									}
 								}
 							}
@@ -465,7 +465,7 @@ difference() {
 							translate(v = [-15, 7.5000000000, 0]) {
 								rotate(a = [0, 0, 0]) {
 									translate(v = [0, 0, -250]) {
-										cylinder(h = 500, r = 2.2000000000);
+										cylinder(h = 500, r = 1.7000000000);
 									}
 								}
 							}
@@ -474,7 +474,7 @@ difference() {
 							translate(v = [-15, -7.5000000000, 0]) {
 								rotate(a = [0, 0, 0]) {
 									translate(v = [0, 0, -250]) {
-										cylinder(h = 500, r = 2.2000000000);
+										cylinder(h = 500, r = 1.7000000000);
 									}
 								}
 							}
@@ -826,14 +826,14 @@ difference() {
 						color(alpha = 1.0000000000, c = "Gold") {
 							translate(v = [1.5000000000, 0, 0]) {
 								rotate(a = [0, 0, 0]) {
-									cylinder(h = 6, r = 3.7500000000);
+									cylinder(h = 6, r = 3.2500000000);
 								}
 							}
 						}
 						color(alpha = 1.0000000000, c = "Gold") {
 							translate(v = [-1.5000000000, 0, 0]) {
 								rotate(a = [0, 0, 0]) {
-									cylinder(h = 6, r = 3.7500000000);
+									cylinder(h = 6, r = 3.2500000000);
 								}
 							}
 						}
@@ -848,14 +848,14 @@ difference() {
 						color(alpha = 1.0000000000, c = "Gold") {
 							translate(v = [1.5000000000, 0, 0]) {
 								rotate(a = [0, 0, 0]) {
-									cylinder(h = 6, r = 3.7500000000);
+									cylinder(h = 6, r = 3.2500000000);
 								}
 							}
 						}
 						color(alpha = 1.0000000000, c = "Gold") {
 							translate(v = [-1.5000000000, 0, 0]) {
 								rotate(a = [0, 0, 0]) {
-									cylinder(h = 6, r = 3.7500000000);
+									cylinder(h = 6, r = 3.2500000000);
 								}
 							}
 						}

@@ -201,7 +201,7 @@ def makeHL_SEall(mode="3DPR",overwrite=False):
     height = 3
     totalWidth=width*obs-3
     totalHeight=height*obs +6
-    mainThickness = 18
+    mainThickness = 19
     thickness = mainThickness    
     typ = "HL"
     extra = "SE"
@@ -945,7 +945,7 @@ def getServoHole(pos=[0,0,0],rot=[0,0,0],m="",depth=18):
     if True:  ###### Main Body
         e = {   "TYPE"  :   "cube","M"      :  m,
                 "X"     :   11,     "Y"      :   0,      "Z"     :   0,
-                "WIDTH" :   58,     "HEIGHT" :   22,      "DEPTH" :   6,
+                "WIDTH" :   58+6,     "HEIGHT" :   22,      "DEPTH" :   6,
                 "ROTX"  :   0,     "ROTY"   :   0,      "ROTZ"  :   0,
                 "RAD"   :   0,     "RAD2"   :   0            
             }
@@ -964,10 +964,10 @@ def getServoHole(pos=[0,0,0],rot=[0,0,0],m="",depth=18):
 
     if True: ######  HOLES
         part.addNeg(insert(dict=e))
-        dd = 12
-        e = {   "TYPE"  :   "holeM3","M"      :  m,
+        dd = 9
+        e = {   "TYPE"  :   "holeSlottedM3","M"      :  m,
             "X"     :   -14,     "Y"      :   5,      "Z"     :   0,
-            "DEPTH" :   dd
+            "DEPTH" :   dd,      "EX"     :   3
         }
         holeA = e.copy()
         part.addNeg(insert(dict=e))
@@ -987,8 +987,10 @@ def getServoHole(pos=[0,0,0],rot=[0,0,0],m="",depth=18):
         count = 0
         for e in holes:    
             e["TYPE"] = types[count]
+            e["EX"]  = 0
             e["DEPTH"] = 3
             e["Z"] = 3+3
+            #e["M"] = "#"
             e["ROTZ"] = rots[count]
             part.addNeg(insert(dict=e))
             count = count + 1

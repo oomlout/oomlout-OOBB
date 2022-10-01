@@ -4,7 +4,7 @@ $fn = 48;
 difference() {
 	union() {
 		color(alpha = 1.0000000000, c = "Gold") {
-			translate(v = [15, 0, -15]) {
+			translate(v = [15, 0, -16]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -3]) {
 						linear_extrude(height = 3) {
@@ -19,8 +19,8 @@ difference() {
 		color(alpha = 1.0000000000, c = "Gold") {
 			translate(v = [0, 0, 0]) {
 				rotate(a = [0, 0, 0]) {
-					translate(v = [0, 0, -18]) {
-						linear_extrude(height = 18) {
+					translate(v = [0, 0, -19]) {
+						linear_extrude(height = 19) {
 							offset(r = 5) {
 								square(center = true, size = [32.0100000000, 32.0100000000]);
 							}
@@ -35,7 +35,7 @@ difference() {
 			translate(v = [-15.0000000000, -15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -44,7 +44,7 @@ difference() {
 			translate(v = [-15.0000000000, 15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -53,7 +53,7 @@ difference() {
 			translate(v = [15.0000000000, -15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -62,7 +62,7 @@ difference() {
 			translate(v = [15.0000000000, 15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -71,7 +71,7 @@ difference() {
 			translate(v = [30.0000000000, -15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -80,7 +80,7 @@ difference() {
 			translate(v = [30.0000000000, 15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -89,7 +89,7 @@ difference() {
 			translate(v = [45.0000000000, -15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -98,7 +98,7 @@ difference() {
 			translate(v = [45.0000000000, 0.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -107,7 +107,7 @@ difference() {
 			translate(v = [45.0000000000, 15.0000000000, 0]) {
 				rotate(a = [0, 0, 0]) {
 					translate(v = [0, 0, -250]) {
-						cylinder(h = 500, r = 3.7500000000);
+						cylinder(h = 500, r = 3.2500000000);
 					}
 				}
 			}
@@ -297,7 +297,7 @@ difference() {
 				}
 			}
 		}
-		translate(v = [0, 0, -18]) {
+		translate(v = [0, 0, -19]) {
 			rotate(a = [0, 0, 0]) {
 				difference() {
 					union();
@@ -306,7 +306,7 @@ difference() {
 							translate(v = [11, 0, 0]) {
 								rotate(a = [0, 0, 0]) {
 									translate(v = [0, 0, -3.0000000000]) {
-										cube(center = true, size = [58, 22, 6]);
+										cube(center = true, size = [64, 22, 6]);
 									}
 								}
 							}
@@ -332,28 +332,88 @@ difference() {
 						color(alpha = 1.0000000000, c = "Gold") {
 							translate(v = [-14, 5, 0]) {
 								rotate(a = [0, 0, 0]) {
-									cylinder(h = 12, r = 2.2000000000);
+									hull() {
+										color(alpha = 1.0000000000, c = "Gold") {
+											translate(v = [1.5000000000, 0, 0]) {
+												rotate(a = [0, 0, 0]) {
+													cylinder(h = 9, r = 1.7000000000);
+												}
+											}
+										}
+										color(alpha = 1.0000000000, c = "Gold") {
+											translate(v = [-1.5000000000, 0, 0]) {
+												rotate(a = [0, 0, 0]) {
+													cylinder(h = 9, r = 1.7000000000);
+												}
+											}
+										}
+									}
 								}
 							}
 						}
 						color(alpha = 1.0000000000, c = "Gold") {
 							translate(v = [-14, -5, 0]) {
 								rotate(a = [0, 0, 0]) {
-									cylinder(h = 12, r = 2.2000000000);
+									hull() {
+										color(alpha = 1.0000000000, c = "Gold") {
+											translate(v = [1.5000000000, 0, 0]) {
+												rotate(a = [0, 0, 0]) {
+													cylinder(h = 9, r = 1.7000000000);
+												}
+											}
+										}
+										color(alpha = 1.0000000000, c = "Gold") {
+											translate(v = [-1.5000000000, 0, 0]) {
+												rotate(a = [0, 0, 0]) {
+													cylinder(h = 9, r = 1.7000000000);
+												}
+											}
+										}
+									}
 								}
 							}
 						}
 						color(alpha = 1.0000000000, c = "Gold") {
 							translate(v = [36, -5, 0]) {
 								rotate(a = [0, 0, 0]) {
-									cylinder(h = 12, r = 2.2000000000);
+									hull() {
+										color(alpha = 1.0000000000, c = "Gold") {
+											translate(v = [1.5000000000, 0, 0]) {
+												rotate(a = [0, 0, 0]) {
+													cylinder(h = 9, r = 1.7000000000);
+												}
+											}
+										}
+										color(alpha = 1.0000000000, c = "Gold") {
+											translate(v = [-1.5000000000, 0, 0]) {
+												rotate(a = [0, 0, 0]) {
+													cylinder(h = 9, r = 1.7000000000);
+												}
+											}
+										}
+									}
 								}
 							}
 						}
 						color(alpha = 1.0000000000, c = "Gold") {
 							translate(v = [36, 5, 0]) {
 								rotate(a = [0, 0, 0]) {
-									cylinder(h = 12, r = 2.2000000000);
+									hull() {
+										color(alpha = 1.0000000000, c = "Gold") {
+											translate(v = [1.5000000000, 0, 0]) {
+												rotate(a = [0, 0, 0]) {
+													cylinder(h = 9, r = 1.7000000000);
+												}
+											}
+										}
+										color(alpha = 1.0000000000, c = "Gold") {
+											translate(v = [-1.5000000000, 0, 0]) {
+												rotate(a = [0, 0, 0]) {
+													cylinder(h = 9, r = 1.7000000000);
+												}
+											}
+										}
+									}
 								}
 							}
 						}
@@ -435,7 +495,7 @@ difference() {
 							translate(v = [15, 7.5000000000, 0]) {
 								rotate(a = [0, 0, 0]) {
 									translate(v = [0, 0, -250]) {
-										cylinder(h = 500, r = 2.2000000000);
+										cylinder(h = 500, r = 1.7000000000);
 									}
 								}
 							}
@@ -444,7 +504,7 @@ difference() {
 							translate(v = [15, -7.5000000000, 0]) {
 								rotate(a = [0, 0, 0]) {
 									translate(v = [0, 0, -250]) {
-										cylinder(h = 500, r = 2.2000000000);
+										cylinder(h = 500, r = 1.7000000000);
 									}
 								}
 							}
@@ -453,7 +513,7 @@ difference() {
 							translate(v = [-15, 7.5000000000, 0]) {
 								rotate(a = [0, 0, 0]) {
 									translate(v = [0, 0, -250]) {
-										cylinder(h = 500, r = 2.2000000000);
+										cylinder(h = 500, r = 1.7000000000);
 									}
 								}
 							}
@@ -462,7 +522,7 @@ difference() {
 							translate(v = [-15, -7.5000000000, 0]) {
 								rotate(a = [0, 0, 0]) {
 									translate(v = [0, 0, -250]) {
-										cylinder(h = 500, r = 2.2000000000);
+										cylinder(h = 500, r = 1.7000000000);
 									}
 								}
 							}
